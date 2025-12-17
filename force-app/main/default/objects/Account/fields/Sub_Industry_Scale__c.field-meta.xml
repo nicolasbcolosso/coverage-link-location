@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Industry_Scale__c</fullName>
+    <description>This field is meant to narrow down broad industries like Cannabis, Crypto, Non-Profit and SaaS.</description>
+    <inlineHelpText>Use this field to specify a subindustry for Cannabis, Crypto, Non-Profit and SaaS</inlineHelpText>
+    <label>Sub Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Industry</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ancillary Services &amp; Technology</fullName>
+                <default>false</default>
+                <label>Ancillary Services &amp; Technology</label>
+            </value>
+            <value>
+                <fullName>Arts &amp; Culture</fullName>
+                <default>false</default>
+                <label>Arts &amp; Culture</label>
+            </value>
+            <value>
+                <fullName>Collaboration &amp; Productivity</fullName>
+                <default>false</default>
+                <label>Collaboration &amp; Productivity</label>
+            </value>
+            <value>
+                <fullName>Consulting &amp; Professional Services</fullName>
+                <default>false</default>
+                <label>Consulting &amp; Professional Services</label>
+            </value>
+            <value>
+                <fullName>Consumer &amp; Culture</fullName>
+                <default>false</default>
+                <label>Consumer &amp; Culture</label>
+            </value>
+            <value>
+                <fullName>Cultivation &amp; Production</fullName>
+                <default>false</default>
+                <label>Cultivation &amp; Production</label>
+            </value>
+            <value>
+                <fullName>Currencies</fullName>
+                <default>false</default>
+                <label>Currencies</label>
+            </value>
+            <value>
+                <fullName>Customer Relationship Management</fullName>
+                <default>false</default>
+                <label>Customer Relationship Management</label>
+            </value>
+            <value>
+                <fullName>Cybersecurity</fullName>
+                <default>false</default>
+                <label>Cybersecurity</label>
+            </value>
+            <value>
+                <fullName>E-Commerce Platforms</fullName>
+                <default>false</default>
+                <label>E-Commerce Platforms</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Education Technology</fullName>
+                <default>false</default>
+                <label>Education Technology</label>
+            </value>
+            <value>
+                <fullName>Enterprise Resource Planning</fullName>
+                <default>false</default>
+                <label>Enterprise Resource Planning</label>
+            </value>
+            <value>
+                <fullName>Environment &amp; Animals</fullName>
+                <default>false</default>
+                <label>Environment &amp; Animals</label>
+            </value>
+            <value>
+                <fullName>Extraction &amp; Manufacturing</fullName>
+                <default>false</default>
+                <label>Extraction &amp; Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Financials</fullName>
+                <default>false</default>
+                <label>Financials</label>
+            </value>
+            <value>
+                <fullName>Health</fullName>
+                <default>false</default>
+                <label>Health</label>
+            </value>
+            <value>
+                <fullName>Human Resources Management</fullName>
+                <default>false</default>
+                <label>Human Resources Management</label>
+            </value>
+            <value>
+                <fullName>Human Services</fullName>
+                <default>false</default>
+                <label>Human Services</label>
+            </value>
+            <value>
+                <fullName>Marketing Automation</fullName>
+                <default>false</default>
+                <label>Marketing Automation</label>
+            </value>
+            <value>
+                <fullName>Professional &amp; Scientific Services</fullName>
+                <default>false</default>
+                <label>Professional &amp; Scientific Services</label>
+            </value>
+            <value>
+                <fullName>Religious Organizations</fullName>
+                <default>false</default>
+                <label>Religious Organizations</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Research &amp; Development</fullName>
+                <default>false</default>
+                <label>Research &amp; Development</label>
+            </value>
+            <value>
+                <fullName>Retail &amp; Dispensaries</fullName>
+                <default>false</default>
+                <label>Retail &amp; Dispensaries</label>
+            </value>
+            <value>
+                <fullName>Smart Contract Platforms</fullName>
+                <default>false</default>
+                <label>Smart Contract Platforms</label>
+            </value>
+            <value>
+                <fullName>Supply Chain Management</fullName>
+                <default>false</default>
+                <label>Supply Chain Management</label>
+            </value>
+            <value>
+                <fullName>Utilities &amp; Services</fullName>
+                <default>false</default>
+                <label>Utilities &amp; Services</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Arts &amp; Culture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Environment &amp; Animals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Health</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Human Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Professional &amp; Scientific Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Religious Organizations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non Profit Organization</controllingFieldValue>
+            <valueName>Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Crypto</controllingFieldValue>
+            <valueName>Consumer &amp; Culture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Crypto</controllingFieldValue>
+            <valueName>Currencies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Crypto</controllingFieldValue>
+            <valueName>Financials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Crypto</controllingFieldValue>
+            <valueName>Smart Contract Platforms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Crypto</controllingFieldValue>
+            <valueName>Utilities &amp; Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Collaboration &amp; Productivity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Customer Relationship Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Cybersecurity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>E-Commerce Platforms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Education Technology</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Enterprise Resource Planning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Human Resources Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Marketing Automation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software as a Service</controllingFieldValue>
+            <controllingFieldValue>SaaS / Technology</controllingFieldValue>
+            <valueName>Supply Chain Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Ancillary Services &amp; Technology</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Consulting &amp; Professional Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Cultivation &amp; Production</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Extraction &amp; Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Research &amp; Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cannabis</controllingFieldValue>
+            <valueName>Retail &amp; Dispensaries</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direct_Bill_Policy_Must_Be_Direct</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp;
+AND( Policy_Billing__c = &quot;Direct&quot;,
+NOT(TEXT(Billing__c) = &quot;Direct&quot;))</errorConditionFormula>
+    <errorMessage>Endorsements on Direct Bill Policies must be Direct Billed</errorMessage>
+</ValidationRule>

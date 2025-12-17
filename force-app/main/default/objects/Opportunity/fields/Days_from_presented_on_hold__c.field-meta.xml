@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_from_presented_on_hold__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>This field is used by stale opportunity flows to automatically implement logic on the opportunity itself and related quote records.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number represents the days the Opportunity has been in the &quot;Proposal Presented&quot; or &quot;On Hold&quot;.</inlineHelpText>
+    <label>Days from presented/on hold</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

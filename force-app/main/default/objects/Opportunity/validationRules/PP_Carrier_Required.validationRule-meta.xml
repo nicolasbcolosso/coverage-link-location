@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PP_Carrier_Required</fullName>
+    <active>false</active>
+    <description>Carrer req&apos;d @ Proposal Presented</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;)  &amp;&amp;
+
+AND(
+
+ISBLANK(Carrier_Issuing_Company__c),
+
+OR(
+
+ISPICKVAL( StageName , &quot;Proposal Received&quot;),
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved / Closed Won&quot;)))</errorConditionFormula>
+    <errorMessage>Field Required: Carrier Issuing Company</errorMessage>
+</ValidationRule>

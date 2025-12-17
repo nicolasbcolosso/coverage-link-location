@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Type__c</fullName>
+    <label>Lead Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arcview</fullName>
+                <default>false</default>
+                <label>Arcview</label>
+            </value>
+            <value>
+                <fullName>Biz Dev Relationship</fullName>
+                <default>false</default>
+                <label>Biz Dev</label>
+            </value>
+            <value>
+                <fullName>Brove</fullName>
+                <default>false</default>
+                <label>Brove</label>
+            </value>
+            <value>
+                <fullName>Cold Call</fullName>
+                <default>false</default>
+                <label>Cold Call</label>
+            </value>
+            <value>
+                <fullName>Cold Email</fullName>
+                <default>false</default>
+                <label>Cold Outreach</label>
+            </value>
+            <value>
+                <fullName>Conference</fullName>
+                <default>false</default>
+                <label>Conference</label>
+            </value>
+            <value>
+                <fullName>Display</fullName>
+                <default>false</default>
+                <label>Display</label>
+            </value>
+            <value>
+                <fullName>Existing/Previous Client</fullName>
+                <default>false</default>
+                <label>Existing/Previous Client</label>
+            </value>
+            <value>
+                <fullName>Ads/Paid Search</fullName>
+                <default>false</default>
+                <label>Google Ad</label>
+            </value>
+            <value>
+                <fullName>Guest Post</fullName>
+                <default>false</default>
+                <label>Guest Post</label>
+            </value>
+            <value>
+                <fullName>Online Network</fullName>
+                <default>false</default>
+                <label>Online Network</label>
+            </value>
+            <value>
+                <fullName>OpenNest</fullName>
+                <default>false</default>
+                <label>OpenNest</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Client Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>PR</fullName>
+                <default>false</default>
+                <label>PR</label>
+            </value>
+            <value>
+                <fullName>SEO/Search</fullName>
+                <default>false</default>
+                <label>SEO/Search</label>
+            </value>
+            <value>
+                <fullName>Social</fullName>
+                <default>false</default>
+                <label>Social</label>
+            </value>
+            <value>
+                <fullName>Sponsored Content</fullName>
+                <default>false</default>
+                <label>Sponsored Content</label>
+            </value>
+            <value>
+                <fullName>Trailblazers</fullName>
+                <default>false</default>
+                <label>Trailblazers</label>
+            </value>
+            <value>
+                <fullName>Podcast</fullName>
+                <default>false</default>
+                <label>Podcast</label>
+            </value>
+            <value>
+                <fullName>Referral_Program</fullName>
+                <default>false</default>
+                <label>Referral Program</label>
+            </value>
+            <value>
+                <fullName>&quot;Hello&quot; Outreach</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>&quot;Hello&quot; Outreach</label>
+            </value>
+            <value>
+                <fullName>Drift Call</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Drift Call</label>
+            </value>
+            <value>
+                <fullName>Early Growth</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Early Growth</label>
+            </value>
+            <value>
+                <fullName>Greg Scheinman Referral</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Greg Scheinman Referral</label>
+            </value>
+            <value>
+                <fullName>Interplay Referral</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Interplay Referral</label>
+            </value>
+            <value>
+                <fullName>Mike Howlett</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mike Howlett</label>
+            </value>
+            <value>
+                <fullName>New World Markets</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>New World Markets</label>
+            </value>
+            <value>
+                <fullName>Ryan Melohn Referral</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ryan Melohn Referral</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

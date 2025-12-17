@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order__c</fullName>
+    <description>To view opportunity stages in a particular order. Japol is using this in a list view.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(StageName,&quot;Qualification Needed&quot;), &quot;1&quot;,
+IF(ISPICKVAL(StageName,&quot;Need to Submit&quot;), &quot;2&quot;,
+IF(ISPICKVAL(StageName,&quot;Application Submitted&quot;), &quot;3&quot;,
+IF(ISPICKVAL(StageName,&quot;Proposal Received&quot;), &quot;4&quot;,
+IF(ISPICKVAL(StageName,&quot;Proposal Presented&quot;), &quot;5&quot;,
+IF(ISPICKVAL(StageName,&quot;Need Info From Client&quot;), &quot;6&quot;,
+&quot;&quot;))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Order</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

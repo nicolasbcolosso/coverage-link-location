@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverage_Extension_Expiration_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;  
+
+AND(
+ISCHANGED(Stage__c),
+NOT (ISPICKVAL(Stage__c, &quot;Closed Lost&quot;)),
+ ISPICKVAL( Category__c , &quot;Coverage Extension&quot;),
+   ISBLANK( Tail_Expiration_Date__c ) 
+)</errorConditionFormula>
+    <errorMessage>Please add the new expiration date of the policy to the Endorsement Expiration Date field</errorMessage>
+</ValidationRule>

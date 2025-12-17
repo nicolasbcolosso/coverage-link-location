@@ -1,0 +1,150 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <!--<lightning-quick-action-panel header={header}>-->
+        <header class="slds-modal__header"><h2 class="slds-modal__title slds-hyphenate">Update Coverages</h2></header>
+        <div style="z-index:9999999;">
+        <lightning-card>
+            <template lwc:if={isNewQuoteComponent}>
+                <div class="slds-align_absolute-center slds-m-bottom_small">
+                    <!-- <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleCancel}>Cancel</button> -->
+                    <button if:true={isScale} class="slds-button slds-button_neutral slds-m-left_large" onclick={handlePreviousView}>Previous</button>
+                    <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleNextView}>Next</button>
+                </div>
+            </template>
+
+            <template lwc:else>
+                <div class="slds-align_absolute-center">
+                    <template lwc:if={dummyQuoteScreen}>
+                        <button class="slds-button slds-button_brand" onclick={handleCreateDummyQuote}>Create Dummy Quote</button>
+                    </template>
+                    <template lwc:elseif={firstPage}>
+                        <button class="slds-button slds-button_brand" onclick={handleNextPage}>Next</button>
+                    </template>
+                    <template lwc:else>
+                        <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                        <button class="slds-button slds-button_neutral" onclick={handlePrevious}>Back</button>
+                    </template>
+                    <button class="slds-button slds-button_neutral" onclick={handleCloseModal}>Close</button>
+                </div>
+            </template>
+            
+        </lightning-card>
+
+        <template lwc:if={dummyQuoteScreen}>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+             </template>
+             <template lwc:else>
+                 <lightning-card>
+                    <!-- <div role="alert" class="slds-notify slds-notify_toast slds-theme_info">
+                        <div class="slds-notify__content">
+                            You can't add coverages to this record because there is no Accepted Quote. Would you like to create a Dummy Quote?
+                        </div>
+                    </div> -->
+                    <div class="slds-notify_container slds-is-relative slds-theme_info" style="padding: 10px; border-radius: 5px; font-size: small;">
+                        <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="warning" size="small" style="margin-right: 5px;"></lightning-icon>
+                        You can't add coverages to this record because there is no Accepted Quote. Would you like to create a Dummy Quote?
+                    </div>
+                 </lightning-card>
+             </template>
+        </template>
+
+        <template lwc:elseif={firstPage}>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+             </template>
+            <template lwc:else>
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer"  style="transition: height 0.15s ease-out;">
+                        <thead>
+                            <tr >
+                                <th scope="col">
+                                    <div>Search</div>
+                                </th>
+                                <th scope="col">
+                                    <div>
+                                        <input type="text"  class="slds-input" onkeyup={changeSearch} style="font-weight: normal;"/>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr class="slds-text-heading--label">
+                                <th scope="col">
+                                    <div class="slds-truncate">Select</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate">Coverage</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="slds-scrollable--y">
+                            <template for:each={filteredCoverages} for:item="coverage">
+                                <tr class="slds-hint-parent" key={coverage.Id}>
+                                    <td>
+                                        <!-- sldsValidatorIgnoreNextLine -->
+                                        <input class="slds-checkbox" 
+                                        onchange={addOrRemove} 
+                                        data-labelname={coverage.Name} 
+                                        data-id={coverage.Id} 
+                                        name={coverage.Field_Set_for_Quote__c} 
+                                        type="checkbox" 
+                                        checked={coverage.checked} />
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {coverage.Name}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+            </template>
+        </template>
+        <template lwc:else>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+             </template>
+            <template lwc:else>
+                <div class="slds-m-horizontal_large">
+                    <template for:each={coveragesToUpdate} for:item="coverage">
+                        <div class="slds-section slds-is-open" key={coverage.Field_Set_for_Quote__c}>
+                            <h3 class="slds-section__title">
+                                <button 
+                                    aria-controls={coverage.Name} 
+                                    aria-expanded={coverage.isExpanded}
+                                    class="slds-button slds-section__title-action" 
+                                    data-id={coverage.Id}
+                                    >
+                                    <span class="slds-truncate slds-p-left_small" title={coverage.Field_Set_for_Quote__c}>{coverage.Name}</span>
+                                </button>
+                            </h3>
+                                <div lwc:if={coverage.isExpanded} class="slds-section__content">
+                                    <table class="slds-table slds-table_fixed-layout slds-table_resizable-cols slds-grid slds-wrap" role="grid">
+                                        <template for:each={coverage.fieldSet.fieldSet} for:item="field">
+                                            <tr class="slds-line-height_reset slds-col slds-size_1-of-2 border-bottom slds-clearfix" key={field.fieldAPIName}>
+                                                <td class="slds-float_left">
+                                                    <div>
+                                                        <c-lightning-field-item
+                                                            field-type={field.fieldType}
+                                                            field-label={field.fieldLabel}
+                                                            field-api-name={field.fieldAPIName}
+                                                            pick-list-entries={field.pickListEntries}
+                                                            value={field.previousValue}
+                                                            quote-coverage-link-id={field.quoteCoverageLinkId}
+                                                            coverage={coverage.Name}
+                                                            >
+                                                        </c-lightning-field-item>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </template>
+                                    </table>
+                                </div>
+                        </div>
+                </template>
+                </div>
+            </template>
+        </template>
+        </div>
+    <!--</lightning-quick-action-panel>-->
+    
+</template>

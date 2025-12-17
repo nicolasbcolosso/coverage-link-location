@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_add_Last_Stage_Change</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND( 
+ISNEW(), 
+ISBLANK( Last_Stage_Change__c ) 
+)</errorConditionFormula>
+    <errorMessage>Add todays date to the last stage change field (HINT: click the button with today&apos;s date on it)</errorMessage>
+</ValidationRule>

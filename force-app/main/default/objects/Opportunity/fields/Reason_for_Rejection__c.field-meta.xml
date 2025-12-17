@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Rejection__c</fullName>
+    <label>Reason for Rejection</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bound a different policy (with FS)</fullName>
+                <default>false</default>
+                <label>Bound a different policy (with FS)</label>
+            </value>
+            <value>
+                <fullName>Bound a different policy with broker</fullName>
+                <default>false</default>
+                <label>Bound a different policy with broker</label>
+            </value>
+            <value>
+                <fullName>Carrier terms/exclusions unacceptable</fullName>
+                <default>false</default>
+                <label>Carrier terms/exclusions unacceptable</label>
+            </value>
+            <value>
+                <fullName>Client is unresponsive</fullName>
+                <default>false</default>
+                <label>Client is unresponsive</label>
+            </value>
+            <value>
+                <fullName>Company Acquired</fullName>
+                <default>false</default>
+                <label>Company Acquired</label>
+            </value>
+            <value>
+                <fullName>Company Liquidated</fullName>
+                <default>false</default>
+                <label>Company Liquidated</label>
+            </value>
+            <value>
+                <fullName>No longer needed coverage</fullName>
+                <default>false</default>
+                <label>No longer needed coverage</label>
+            </value>
+            <value>
+                <fullName>Not enough expertise</fullName>
+                <default>false</default>
+                <label>Not enough expertise</label>
+            </value>
+            <value>
+                <fullName>Preferred Face-to-Face</fullName>
+                <default>false</default>
+                <label>Preferred Face-to-Face</label>
+            </value>
+            <value>
+                <fullName>Presented quote too late</fullName>
+                <default>false</default>
+                <label>Presented quote too late</label>
+            </value>
+            <value>
+                <fullName>Too early</fullName>
+                <default>false</default>
+                <label>Too early</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Unable to get a quote</fullName>
+                <default>false</default>
+                <label>Unable to get a quote</label>
+            </value>
+            <value>
+                <fullName>We consolidated coverage for the client</fullName>
+                <default>false</default>
+                <label>We consolidated coverage for the client</label>
+            </value>
+            <value>
+                <fullName>Went with another broker</fullName>
+                <default>false</default>
+                <label>Went with another broker</label>
+            </value>
+            <value>
+                <fullName>Stayed with Incumbent</fullName>
+                <default>false</default>
+                <label>Stayed with Incumbent</label>
+            </value>
+            <value>
+                <fullName>Moved to Other Baldwin Region</fullName>
+                <default>false</default>
+                <label>Moved to Other Baldwin Region</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

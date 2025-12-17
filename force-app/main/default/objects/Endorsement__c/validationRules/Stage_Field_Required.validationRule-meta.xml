@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Field_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND($Setup.Master_Validation__c.Account_Active__c, NOT(Override_VR__c) , ISNEW(), ISBLANK(TEXT(Stage__c)))</errorConditionFormula>
+    <errorMessage>Endorsement Stage must be selected when creating a record.</errorMessage>
+</ValidationRule>

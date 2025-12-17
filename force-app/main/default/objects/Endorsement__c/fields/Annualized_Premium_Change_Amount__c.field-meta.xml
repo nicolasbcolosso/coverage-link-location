@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annualized_Premium_Change_Amount__c</fullName>
+    <description>this field lets the user know what an endorsement premium would be if it were in effect for 365 days. Gives the user more insight into the &quot;premium adjusted field&quot;</description>
+    <label>Annualized Premium Change Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

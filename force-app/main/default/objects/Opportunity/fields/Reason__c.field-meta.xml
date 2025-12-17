@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason__c</fullName>
+    <label>Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bound with a Different Carrier</fullName>
+                <default>false</default>
+                <label>Bound with a Different Carrier</label>
+            </value>
+            <value>
+                <fullName>Broker Lost Account</fullName>
+                <default>false</default>
+                <label>Broker Lost Account</label>
+            </value>
+            <value>
+                <fullName>Coverage Terms</fullName>
+                <default>false</default>
+                <label>Coverage Terms</label>
+            </value>
+            <value>
+                <fullName>Delay</fullName>
+                <default>false</default>
+                <label>Delay</label>
+            </value>
+            <value>
+                <fullName>EPL only submission</fullName>
+                <default>false</default>
+                <label>EPL only submission</label>
+            </value>
+            <value>
+                <fullName>Fundraising / shareholder exposure</fullName>
+                <default>false</default>
+                <label>Fundraising / shareholder exposure</label>
+            </value>
+            <value>
+                <fullName>Incomplete Submission</fullName>
+                <default>false</default>
+                <label>Incomplete Submission</label>
+            </value>
+            <value>
+                <fullName>Ineligible class of business</fullName>
+                <default>false</default>
+                <label>Ineligible class of business</label>
+            </value>
+            <value>
+                <fullName>Insured Decided Not to Purchase</fullName>
+                <default>false</default>
+                <label>Insured Decided Not to Purchase</label>
+            </value>
+            <value>
+                <fullName>Lack of Responsiveness (External)</fullName>
+                <default>false</default>
+                <label>Lack of Responsiveness (External)</label>
+            </value>
+            <value>
+                <fullName>Limits capacity</fullName>
+                <default>false</default>
+                <label>Limits capacity</label>
+            </value>
+            <value>
+                <fullName>Management quality</fullName>
+                <default>false</default>
+                <label>Management quality</label>
+            </value>
+            <value>
+                <fullName>No Broker Feedback</fullName>
+                <default>false</default>
+                <label>No Broker Feedback</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other Coverage Terms</fullName>
+                <default>false</default>
+                <label>Other Coverage Terms</label>
+            </value>
+            <value>
+                <fullName>Other exposure</fullName>
+                <default>false</default>
+                <label>Other exposure</label>
+            </value>
+            <value>
+                <fullName>Poor financials</fullName>
+                <default>false</default>
+                <label>Poor financials</label>
+            </value>
+            <value>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+                <label>Pricing</label>
+            </value>
+            <value>
+                <fullName>Prior claim activity</fullName>
+                <default>false</default>
+                <label>Prior claim activity</label>
+            </value>
+            <value>
+                <fullName>Retention Capacity</fullName>
+                <default>false</default>
+                <label>Retention Capacity</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <valueName>Bound with a Different Carrier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Broker Lost Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <valueName>Delay</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Incomplete Submission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Insured Decided Not to Purchase</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <valueName>Lack of Responsiveness (External)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Limits capacity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <valueName>Other Coverage Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Pricing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Could Not Compete</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Retention Capacity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Coverage Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>No Broker Feedback</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>EPL only submission</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Fundraising / shareholder exposure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Ineligible class of business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Management quality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Other exposure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Poor financials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Prior claim activity</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

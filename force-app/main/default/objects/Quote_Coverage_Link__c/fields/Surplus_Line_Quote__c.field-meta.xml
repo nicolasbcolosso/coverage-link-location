@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surplus_Line_Quote__c</fullName>
+    <formula>Quote__r.Surplus_Lines_Quote__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Surplus Line Quote</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

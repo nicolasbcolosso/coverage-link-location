@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>State_Filing_Fee__c</fullName>
+    <formula>IF(!Override_State_Filing_Fee__c,
+IF(
+AND(
+Premium_Change_Amount__c &gt; 0,
+NOT(Policy__r.RecordType.Name = &quot;Scale&quot;),
+Policy__r.Surplus_Lines_Policy__c = TRUE,
+DATEVALUE(CreatedDate) &lt;= DATEVALUE(&quot;2023-06-12&quot;)),
+79, 0),
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>State Filing Fee</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

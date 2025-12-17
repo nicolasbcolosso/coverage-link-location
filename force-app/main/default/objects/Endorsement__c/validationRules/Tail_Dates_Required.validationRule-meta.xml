@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tail_Dates_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND(
+OR(
+ ISPICKVAL(  Category__c  , &quot;Tail Coverage&quot;),
+ ISPICKVAL(  Category__c  , &quot;Coverage Extension&quot;)
+),
+     OR(
+     ISBLANK( Endorsement_Effective_Date__c ),
+     ISBLANK( Tail_Expiration_Date__c)
+     ),
+OR(
+ISPICKVAL( Stage__c, &quot;Bind Order Sent&quot;),
+ISPICKVAL( Stage__c, &quot;Delivered to Insured&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Tail Coverage/Coverage Extension requires a Endorsment Effective Date and an Endorsement Expiration Date</errorMessage>
+</ValidationRule>

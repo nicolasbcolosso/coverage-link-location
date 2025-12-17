@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Carrier_Issuing_Companies</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Scale_Issuing_Company</value>
+    </filters>
+    <label>Scale Carrier Issuing Companies</label>
+    <sharedTo>
+        <group>Scale_Underwriter_Users</group>
+    </sharedTo>
+</ListView>

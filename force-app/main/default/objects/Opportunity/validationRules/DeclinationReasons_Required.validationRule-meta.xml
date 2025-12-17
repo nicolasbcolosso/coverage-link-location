@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DeclinationReasons_Required</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;)&amp;&amp; 
+
+AND(
+
+ISBLANK( Declination_Reasons__c ), 
+
+OR(
+
+ISPICKVAL( StageName , &quot;Proposal Received&quot;),
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved / Closed Won&quot;)))</errorConditionFormula>
+    <errorMessage>Field Required: Declination Reasons</errorMessage>
+</ValidationRule>

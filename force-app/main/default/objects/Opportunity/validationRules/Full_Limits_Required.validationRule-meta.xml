@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Limits_Required</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;)&amp;&amp; 
+
+
+OR(Aggregrate_Limit__c  &lt; 10,  Occurrence_Limit__c &lt;10)</errorConditionFormula>
+    <errorMessage>Policy limits cannot be abbreviated; insert full values (ex. &quot;1,000,000&quot;)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broking_Status_View_Founder_Shield</fullName>
+    <columns>Quoting_Status__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Internal_Marketer__c</columns>
+    <columns>Date_Submitted__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Priority_Level__c</columns>
+    <columns>Target_Bind_Date__c</columns>
+    <columns>Targeted_Premium__c</columns>
+    <columns>Marketing_Notes__c</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>Quote_Received_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Property_Casualty</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Need to Submit,Application Submitted</value>
+    </filters>
+    <label>Broking Status View_Founder Shield</label>
+</ListView>

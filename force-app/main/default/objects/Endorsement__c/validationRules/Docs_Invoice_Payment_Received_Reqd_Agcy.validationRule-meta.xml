@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docs_Invoice_Payment_Received_Reqd_Agcy</fullName>
+    <active>false</active>
+    <description>Agency bill - Need Endorsement Documents Uploaded before moving to Bind Order Sent or Delivered to Insured</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND( 
+OR( 
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;), 
+ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;) 
+), 
+
+ISCHANGED(Stage__c), 
+Endorsement_Docs_Uploaded__c = FALSE 
+
+)</errorConditionFormula>
+    <errorMessage>Error: Need Endorsement Documents Uploaded before bind order sent or delivered to insured</errorMessage>
+</ValidationRule>

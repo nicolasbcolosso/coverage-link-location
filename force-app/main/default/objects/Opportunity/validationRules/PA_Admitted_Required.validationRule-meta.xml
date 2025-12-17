@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PA_Admitted_Required</fullName>
+    <active>false</active>
+    <description>Admitted status at Proposal Received</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;)  &amp;&amp;
+
+AND(
+
+ISBLANK(TEXT(Admitted__c)), 
+
+
+ISPICKVAL( StageName , &quot;Proposal Approved / Closed Won&quot;))</errorConditionFormula>
+    <errorMessage>Field Required: Admitted</errorMessage>
+</ValidationRule>

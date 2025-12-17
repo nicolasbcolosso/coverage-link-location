@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Eff_Date_Greater_Than_Created_Date__c</fullName>
+    <formula>IF(Endorsement_Effective_Date__c &gt; DATEVALUE(CreatedDate),TRUE,FALSE)</formula>
+    <label>Eff Date Greater than Created Date</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

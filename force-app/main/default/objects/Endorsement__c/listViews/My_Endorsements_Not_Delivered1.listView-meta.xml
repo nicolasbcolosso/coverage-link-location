@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Endorsements_Not_Delivered1</fullName>
+    <columns>Policy__c</columns>
+    <columns>NAME</columns>
+    <columns>Stage__c</columns>
+    <columns>Endorsement_Effective_Date__c</columns>
+    <columns>Payment_Received__c</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Premium_Change_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Delivered to Insured,Closed Lost,Cancelled,Rescinded,Cancellation Processed/Tail in Place,Commission Statement Uploaded,Commission Payment Received</value>
+    </filters>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>equals</operation>
+        <value>Vanessa Graham</value>
+    </filters>
+    <filters>
+        <field>Endorsement_Effective_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2023</value>
+    </filters>
+    <label>Vanessa&apos;s Endorsements (Not Delivered)</label>
+</ListView>

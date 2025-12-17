@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Opp_Name_Length</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+$RecordType.Name  &lt;&gt; &quot;Scale&quot; &amp;&amp;  $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
+OR( 
+AND( 
+OR( 
+ISPICKVAL( Policy_Type_Status__c , &quot;New Business - BOR&quot;), 
+ISPICKVAL( Policy_Type_Status__c , &quot;New Business&quot;) 
+), 
+LEN( Name ) &gt;= 71, 
+NOT( 
+ISPICKVAL ( StageName , &quot;Qualification Needed&quot;) 
+) 
+), 
+AND( 
+OR( 
+ISPICKVAL( Policy_Type_Status__c , &quot;Renewal&quot;), 
+ISPICKVAL( Policy_Type_Status__c , &quot;Remarketed at Renewal&quot;) 
+), 
+LEN( Name ) &gt;= 79, 
+NOT( 
+ISPICKVAL ( StageName , &quot;Renewal - Need Info&quot;) 
+) 
+) 
+)</errorConditionFormula>
+    <errorMessage>New business opportunity names must be less than 61 characters. 
+Renewal opportunity names must be less than 80 characters.</errorMessage>
+</ValidationRule>

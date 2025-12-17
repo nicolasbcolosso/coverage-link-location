@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Progressive_Direct</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND( 
+NOT( 
+ISPICKVAL(Billing__c , &quot;Direct&quot;) 
+), 
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;),
+Marketer_UW__c = &quot;Progressive&quot; 
+)</errorConditionFormula>
+    <errorMessage>Progressive opportunities must be Direct Bill (Auto only)</errorMessage>
+</ValidationRule>

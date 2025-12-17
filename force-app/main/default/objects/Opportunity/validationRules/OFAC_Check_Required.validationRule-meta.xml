@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OFAC_Check_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+($RecordType.Name = &quot;Scale&quot;) &amp;&amp; 
+
+AND(
+ISCHANGED ( StageName), 
+ISPICKVAL (  StageName , &quot;Quoted&quot;),
+ Account.OFAC_Check_Completed__c = FALSE
+)</errorConditionFormula>
+    <errorMessage>OFAC Check required before quoting an opportunity. Check OFAC details on the Account.</errorMessage>
+</ValidationRule>

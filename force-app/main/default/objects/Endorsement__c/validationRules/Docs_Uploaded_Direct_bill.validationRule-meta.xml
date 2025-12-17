@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Docs_Uploaded_Direct_bill</fullName>
+    <active>true</active>
+    <description>Direct bill - Need Endorsement Documents Uploaded before moving to Delivered to Insured</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+ 
+AND(
+RecordType.Name   &lt;&gt; &quot;Health &amp; Benefits&quot;,
+
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;),
+
+ISCHANGED(Stage__c),
+ 
+Endorsement_Docs_Uploaded__c = FALSE,
+
+ISPICKVAL( Billing__c, &quot;Direct&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Error: Need Endorsement Documents Uploaded before moving to Delivered to Insured</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Revenue_Over_5k</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Annual_Revenue_to_FS__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>Annual Revenue Over 5k</label>
+</ListView>

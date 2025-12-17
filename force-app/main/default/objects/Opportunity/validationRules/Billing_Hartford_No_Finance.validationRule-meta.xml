@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Hartford_No_Finance</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp; 
+
+AND( 
+NOT(
+(Marketer_UW_Name__c = &quot;003370000047XkP&quot;)
+),
+Marketer_UW__c  = &quot;The Hartford&quot;, 
+ISCHANGED( StageName ),
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;), 
+ISPICKVAL(Billing__c , &quot;Premium Finance Agreement&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Hartford opportunities cannot be financed</errorMessage>
+</ValidationRule>

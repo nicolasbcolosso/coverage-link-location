@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Category__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Requested by Insured</fullName>
+                <default>false</default>
+                <label>Requested by Insured</label>
+            </value>
+            <value>
+                <fullName>Submitted to Carrier</fullName>
+                <default>true</default>
+                <label>Submitted to Carrier</label>
+            </value>
+            <value>
+                <fullName>Endorsement Quote Presented</fullName>
+                <default>false</default>
+                <label>Endorsement Quote Presented</label>
+            </value>
+            <value>
+                <fullName>Bind Order Sent</fullName>
+                <default>false</default>
+                <label>Bind Order Sent</label>
+            </value>
+            <value>
+                <fullName>Delivered to Insured</fullName>
+                <default>false</default>
+                <label>Delivered to Insured</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>Cancellation Notice Sent</fullName>
+                <default>false</default>
+                <label>Cancellation Notice Sent</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Rescinded</fullName>
+                <default>false</default>
+                <label>Rescinded</label>
+            </value>
+            <value>
+                <fullName>Included in Coverage</fullName>
+                <default>false</default>
+                <label>Included in Coverage</label>
+            </value>
+            <value>
+                <fullName>Cancellation in Process</fullName>
+                <default>false</default>
+                <label>Cancellation in Process</label>
+            </value>
+            <value>
+                <fullName>Cancellation Processed/Tail in Place</fullName>
+                <default>false</default>
+                <label>Cancellation Processed/Tail in Place</label>
+            </value>
+            <value>
+                <fullName>Commission Statement Uploaded</fullName>
+                <default>false</default>
+                <label>Commission Statement Uploaded</label>
+            </value>
+            <value>
+                <fullName>Commission Payment Received</fullName>
+                <default>false</default>
+                <label>Commission Payment Received</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Paid</fullName>
+                <default>false</default>
+                <label>Paid</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Requested by Insured</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Submitted to Carrier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Endorsement Quote Presented</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Bind Order Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Delivered to Insured</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rating Basis Change</controllingFieldValue>
+            <controllingFieldValue>Loss Payee</controllingFieldValue>
+            <controllingFieldValue>Reinstatement</controllingFieldValue>
+            <controllingFieldValue>Notice of Cancellation</controllingFieldValue>
+            <controllingFieldValue>Inspection Recommendation</controllingFieldValue>
+            <controllingFieldValue>Add Named Insured</controllingFieldValue>
+            <controllingFieldValue>Miscellaneous Policy Change</controllingFieldValue>
+            <controllingFieldValue>Add Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase/Decrease in Exposure</controllingFieldValue>
+            <controllingFieldValue>Remove Coverage</controllingFieldValue>
+            <controllingFieldValue>RMDA Monthly Reporting</controllingFieldValue>
+            <controllingFieldValue>RMDA Quarterly Billing</controllingFieldValue>
+            <controllingFieldValue>Name Change</controllingFieldValue>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Add Location</controllingFieldValue>
+            <controllingFieldValue>Remove Location</controllingFieldValue>
+            <controllingFieldValue>Cancellation (by Insured)</controllingFieldValue>
+            <controllingFieldValue>Off Risk</controllingFieldValue>
+            <controllingFieldValue>Additional Insured</controllingFieldValue>
+            <controllingFieldValue>Waiver of Subrogation</controllingFieldValue>
+            <controllingFieldValue>Location Change</controllingFieldValue>
+            <controllingFieldValue>Mailing Address Change</controllingFieldValue>
+            <controllingFieldValue>Coverage Extension</controllingFieldValue>
+            <controllingFieldValue>Tail Coverage</controllingFieldValue>
+            <controllingFieldValue>Increase Limits</controllingFieldValue>
+            <controllingFieldValue>Decrease Limits</controllingFieldValue>
+            <controllingFieldValue>Cancel/Rewrite</controllingFieldValue>
+            <controllingFieldValue>Audit</controllingFieldValue>
+            <valueName>Closed Lost</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation (Noncompliance)</controllingFieldValue>
+            <controllingFieldValue>Cancellation (Nonpayment)</controllingFieldValue>
+            <valueName>Cancellation Notice Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation (Noncompliance)</controllingFieldValue>
+            <controllingFieldValue>Cancellation (Nonpayment)</controllingFieldValue>
+            <valueName>Cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation (Noncompliance)</controllingFieldValue>
+            <controllingFieldValue>Cancellation (Nonpayment)</controllingFieldValue>
+            <valueName>Rescinded</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation (Tail in Place)</controllingFieldValue>
+            <valueName>Cancellation in Process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancellation (Tail in Place)</controllingFieldValue>
+            <valueName>Cancellation Processed/Tail in Place</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commission Statement</controllingFieldValue>
+            <valueName>Commission Statement Uploaded</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commission Statement</controllingFieldValue>
+            <valueName>Commission Payment Received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Plan</controllingFieldValue>
+            <valueName>Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Plan</controllingFieldValue>
+            <valueName>Paid</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expiration_Date_Required</fullName>
+    <active>false</active>
+    <description>Expiration Date required when Stage = Bind Order Sent or Delivered to Insured</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Endorsement&quot;,
+OR(
+ISPICKVAL(Stage__c, &quot;Bind Order Sent&quot;),
+ISPICKVAL(Stage__c, &quot;Delivered to Insured&quot;)),
+DATEVALUE(CreatedDate) &gt;= DATEVALUE(&quot;2023-08-24&quot;),
+ISNULL( Tail_Expiration_Date__c ) )</errorConditionFormula>
+    <errorMessage>Field Required: Expiration Date</errorMessage>
+</ValidationRule>

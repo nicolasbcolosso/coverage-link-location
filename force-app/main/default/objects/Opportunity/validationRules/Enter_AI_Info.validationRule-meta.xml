@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enter_AI_Info</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND( 
+AI_Needed__c = TRUE, 
+OR( 
+ISBLANK( AI_Address__c ), 
+ISBLANK( AI_Name__c ), 
+ISBLANK( AI_Relationship_to_Insured__c ) 
+) ,
+ISCHANGED( StageName )
+)</errorConditionFormula>
+    <errorMessage>Enter all required AI information (Name, Address, and Relationship to Insured) for marketing to smoothly include the AI to the quote</errorMessage>
+</ValidationRule>

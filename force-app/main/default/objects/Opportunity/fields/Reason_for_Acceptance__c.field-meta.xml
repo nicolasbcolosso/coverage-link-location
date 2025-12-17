@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Acceptance__c</fullName>
+    <label>Reason for Acceptance</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Best Price</fullName>
+                <default>false</default>
+                <label>Best Price</label>
+            </value>
+            <value>
+                <fullName>Best Price/Terms Combo</fullName>
+                <default>false</default>
+                <label>Best Price/Terms Combo</label>
+            </value>
+            <value>
+                <fullName>Best Terms and Conditions</fullName>
+                <default>false</default>
+                <label>Best Terms and Conditions</label>
+            </value>
+            <value>
+                <fullName>Correct Limits</fullName>
+                <default>false</default>
+                <label>Correct Limits</label>
+            </value>
+            <value>
+                <fullName>Only Option Presented</fullName>
+                <default>false</default>
+                <label>Only Option Presented</label>
+            </value>
+            <value>
+                <fullName>Automation</fullName>
+                <default>false</default>
+                <label>Automation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

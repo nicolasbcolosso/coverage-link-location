@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commission_WC_LessThan_11_RNL</fullName>
+    <active>false</active>
+    <description>A Workers Comp Commission cannot be &gt;= 11% for a Renewal</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp;
+
+
+AND(
+    Coverages__c = &quot;Workers Compensation&quot;,  ISPICKVAL(Policy_Type_Status__c, &quot;Renewal&quot;),
+ NOT(
+Marketer_UW__c  = &quot;INSUREtrust&quot;),
+ (Commission_Rate__c &gt;= 0.11),
+ISPICKVAL(StageName, &quot;Proposal Approved/Closed Won&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Commission Rate: WC Renewal Commission rate must be less than 11%</errorMessage>
+</ValidationRule>

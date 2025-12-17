@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maintains_Cyber_Liability__c</fullName>
+    <description>Checks if a specific coverage is in-force. Used in drawloop</description>
+    <formula>AND(
+NOT(INCLUDES ( Coverages__c , &quot;Cyber Liability&quot;)),
+Current_Client__c =true)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Maintains Cyber Liability</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

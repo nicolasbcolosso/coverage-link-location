@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Cancellation_Request</fullName>
+    <active>false</active>
+    <description>For any endorsement with the category &quot;Cancellation (by insured)&quot; with the policy billing of &quot;Premium Finance Request.&quot;</description>
+    <errorConditionFormula>AND( 
+Cancellation_Req_sent_to_Financing_Co__c = FALSE, 
+ISPICKVAL( Category__c , &quot;Cancellation (by insured)&quot; ), 
+Policy_Billing__c = &quot;Premium Finance Agreement&quot; 
+)</errorConditionFormula>
+    <errorMessage>Send Cancellation Request to Financing Company</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND(ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;), 
+NOT(RecordType.Name = &apos;Health &amp; Benefits&apos;),
+ISCHANGED(Stage__c),
+ISPICKVAL(Billing__c, &quot;&quot;)
+)</errorConditionFormula>
+    <errorMessage>Field Required: Endorsement Billing</errorMessage>
+</ValidationRule>

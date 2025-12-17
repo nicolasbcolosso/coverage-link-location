@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_For_Declination__c</fullName>
+    <description>Scale</description>
+    <label>Reason For Declination</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ineligible class of business</fullName>
+                <default>false</default>
+                <label>Ineligible class of business</label>
+            </value>
+            <value>
+                <fullName>Poor financials</fullName>
+                <default>false</default>
+                <label>Poor financials</label>
+            </value>
+            <value>
+                <fullName>Fundraising / shareholder exposure</fullName>
+                <default>false</default>
+                <label>Fundraising / shareholder exposure</label>
+            </value>
+            <value>
+                <fullName>Management quality</fullName>
+                <default>false</default>
+                <label>Management quality</label>
+            </value>
+            <value>
+                <fullName>Prior claim activity</fullName>
+                <default>false</default>
+                <label>Prior claim activity</label>
+            </value>
+            <value>
+                <fullName>EPL only submission</fullName>
+                <default>false</default>
+                <label>EPL only submission</label>
+            </value>
+            <value>
+                <fullName>Incomplete submission</fullName>
+                <default>false</default>
+                <label>Incomplete submission</label>
+            </value>
+            <value>
+                <fullName>Other exposure</fullName>
+                <default>false</default>
+                <label>Other exposure</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>9</visibleLines>
+</CustomField>

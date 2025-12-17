@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PP_QuoteLimits_Required</fullName>
+    <active>false</active>
+    <description>Quote limits/retention req&apos;d @ Proposal Presented</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+AND(
+
+NOT( ISPICKVAL( Policy_Type_Status__c , &quot;New Business - BOR&quot;)), 
+
+ OR(
+  ISBLANK( Aggregrate_Limit__c ), 
+  ISBLANK( Occurrence_Limit__c ), 
+  ISBLANK( Retention__c )
+ ), 
+
+ ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot; )
+)</errorConditionFormula>
+    <errorMessage>Fields Required: Quote Limits / Retention</errorMessage>
+</ValidationRule>

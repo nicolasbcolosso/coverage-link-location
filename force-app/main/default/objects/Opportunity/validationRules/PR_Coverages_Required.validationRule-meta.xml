@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_Coverages_Required</fullName>
+    <active>false</active>
+    <description>Coverage(s) Req&apos;d at Proposal Received (Multi-Picklist)</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+AND(Number_of_Coverages__c == 0,
+ 
+OR(
+
+ISPICKVAL( StageName , &quot;Proposal Received&quot;),
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;)))</errorConditionFormula>
+    <errorMessage>Related Object Required: Coverage(s)</errorMessage>
+</ValidationRule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FS_Carrier_Issuing_Companies</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>AM_Best_Rating__c</columns>
+    <columns>Brand_Name__c</columns>
+    <columns>NAICS_Code_IssuingCompanies__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Issuing_Company</value>
+    </filters>
+    <label>FS Carrier Issuing Companies</label>
+    <sharedTo>
+        <group>CSB</group>
+        <group>FS_Vertical</group>
+        <group>Sales_P_C</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AS_Revenue_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp; 
+
+AND( 
+NOT( 
+ISPICKVAL( Policy_Type_Status__c , &quot;New Business - BOR&quot;) 
+), 
+
+ISBLANK( Revenues_New__c ), 
+
+OR( 
+
+ISPICKVAL( StageName , &quot;Application Submitted&quot;), 
+ISPICKVAL( StageName , &quot;Additional Info Needed&quot;), 
+ISPICKVAL( StageName , &quot;Proposal Received&quot;), 
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;), 
+ISPICKVAL( StageName , &quot;Proposal Approved / Closed Won&quot;)))</errorConditionFormula>
+    <errorMessage>Field Missing: Revenue</errorMessage>
+</ValidationRule>

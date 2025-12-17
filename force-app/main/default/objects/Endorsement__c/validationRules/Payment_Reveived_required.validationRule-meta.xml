@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Reveived_required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; NOT($RecordType.Name = &quot;Scale&quot;)&amp;&amp;
+
+Policy_Record_Type__c &lt;&gt; &quot;ReShield&quot; &amp;&amp; 
+ 
+
+AND( 
+OR( 
+ISPICKVAL(Stage__c , &quot;Delivered to Insured&quot;), 
+ISPICKVAL(Stage__c , &quot;Bind Order Sent&quot;) 
+),
+NOT( ISPICKVAL( Category__c, &quot;Cancellation (by Insured)&quot;)), 
+Payment_Received__c = FALSE, 
+ISPICKVAL( Billing__c , &quot;Agency&quot;), 
+Premium_Change_Amount__c &gt; 0, 
+ISCHANGED(Stage__c) 
+)</errorConditionFormula>
+    <errorMessage>Need payment received field to be checked off before moving bind order sent or delivered to insured</errorMessage>
+</ValidationRule>

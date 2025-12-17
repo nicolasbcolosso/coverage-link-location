@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AS_AppUpload_Required</fullName>
+    <active>false</active>
+    <description>Upload Insurance Apps @ App submitted</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp;
+
+AND(ISPICKVAL( StageName , &quot;Application Submitted&quot;),
+
+ Insurance_Applications_Uploaded__c = FALSE)</errorConditionFormula>
+    <errorMessage>Field Required: Insurance Applications Uploaded</errorMessage>
+</ValidationRule>

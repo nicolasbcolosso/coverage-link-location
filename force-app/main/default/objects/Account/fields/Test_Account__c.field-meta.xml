@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box for test accounts so they are not included in any external reports</description>
+    <inlineHelpText>Check this box for test accounts so they are not included in any external reports</inlineHelpText>
+    <label>Test Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

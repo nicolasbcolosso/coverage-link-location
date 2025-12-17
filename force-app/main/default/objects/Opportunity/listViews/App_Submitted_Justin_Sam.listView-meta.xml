@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>App_Submitted_Justin_Sam</fullName>
+    <booleanFilter>(1 OR 2) AND 3 AND (4 OR 5)</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Internal_Marketer__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Last_Stage_Change__c</columns>
+    <columns>Coverages__c</columns>
+    <columns>Priority_Level__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Internal_Marketer__c</field>
+        <operation>equals</operation>
+        <value>Samantha Rubin</value>
+    </filters>
+    <filters>
+        <field>Internal_Marketer__c</field>
+        <operation>equals</operation>
+        <value>Justin Shapiro</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Need to Submit,Application Submitted</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Property_Casualty</value>
+    </filters>
+    <filters>
+        <field>Internal_Marketer__c</field>
+        <operation>equals</operation>
+        <value>Kyle Jeziorski</value>
+    </filters>
+    <label>App Submitted-P&amp;C</label>
+    <sharedTo></sharedTo>
+</ListView>

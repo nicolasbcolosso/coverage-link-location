@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PY_Exposures__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;Projected Revenue: &quot; + Text(Origin_Policy__r.Projected_Revenue__c)&amp;BR()&amp;
+&quot;Revenue Prior Year: &quot; + Text( Origin_Policy__r.Revenue_Prior_Year__c)&amp;BR()&amp;
+&quot;Number of Employees: &quot; + Text( Origin_Policy__r.Number_of_Employees__c)&amp;BR()&amp;
+&quot;PII: &quot; + Text( Origin_Policy__r.PII__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Prior Year Exposures</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

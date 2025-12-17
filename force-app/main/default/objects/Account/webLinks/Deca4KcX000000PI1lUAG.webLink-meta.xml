@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca4KcX000000PI1lUAG</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Test Q and P 1.0</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR($Site.BaseUrl + &apos;/apex/Sendingcustom&apos;, null, [sId = Account.Id, sendingExperience = &apos;null&apos;, isEmbedded = false, templateId = &apos;a4KcX000000PI1lUAG&apos;, recordId = Account.Id, title = &apos;Test Q and P 1.0&apos;, files = &apos;069cX000005tqvyQAA&apos;])}</url>
+</WebLink>

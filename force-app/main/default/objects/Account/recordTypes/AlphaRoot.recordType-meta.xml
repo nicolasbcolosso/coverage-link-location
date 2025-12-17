@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AlphaRoot</fullName>
+    <active>true</active>
+    <description>Used for AlphaRoot Clients</description>
+    <label>AlphaRoot</label>
+    <picklistValues>
+        <picklist>AccountSource</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>External Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Relations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar - Internal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar - Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word of mouth</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>BRP_Data_Source__c</picklist>
+        <values>
+            <fullName>2025 Baldwin Bookroll Phase_2%2E5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BCP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BKS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Baldwin_Region__c</picklist>
+        <values>
+            <fullName>Mid-Atlantic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Northeast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Southeast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Southwest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Channel__c</picklist>
+        <values>
+            <fullName>Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Organic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Conglomerated_Connection__c</picklist>
+        <values>
+            <fullName>Related Entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Same Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Coverages__c</picklist>
+        <values>
+            <fullName>Commercial Auto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Crime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Frustration Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyber Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directors %26 Officers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment Practices Liability Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Errors %26 Omissions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiduciary Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hired %26 Non Owned Auto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intellectual Property</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Worker%27s Compensation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currently_offering_H_B__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Improvements__c</picklist>
+        <values>
+            <fullName>D%26O - Add pre approved choice of counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26O - Address hammer clause</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26O - Ensure roadshow coverage is included</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26O - Extend coverage to board advisors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26O - Side A Carve Back for Anti trust exclusion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D%26O - Side A Carve Back for professional liability exclusion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - Bodily Injury Property Damage Sublimit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - Bricking Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - Broaden Business Interruption coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - CCPA%2FGDPR Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - Contingent Business Interruption</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E%26O%2FCyber - TCPA Sublimit Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPLI - %E2%80%8BAddress hammer clause</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPLI - Add IC to definition of employee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPLI - Discuss Wage %26 Hour sublimit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Add Blanket Additional Insured Language</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Address Sexual Abuse Liability and Assault and Battery Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Advocate for more favorable Minimum %26 Deposit %25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Confirm defense costs not within the limits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Enhance Audit Provisions - 2 Way Audit%2FNon auditable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL - Include product-recall expense sublimit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Adjust deductible threshold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Align policy renewal dates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Explore coverages not maintained</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Include choice of counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Increase Limits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General - Maintain retro dates%2FP%26P dates%2FFull Prior Acts if possible</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Add Business Interruption</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Address Protective Safeguards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Agreed Value to waive Co-Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Enhanced %27property in transit%27 sublimit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Enhanced %27property off premises%27 sublimit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property - Replacement Cost Value</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - All Other States Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - Ensure remote employees in other states are covered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - Explore dividend program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - Push for Experience Modification Rating to be applied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - Request state credits available %28i%2Ee%2E Drug program credit or safety credit%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Comp - Stop Gap for monopolistic states %28if not picked up on GL%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Agriculture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biotech %2F Pharmaceuticals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blockchain %2F Crypto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cannabis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivery %2F On-Demand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-Commerce %26 Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education %2F Education Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Healthcare %2F Healthtech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Holistic Wellness</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing%2C Advertising %26 Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Micromobility %2F Shared Economy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Profit Organization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Psychedelics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurants %26 Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SaaS %2F Technology</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lead_Type__c</picklist>
+        <values>
+            <fullName>Ads%2FPaid Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arcview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biz Dev Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brove</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cold Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cold Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Display</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing%2FPrevious Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guest Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OpenNest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partnership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Podcast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral_Program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEO%2FSearch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sponsored Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailblazers</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ownership</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RSign__SLA__c</picklist>
+        <values>
+            <fullName>Bronze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Source__c</picklist>
+        <values>
+            <fullName>Bing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailchimp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Woodpecker</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Industry_Scale__c</picklist>
+        <values>
+            <fullName>Ancillary Services %26 Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arts %26 Culture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting %26 Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumer %26 Culture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultivation %26 Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Currencies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Environment %26 Animals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extraction %26 Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Human Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional %26 Scientific Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Religious Organizations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research %26 Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail %26 Dispensaries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smart Contract Platforms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilities %26 Services</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Carrier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wholesaler</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

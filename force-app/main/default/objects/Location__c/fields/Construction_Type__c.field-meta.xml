@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Construction_Type__c</fullName>
+    <label>Construction Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Joisted Masonry</fullName>
+                <default>false</default>
+                <label>Joisted Masonry</label>
+            </value>
+            <value>
+                <fullName>Masonry Non-Combustible</fullName>
+                <default>false</default>
+                <label>Masonry Non-Combustible</label>
+            </value>
+            <value>
+                <fullName>Modified Fire Resistive</fullName>
+                <default>false</default>
+                <label>Modified Fire Resistive</label>
+            </value>
+            <value>
+                <fullName>Fire Resistive</fullName>
+                <default>false</default>
+                <label>Fire Resistive</label>
+            </value>
+            <value>
+                <fullName>Frame</fullName>
+                <default>false</default>
+                <label>Frame</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

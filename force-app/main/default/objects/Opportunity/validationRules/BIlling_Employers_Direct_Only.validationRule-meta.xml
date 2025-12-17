@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BIlling_Employers_Direct_Only</fullName>
+    <active>true</active>
+    <description>when Employers is the marketer/uw direct bill only, but if Employers is reached through a wholesaler, it can be agency billed</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND( 
+Marketer_UW__c = &quot;Employer&apos;s Insurance&quot;, 
+ISCHANGED( StageName ),
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;),
+NOT( ISPICKVAL(Billing__c, &quot;Direct&quot;)) 
+)</errorConditionFormula>
+    <errorMessage>Billing must be direct when Employers is the Marketer/UW</errorMessage>
+</ValidationRule>

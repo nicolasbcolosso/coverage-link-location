@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AR_Warning_Expiring_Premium__c</fullName>
+    <description>Used for PopUp on AR Lightning App Page to warn about Expiring Premium</description>
+    <formula>AND( 
+ ISPICKVAL(Policy_Type_Status__c , &apos;New Business&apos;),   
+ ISPICKVAL(StageName , &apos;Need to Submit&apos;),
+ RecordTypeId = &apos;01237000000Xu4C&apos;,
+ ISBLANK( Expiring_Premium__c )
+)</formula>
+    <label>AR_Warning_Expiring_Premium</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

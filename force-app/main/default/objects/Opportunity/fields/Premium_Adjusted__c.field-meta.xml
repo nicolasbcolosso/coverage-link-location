@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premium_Adjusted__c</fullName>
+    <description>A roll-up summary field that gets premium adjusted from the policies</description>
+    <label>Premium Adjusted</label>
+    <summarizedField>Policy__c.Premium_Adjusted__c</summarizedField>
+    <summaryForeignKey>Policy__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

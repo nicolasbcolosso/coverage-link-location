@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationBypassDateTime__c</fullName>
+    <defaultValue>$System.OriginDateTime</defaultValue>
+    <description>To override the Address Validation Rule when updating the Internal Marketer
+
+SF-1123</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>ValidationBypassDateTime</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

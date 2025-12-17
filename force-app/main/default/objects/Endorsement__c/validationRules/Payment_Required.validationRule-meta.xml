@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; NOT($RecordType.Name = &quot;Scale&quot;) &amp;&amp;
+NOT( $Profile.Name = &quot;System Administrator&quot;) &amp;&amp;
+OR(
+
+AND(
+NOT( Policy_Record_Type__c = &quot;ReShield&quot;),
+NOT( ISPICKVAL( Category__c, &quot;Cancellation (by Insured)&quot;)),
+Premium_Change_Amount__c &gt; 0,
+OR(
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;),
+ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;)
+),
+
+OR(
+ISPICKVAL( Billing__c, &quot;Agency&quot;),
+Policy_Billing__c = &quot;Premium Finance Agreement&quot;),
+Payment_Received__c = FALSE),
+
+AND(
+Policy_Record_Type__c = &quot;ReShield&quot;,
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;),
+OR(
+ISPICKVAL( Billing__c, &quot;Agency&quot;),
+Policy_Billing__c = &quot;Premium Finance Agreement&quot;
+),
+
+Payment_Received__c = FALSE
+))</errorConditionFormula>
+    <errorDisplayField>Accounting_Notes__c</errorDisplayField>
+    <errorMessage>Field Required: Payment Received (Note: if policy is billed PFA, endorsement will be agency bill)</errorMessage>
+</ValidationRule>

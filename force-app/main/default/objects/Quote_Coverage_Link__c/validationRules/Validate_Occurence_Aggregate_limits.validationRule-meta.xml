@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Occurence_Aggregate_limits</fullName>
+    <active>true</active>
+    <errorConditionFormula>Name == &apos;Umbrella&apos; &amp;&amp; Endorsement__r.Marketer_UW__c == &apos;The Hartford&apos; &amp;&amp; (Occurence_Limit__c &gt;= 5000000 || Aggregate__c &gt;= 5000000) &amp;&amp; (Endorsement__r.GL_Limits_Reviewed__c == false) &amp;&amp; ISNULL(Policy__c) &amp;&amp; NOT(ISBLANK(Endorsement__c))</errorConditionFormula>
+    <errorMessage>Please review GL limits if the umbrella is $5m or more.</errorMessage>
+</ValidationRule>

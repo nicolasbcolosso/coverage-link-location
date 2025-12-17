@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_uploaded_required</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND( 
+ISPICKVAL(Stage__c , &quot;Delivered to Insured&quot;), 
+Invoice_Uploaded__c = FALSE, 
+ISPICKVAL( Billing__c , &quot;Agency&quot;), 
+Premium_Change_Amount__c &lt;&gt; 0, 
+ISCHANGED(Stage__c) 
+)</errorConditionFormula>
+    <errorMessage>Error: Invoice Uploaded required before moving to Delivered to Insured</errorMessage>
+</ValidationRule>

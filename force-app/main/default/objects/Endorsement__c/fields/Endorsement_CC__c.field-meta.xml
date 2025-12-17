@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Endorsement_CC__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+OR(ISPICKVAL( Stage__c, &quot;Requested by Insured&quot; ),
+ISPICKVAL( Stage__c, &quot;Submitted to Carrier&quot; ),
+ISPICKVAL( Stage__c, &quot;Endorsement Quote Presented&quot; )), 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqt&apos;,&quot;&quot;), 
+
+IF( 
+OR(
+ISPICKVAL( Stage__c, &quot;Bind Order Sent&quot; ), 
+ISPICKVAL( Stage__c, &quot;Cancellation Notice Sent&quot; )), 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqy&apos;,&quot;&quot;), 
+
+IF( 
+OR(
+ISPICKVAL( Stage__c, &quot;Delivered to Insured&quot; ), 
+ISPICKVAL( Stage__c, &quot;Cancelled&quot; ),
+ISPICKVAL( Stage__c, &quot;Rescinded&quot; )),  
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDJB&apos;,&quot;&quot;), 
+
+IF( 
+ISPICKVAL( Stage__c, &quot;Closed Lost&quot; ), 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqo&apos;,&quot;&quot;), 
+
+&quot;&quot;
+))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Endorsement CC</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

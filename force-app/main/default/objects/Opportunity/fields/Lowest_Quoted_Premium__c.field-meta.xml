@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lowest_Quoted_Premium__c</fullName>
+    <description>Rollup: average premium across quotes received</description>
+    <label>Lowest Quoted Premium</label>
+    <summarizedField>Quote__c.Premium__c</summarizedField>
+    <summaryForeignKey>Quote__c.Opportunity__c</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

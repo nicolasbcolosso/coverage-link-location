@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Targeted_Premium__c</fullName>
+    <description>This field needs to be populated for NB broking grade field to work.</description>
+    <inlineHelpText>For P&amp;C: target premium for the policy period
+
+For Benefits: target premium per employee</inlineHelpText>
+    <label>Targeted Premium</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

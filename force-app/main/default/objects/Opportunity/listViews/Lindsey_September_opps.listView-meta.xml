@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lindsey_September_opps</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Renewal_Date__c</columns>
+    <columns>Expiring_Premium__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Effective_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>9/1/2024</value>
+    </filters>
+    <filters>
+        <field>Effective_Date__c</field>
+        <operation>lessOrEqual</operation>
+        <value>9/30/2024</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.FULL_NAME</field>
+        <operation>equals</operation>
+        <value>Lindsey Slough</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Renewal - Need Info,Proposal Received,Proposal Presented</value>
+    </filters>
+    <label>Lindsey September opps</label>
+    <sharedTo>
+        <group>CSB</group>
+    </sharedTo>
+</ListView>

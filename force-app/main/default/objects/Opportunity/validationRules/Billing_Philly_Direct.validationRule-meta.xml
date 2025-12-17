@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Philly_Direct</fullName>
+    <active>true</active>
+    <description>Renewals are direct bill only, NB can be both agency/direct</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND( 
+NOT(ISPICKVAL(Billing__c , &quot;Direct&quot;)), 
+CONTAINS(Coverages__c, &quot;Directors &amp; Officers&quot;), 
+ISPICKVAL(Policy_Type_Status__c , &quot;Renewal&quot;), 
+ISCHANGED( StageName ),
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;),
+Marketer_UW__c = &quot;PHILADELPHIA INSURANCE COMPANY&quot;)</errorConditionFormula>
+    <errorMessage>Philly D&amp;O must be Direct Bill for Renewals</errorMessage>
+</ValidationRule>

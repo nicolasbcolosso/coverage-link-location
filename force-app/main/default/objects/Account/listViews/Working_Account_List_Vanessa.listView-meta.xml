@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Working_Account_List_Vanessa</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <columns>Annual_Premium__c</columns>
+    <columns>ACCOUNT.SALES</columns>
+    <columns>Vertical__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Current_Client__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>equals</operation>
+        <value>Vanessa Graham</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.SALES</field>
+        <operation>greaterOrEqual</operation>
+        <value>2500</value>
+    </filters>
+    <label>Working Account List – Vanessa</label>
+    <sharedTo>
+        <group>FS_Vertical</group>
+    </sharedTo>
+</ListView>

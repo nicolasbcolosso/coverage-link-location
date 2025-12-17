@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tom_Mullins_Team_Comission_NB</fullName>
+    <active>false</active>
+    <description>Tom Mullins team Members (Tom, Gerald O&apos;Reilly, Russ DeLuca, Daniel Nimmer) must have a commission of 10%</description>
+    <errorConditionFormula>AND(
+ISCHANGED( StageName ) ,
+ ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;),  
+OR( 
+Marketer_UW_Name__c = &quot;003370000047Xtt&quot;, 
+Marketer_UW_Name__c = &quot;003370000069LwA&quot;, 
+Marketer_UW_Name__c = &quot;0033700000IXqHv&quot;, 
+Marketer_UW_Name__c = &quot;0033700000gpsds&quot;,
+Marketer_UW_Name__c = &quot;0033700000R4VYL&quot; 
+),
+Commission_Rate__c &lt;= 0.10,
+Commission_Rate__c &gt;= 0.125
+)</errorConditionFormula>
+    <errorMessage>Tom Mullins team Members (Tom Mullins, Gerald O&apos;Reilly, Russ DeLuca, Daniel Nimmer) must have a commission of 12.5% (as of 9/8/17- before it must be 10%)</errorMessage>
+</ValidationRule>

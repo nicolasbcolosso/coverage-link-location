@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commission_LessThan_100</fullName>
+    <active>true</active>
+    <description>Commission cannot be &gt;= 100%</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+Commission_Rate__c &gt;= 1</errorConditionFormula>
+    <errorMessage>Commission rate must be less than 100%</errorMessage>
+</ValidationRule>

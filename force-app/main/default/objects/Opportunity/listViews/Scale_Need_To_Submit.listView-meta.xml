@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Need_To_Submit</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Target_Bind_Date__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Marketer_UW_Name__c</columns>
+    <columns>Industry_formula__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Need to Submit</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Scale</value>
+    </filters>
+    <label>Scale - Need To Submit</label>
+    <sharedTo>
+        <group>Scale_Underwriter_Users</group>
+    </sharedTo>
+</ListView>

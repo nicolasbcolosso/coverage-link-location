@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BRP_VR_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Overrides the VR that doesn&apos;t let users update BRP historical data.</description>
+    <label>BRP VR Override</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

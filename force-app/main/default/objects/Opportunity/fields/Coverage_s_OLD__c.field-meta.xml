@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverage_s_OLD__c</fullName>
+    <label>Coverage(s) (OLD)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Commercial Auto</fullName>
+                <default>false</default>
+                <label>Commercial Auto</label>
+            </value>
+            <value>
+                <fullName>Crime</fullName>
+                <default>false</default>
+                <label>Crime</label>
+            </value>
+            <value>
+                <fullName>Crime Bond</fullName>
+                <default>false</default>
+                <label>Crime Bond</label>
+            </value>
+            <value>
+                <fullName>Cyber Crime (BTC)</fullName>
+                <default>false</default>
+                <label>Cyber Crime (BTC)</label>
+            </value>
+            <value>
+                <fullName>Cyber Liability</fullName>
+                <default>false</default>
+                <label>Cyber Liability</label>
+            </value>
+            <value>
+                <fullName>Data Breach</fullName>
+                <default>false</default>
+                <label>Data Breach</label>
+            </value>
+            <value>
+                <fullName>Directors &amp; Officers</fullName>
+                <default>false</default>
+                <label>Directors &amp; Officers</label>
+            </value>
+            <value>
+                <fullName>Disability</fullName>
+                <default>false</default>
+                <label>Disability</label>
+            </value>
+            <value>
+                <fullName>Employment Practices Liability Insurance</fullName>
+                <default>false</default>
+                <label>Employment Practices Liability Insurance</label>
+            </value>
+            <value>
+                <fullName>ERISA Bond</fullName>
+                <default>false</default>
+                <label>ERISA Bond</label>
+            </value>
+            <value>
+                <fullName>Errors &amp; Omissions</fullName>
+                <default>false</default>
+                <label>Errors &amp; Omissions</label>
+            </value>
+            <value>
+                <fullName>Event General Liability</fullName>
+                <default>false</default>
+                <label>Event General Liability</label>
+            </value>
+            <value>
+                <fullName>General Liability</fullName>
+                <default>false</default>
+                <label>General Liability</label>
+            </value>
+            <value>
+                <fullName>Inland Marine</fullName>
+                <default>false</default>
+                <label>Inland Marine</label>
+            </value>
+            <value>
+                <fullName>Key Man</fullName>
+                <default>false</default>
+                <label>Key Man</label>
+            </value>
+            <value>
+                <fullName>Kidnap &amp; Ransom</fullName>
+                <default>false</default>
+                <label>Kidnap &amp; Ransom</label>
+            </value>
+            <value>
+                <fullName>Legal Liability</fullName>
+                <default>false</default>
+                <label>Legal Liability</label>
+            </value>
+            <value>
+                <fullName>Liquor Liability</fullName>
+                <default>false</default>
+                <label>Liquor Liability</label>
+            </value>
+            <value>
+                <fullName>Media Liability</fullName>
+                <default>false</default>
+                <label>Media Liability</label>
+            </value>
+            <value>
+                <fullName>Ocean Cargo</fullName>
+                <default>false</default>
+                <label>Ocean Cargo</label>
+            </value>
+            <value>
+                <fullName>Privacy</fullName>
+                <default>false</default>
+                <label>Privacy</label>
+            </value>
+            <value>
+                <fullName>Products Liability</fullName>
+                <default>false</default>
+                <label>Products Liability</label>
+            </value>
+            <value>
+                <fullName>Property</fullName>
+                <default>false</default>
+                <label>Property</label>
+            </value>
+            <value>
+                <fullName>Special Events</fullName>
+                <default>false</default>
+                <label>Special Events</label>
+            </value>
+            <value>
+                <fullName>Truck Cargo</fullName>
+                <default>false</default>
+                <label>Truck Cargo</label>
+            </value>
+            <value>
+                <fullName>Umbrella</fullName>
+                <default>false</default>
+                <label>Umbrella</label>
+            </value>
+            <value>
+                <fullName>Workers Compensation</fullName>
+                <default>false</default>
+                <label>Workers Compensation</label>
+            </value>
+            <value>
+                <fullName>Builders Risk</fullName>
+                <default>false</default>
+                <label>Builders Risk</label>
+            </value>
+            <value>
+                <fullName>Business Owners Policy</fullName>
+                <default>false</default>
+                <label>Business Owners Policy</label>
+            </value>
+            <value>
+                <fullName>Contract Frustration Insurance</fullName>
+                <default>false</default>
+                <label>Contract Frustration Insurance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

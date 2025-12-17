@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travelers_Renewals_Must_be_Direct_Bill</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;,  BRP_VR_Override__c = true )) &amp;&amp; 
+
+AND( 
+ISPICKVAL( Policy_Type_Status__c , &quot;Renewal&quot;), 
+ISPICKVAL( Billing__c , &quot;Agency&quot;), 
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;), 
+Marketer_UW_Name__c = &quot;0033700000NPmne&quot; 
+)</errorConditionFormula>
+    <errorMessage>Travelers Renewals are direct bill only</errorMessage>
+</ValidationRule>

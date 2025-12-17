@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Date__c</fullName>
+    <description>Used by Accounting 
+
+If Endorsement Billing = Agency or PFA, Payment Received = TRUE, Stages = Bind Order Sent, Delivered to Insured, Cancellation Processed/Tail in Place then update Credit Date field with Payment Received Date but if Payment Received Date is null then update Credit Date field with Endorsement Effective Date 
+
+OR if Endorsement Billing = Direct,  Stages = Bind Order Sent, Delivered to Insured, Cancellation Processed/Tail in Place then update Credit Date field with Endorsement Effective Date</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Credit Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

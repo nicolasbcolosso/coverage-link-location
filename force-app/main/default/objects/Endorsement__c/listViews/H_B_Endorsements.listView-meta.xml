@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>H_B_Endorsements</fullName>
+    <booleanFilter>1</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Policy__c</columns>
+    <columns>Endorsement_Effective_Date__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Category__c</columns>
+    <columns>Premium_Change_Amount__c</columns>
+    <columns>Payment_Received__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Endorsement__c.Health_Benefits</value>
+    </filters>
+    <label>H&amp;B Endorsements</label>
+</ListView>

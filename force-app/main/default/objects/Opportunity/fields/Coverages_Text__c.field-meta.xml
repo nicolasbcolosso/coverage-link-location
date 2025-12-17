@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverages_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>TRIM(IF(INCLUDES( Coverage_s_OLD__c , &quot;Data Breach&quot;), &quot;Data Breach - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Liquor Liability&quot;), &quot;Liquor Liability - &quot;, &quot;&quot;) &amp; 
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Privacy&quot;), &quot;Privacy - &quot;, &quot;&quot;) &amp; 
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Builder&apos;s Risk&quot;), &quot;Builder&apos;s Risk - &quot;, &quot;&quot;) &amp; 
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Commercial Auto&quot;), &quot;Commercial Auto - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Crime&quot;), &quot;Crime - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Crime Bond&quot;), &quot;Crime Bond - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Cyber Crime (BTC)&quot;), &quot;Cyber Crime (BTC) - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Cyber Liability&quot;), &quot;Cyber Liability - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Directors &amp; Officers&quot;), &quot;Directors &amp; Officers - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Disability&quot;), &quot;Disability - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Employment Practices Liability Insurance&quot;), &quot;Employment Practices Liability Insurance - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Errors &amp; Omissions&quot;), &quot;Errors &amp; Omissions - &quot;, &quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Event General Liability&quot;), &quot;Event General Liability - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;General Liability&quot;), &quot;General Liability - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Inland Marine&quot;), &quot;Inland Marine - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Key Man&quot;), &quot;Key Man - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Contract Frustration Insurance&quot;), &quot;Contract Frustration Insurance - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Kidnap &amp; Ransom&quot;), &quot;Kidnap &amp; Ransom - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Legal Liability&quot;), &quot;Legal Liability - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Media Liability&quot;), &quot;Media Liability - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Ocean Cargo&quot;), &quot;Ocean Cargo - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Products Liability&quot;), &quot;Products Liability - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Property&quot;), &quot;Property - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Special Events&quot;), &quot;Special Events - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Truck Cargo&quot;), &quot;Truck Cargo - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Umbrella&quot;), &quot;Umbrella - &quot;,&quot;&quot;) &amp;
+IF(INCLUDES( Coverage_s_OLD__c , &quot;Workers Compensation&quot;), &quot;Workers Compensation - &quot;,&quot;&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Coverages Text</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

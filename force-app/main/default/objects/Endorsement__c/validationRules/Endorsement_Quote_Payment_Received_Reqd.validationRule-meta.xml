@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Endorsement_Quote_Payment_Received_Reqd</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND(
+OR( 
+ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;),
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;)
+),
+ISCHANGED(Stage__c),
+OR( 
+ Endorsement_Quote_Uploaded__c = FALSE, 
+ Payment_Received__c = FALSE
+), 
+
+ISPICKVAL(Billing__c , &quot;Agency&quot;)
+)</errorConditionFormula>
+    <errorMessage>Error: Need Endorsement Quote Uploaded and Payment Received before moving to Bind Order Sent</errorMessage>
+</ValidationRule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AS_Quotes_Required</fullName>
+    <active>false</active>
+    <description>Need to indicate at least 1 quote (1 market approached) in the quotes section</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp; 
+
+AND(
+
+Number_of_Quotes__c == 0, 
+
+OR( 
+
+ISPICKVAL( StageName , &quot;Application Submitted&quot;), 
+ISPICKVAL( StageName , &quot;Additional Info Needed&quot;), 
+ISPICKVAL( StageName , &quot;Proposal Received&quot;), 
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;)))</errorConditionFormula>
+    <errorMessage>Quote Required: add at least 1 quote &amp; indicate the market approached</errorMessage>
+</ValidationRule>

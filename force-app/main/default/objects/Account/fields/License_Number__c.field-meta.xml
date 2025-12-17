@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Number__c</fullName>
+    <description>License Number request from Abby Earl</description>
+    <externalId>false</externalId>
+    <formula>CASE(
+    ShippingState,
+    &quot;Alabama&quot;, &quot;AL: 3000426610&quot;,
+    &quot;Alaska&quot;, &quot;AK: 100167606&quot;,
+    &quot;Arizona&quot;, &quot;AZ: 17523682&quot;,
+    &quot;Arkansas&quot;, &quot;AR: 17523682&quot;,
+    &quot;California&quot;, &quot;CA: 0M29028&quot;,
+    &quot;Colorado&quot;, &quot;CO: 587375&quot;,
+    &quot;Connecticut&quot;, &quot;CT: 17523682&quot;,
+    &quot;Delaware&quot;, &quot;DE: 3000421776&quot;,
+    &quot;Dist. of Columbia&quot;, &quot;DC: 3000421768&quot;,
+    &quot;Florida&quot;, &quot;FL: W479388&quot;,
+    &quot;Georgia&quot;, &quot;GA: 3237444&quot;,
+    &quot;Hawaii&quot;, &quot;HI: 17523682&quot;,
+    &quot;Idaho&quot;, &quot;ID: 17523682&quot;,
+    &quot;Illinois&quot;, &quot;IL: 17523682&quot;,
+    &quot;Indiana&quot;, &quot;IN: 3389727&quot;,
+    &quot;Iowa&quot;, &quot;IA: 17523682&quot;,
+    &quot;Kansas&quot;, &quot;KS: 17523682&quot;,
+    &quot;Kentucky&quot;, &quot;KY: DOI-1017237&quot;,
+    &quot;Louisiana&quot;, &quot;LA: 784474&quot;,
+    &quot;Maine&quot;, &quot;ME: PRN320526&quot;,
+    &quot;Maryland&quot;, &quot;MD: 3000421783&quot;,
+    &quot;Massachusetts&quot;, &quot;MA: 17523682&quot;,
+    &quot;Michigan&quot;, &quot;MI: 17523682&quot;,
+    &quot;Minnesota&quot;, &quot;MN: 40605322&quot;,
+    &quot;Mississippi&quot;, &quot;MS: 10580952&quot;,
+    &quot;Missouri&quot;, &quot;MO: 8459044&quot;,
+    &quot;Montana&quot;, &quot;MT: 3000421789&quot;,
+    &quot;Nebraska&quot;, &quot;NE: 17523682&quot;,
+    &quot;Nevada&quot;, &quot;NV: 3389597&quot;,
+    &quot;New Hampshire&quot;, &quot;NH: 17523682&quot;,
+    &quot;New Jersey&quot;, &quot;NJ: 1658664&quot;,
+    &quot;New Mexico&quot;, &quot;NM: 17523682&quot;,
+    &quot;New York&quot;, &quot;NY: BR-1370234&quot;,
+    &quot;North Carolina&quot;, &quot;NC: 17523682&quot;,
+    &quot;North Dakota&quot;, &quot;ND: 17523682&quot;,
+    &quot;Ohio&quot;, &quot;OH: 1216752&quot;,
+    &quot;Oklahoma&quot;, &quot;OK: 3000421794&quot;,
+    &quot;Oregon&quot;, &quot;OR: 17523682&quot;,
+    &quot;Pennsylvania&quot;, &quot;PA: 875746&quot;,
+    &quot;Rhode Island&quot;, &quot;RI: 3000421805&quot;,
+    &quot;South Carolina&quot;, &quot;SC: 17523682&quot;,
+    &quot;South Dakota&quot;, &quot;SD: 40500530&quot;,
+    &quot;Tennessee&quot;, &quot;TN: 2421049&quot;,
+    &quot;Texas&quot;, &quot;TX: 2285169&quot;,
+    &quot;Utah&quot;, &quot;UT: 696433&quot;,
+    &quot;Vermont&quot;, &quot;VT: 3390011&quot;,
+    &quot;Virginia&quot;, &quot;VA: 1100494&quot;,
+    &quot;Washington&quot;, &quot;WA: 1000330&quot;,
+    &quot;West Virginia&quot;, &quot;WV: 17523682&quot;,
+    &quot;Wisconsin&quot;, &quot;WI: 17523682&quot;,
+    &quot;Wyoming&quot;, &quot;WY: 384049&quot;,
+    &quot;0&quot; 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

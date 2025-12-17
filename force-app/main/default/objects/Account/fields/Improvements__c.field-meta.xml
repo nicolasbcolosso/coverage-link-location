@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Improvements__c</fullName>
+    <description>Use this field to include in the Insurance Renewal Doc</description>
+    <inlineHelpText>Use this field to include in the Insurance Renewal Doc</inlineHelpText>
+    <label>Improvements</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GL - Add Blanket Additional Insured Language</fullName>
+                <default>false</default>
+                <label>GL - Add Blanket Additional Insured Language</label>
+            </value>
+            <value>
+                <fullName>GL - Include product-recall expense sublimit</fullName>
+                <default>false</default>
+                <label>GL - Include Product-Recall Expense Sublimit</label>
+            </value>
+            <value>
+                <fullName>GL - Address Sexual Abuse Liability and Assault and Battery Liability</fullName>
+                <default>false</default>
+                <label>GL - Address Sexual Abuse Liability and Assault and Battery Liability</label>
+            </value>
+            <value>
+                <fullName>GL - Advocate for more favorable Minimum &amp; Deposit %</fullName>
+                <default>false</default>
+                <label>GL - Advocate for more favorable Minimum &amp; Deposit %</label>
+            </value>
+            <value>
+                <fullName>GL - Confirm defense costs not within the limits</fullName>
+                <default>false</default>
+                <label>GL - Confirm defense costs not within the limits</label>
+            </value>
+            <value>
+                <fullName>GL - Enhance Audit Provisions - 2 Way Audit/Non auditable</fullName>
+                <default>false</default>
+                <label>GL - Enhance Audit Provisions - 2 Way Audit/Non auditable</label>
+            </value>
+            <value>
+                <fullName>Property - Agreed Value to waive Co-Insurance</fullName>
+                <default>false</default>
+                <label>Property - Agreed Value to waive Co-Insurance</label>
+            </value>
+            <value>
+                <fullName>Property - Address Protective Safeguards</fullName>
+                <default>false</default>
+                <label>Property - Address Protective Safeguards</label>
+            </value>
+            <value>
+                <fullName>Property - Enhanced &apos;property off premises&apos; sublimit</fullName>
+                <default>false</default>
+                <label>Property - Enhanced &apos;property off premises&apos; sublimit</label>
+            </value>
+            <value>
+                <fullName>Property - Enhanced &apos;property in transit&apos; sublimit</fullName>
+                <default>false</default>
+                <label>Property - Enhanced &apos;property in transit&apos; sublimit</label>
+            </value>
+            <value>
+                <fullName>Property - Add Business Interruption</fullName>
+                <default>false</default>
+                <label>Property - Add Business Interruption</label>
+            </value>
+            <value>
+                <fullName>Property - Replacement Cost Value</fullName>
+                <default>false</default>
+                <label>Property - Replacement Cost Value</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - Push for Experience Modification Rating to be applied</fullName>
+                <default>false</default>
+                <label>Workers Comp - Push for Experience Modification Rating to be applied (Premium must be above $10k for 3 consecutive years to apply)</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - Explore dividend program</fullName>
+                <default>false</default>
+                <label>Workers Comp - Explore dividend program</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - Ensure remote employees in other states are covered</fullName>
+                <default>false</default>
+                <label>Workers Comp - Ensure remote employees in other states are covered</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - All Other States Coverage</fullName>
+                <default>false</default>
+                <label>Workers Comp - All Other States Coverage</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - Stop Gap for monopolistic states (if not picked up on GL)</fullName>
+                <default>false</default>
+                <label>Workers Comp - Stop Gap for monopolistic states (if not picked up on GL)</label>
+            </value>
+            <value>
+                <fullName>Workers Comp - Request state credits available (i.e. Drug program credit or safety credit)</fullName>
+                <default>false</default>
+                <label>Workers Comp - Request state credits available (i.e. Drug program credit or safety credit)</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Address hammer clause</fullName>
+                <default>false</default>
+                <label>D&amp;O - Address hammer clause</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Extend coverage to board advisors</fullName>
+                <default>false</default>
+                <label>D&amp;O - Extend coverage to board advisors</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Ensure roadshow coverage is included</fullName>
+                <default>false</default>
+                <label>D&amp;O - Ensure roadshow coverage is included</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Side A Carve Back for professional liability exclusion</fullName>
+                <default>false</default>
+                <label>D&amp;O - Side A Carve Back for professional liability exclusion</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Side A Carve Back for Anti trust exclusion</fullName>
+                <default>false</default>
+                <label>D&amp;O - Side A Carve Back for Anti trust exclusion</label>
+            </value>
+            <value>
+                <fullName>D&amp;O - Add pre approved choice of counsel</fullName>
+                <default>false</default>
+                <label>D&amp;O - Add pre approved choice of counsel</label>
+            </value>
+            <value>
+                <fullName>EPLI - Discuss Wage &amp; Hour sublimit</fullName>
+                <default>false</default>
+                <label>EPLI - Discuss Wage &amp; Hour sublimit</label>
+            </value>
+            <value>
+                <fullName>EPLI - ​Address hammer clause</fullName>
+                <default>false</default>
+                <label>EPLI - ​Address hammer clause</label>
+            </value>
+            <value>
+                <fullName>EPLI - Add IC to definition of employee</fullName>
+                <default>false</default>
+                <label>EPLI - Add IC to definition of employee</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - Bricking Endorsement</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - Bricking Endorsement</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - Bodily Injury Property Damage Sublimit</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - Bodily Injury Property Damage Sublimit</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - Broaden Business Interruption coverage</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - Broaden Business Interruption coverage</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - CCPA/GDPR Coverage</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - CCPA/GDPR Coverage</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - TCPA Sublimit Coverage</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - TCPA Sublimit Coverage</label>
+            </value>
+            <value>
+                <fullName>E&amp;O/Cyber - Contingent Business Interruption</fullName>
+                <default>false</default>
+                <label>E&amp;O/Cyber - Contingent Business Interruption</label>
+            </value>
+            <value>
+                <fullName>General - Increase Limits</fullName>
+                <default>false</default>
+                <label>General - Increase Limits</label>
+            </value>
+            <value>
+                <fullName>General - Explore coverages not maintained</fullName>
+                <default>false</default>
+                <label>General - Explore coverages not maintained</label>
+            </value>
+            <value>
+                <fullName>General - Adjust deductible threshold</fullName>
+                <default>false</default>
+                <label>General - Adjust deductible threshold</label>
+            </value>
+            <value>
+                <fullName>General - Include choice of counsel</fullName>
+                <default>false</default>
+                <label>General - Include choice of counsel</label>
+            </value>
+            <value>
+                <fullName>General - Align policy renewal dates</fullName>
+                <default>false</default>
+                <label>General - Align policy renewal dates</label>
+            </value>
+            <value>
+                <fullName>General - Maintain retro dates/P&amp;P dates/Full Prior Acts if possible</fullName>
+                <default>false</default>
+                <label>General - Maintain retro dates/P&amp;P dates/Full Prior Acts if possible</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

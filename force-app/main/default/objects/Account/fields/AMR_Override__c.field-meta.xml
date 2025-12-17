@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AMR_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Use this field to override the current AE/AMR mappings</description>
+    <label>AMR Override</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Annual_Revenue_to_FS__c</fullName>
+    <description>Total Rev of in-force policies + Commission (endt) + FS Fee (endt) that are in the stages = BOS/DTI/Paid.
+
+There is a daily batch at midnight and the name is BatchtoCalculateAnnualRevenue.</description>
+    <inlineHelpText>Total Rev of in-force policies + Commission (endt) + FS Fee (endt) that are in the stages = BOS/DTI/Paid</inlineHelpText>
+    <label>Annual Revenue to FS</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

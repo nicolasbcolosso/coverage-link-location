@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca4KcX000000O9lJUAS</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Test Acc Val 2.1</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR($Site.BaseUrl + &apos;/apex/dfsle__sending&apos;, null, [sId = Opportunity.Id, sendingExperience = &apos;null&apos;, isEmbedded = false, templateId = &apos;a4KcX000000O9lJUAS&apos;, recordId = Opportunity.Id, title = &apos;Test Acc Val 2.1&apos;])}</url>
+</WebLink>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverages__c</fullName>
+    <description>(Field Name)  Coverages Not Maintained. (Purpose of Field)  Lists all the coverages that have are not currently on an application submitted by the client account. (Used in Record Types)  All but Issuing Company, ReShield Client, and Scale. (Used in Layouts)  FS Direct, Account Layout. (Visible to)  Only Sys Admin. (Shows up in reports)  y</description>
+    <label>Coverages Not Maintained</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>General Liability</fullName>
+                <default>false</default>
+                <label>General Liability</label>
+            </value>
+            <value>
+                <fullName>Property</fullName>
+                <default>false</default>
+                <label>Property</label>
+            </value>
+            <value>
+                <fullName>Errors &amp; Omissions</fullName>
+                <default>false</default>
+                <label>Errors &amp; Omissions</label>
+            </value>
+            <value>
+                <fullName>Cyber Liability</fullName>
+                <default>false</default>
+                <label>Cyber Liability</label>
+            </value>
+            <value>
+                <fullName>Directors &amp; Officers</fullName>
+                <default>false</default>
+                <label>Directors &amp; Officers</label>
+            </value>
+            <value>
+                <fullName>Employment Practices Liability Insurance</fullName>
+                <default>false</default>
+                <label>Employment Practices Liability Insurance</label>
+            </value>
+            <value>
+                <fullName>Worker&apos;s Compensation</fullName>
+                <default>false</default>
+                <label>Worker&apos;s Compensation</label>
+            </value>
+            <value>
+                <fullName>Disability</fullName>
+                <default>false</default>
+                <label>Disability</label>
+            </value>
+            <value>
+                <fullName>Commercial Crime</fullName>
+                <default>false</default>
+                <label>Commercial Crime</label>
+            </value>
+            <value>
+                <fullName>Fiduciary Liability</fullName>
+                <default>false</default>
+                <label>Fiduciary Liability</label>
+            </value>
+            <value>
+                <fullName>Product Liability</fullName>
+                <default>false</default>
+                <label>Product Liability</label>
+            </value>
+            <value>
+                <fullName>Hired &amp; Non Owned Auto</fullName>
+                <default>false</default>
+                <label>Hired &amp; Non Owned Auto</label>
+            </value>
+            <value>
+                <fullName>Commercial Auto</fullName>
+                <default>false</default>
+                <label>Commercial Auto</label>
+            </value>
+            <value>
+                <fullName>Intellectual Property</fullName>
+                <default>false</default>
+                <label>Intellectual Property</label>
+            </value>
+            <value>
+                <fullName>Contract Frustration Insurance</fullName>
+                <default>false</default>
+                <label>Contract Frustration Insurance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

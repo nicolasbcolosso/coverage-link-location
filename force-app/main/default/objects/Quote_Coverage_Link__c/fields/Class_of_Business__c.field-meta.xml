@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Class_of_Business__c</fullName>
+    <description>class of business for bordereaux</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+Name = &quot;Directors &amp; Officers&quot;, &quot;Directors &amp; Officers&quot;, 
+IF( 
+Name = &quot;D&amp;O&quot;, &quot;Directors &amp; Officers&quot;, 
+IF( 
+Name = &quot;Excess D&amp;O&quot;, &quot;Excess Directors &amp; Officers&quot;, 
+IF( 
+Name = &quot;EPL&quot;, &quot;Employment Practices Liability Insurance&quot;, 
+IF( 
+Name = &quot;Excess EPL&quot;, &quot;Excess Employment Practices Liability Insurance&quot;, 
+IF( 
+Name = &quot;Excess FID&quot;, &quot;Excess Fiduciary Liability&quot;, 
+IF( 
+Name = &quot;Fiduciary Liability&quot;, &quot;Fiduciary Liability&quot;, 
+IF( 
+Name = &quot;FID&quot;, &quot;Fiduciary Liability&quot;, 
+IF( 
+Name = &quot;Employment Practices Liability Insurance&quot;, &quot;Employment Practices Liability Insurance&quot;, 
+IF( 
+Name = &quot;Key Man&quot;, &quot;Accident &amp; Health&quot;, 
+IF(
+Name = &quot;FMP M&amp;PL&quot;, &quot;Management &amp; Professional Liability&quot;,
+IF(
+Name = &quot;FMP EPL&quot;, &quot;Employment Practices Liability Insurance&quot;,
+IF(
+Name = &quot;FMP FID&quot;, &quot;Fiduciary Liability&quot;,&quot;&quot;
+)))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Class of Business</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

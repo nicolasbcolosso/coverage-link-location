@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P%26C</fullName>
+    <description>Property &amp; Casualty Opportunity Process</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Application Submitted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Need Info From Client</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Need to Submit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proposal Approved%2FClosed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proposal Presented</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Proposal Received</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Qualification Needed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Renewal - Need Info</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

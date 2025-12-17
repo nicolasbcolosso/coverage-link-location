@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingState_differs_from_BindingState</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+TODAY() &gt; DATE(2022, 8, 12),
+AutoCalc_Taxes_Fees__c,
+Surplus_Lines_Policy__c,
+NOT(ISBLANK(Policy__r.Binding_State__c)),
+Policy__r.Binding_State__c &lt;&gt; Policy__r.Location_State_Formula__c
+)</errorConditionFormula>
+    <errorMessage>Principal Place of Business State differs from the Binding State. Please uncheck AutoCalc Taxes &amp; Fees &amp; calculate taxes manually.</errorMessage>
+</ValidationRule>

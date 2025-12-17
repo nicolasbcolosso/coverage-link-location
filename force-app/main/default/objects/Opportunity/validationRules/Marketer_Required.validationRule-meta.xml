@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketer_Required</fullName>
+    <active>false</active>
+    <description>Marketer/UW at App Submitted (Picklist)</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp;
+NOT($RecordType.Name = &quot;Scale&quot;)&amp;&amp;
+
+AND(
+
+ISBLANK( Marketer_UW_Name__c ), 
+
+OR(
+
+
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;),
+ISPICKVAL( StageName , &quot;Application Submitted&quot;),
+ISPICKVAL( StageName , &quot;Additional Info Needed&quot;),
+ISPICKVAL( StageName , &quot;Proposal Received&quot;)))</errorConditionFormula>
+    <errorMessage>Field Required: Marketer/UW Name</errorMessage>
+</ValidationRule>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>App_Submitted_NB</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Marketer_UW_Email__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Coverages__c</columns>
+    <columns>Priority_Level__c</columns>
+    <columns>Markets_Approached__c</columns>
+    <columns>Internal_Marketer__c</columns>
+    <columns>Last_Stage_Change__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Application Submitted</value>
+    </filters>
+    <filters>
+        <field>Policy_Type_Status__c</field>
+        <operation>startsWith</operation>
+        <value>New Business</value>
+    </filters>
+    <filters>
+        <field>Internal_Marketer__c</field>
+        <operation>notEqual</operation>
+        <value>Christina Conway</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notEqual</operation>
+        <value>Moka,LLC....</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Opportunity.ReShield</value>
+    </filters>
+    <label>App Submitted NB</label>
+</ListView>

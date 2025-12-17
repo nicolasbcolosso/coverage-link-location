@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Knight_Opportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <columns>Carrier_Issuing_Company__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Scale</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>equals</operation>
+        <value>Proposal Approved/Closed Won</value>
+    </filters>
+    <filters>
+        <field>Carrier_Issuing_Company__c</field>
+        <operation>equals</operation>
+        <value>United Specialty Insurance Company</value>
+    </filters>
+    <label>Scale Knight Opportunities</label>
+    <sharedTo>
+        <group>Scale_Underwriter_Users</group>
+        <group>Tech</group>
+    </sharedTo>
+</ListView>

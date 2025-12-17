@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Cost__c</fullName>
+    <description>This is the total cost for Founder Shield records. 9/23 - AB added policy fees untaxed to formula. 9/4/24 - AB added Underwriting Fees</description>
+    <formula>Premium_Change_Amount__c + Wholesaler_Fees__c +  Policy_Fees_Taxed__c  + State_Fees_Other__c + State_Stamping_Fee__c + State_Tax__c + FS_Fee__c +  State_Filing_Fee__c + Wholesale_Fees__c + Underwriting_Fees__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total cost for FS records.</inlineHelpText>
+    <label>Total Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

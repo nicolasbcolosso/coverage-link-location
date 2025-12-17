@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multiple_Locations__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Does the insured have more than one address?</description>
+    <inlineHelpText>This field will be checked if the insured has added more than one address on app.fs on their most recent application</inlineHelpText>
+    <label>Multiple Locations?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

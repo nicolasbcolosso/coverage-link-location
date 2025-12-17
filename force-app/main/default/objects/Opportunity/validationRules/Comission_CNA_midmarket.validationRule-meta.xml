@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comission_CNA_midmarket</fullName>
+    <active>false</active>
+    <description>CNA Middle Market Policies commission rate is 15%</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp;
+
+AND(
+     (NOT
+     (Marketer_UW_Name__c=&quot;CNA Agency Services&quot;)
+), 
+Marketer_UW_Name__r.Account.Name = &quot;CNA&quot;,
+Coverages__c=&quot;General Liability&quot;,
+Commission_Rate__c &lt;&gt; 0.15,
+ISPICKVAL(StageName, &quot;Proposal Approved/Closed Won&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Commission: CNA Middle Market Policies commission rate is 15%</errorMessage>
+</ValidationRule>

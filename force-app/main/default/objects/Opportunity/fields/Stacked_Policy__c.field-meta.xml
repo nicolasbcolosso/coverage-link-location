@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stacked_Policy__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Links the opportunity to a stacked policy, if applicable.</description>
+    <label>Stacked Policy</label>
+    <referenceTo>Policy__c</referenceTo>
+    <relationshipLabel>Opportunities (Stacked Policy)</relationshipLabel>
+    <relationshipName>Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

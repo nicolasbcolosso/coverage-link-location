@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Endorsement_PFA_Sent</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND(
+
+OR(
+ ISPICKVAL(Category__c , &quot;Cancellation (by Insured)&quot;),
+ ISPICKVAL(Category__c , &quot;Cancellation (Nonpayment)&quot;)
+),
+
+ISCHANGED(Stage__c),
+
+OR( 
+ ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;),
+ ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;)
+),
+
+Cancellation_Req_sent_to_Financing_Co__c  = FALSE,
+
+Policy_Billing__c = &quot;Premium Finance Agreement&quot;
+)</errorConditionFormula>
+    <errorMessage>Error: Need to notify premium finance company before processing cancellation endorsement</errorMessage>
+</ValidationRule>

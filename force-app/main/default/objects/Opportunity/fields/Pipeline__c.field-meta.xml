@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pipeline__c</fullName>
+    <label>Pipeline</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Carriers</fullName>
+                <default>false</default>
+                <label>Carriers</label>
+            </value>
+            <value>
+                <fullName>Channel Partners</fullName>
+                <default>false</default>
+                <label>Channel Partners</label>
+            </value>
+            <value>
+                <fullName>Claims</fullName>
+                <default>false</default>
+                <label>Claims</label>
+            </value>
+            <value>
+                <fullName>Deals in Process</fullName>
+                <default>false</default>
+                <label>Deals in Process</label>
+            </value>
+            <value>
+                <fullName>Endorsements</fullName>
+                <default>false</default>
+                <label>Endorsements</label>
+            </value>
+            <value>
+                <fullName>Health and Employee Benefits</fullName>
+                <default>false</default>
+                <label>Health and Employee Benefits</label>
+            </value>
+            <value>
+                <fullName>Leads</fullName>
+                <default>false</default>
+                <label>Leads</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>Policy Delivery</fullName>
+                <default>false</default>
+                <label>Policy Delivery</label>
+            </value>
+            <value>
+                <fullName>Probably Dead</fullName>
+                <default>false</default>
+                <label>Probably Dead</label>
+            </value>
+            <value>
+                <fullName>Renewals</fullName>
+                <default>false</default>
+                <label>Renewals</label>
+            </value>
+            <value>
+                <fullName>Wholesalers</fullName>
+                <default>false</default>
+                <label>Wholesalers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CannotCreateIncOrDecEndorsement</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+
+AND(ISNEW(), OR(ISPICKVAL(Category__c, &quot;Increase Limits&quot;), ISPICKVAL(Category__c, &quot;Decrease Limits&quot;)),  Policy__r.Limits_Endorsements__c &gt; 0)</errorConditionFormula>
+    <errorDisplayField>Admitted__c</errorDisplayField>
+    <errorMessage>Cannot create another endorsement with the category Increase Limits or Decrease Limits</errorMessage>
+</ValidationRule>

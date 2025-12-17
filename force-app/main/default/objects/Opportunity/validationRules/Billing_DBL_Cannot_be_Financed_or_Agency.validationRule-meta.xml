@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_DBL_Cannot_be_Financed_or_Agency</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND(
+ CONTAINS(Coverages__c, &quot;Disability&quot;), 
+ NOT(  Marketer_UW__c  = &quot;Lyons Global Insurance Services, LLC&quot;),
+ISCHANGED( StageName ),
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;),
+
+OR(
+ ISPICKVAL(Billing__c, &quot;Agency&quot;),
+ ISPICKVAL(Billing__c, &quot;Premium Finance Agreement&quot;))
+)</errorConditionFormula>
+    <errorMessage>Disability Policies cannot be Financed or Agency Bill</errorMessage>
+</ValidationRule>

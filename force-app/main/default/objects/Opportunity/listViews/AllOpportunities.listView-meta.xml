@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllOpportunities</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Approved_Proposal_Uploaded__c</columns>
+    <columns>Mailing_City__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Policy_Type_Status__c</columns>
+    <columns>Policy_Limits__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <columns>gaconnector_First_Click_Medium__c</columns>
+    <columns>gaconnector_First_Click_Referrer__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Contact_Person_Last_Name__c</field>
+        <operation>equals</operation>
+        <value>vincent ray</value>
+    </filters>
+    <label>All Opportunities</label>
+</ListView>

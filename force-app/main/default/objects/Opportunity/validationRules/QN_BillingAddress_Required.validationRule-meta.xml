@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QN_BillingAddress_Required</fullName>
+    <active>true</active>
+    <description>Mailing Address Req&apos;d at Need to Submit</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;,  CreatedBy.ProfileId = &quot;00e37000000fnZc&quot;,  BRP_Historical_Data__c = true)) &amp;&amp; 
+
+AND(
+Account.BillingCountry = &quot;United States&quot;,
+ISBLANK(  Mailing_Street__c  ),
+
+OR(
+ISPICKVAL( StageName , &quot;Qualification Needed&quot;),
+ISPICKVAL( StageName , &quot;Application Submitted&quot;),
+ISPICKVAL( StageName , &quot;Additional Info Needed&quot;),
+ISPICKVAL( StageName , &quot;Proposal Received&quot;),
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;)))</errorConditionFormula>
+    <errorDisplayField>Acceptance_Notes__c</errorDisplayField>
+    <errorMessage>Field Required: Mailing Address - **enter the Billing Address on the main Account page**</errorMessage>
+</ValidationRule>

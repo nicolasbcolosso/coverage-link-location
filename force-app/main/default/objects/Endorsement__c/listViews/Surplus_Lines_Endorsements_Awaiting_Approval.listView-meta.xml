@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surplus_Lines_Endorsements_Awaiting_Approval</fullName>
+    <columns>Policy__c</columns>
+    <columns>NAME</columns>
+    <columns>Premium_Change_Amount__c</columns>
+    <columns>Endorsement_Effective_Date__c</columns>
+    <columns>Endorsement_Filed_With_State__c</columns>
+    <columns>Approved_by_State__c</columns>
+    <columns>Taxes_Paid_to_State__c</columns>
+    <columns>Endorsement_Stamped__c</columns>
+    <columns>Account_Management_Rep__c</columns>
+    <columns>Account_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Surplus_Lines_Policy__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Endorsement_Filed_With_State__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Approved_by_State__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>Bind Order Sent,Delivered to Insured</value>
+    </filters>
+    <label>SL Endorsements: Awaiting Approval</label>
+    <sharedTo>
+        <group>Surplus_Lines_Filing</group>
+    </sharedTo>
+</ListView>

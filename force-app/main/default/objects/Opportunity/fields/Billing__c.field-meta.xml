@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing__c</fullName>
+    <label>Billing</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Direct</fullName>
+                <default>false</default>
+                <label>Direct</label>
+            </value>
+            <value>
+                <fullName>Premium Finance Agreement</fullName>
+                <default>false</default>
+                <label>Premium Finance Agreement</label>
+            </value>
+            <value>
+                <fullName>Ascend</fullName>
+                <default>false</default>
+                <label>Ascend</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

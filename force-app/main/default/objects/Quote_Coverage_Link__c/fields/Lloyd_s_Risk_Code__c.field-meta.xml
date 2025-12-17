@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lloyd_s_Risk_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+Name = &quot;Directors &amp; Officers&quot;, &quot;D2&quot;,
+IF(
+Name = &quot;Excess D&amp;O&quot;, &quot;D2&quot;,
+IF(
+Name = &quot;D&amp;O&quot;, &quot;D2&quot;,
+IF(
+Name = &quot;FMP M&amp;PL&quot;, &quot;D4&quot;,
+IF(
+Name = &quot;Excess EPL&quot;, &quot;D6&quot;,
+IF(
+Name = &quot;EPL&quot;, &quot;D6&quot;,
+IF(
+Name = &quot;FMP EPL&quot;, &quot;D6&quot;,
+IF(
+Name = &quot;Employment Practices Liability Insurance&quot;, &quot;D6&quot;,
+IF(
+Name = &quot;Excess FID&quot;, &quot;D2&quot;,
+IF(
+Name = &quot;FID&quot;, &quot;D2&quot;,
+IF(
+Name = &quot;Fiduciary Liability&quot;,&quot;D2&quot;,
+IF (
+Name = &quot;Key Man&quot;, &quot;50% PN / 50% KG&quot;, 
+IF (
+Name = &quot;FMP FID&quot;, &quot;D2&quot;,&quot;&quot;
+)))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lloyd&apos;s Risk Code</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

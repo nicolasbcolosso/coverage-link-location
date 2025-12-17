@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CNA_Hardford_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to determine how the Quote is processed for submission to Ascend, including payment and financing information, specifically for CNA, Hartford, and Chubb New Business accounts.</description>
+    <inlineHelpText>check this field only if account is CNA, Hardford or Chubb New Business.</inlineHelpText>
+    <label>Is CNA/Hardford Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

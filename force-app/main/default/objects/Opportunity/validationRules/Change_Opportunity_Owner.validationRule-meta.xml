@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Change_Opportunity_Owner</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp; 
+
+AND(
+ ISPICKVAL( StageName , &quot;Need To Submit&quot;),
+ Owner.Alias= &quot;FSAPI&quot;
+)</errorConditionFormula>
+    <errorMessage>Silly! Dogs cant own opportunities! Change Opportunity Owner</errorMessage>
+</ValidationRule>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ella_Loss_Runs__c</fullName>
+    <description>This is a formula field for who should receive the Loss Runs email in Zapier.</description>
+    <externalId>false</externalId>
+    <formula>IF(Marketer_UW_Name__r.Full_Name__c = &apos;Jon Reiner&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Frank Barba&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Michael Freishtat&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Nishat Khan&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Lauren Buchholtz&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Kendall Bundy&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Rob Crocitto&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Eric Kerr&apos;, &apos;hannah.friedlich@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Matt Shanks&apos;, &apos;tyhea.wright@amwins.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Matt Athey&apos;, &apos;tyhea.wright@amwins.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Kim Zappa-Jackson&apos;, &apos;tyhea.wright@amwins.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Corey Turner&apos;, &apos;tyhea.wright@amwins.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Steve Schell&apos;, &apos;loretta.ruvolo@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Gregg Guerreiro&apos;, &apos;Dyenie.Efendi@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Doug Cordi&apos;, &apos;Dyenie.Efendi@rtspecialty.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Chris Kelly&apos;, &apos;InternationalLossRuns@cna.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Scale Underwriting&apos;, &apos;underwriting@scaleunderwriting.com&apos;,
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Brad Hermanson&apos;, &apos;InternationalLossRuns@cna.com&apos;,
+IF(Marketer_UW_Name__r.Account.Name = &apos;Decus Brokers&apos;,&apos;claims@decusbrokers.com&apos;, 
+IF(Marketer_UW_Name__r.Full_Name__c = &apos;Andrea Ward&apos;, null,
+ Marketer_UW_Email__c ))))))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Ella Loss Runs</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

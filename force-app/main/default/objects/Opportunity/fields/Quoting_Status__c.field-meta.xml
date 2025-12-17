@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quoting_Status__c</fullName>
+    <description>Do not use anymore</description>
+    <externalId>false</externalId>
+    <formula>IF(Auto_Renewal__c,&quot;&quot;,
+
+IF(ISPICKVAL(StageName,&apos;Need to Submit&apos;), IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqo&apos;,&quot;&quot;),
+
+IF(AND(Number_of_Received_Quotes__c &gt;= 1, Greater_Premium__c), IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqt&apos;,&quot;&quot;),
+
+IF(AND(Number_of_Received_Quotes__c &gt;= 1, !Greater_Premium__c), IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDJB&apos;,&quot;&quot;),
+
+
+IF(AND(ISPICKVAL(StageName,&apos;Application Submitted&apos;), Number_of_Open_Quotes__c&gt;=0), IMAGE(&apos;/resource/1563975910000/purple&apos;,&quot;&quot;,16,16),&quot;&quot;
+
+)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Quoting Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

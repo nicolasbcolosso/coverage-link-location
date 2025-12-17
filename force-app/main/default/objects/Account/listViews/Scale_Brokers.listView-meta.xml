@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Brokers</fullName>
+    <columns>X18_Digit_ID__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>QBO_Error__c</columns>
+    <columns>QBO_Has_Error__c</columns>
+    <columns>QBO_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Scale_Broker</value>
+    </filters>
+    <label>Scale Brokers</label>
+    <sharedTo>
+        <group>Scale_Underwriter_Users</group>
+    </sharedTo>
+</ListView>

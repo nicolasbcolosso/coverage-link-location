@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Health_Benefits</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Endt_Compact_Layout</compactLayoutAssignment>
+    <description>For tracking Health and Benefits endorsements</description>
+    <label>Health &amp; Benefits</label>
+    <picklistValues>
+        <picklist>Admitted__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Billing__c</picklist>
+        <values>
+            <fullName>Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium Finance Agreement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>Add Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Add Location</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Add Named Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Additional Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancel%2FRewrite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation %28Noncompliance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation %28Nonpayment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation %28Tail in Place%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation %28by Insured%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commission Statement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Coverage Extension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decrease Limits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Increase Limits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inspection Recommendation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Location Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loss Payee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailing Address Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Miscellaneous Policy Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Name Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notice of Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Off Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PEO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RMDA Monthly Reporting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RMDA Quarterly Billing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rating Basis Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reinstatement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remove Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remove Location</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tail Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiver of Subrogation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LPR_TYPE__c</picklist>
+        <values>
+            <fullName>CANCELLATION REQUEST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POLICY RELEASE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Method_Of_Cancellation__c</picklist>
+        <values>
+            <fullName>FLAT</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>PRO RATA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SHORT RATE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Method__c</picklist>
+        <values>
+            <fullName>ACH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Premium_Change_Type__c</picklist>
+        <values>
+            <fullName>Annually</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pro Rata</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stage__c</picklist>
+        <values>
+            <fullName>Bind Order Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation Notice Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation Processed%2FTail in Place</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation in Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commission Payment Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commission Statement Uploaded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delivered to Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endorsement Quote Presented</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Included in Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requested by Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rescinded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted to Carrier</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

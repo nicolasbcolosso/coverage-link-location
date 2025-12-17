@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vertical__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(High_Level_Industry__c = &apos;Biotech / Pharmaceuticals&apos;, &apos;Life Science&apos;,
+IF(High_Level_Industry__c = &apos;Healthcare / Healthtech&apos;, &apos;Life Science&apos;,
+IF(High_Level_Industry__c = &apos;Financial Services&apos;, &apos;FI&apos;,
+IF(High_Level_Industry__c = &apos;Financial Technology&apos;, &apos;FI&apos;,
+IF(High_Level_Industry__c = &apos;Blockchain / Crypto&apos;, &apos;FI&apos;,
+IF(High_Level_Industry__c = &apos;SaaS / Technology&apos;, &apos;Tech/Media&apos;,
+IF(High_Level_Industry__c = &apos;Education / Education Technology&apos;, &apos;Tech/Media&apos;,
+IF(High_Level_Industry__c = &apos;Marketing, Advertising &amp; Media&apos;, &apos;Tech/Media&apos;,
+IF(High_Level_Industry__c = &apos;Hospitality / Lodging&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Manufacturing&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Professional Services&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;E-Commerce &amp; Retail&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Transportation &amp; Mobility&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Non-Profit&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Other&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Delivery, Shipping &amp; Logistics&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Real Estate&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Contractor&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Restaurants &amp; Entertainment&apos;, &apos;Traditional/MVMT&apos;,
+IF(High_Level_Industry__c = &apos;Cannabis&apos;, &apos;Cannabis&apos;,
+IF(High_Level_Industry__c = &apos;Agriculture&apos;, &apos;Cannabis&apos;,
+IF(High_Level_Industry__c = &apos;Holistic Wellness&apos;, &apos;Cannabis&apos;,
+IF(High_Level_Industry__c = &apos;Psychedelics&apos;, &apos;Cannabis&apos;,
+null)))))))))))))))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Vertical</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

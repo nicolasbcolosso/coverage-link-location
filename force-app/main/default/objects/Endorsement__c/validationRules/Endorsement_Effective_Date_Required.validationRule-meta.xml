@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Endorsement_Effective_Date_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+NOT(RecordType.Name = &quot;Scale&quot;), 
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2022-11-01&quot;),
+
+OR(
+ISPICKVAL(Stage__c, &quot;Bind Order Sent&quot;),
+ISPICKVAL(Stage__c, &quot;Delivered to Insured&quot;)),
+
+ISBLANK( Endorsement_Effective_Date__c ))</errorConditionFormula>
+    <errorDisplayField>Endorsement_Effective_Date__c</errorDisplayField>
+    <errorMessage>Field Required: Endorsement Effective Date</errorMessage>
+</ValidationRule>

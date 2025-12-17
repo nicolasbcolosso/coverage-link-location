@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Received_Checking</fullName>
+    <columns>Policy__c</columns>
+    <columns>NAME</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Payment_Received__c</columns>
+    <columns>Total_Cost__c</columns>
+    <columns>Billing__c</columns>
+    <columns>Invoice_Uploaded__c</columns>
+    <columns>Endorsement_Effective_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Endorsement_Effective_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>1/1/2022</value>
+    </filters>
+    <filters>
+        <field>Billing__c</field>
+        <operation>notContain</operation>
+        <value>Direct</value>
+    </filters>
+    <filters>
+        <field>Payment_Received__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Endorsement__c.Endorsement</value>
+    </filters>
+    <filters>
+        <field>Total_Cost__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Payment Needed FS</label>
+</ListView>

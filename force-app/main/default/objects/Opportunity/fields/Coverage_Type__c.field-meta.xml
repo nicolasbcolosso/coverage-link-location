@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coverage_Type__c</fullName>
+    <description>For Scale</description>
+    <label>Coverage Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ML - D&amp;O</fullName>
+                <default>false</default>
+                <label>ML - D&amp;O</label>
+            </value>
+            <value>
+                <fullName>ML - D&amp;O, EPL</fullName>
+                <default>false</default>
+                <label>ML - D&amp;O, EPL</label>
+            </value>
+            <value>
+                <fullName>ML - D&amp;O, EPL, FID</fullName>
+                <default>false</default>
+                <label>ML - D&amp;O, EPL, FID</label>
+            </value>
+            <value>
+                <fullName>ML - D&amp;O, FID</fullName>
+                <default>false</default>
+                <label>ML - D&amp;O, FID</label>
+            </value>
+            <value>
+                <fullName>ML - Excess D&amp;O</fullName>
+                <default>false</default>
+                <label>ML - Excess</label>
+            </value>
+            <value>
+                <fullName>E&amp;O</fullName>
+                <default>false</default>
+                <label>E&amp;O</label>
+            </value>
+            <value>
+                <fullName>CFI</fullName>
+                <default>false</default>
+                <label>CFI</label>
+            </value>
+            <value>
+                <fullName>Influencer</fullName>
+                <default>false</default>
+                <label>Influencer - Individual</label>
+            </value>
+            <value>
+                <fullName>Influencer - Agency</fullName>
+                <default>false</default>
+                <label>Influencer - Agency</label>
+            </value>
+            <value>
+                <fullName>Influencer - Media</fullName>
+                <default>false</default>
+                <label>Influencer - Media</label>
+            </value>
+            <value>
+                <fullName>Fleet Shield</fullName>
+                <default>false</default>
+                <label>Fleet Shield</label>
+            </value>
+            <value>
+                <fullName>ML - EPL</fullName>
+                <default>false</default>
+                <label>ML - EPL</label>
+            </value>
+            <value>
+                <fullName>FMP M&amp;PL</fullName>
+                <default>false</default>
+                <label>FMP M&amp;PL</label>
+            </value>
+            <value>
+                <fullName>FMP M&amp;PL, EPL</fullName>
+                <default>false</default>
+                <label>FMP M&amp;PL, EPL</label>
+            </value>
+            <value>
+                <fullName>FMP M&amp;PL, FID</fullName>
+                <default>false</default>
+                <label>FMP M&amp;PL, FID</label>
+            </value>
+            <value>
+                <fullName>FMP M&amp;PL, EPL, FID</fullName>
+                <default>false</default>
+                <label>FMP M&amp;PL, EPL, FID</label>
+            </value>
+            <value>
+                <fullName>Public D&amp;O</fullName>
+                <default>false</default>
+                <label>Public D&amp;O</label>
+            </value>
+            <value>
+                <fullName>Lead Side A</fullName>
+                <default>false</default>
+                <label>Lead Side A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

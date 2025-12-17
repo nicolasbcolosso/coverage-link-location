@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_Alex_s_Endorsements_Not_Delivered</fullName>
+    <columns>Policy__c</columns>
+    <columns>NAME</columns>
+    <columns>Stage__c</columns>
+    <columns>Endorsement_Effective_Date__c</columns>
+    <columns>Payment_Received__c</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Premium_Change_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Delivered to Insured,Closed Lost,Cancelled,Rescinded,Cancellation Processed/Tail in Place,Commission Statement Uploaded,Commission Payment Received,Paid</value>
+    </filters>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>equals</operation>
+        <value>Alex Caballero</value>
+    </filters>
+    <label>Alex Endorsements (Not Delivered)</label>
+</ListView>

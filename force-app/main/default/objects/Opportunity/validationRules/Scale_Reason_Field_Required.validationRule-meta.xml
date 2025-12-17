@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Reason_Field_Required</fullName>
+    <active>true</active>
+    <description>If a Scale opportunity record is in declined, Closed/Lost, or Could Not Compete, reason can&apos;t be blank.</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Scale&quot;,
+OR(
+ISPICKVAL (StageName , &quot;Declined&quot;),
+ISPICKVAL (StageName , &quot;Could Not Compete&quot;),
+ISPICKVAL (StageName , &quot;Closed Lost&quot;)
+),
+ISBLANK(TEXT(Reason__c))
+)</errorConditionFormula>
+    <errorMessage>Field Required: Reason Field must be filled out for Declined, Could Not Compete, and Closed Lost.</errorMessage>
+</ValidationRule>

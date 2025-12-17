@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Active_AlphaRoot_Ops</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.NEXT_STEP</columns>
+    <columns>Targeted_Premium__c</columns>
+    <columns>Target_Bind_Date__c</columns>
+    <columns>Target_Aggregate_Limit__c</columns>
+    <columns>Target_Occurrence_Limit__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Policy_Type_Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Alpharoot</value>
+    </filters>
+    <label>All Active AlphaRoot Ops</label>
+    <sharedTo>
+        <group>AlphaRoot</group>
+    </sharedTo>
+</ListView>

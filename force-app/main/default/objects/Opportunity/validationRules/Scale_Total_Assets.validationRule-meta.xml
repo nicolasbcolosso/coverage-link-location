@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Total_Assets</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+($RecordType.Name = &quot;Scale&quot;) &amp;&amp; 
+
+AND(
+ISCHANGED ( StageName), 
+ISPICKVAL (  StageName , &quot;Quoted&quot;),
+NOT( CONTAINS(Name , &quot;(CPI)&quot;)),
+ ISBLANK ( Total_Assets__c  )
+)</errorConditionFormula>
+    <errorMessage>Qualifying Information: Total Assets is required</errorMessage>
+</ValidationRule>

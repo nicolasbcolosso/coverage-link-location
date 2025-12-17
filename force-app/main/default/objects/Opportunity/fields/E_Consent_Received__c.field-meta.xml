@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E_Consent_Received__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If box is checked value on Policy is YES, if box is not checked value is NO or has not been populated.</inlineHelpText>
+    <label>E-Consent Received</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

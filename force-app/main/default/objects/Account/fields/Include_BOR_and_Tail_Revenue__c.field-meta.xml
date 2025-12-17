@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Include_BOR_and_Tail_Revenue__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is used by the BatchtoCalculateAnnualRevenue batch process to determine whether to include &apos;Tail/Run-Off&apos; and &apos;BOR’d Away&apos; revenue when calculating annual revenue for this account.</description>
+    <inlineHelpText>Select this checkbox to include &apos;Tail/Run-Off&apos; and &apos;BOR’d Away&apos; revenue in the annual revenue calculation for this account.</inlineHelpText>
+    <label>Include BOR and Tail Revenue</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

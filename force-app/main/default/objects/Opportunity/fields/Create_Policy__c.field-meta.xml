@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Policy__c</fullName>
+    <formula>if ( 
+ Number_of_Policies__c = 0
+&amp;&amp; RecordTypeId == &quot;01237000000AXl3&quot;
+&amp;&amp; RecordTypeId == &quot;01237000000AaEN&quot;
+&amp;&amp; ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;), true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Create Policy</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hartford_Renewals_Must_be_Direct_Bill</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp; 
+
+AND( 
+ISPICKVAL( Policy_Type_Status__c , &quot;Renewal&quot;), 
+ISPICKVAL( Billing__c , &quot;Agency&quot;),
+ISCHANGED( StageName),  
+ISPICKVAL( StageName, &quot;Proposal Approved/Closed Won&quot;), 
+Marketer_UW_Name__c = &quot;003370000047Wp3&quot; 
+)</errorConditionFormula>
+    <errorMessage>Hartford Renewals are direct bill only</errorMessage>
+</ValidationRule>

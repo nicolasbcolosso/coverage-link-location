@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Employees_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+($RecordType.Name = &quot;Scale&quot;) &amp;&amp; 
+
+AND(
+ISCHANGED ( StageName), 
+ISPICKVAL (  StageName , &quot;Quoted&quot;),
+NOT( CONTAINS(Name , &quot;(CPI)&quot;)),
+ ISBLANK ( Number_of_Employees__c  )
+)</errorConditionFormula>
+    <errorMessage>Qualifying Information: Number of Employees is required</errorMessage>
+</ValidationRule>

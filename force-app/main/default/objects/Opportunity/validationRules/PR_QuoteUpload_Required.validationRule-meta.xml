@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_QuoteUpload_Required</fullName>
+    <active>false</active>
+    <description>Upload Insurance Quote @ Proposal Received</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;)  &amp;&amp;
+
+AND(
+
+OR(
+
+ISPICKVAL( StageName , &quot;Proposal Received&quot;),
+ISPICKVAL( StageName , &quot;Proposal Presented&quot;),
+ISPICKVAL( StageName , &quot;Proposal Approved/Closed Won&quot;)),
+
+Quote_Documents_Uploaded__c = FALSE)</errorConditionFormula>
+    <errorMessage>Field Required: Quote Documents Uploaded</errorMessage>
+</ValidationRule>

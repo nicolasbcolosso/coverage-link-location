@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AR_Opps__c</fullName>
+    <label>AR Opps</label>
+    <summaryFilterItems>
+        <field>Opportunity.Record_Type__c</field>
+        <operation>equals</operation>
+        <value>Alpharoot</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cbit__ClearbitDomain__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(
+if(find(&quot;/&quot;,if(find(&quot;www.&quot;,Website)&gt;0,IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//www.&quot;,Website)+5),NULL),Website),IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//&quot;,Website)+1),NULL),Website)))&gt;0,left(if(find(&quot;www.&quot;,Website)&gt;0,IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//www.&quot;,Website)+5),NULL),Website),IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//&quot;,Website)+1),NULL),Website)),find(&quot;/&quot;,if(find(&quot;www.&quot;,Website)&gt;0,IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//www.&quot;,Website)+5),NULL),Website),IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//&quot;,Website)+1),NULL),Website)))-1),if(find(&quot;www.&quot;,Website)&gt;0,IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//www.&quot;,Website)+5),NULL),Website),IF(FIND(&quot;//&quot;,Website)&gt;0,substitute(Website,left(Website,find(&quot;//&quot;,Website)+1),NULL),Website)))
+
+,&apos;www.&apos;, &apos;&apos;)</formula>
+    <label>Clearbit Domain</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

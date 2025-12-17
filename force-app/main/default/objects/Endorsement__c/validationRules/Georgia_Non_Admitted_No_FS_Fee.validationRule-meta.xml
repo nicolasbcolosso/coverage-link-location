@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Georgia_Non_Admitted_No_FS_Fee</fullName>
+    <active>true</active>
+    <description>If the Shipping/Location State = Georgia, Admitted = No then FS Fee has to be 0.</description>
+    <errorConditionFormula>AND(
+Account_Location_State__c  = &quot;Georgia&quot;,
+ISPICKVAL(Admitted__c, &quot;No&quot;),
+FS_Fee__c   &lt;&gt;  0)</errorConditionFormula>
+    <errorMessage>If the Shipping/Location State = Georgia, Admitted = No then FS Fee has to be 0.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fill_out_payment_fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; RecordType.Name &lt;&gt; &quot;Scale&quot; &amp;&amp;
+
+AND( 
+ISCHANGED(Stage__c),
+OR(
+ISPICKVAL( Stage__c , &quot;Bind Order Sent&quot;),
+ISPICKVAL( Stage__c , &quot;Delivered to Insured&quot;)
+), 
+(NOT(ISPICKVAL( Category__c, &quot;Cancellation (by Insured)&quot;))), 
+OR( 
+ISBLANK(Premium_Change_Amount__c), 
+ISBLANK(Policy_Fees_Taxed__c), 
+ISBLANK(Wholesale_Fees__c), 
+ISBLANK(State_Tax__c), 
+ISBLANK(State_Stamping_Fee__c), 
+ISBLANK(State_Fees_Other__c), 
+ISBLANK(FS_Fee__c) 
+) 
+)</errorConditionFormula>
+    <errorMessage>Pricing must be entered when stage is Bind Order Sent or Delivered to Insured. (Put 0&apos;s where applicable, don&apos;t leave blank).</errorMessage>
+</ValidationRule>
