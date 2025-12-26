@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Debt_to_Equity_Position_factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>A. Above average:	0.9
+B. Average:	1 - 1.1
+C. Below average: 	1.1 - 1.75</inlineHelpText>
+    <label>Corporate Governance (Factor)</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

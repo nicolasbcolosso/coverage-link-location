@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Required</fullName>
+    <active>false</active>
+    <description>Must upload the policy</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+AND(ISPICKVAL( Stage__c , &quot;Policy Delivered / Closed Won&quot;), Policy_Uploaded__c = FALSE)</errorConditionFormula>
+    <errorMessage>Field Required: Policy Uploaded</errorMessage>
+</ValidationRule>

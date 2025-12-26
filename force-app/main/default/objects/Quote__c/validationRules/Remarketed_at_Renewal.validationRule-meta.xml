@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remarketed_at_Renewal</fullName>
+    <active>false</active>
+    <description>vertical leads mentioned we can turn this off 6/24</description>
+    <errorConditionFormula>NOT(OR(
+RecordType.DeveloperName = &apos;Scale_Received&apos;,
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;, RecordType.DeveloperName =&apos;HB_Open&apos;,
+RecordType.DeveloperName =&apos;H_B_Received&apos;
+))&amp;&amp;
+IF(AND(TEXT( Opportunity__r.Policy_Type_Status__c ) = &quot;Renewal&quot;,
+ISPICKVAL(Status__c,&quot;Accepted&quot;),
+NOT(ISBLANK(Opportunity__r.Origin_Policy__c)),
+Opportunity__r.Origin_Policy__r.Carrier_Issuing_Company__c &lt;&gt; Carrier_Issuing_Company__c), TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>If Policy is being Remarketed the Opp must be marked as Remarketed at Renewal and not just Renewal.</errorMessage>
+</ValidationRule>

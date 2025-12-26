@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NJ_SLA_Number__c</fullName>
+    <description>Populated automatically.
+IF NJ_SLA_Number__c  is null and 
+Billing State = New Jersey OR ShippingState = New Jersey 
+AND Effective Date &gt; (2022, 1, 1) AND  Stage__c = &apos;In Processing&apos;
+AND Record Type = &apos;Founder Shield&apos; OR Record Type = (Re Shield) OR Record Type = &apos;Alpha Root&apos;</description>
+    <encryptionScheme>None</encryptionScheme>
+    <externalId>false</externalId>
+    <inlineHelpText>Automatically populated if Billing/Shipping state = NJ, SL Policy = true, policy stage = In Processing</inlineHelpText>
+    <label>NJ SLA Number</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

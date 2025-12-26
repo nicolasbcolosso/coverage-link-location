@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rater_Range_Deriv_Demand_Investigation</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, 
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;) &amp;&amp;
+
+OR(
+ Deriv_Demand_Investigation_Cost_Factor__c &lt; 1.00,
+Deriv_Demand_Investigation_Cost_Factor__c &gt; 1.10)</errorConditionFormula>
+    <errorMessage>Deriv Demand Investigation Cost (Factor) is not within the valid range</errorMessage>
+</ValidationRule>

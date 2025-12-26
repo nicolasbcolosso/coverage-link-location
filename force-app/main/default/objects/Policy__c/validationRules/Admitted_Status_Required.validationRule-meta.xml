@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Admitted_Status_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;, Override_Policy_VR__c = true)) &amp;&amp; 
+
+AND(ISBLANK(TEXT(Admitted__c)), 
+
+OR(
+ ISPICKVAL( Stage__c, &quot;Policy Received&quot;),
+ ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot;),
+ ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot;)
+ )
+)</errorConditionFormula>
+    <errorMessage>Field Required: Admitted</errorMessage>
+</ValidationRule>

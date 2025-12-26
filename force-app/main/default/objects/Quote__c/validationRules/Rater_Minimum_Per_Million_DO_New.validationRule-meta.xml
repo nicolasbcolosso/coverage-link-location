@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rater_Minimum_Per_Million_DO_New</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, 
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;) &amp;&amp; 
+
+
+OR(
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$500,000&quot;), D_O_Rate_Per_Million_New__c &lt; 4000),
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$1,000,000&quot;), D_O_Rate_Per_Million_New__c &lt; 4000),
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$2,000,000&quot;), D_O_Rate_Per_Million_New__c &lt; 3500),
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$3,000,000&quot;), D_O_Rate_Per_Million_New__c &lt; 3150),
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$4,000,000&quot;), D_O_Rate_Per_Million_New__c &lt; 2950),
+AND( ISPICKVAL( D_O_Limit_Modifier_Limit__c , &quot;$5,000,000&quot;), D_O_Rate_Per_Million_New__c &lt; 2600)
+)
+
+&amp;&amp;
+
+CONTAINS(Coverages__c, &quot;Director&quot;)</errorConditionFormula>
+    <errorMessage>D&amp;O Rate Per Million is too low</errorMessage>
+</ValidationRule>

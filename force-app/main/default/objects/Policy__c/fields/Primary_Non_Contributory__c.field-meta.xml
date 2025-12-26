@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Non_Contributory__c</fullName>
+    <label>Primary &amp; Non - Contributory</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Blanket - Written Contract</fullName>
+                <default>false</default>
+                <label>Blanket - Written Contract</label>
+            </value>
+            <value>
+                <fullName>Scheduled (Specific Entity)</fullName>
+                <default>false</default>
+                <label>Scheduled (Specific Entity)</label>
+            </value>
+            <value>
+                <fullName>Primary Only (Not Non - Contributory)</fullName>
+                <default>false</default>
+                <label>Primary Only (Not Non - Contributory)</label>
+            </value>
+            <value>
+                <fullName>Ongoing Operations Only</fullName>
+                <default>false</default>
+                <label>Ongoing Operations Only</label>
+            </value>
+            <value>
+                <fullName>Ongoing &amp; Completed Operations</fullName>
+                <default>false</default>
+                <label>Ongoing &amp; Completed Operations</label>
+            </value>
+            <value>
+                <fullName>Other (Explain in List of Endorsements)</fullName>
+                <default>false</default>
+                <label>Other (Explain in List of Endorsements)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

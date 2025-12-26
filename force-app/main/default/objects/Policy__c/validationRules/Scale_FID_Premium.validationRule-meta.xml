@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_FID_Premium</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp;
+
+
+AND(ISPICKVAL(Stage__c, &quot;Policy Delivered / Closed Won&quot;),
+$RecordType.Name = &quot;Scale&quot;,
+FID_Rated_Premium__c  &gt; 0, 
+NOT(Contains(Coverages__c,&quot;Fiduciary&quot;)),
+NOT(Contains(Coverages__c,&quot;Excess FID&quot;)))</errorConditionFormula>
+    <errorDisplayField>FID_Rated_Premium__c</errorDisplayField>
+    <errorMessage>There is no FID or Excess FID coverage. Check the FID Rated Premium field!</errorMessage>
+</ValidationRule>

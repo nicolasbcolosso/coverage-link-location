@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RI_Tax_Docs__c</fullName>
+    <description>To be used on tax docs in DocGen</description>
+    <formula>OR(
+AND(
+OR(
+Marketer_UW__c = &quot;Lyons Global Insurance Services, LLC&quot;,
+Marketer_UW__c = &quot;INSUREtrust&quot;,
+Marketer_UW__c = &quot;RT Chicago&quot;,
+Marketer_UW__c = &quot;RT New York&quot;,
+Marketer_UW__c = &quot;RT San Francisco&quot;,
+Marketer_UW__c = &quot;RT Specialty, LLC - Melville&quot;,
+Marketer_UW__c = &quot;AmWINS Brokerage of Georgia, LLC&quot;,
+Marketer_UW__c = &quot;RT Connecticut&quot;,
+Marketer_UW__c = &quot;RT Philadelphia&quot;,
+Marketer_UW__c = &quot;RT Specialty - Tampa&quot;,
+Marketer_UW__c = &quot;RT Dallas&quot;,
+Marketer_UW__c = &quot;RT Specialty - Buffalo&quot;,
+Marketer_UW__c = &quot;RT Specialty - Houston&quot;,
+Marketer_UW__c = &quot;RT Specialty - Hartford&quot;,
+Marketer_UW__c = &quot;RT Kansas City&quot;,
+Marketer_UW__c = &quot;Elpha Secure&quot;,
+Marketer_UW__c = &quot;RT Specialty&quot;,
+Marketer_UW__c = &quot;RT Specialty - Dallas&quot;,
+Marketer_UW__c = &quot;Citadel Insurance Services&quot;,
+Marketer_UW__c = &quot;AFR Insurance Services&quot;,
+Marketer_UW__c = &quot;RT Specialty Insurance Services, LLC – Sacramento&quot;,
+Marketer_UW__c = &quot;Conway E&amp;S&quot;,
+Marketer_UW__c = &quot;CRC Insurance&quot;,
+Marketer_UW__c = &quot;Founders Professional LLC&quot;,
+Marketer_UW__c = &quot;Scottish American&quot;,
+Marketer_UW__c = &quot;tKg Comp&quot;,
+Marketer_UW__c = &quot;All Risks Ltd&quot;,
+Marketer_UW__c = &quot;AmWINS Group&quot;,
+Marketer_UW__c = &quot;AmRisc&quot;,
+Marketer_UW__c = &quot;Wildstein Group&quot;,
+Marketer_UW__c = &quot;Insurance Noodle&quot;,
+Marketer_UW__c = &quot;Evolve MGA&quot;,
+Marketer_UW__c = &quot;Cannasure Insurance Services LLC&quot;,
+Marketer_UW__c = &quot;Alive Risk&quot;,
+Marketer_UW__c = &quot;Jimcor Agencies&quot;,
+Marketer_UW__c = &quot;Maximum&quot;,
+Marketer_UW__c = &quot;Northeast Coverages&quot;,
+Marketer_UW__c = &quot;Proof Insurance&quot;,
+Marketer_UW__c = &quot;Quadscore&quot;,
+Marketer_UW__c = &quot;GATEWAY INSURANCE COMPANY&quot;,
+Marketer_UW__c = &quot;Sycamore Insurance Agency, Inc&quot;,
+Marketer_UW__c = &quot;Belpointe Specialty Insurance, LLC&quot;,
+Marketer_UW__c = &quot;Risk Placement Services, Inc&quot;,
+Marketer_UW__c = &quot;BFL Canada&quot;,
+Marketer_UW__c = &quot;International Excess&quot;,
+Marketer_UW__c = &quot;CRC San Francisco&quot;,
+Marketer_UW__c = &quot;Professional Program Insurance Brokerage&quot;,
+Marketer_UW__c = &quot;Next Wave Insurance Services, LLC&quot;,
+Marketer_UW__c = &quot;McGowan Programs&quot;,
+Marketer_UW__c = &quot;Fairmatic&quot;,
+Marketer_UW__c = &quot;Apollo Brokers&quot;,
+Marketer_UW__c = &quot;Vanbridge LLC&quot;,
+Marketer_UW__c = &quot;Bass Underwriters&quot;,
+Marketer_UW__c = &quot;All Risk Services&quot;,
+Marketer_UW__c = &quot;Jencap Holdings LLC&quot;,
+Marketer_UW__c = &quot;NSM Insurance Group&quot;
+),
+ISPICKVAL(Admitted__c, &quot;No&quot;),
+Surplus_Lines_Policy__c = false,
+
+OR(
+ISPICKVAL(Policy_Type_Status__c, &quot;New Business - BOR&quot;),
+ISPICKVAL(Policy_Type_Status__c, &quot;New Business&quot;),
+ISPICKVAL(Policy_Type_Status__c, &quot;Remarketed at Renewal&quot;)
+)
+),
+AND(
+Surplus_Lines_Policy__c = true,
+OR(
+ISPICKVAL(Policy_Type_Status__c, &quot;New Business - BOR&quot;),
+ISPICKVAL(Policy_Type_Status__c, &quot;New Business&quot;),
+ISPICKVAL(Policy_Type_Status__c, &quot;Remarketed at Renewal&quot;),
+Bypass_Tax_Doc_Formula__c = true
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RI Tax Docs</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

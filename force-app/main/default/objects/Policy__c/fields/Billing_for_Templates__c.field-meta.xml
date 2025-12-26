@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_for_Templates__c</fullName>
+    <description>SF-1290</description>
+    <externalId>false</externalId>
+    <formula>CASE(Billing__c,
+    &quot;Agency&quot;, &quot;Agency&quot;,
+    &quot;Direct&quot;, &quot;Direct&quot;,
+    &quot;Premium Finance Agreement&quot;, &quot;Premium Finance Agreement&quot;,
+    &quot;Ascend&quot;, &quot;Agency&quot;,
+    null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Billing for Templates</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

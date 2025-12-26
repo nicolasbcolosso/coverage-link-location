@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APEX_Account_ID</fullName>
+    <active>true</active>
+    <description>Cannot Show in APEX if Account Apex ID is blank.</description>
+    <errorConditionFormula>AND(
+Show_in_APEX_fs__c = true,
+Opportunity__r.Account.APEX_Account_ID__c = &quot;&quot;)</errorConditionFormula>
+    <errorMessage>This Account needs an APEX Account ID. Reach out to Alyssa for assistance.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SL_Wholesaler_Policy_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Use this field to override the SL Wholesaler Policy Workflow
+
+SF - 1487</description>
+    <inlineHelpText>Use this field to override the SL Wholesaler Workflow</inlineHelpText>
+    <label>SL Wholesaler Policy Override</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

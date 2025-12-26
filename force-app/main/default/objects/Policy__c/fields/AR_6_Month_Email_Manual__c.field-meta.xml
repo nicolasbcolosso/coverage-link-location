@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AR_6_Month_Email_Manual__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to manually trigger AR 6 Month Email</description>
+    <label>AR 6 Month Email_Manual</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

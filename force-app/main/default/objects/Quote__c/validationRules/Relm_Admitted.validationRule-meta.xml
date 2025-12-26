@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relm_Admitted</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;)),
+ISPICKVAL( Status__c, &quot;Received&quot;),
+Carrier_Issuing_Company__r.Name = &quot;Relm Insurance, Ltd.&quot;,
+ISPICKVAL(  Admitted__c , &quot;No&quot;)
+)</errorConditionFormula>
+    <errorMessage>If Carrier = Relm it has to be admitted!</errorMessage>
+</ValidationRule>

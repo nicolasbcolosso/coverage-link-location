@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Received</fullName>
+    <active>true</active>
+    <description>Payment must be received. Excludes NB BOR policies.</description>
+    <errorConditionFormula>AND(
+ IF(ISCHANGED(Policy_Type_Status__c), 
+ NOT(AND(ISPICKVAL(Policy_Type_Status__c, &quot;Cancel/Rewrite&quot;), 
+ TEXT(PRIORVALUE(Policy_Type_Status__c)) = &quot;New Business - BOR&quot;
+)), true),
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;Cancel/Rewrite&quot;) &amp;&amp; Previous_Policy_Type_Status_c__c == &quot;New Business - BOR&quot;),
+OR(
+$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; $Profile.Name &lt;&gt; &quot;API User&quot; &amp;&amp; NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;ReShield&quot;, $RecordType.Name = &quot;Scale&quot;,  BRP_Historical_Data__c = true,  Override_Policy_VR__c = true)) 
+&amp;&amp; 
+
+AND(
+
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;New Business - BOR&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;Cancelled - Nonpayment&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;Cancelled by Insured&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;New Business - BOR to Cancel&quot;)),
+NOT(ISPICKVAL(Billing__c , &quot;Direct&quot;)),
+NOT (ISPICKVAL ( Billing__c, &quot;Ascend&quot;)),
+
+OR(
+ISPICKVAL( Stage__c, &quot;Policy Received&quot;),
+ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot;),
+ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot;)
+),
+
+Payment_Received__c = FALSE
+),
+
+$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+($RecordType.Name = &quot;ReShield&quot;) &amp;&amp; 
+
+AND(
+
+OR(
+ISPICKVAL( Stage__c, &quot;Policy Received&quot;),
+ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot;)
+),
+
+Payment_Received__c = FALSE
+)
+),
+!isVRBypassed__c
+)</errorConditionFormula>
+    <errorMessage>Field Required: Payment Received - Please reach out to Accounting if you are receiving this error.</errorMessage>
+</ValidationRule>

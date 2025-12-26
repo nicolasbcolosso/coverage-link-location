@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_status_can_not_be_indication</fullName>
+    <active>true</active>
+    <description>The validation is used to prevent set &quot;Indication&quot; status in &quot;Scale&quot; record types.</description>
+    <errorConditionFormula>TEXT(Status__c) == &apos;Indication&apos;
+&amp;&amp; CONTAINS(RecordType.Name, &apos;Scale&apos;)</errorConditionFormula>
+    <errorMessage>The status cannot be set to &apos;Indication&apos; for Scale quotes.</errorMessage>
+</ValidationRule>

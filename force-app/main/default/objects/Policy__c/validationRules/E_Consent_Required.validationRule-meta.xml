@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E_Consent_Required</fullName>
+    <active>true</active>
+    <description>Must select Yes or No for E-consent</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;BRP&quot;, $RecordType.Name = &quot;Alpharoot&quot;, $RecordType.Name = &quot;Founder Shield&quot;)) &amp;&amp; 
+
+AND(ISPICKVAL( Stage__c , &quot;Policy Delivered / Closed Won&quot;), 
+(ISPICKVAL(E_Consent_Received__c, &quot; &quot;)))</errorConditionFormula>
+    <errorMessage>Field Required: E-Consent Received, the Value must be YES or NO, and will default to NO for the following states; AR, HI, IA, LA, ME, MD, MA, MN, NJ, ND, TN, TX</errorMessage>
+</ValidationRule>

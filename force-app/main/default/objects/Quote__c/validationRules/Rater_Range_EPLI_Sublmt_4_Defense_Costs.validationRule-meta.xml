@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rater_Range_EPLI_Sublmt_4_Defense_Costs</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, 
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;) &amp;&amp;
+
+OR(
+ EPLI_Sublimit_for_Defense_Costs_Factor__c &lt; 1.00,
+ EPLI_Sublimit_for_Defense_Costs_Factor__c &gt; 1.15)</errorConditionFormula>
+    <errorMessage>EPLI Sublimit for Defense Costs (Factor) is not within the valid range</errorMessage>
+</ValidationRule>

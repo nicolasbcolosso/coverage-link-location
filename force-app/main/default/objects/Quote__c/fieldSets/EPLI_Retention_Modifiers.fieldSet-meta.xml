@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Retention_Modifiers</fullName>
+    <description>Scale EPLI quotes</description>
+    <displayedFields>
+        <field>EPLI_Retention_Modifier_Retention__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>EPLI_Retention_Modifier_Adj__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>EPLI_Retention_Adjusted_Rate__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>EPLI Retention Modifiers</label>
+</FieldSet>

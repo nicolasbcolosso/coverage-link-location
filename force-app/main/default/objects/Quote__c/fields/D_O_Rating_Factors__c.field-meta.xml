@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_O_Rating_Factors__c</fullName>
+    <externalId>false</externalId>
+    <formula>(Class_of_Business_Factor__c + Number_of_Years_in_Business_Factor__c + Mgmt_quality_Board_Comp_Factor__c + M_A_activity_Factor__c + Pvt_Plcmnt_or_Pub_Exempt_Filing_Factor__c + Cap_Table_Composition_Factor__c + Major_Shareholder_Exposure_Factor__c + Equity_and_Debt_Structure_Factor__c + Debt_to_Equity_Position_factor__c + Current_Ratio_Factor__c + Earnings_Trend_Factor__c + Bank_Credit_Compliance_Factor__c + Auditor_Factor__c + Prior_D_O_Claims_Activity_Factor__c + Sublimit_for_Insured_Persons_Factor__c + Deriv_Demand_Investigation_Cost_Factor__c + Reputational_Protection_Factor__c + Loss_Mitigation_Factor__c + Subpoena_or_Document_Production_Factor__c)/19</formula>
+    <label>D&amp;O Rating Factor</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

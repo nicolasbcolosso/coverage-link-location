@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tech_Vertical_Policies_In_Processing_FS</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Days_In_Processing__c</columns>
+    <columns>Carrier_Issuing_Company__c</columns>
+    <columns>Billing__c</columns>
+    <columns>Total_Cost__c</columns>
+    <columns>Account_Contact_Person__c</columns>
+    <columns>Account_Executive__c</columns>
+    <columns>Payment_Received__c</columns>
+    <columns>Bind_Order_Sent__c</columns>
+    <columns>Subjectivity_Docs_Sent_for_Signature__c</columns>
+    <columns>Signed_Subjectivity_Docs_Processed__c</columns>
+    <columns>Account_Management_Rep__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>equals</operation>
+        <value>Ralph Marotta,Ester Adiv,Mackensie Thomas,Adam Markoff,Jonathan Mitchell,Noah Knoblauch,Jason Bolden,Kevin Festa,Sefkan Ogut</value>
+    </filters>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>In Processing</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.BRP,Policy__c.Property_Casualty</value>
+    </filters>
+    <label>Tech Vertical Policies In Processing-FS</label>
+</ListView>

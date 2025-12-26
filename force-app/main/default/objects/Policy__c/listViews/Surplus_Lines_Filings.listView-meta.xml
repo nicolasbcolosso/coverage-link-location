@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surplus_Lines_Filings</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Account__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Mailing_State__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Mailing_State__c</field>
+        <operation>equals</operation>
+        <value>California,Massachusetts,Texas,New York</value>
+    </filters>
+    <filters>
+        <field>Admitted__c</field>
+        <operation>equals</operation>
+        <value>No</value>
+    </filters>
+    <filters>
+        <field>Marketer_UW__c</field>
+        <operation>notEqual</operation>
+        <value>&quot;Lyons Global Insurance Services, LLC&quot;,INSUREtrust,RT Chicago,USLI,tKg Comp</value>
+    </filters>
+    <filters>
+        <field>Marketer_UW__c</field>
+        <operation>notEqual</operation>
+        <value>,RT New York,RT Connecticut,RT Philadelphia,Scottish American,All Risks Ltd</value>
+    </filters>
+    <filters>
+        <field>Marketer_UW__c</field>
+        <operation>notEqual</operation>
+        <value>,CRC Insurance,RT Dallas,AMWins,Wildstein Group,Insurance Noodle,Evolve MGA</value>
+    </filters>
+    <filters>
+        <field>Marketer_UW__c</field>
+        <operation>notEqual</operation>
+        <value>Cannasure Insurance Services LLC,Alive risk,Northeast Coverages,Jimcor Agencies</value>
+    </filters>
+    <label>Surplus Lines Filings</label>
+</ListView>

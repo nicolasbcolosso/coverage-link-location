@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policies_Payable</fullName>
+    <columns>NAME</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Payable__c</columns>
+    <columns>Payment_Received_Date__c</columns>
+    <columns>Invoice_Uploaded__c</columns>
+    <columns>Invoice_Paid__c</columns>
+    <columns>Admitted__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Invoice_Paid_Date__c</columns>
+    <columns>Stage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Payment_Received__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Policy_Type_Status__c</field>
+        <operation>equals</operation>
+        <value>New Business,New Business - BOR,Renewal,Remarketed at Renewal,Tail/Run Off</value>
+    </filters>
+    <filters>
+        <field>Invoice_Paid__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.Property_Casualty</value>
+    </filters>
+    <filters>
+        <field>Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Closed Lost</value>
+    </filters>
+    <filters>
+        <field>Billing__c</field>
+        <operation>equals</operation>
+        <value>Agency,Premium Finance Agreement,Ascend</value>
+    </filters>
+    <filters>
+        <field>Payment_Received_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>6/1/2022</value>
+    </filters>
+    <label>Policies Payable</label>
+</ListView>

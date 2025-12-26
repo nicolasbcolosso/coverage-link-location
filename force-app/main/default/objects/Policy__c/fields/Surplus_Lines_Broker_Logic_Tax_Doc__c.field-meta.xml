@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surplus_Lines_Broker_Logic_Tax_Doc__c</fullName>
+    <description>SF-1132</description>
+    <formula>AND(
+        Surplus_Lines_Policy__c = true,
+        OR(
+            ISPICKVAL(Policy_Type_Status__c, &quot;Renewal&quot;),
+            ISPICKVAL(Policy_Type_Status__c, &quot;New Business&quot;)
+        )
+    )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Surplus Lines Broker Logic Tax Doc</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

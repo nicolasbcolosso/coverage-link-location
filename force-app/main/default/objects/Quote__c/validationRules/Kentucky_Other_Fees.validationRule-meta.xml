@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kentucky_Other_Fees</fullName>
+    <active>true</active>
+    <description>Kentucky SL policies require a Municipality Tax in State Fees (Other). Use (https://docs.google.com/spreadsheets/d/1MUsukSjilhUf6fkrGtD6djUhbR1_0enY89VCCRiGlMU/edit?usp=shar) to calculate.</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &apos;Received&apos;,
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2022-06-23&quot;),
+Opportunity__r.Account.ShippingState = &quot;Kentucky&quot;,
+Surplus_Lines_Quote__c = True,
+State_Fees_Other__c = 0)</errorConditionFormula>
+    <errorMessage>Kentucky SL policies require a Municipality Tax in State Fees (Other). The tax % varies by county &amp; line of business, calculate using this spreadsheet. (https://docs.google.com/spreadsheets/d/1MUsukSjilhUf6fkrGtD6djUhbR1_0enY89VCCRiGlMU/edit?usp=shar)</errorMessage>
+</ValidationRule>

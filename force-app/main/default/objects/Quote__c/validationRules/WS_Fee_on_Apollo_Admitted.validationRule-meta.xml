@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WS_Fee_on_Apollo_Admitted</fullName>
+    <active>true</active>
+    <description>Wholesaler Fee not permitted on Apollo admitted quotes in this state.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Scale&quot;) &amp;&amp;
+
+AND(
+ISPICKVAL(Admitted__c, &quot;Yes&quot;),
+ISPICKVAL(Status__c,&quot;Received&quot;),
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2022-11-21&quot;),
+Marketer_UW_Name__r.Account.Name = &quot;Apollo Brokers&quot;,
+(OR(
+Account_Location_State__c = &quot;Alaska&quot;,
+Account_Location_State__c = &quot;District of Columbia&quot;,
+Account_Location_State__c = &quot;Florida&quot;,
+Account_Location_State__c = &quot;Georgia&quot;,
+Account_Location_State__c = &quot;Hawaii&quot;,
+Account_Location_State__c = &quot;Indiana&quot;,
+Account_Location_State__c = &quot;Kentucky&quot;,
+Account_Location_State__c = &quot;Maine&quot;,
+Account_Location_State__c = &quot;Maryland&quot;,
+Account_Location_State__c = &quot;Michigan&quot;,
+Account_Location_State__c = &quot;Mississippi&quot;,
+Account_Location_State__c = &quot;Montana&quot;,
+Account_Location_State__c = &quot;Nebraska&quot;,
+Account_Location_State__c = &quot;Nevada&quot;,
+Account_Location_State__c = &quot;New Hampshire&quot;,
+Account_Location_State__c = &quot;Rhode Island&quot;,
+Account_Location_State__c = &quot;South Carolina&quot;,
+Account_Location_State__c = &quot;South Dakota&quot;,
+Account_Location_State__c = &quot;Tennessee&quot;,
+Account_Location_State__c = &quot;Utah&quot;,
+Account_Location_State__c = &quot;Vermont&quot;,
+Account_Location_State__c = &quot;Virginia&quot;,
+Account_Location_State__c = &quot;West Virginia&quot;,
+Account_Location_State__c = &quot;Wyoming&quot;)),
+Wholesale_Fees__c &gt; 0)</errorConditionFormula>
+    <errorMessage>Wholesaler Fee not permitted on Apollo admitted quotes in this state.</errorMessage>
+</ValidationRule>

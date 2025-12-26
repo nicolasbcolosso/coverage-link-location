@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TaxDocs_Required</fullName>
+    <active>false</active>
+    <description>Must upload the tax docs</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+AND(ISPICKVAL( Stage__c , &quot;Policy Delivered / Closed Won&quot;), Tax_Docs_Uploaded__c = FALSE)</errorConditionFormula>
+    <errorMessage>Field Required: Tax Docs Uploaded</errorMessage>
+</ValidationRule>

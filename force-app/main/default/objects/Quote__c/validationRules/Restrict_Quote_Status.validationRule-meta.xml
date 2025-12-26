@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Quote_Status</fullName>
+    <active>true</active>
+    <errorConditionFormula>CONTAINS(Coverages__c, &quot;Employment Practices Liability Insurance&quot;) &amp;&amp;  Premium__c &lt; 2500 &amp;&amp;  CONTAINS(RecordType.Name,  &apos;Scale&apos;) &amp;&amp; ISChanged( Status__c ) &amp;&amp; TEXT(Status__c) == &apos;Received&apos;</errorConditionFormula>
+    <errorMessage>Can not change Status to Received If Policy is less than 2500 and contains Employment Practices Liability coverage</errorMessage>
+</ValidationRule>

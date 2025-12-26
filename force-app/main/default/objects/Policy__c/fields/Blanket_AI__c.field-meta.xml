@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blanket_AI__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Designated person&quot;), &quot;Designated person; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Designated person - Products/completed ops&quot;), &quot;Designated person Products/completed ops; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Mortgagee, Assignee or Receiver&quot;), &quot;Mortgagee, Assignee or Receiver; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Blanket where required by contract&quot;), &quot;Blanket where required by contract; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Owner/lesser of premises&quot;), &quot;Owner/lesser of premises; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Owner/lessor of premises - Products/completed ops&quot;), &quot;Owner/lessor of premises - Products/completed ops; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;State or Governmental agency&quot;), &quot;State or Governmental agency; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;Vendor&quot;), &quot;Vendor; &quot;, NULL) + 
+IF(INCLUDES(Opportunity__r.Blanket_AI__c , &quot;None&quot;), &quot;None&quot;, NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Blanket AI</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

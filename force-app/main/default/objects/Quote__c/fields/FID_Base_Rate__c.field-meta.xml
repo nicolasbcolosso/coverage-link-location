@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FID_Base_Rate__c</fullName>
+    <formula>IF( Opportunity__r.Plan_Assets__c &lt;= 1000000, 750,
+IF( AND( Opportunity__r.Plan_Assets__c &gt; 1000000, Opportunity__r.Plan_Assets__c &lt;= 5000000), 1275 ,
+IF( AND( Opportunity__r.Plan_Assets__c &gt; 5000000, Opportunity__r.Plan_Assets__c &lt;= 25000000), 2050,
+IF ( AND ( Opportunity__r.Plan_Assets__c &gt; 25000000, Opportunity__r.Plan_Assets__c &lt;= 100000000), 3050,
+IF ( AND ( Opportunity__r.Plan_Assets__c &gt; 100000000, Opportunity__r.Plan_Assets__c &lt;= 250000000), 4880,
+IF ( Opportunity__r.Plan_Assets__c &gt; 250000000, (5000 + (((Opportunity__r.Plan_Assets__c-250000000) / 50000000)*750)), 0
+))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>$0 - $1,000,000:	$750
+$1,000,001 - $5,000,000:	$1,275
+$5,000,001 - $25,000,000:	$2,050
+$25,000,001 - $100,000,000: 	$3,050
+$100,000,001 - $250,000,000:	$4,880
+$250,000,001+: $5,000 + $750 for every $50,000,000 in assets above $250,000,000</inlineHelpText>
+    <label>FID Base Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

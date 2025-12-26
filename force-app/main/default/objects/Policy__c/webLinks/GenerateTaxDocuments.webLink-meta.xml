@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateTaxDocuments</fullName>
+    <availability>online</availability>
+    <description>if(&quot;{!Account.BillingState}&quot; == &quot;California&quot;){ 
+window.open(&quot;/apex/sl1form?Id=&quot;+&quot;{!Policy__c.Id}&quot;,&quot;_self&quot;); 
+}</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate Tax Documents (Old)</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/41.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/41.0/apex.js&quot;)} 
+
+
+if(&quot;{!Account.BillingState}&quot; == &quot;Florida&quot;) { 
+sforce.apex.execute(&quot;NKLLClass&quot;,&quot;insertFF&quot;,{pId:&quot;{!Policy__c.Id}&quot;}); 
+} 
+if(&quot;{!Account.BillingState}&quot; == &quot;Rhode Island&quot;) { 
+sforce.apex.execute(&quot;NKLLClass&quot;,&quot;insertRI&quot;,{pId:&quot;{!Policy__c.Id}&quot;}); 
+} 
+window.open(&quot;/apex/GenerateTaxDocuments?Id=&quot;+&quot;{!Policy__c.Id}&quot;,&quot;_blank&quot;);</url>
+</WebLink>

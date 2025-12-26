@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_O_Limit_Modifier_Limit__c</fullName>
+    <defaultValue>&quot;$1,000,000&quot;</defaultValue>
+    <inlineHelpText>$500,000:	0.85
+$1,000,000:	1.00
+$2,000,000:	1.70
+$3,000,000:	2.15
+$4,000,000:	2.60
+$5,000,000:	3.00</inlineHelpText>
+    <label>D&amp;O Limit Modifier (Limit)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>$500,000</fullName>
+                <default>false</default>
+                <label>$500,000</label>
+            </value>
+            <value>
+                <fullName>$1,000,000</fullName>
+                <default>true</default>
+                <label>$1,000,000</label>
+            </value>
+            <value>
+                <fullName>$2,000,000</fullName>
+                <default>false</default>
+                <label>$2,000,000</label>
+            </value>
+            <value>
+                <fullName>$3,000,000</fullName>
+                <default>false</default>
+                <label>$3,000,000</label>
+            </value>
+            <value>
+                <fullName>$4,000,000</fullName>
+                <default>false</default>
+                <label>$4,000,000</label>
+            </value>
+            <value>
+                <fullName>$5,000,000</fullName>
+                <default>false</default>
+                <label>$5,000,000</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

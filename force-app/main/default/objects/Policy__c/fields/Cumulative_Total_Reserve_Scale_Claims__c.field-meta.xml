@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cumulative_Total_Reserve_Scale_Claims__c</fullName>
+    <description>Rollup of Total Reserve on the Claims page</description>
+    <label>Cumulative Total Reserve (Scale Claims)</label>
+    <summarizedField>Claim__c.Total_Reserve_Scale__c</summarizedField>
+    <summaryForeignKey>Claim__c.Policy__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Reqd</fullName>
+    <active>false</active>
+    <description>All text input fields Req&apos;d for Closed Won</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+ISBLANK( TEXT(Billing__c))</errorConditionFormula>
+    <errorMessage>Field Required: Policy Detail- Billing</errorMessage>
+</ValidationRule>

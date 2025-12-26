@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Force_CC__c</fullName>
+    <description>01537000000JDqo - Red
+
+01537000000JDJB - Green
+
+01537000000JDqy - Orange
+
+01537000000JDqt - Yellow</description>
+    <externalId>false</externalId>
+    <formula>IF(
+In_Force__c,
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDJB&apos;,&quot;&quot;),
+
+IF(
+AND(
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;Tail/Run Off&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c, &quot;BORed away&quot;)),
+NOT(ISPICKVAL(Stage__c, &quot;Closed Lost&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Non-Renewed by Insured&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled by Insured&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Off Risk&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Nonpayment&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Noncompliance&quot;)),
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;New Business - BOR to Cancel&quot;)),
+Today()&gt; Renewal_Date__c
+),&quot;&quot;,
+
+IF(
+ISPICKVAL(Policy_Type_Status__c, &quot;Tail/Run Off&quot; ), 
+IMAGE(&apos;/resource/154402264100/BlueFlag&apos;,&quot;&quot;),
+
+IF(
+ISPICKVAL( Policy_Type_Status__c, &quot;BORed away&quot; ),
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqj&apos;,&quot;&quot;),
+
+
+IF(
+OR(
+ISPICKVAL( Stage__c, &quot;Closed Lost&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;Non-Renewed by Insured&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled by Insured&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Off Risk&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Nonpayment&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Noncompliance&quot; ),
+ISPICKVAL( Policy_Type_Status__c, &quot;New Business - BOR to Cancel&quot;)
+),
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqo&apos;,&quot;&quot;),
+
+IF(
+    AND(
+        OR(ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot; ),ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot; )),
+        TODAY() &gt; Effective_Date__c,
+        TODAY() &gt; Renewal_Date__c,
+        NOT(ISPICKVAL(Policy_Type_Status__c, &quot;Tail/Run Off&quot;))
+    ),
+    IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDJB&apos;,&quot;&quot;),
+IF(
+AND(OR(ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot; ),ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot; )), TODAY() &lt; Effective_Date__c),
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqt&apos;,&quot;&quot;),
+
+IF(
+ISPICKVAL( Stage__c, &quot;In Processing&quot; ),
+IMAGE(&apos;/servlet/servlet.FileDownload?file=01537000000JDqy&apos;,&quot;&quot;),
+
+
+&quot;&quot;
+))))))
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>In-Force CC</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

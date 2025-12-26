@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>D_O_Limit_Modifiers</fullName>
+    <description>D&amp;O Quotes for Scale</description>
+    <displayedFields>
+        <field>D_O_Limit_Modifier_Limit__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>D_O_Limit_Modifier_Adj__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>D_O_Limit_Adjusted_Rate__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>D&amp;O Limit Modifiers</label>
+</FieldSet>

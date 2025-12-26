@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InForceCov__c</fullName>
+    <formula>IF( In_Force__c, true, 
+
+IF(AND(ISPICKVAL(Stage__c, &quot;Tail/Run Off&quot;), 
+TODAY() &lt; Tail_Expiration_Date__c,TODAY() &lt; Renewal_Date__c), true, 
+
+IF(AND(ISPICKVAL(Stage__c, &quot;Tail/Run Off&quot;), 
+TODAY() &lt; Tail_Expiration_Date__c,TODAY() &gt; Renewal_Date__c), true, 
+
+IF( 
+AND( 
+
+NOT(AND( 
+NOT(ISPICKVAL(Stage__c, &quot;Tail/Run Off&quot;)), 
+NOT(ISPICKVAL(Stage__c, &quot;BORed away&quot;)), 
+NOT(ISPICKVAL(Stage__c, &quot;Closed Lost&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Non-Renewed by Insured&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled by Insured&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Off Risk&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Nonpayment&quot;)), 
+Today()&gt; Renewal_Date__c 
+)), 
+
+
+
+OR(ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot; ),ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot; )), TODAY() &gt; Effective_Date__c, TODAY() &gt; Renewal_Date__c, 
+
+AND( 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Non-Renewed by Insured&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled by Insured&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Off Risk&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Nonpayment&quot; )) 
+)) 
+
+, true, 
+
+IF( 
+AND( 
+
+NOT(AND( 
+NOT(ISPICKVAL(Stage__c, &quot;Tail/Run Off&quot;)), 
+NOT(ISPICKVAL(Stage__c, &quot;BORed away&quot;)), 
+NOT(ISPICKVAL(Stage__c, &quot;Closed Lost&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Non-Renewed by Insured&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled by Insured&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Off Risk&quot;)), 
+NOT(ISPICKVAL(Policy_Type_Status__c,&quot;Cancelled - Nonpayment&quot;)), 
+Today()&gt; Renewal_Date__c 
+)), 
+
+
+
+OR(ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot; ),ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot; )), TODAY() &lt; Effective_Date__c, 
+
+AND( 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Non-Renewed by Insured&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled by Insured&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Off Risk&quot; )), 
+NOT(ISPICKVAL( Policy_Type_Status__c, &quot;Cancelled - Nonpayment&quot; )) 
+)) 
+
+
+,true, 
+
+IF( 
+AND(ISPICKVAL( Stage__c, &quot;In Processing&quot; ),ISBLANK(Renewal_Date__c)), true, false 
+
+
+
+
+))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>InForceCov</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

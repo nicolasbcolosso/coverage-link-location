@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_State_Abbreviation__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Location_State_Formula__c,
+&apos;Alabama&apos;,&apos;AL&apos;,
+&apos;Alaska&apos;,&apos;AK&apos;,
+&apos;Arizona&apos;,&apos;AZ&apos;,
+&apos;Arkansas&apos;,&apos;AR&apos;,
+&apos;California&apos;,&apos;CA&apos;,
+&apos;Colorado&apos;,&apos;CO&apos;,
+&apos;Connecticut&apos;,&apos;CT&apos;,
+&apos;Delaware&apos;,&apos;DE&apos;,
+&apos;Florida&apos;,&apos;FL&apos;,
+&apos;Georgia&apos;,&apos;GA&apos;,
+&apos;Hawaii&apos;,&apos;HI&apos;,
+&apos;Idaho&apos;,&apos;ID&apos;,
+&apos;Illinois&apos;,&apos;IL&apos;,
+&apos;Indiana&apos;,&apos;IN&apos;,
+&apos;Iowa&apos;,&apos;IA&apos;,
+&apos;Kansas&apos;,&apos;KS&apos;,
+&apos;Kentucky&apos;,&apos;KY&apos;,
+&apos;Louisiana&apos;,&apos;LA&apos;,
+&apos;Maine&apos;,&apos;ME&apos;,
+&apos;Maryland&apos;,&apos;MD&apos;,
+&apos;Massachusetts&apos;,&apos;MA&apos;,
+&apos;Michigan&apos;,&apos;MI&apos;,
+&apos;Minnesota&apos;,&apos;MN&apos;,
+&apos;Mississippi&apos;,&apos;MS&apos;,
+&apos;Missouri&apos;,&apos;MO&apos;,
+&apos;Montana&apos;,&apos;MT&apos;,
+&apos;Nebraska&apos;,&apos;NE&apos;,
+&apos;Nevada&apos;,&apos;NV&apos;,
+&apos;New Hampshire&apos;,&apos;NH&apos;,
+&apos;New Jersey&apos;,&apos;NJ&apos;,
+&apos;New Mexico&apos;,&apos;NM&apos;,
+&apos;New York&apos;,&apos;NY&apos;,
+&apos;North Carolina&apos;,&apos;NC&apos;,
+&apos;North Dakota&apos;,&apos;ND&apos;,
+&apos;Ohio&apos;,&apos;OH&apos;,
+&apos;Oklahoma&apos;,&apos;OK&apos;,
+&apos;Oregon&apos;,&apos;OR&apos;,
+&apos;Pennsylvania&apos;,&apos;PA&apos;,
+&apos;Rhode Island&apos;,&apos;RI&apos;,
+&apos;South Carolina&apos;,&apos;SC&apos;,
+&apos;South Dakota&apos;,&apos;SD&apos;,
+&apos;Tennessee&apos;,&apos;TN&apos;,
+&apos;Texas&apos;,&apos;TX&apos;,
+&apos;Utah&apos;,&apos;UT&apos;,
+&apos;Vermont&apos;,&apos;VT&apos;,
+&apos;Virginia&apos;,&apos;VA&apos;,
+&apos;Washington&apos;,&apos;WA&apos;,
+&apos;West Virginia&apos;,&apos;WV&apos;,
+&apos;Wisconsin&apos;,&apos;WI&apos;,
+&apos;Wyoming&apos;,&apos;WY&apos;,
+&apos;Other&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Location State Abbreviation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

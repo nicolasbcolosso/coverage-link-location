@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Export_List_Item__c</fullName>
+    <description>Used in SL1Form</description>
+    <label>Export List Item</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACCIDENT/DISABILITY</fullName>
+                <default>false</default>
+                <label>ACCIDENT/DISABILITY</label>
+            </value>
+            <value>
+                <fullName>AUTOMOBILES</fullName>
+                <default>false</default>
+                <label>AUTOMOBILES</label>
+            </value>
+            <value>
+                <fullName>AVIATION</fullName>
+                <default>false</default>
+                <label>AVIATION</label>
+            </value>
+            <value>
+                <fullName>CRIME</fullName>
+                <default>false</default>
+                <label>CRIME</label>
+            </value>
+            <value>
+                <fullName>FIRE &amp; ALLIED LINES</fullName>
+                <default>false</default>
+                <label>FIRE &amp; ALLIED LINES</label>
+            </value>
+            <value>
+                <fullName>GENERAL LIABILITY</fullName>
+                <default>false</default>
+                <label>GENERAL LIABILITY</label>
+            </value>
+            <value>
+                <fullName>INLAND MARINE</fullName>
+                <default>false</default>
+                <label>INLAND MARINE</label>
+            </value>
+            <value>
+                <fullName>MISCELLANEOUS</fullName>
+                <default>false</default>
+                <label>MISCELLANEOUS</label>
+            </value>
+            <value>
+                <fullName>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</fullName>
+                <default>false</default>
+                <label>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Force__c</fullName>
+    <formula>AND(
+  Effective_Date__c &lt;= TODAY(),
+  Renewal_Date__c &gt; TODAY(),
+  OR(
+    ISPICKVAL( Policy_Type_Status__c, &quot;New Business&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;New Business - BOR&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;Renewal&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;Remarketed at Renewal&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;Cancel/Rewrite&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;Tail/Run Off&quot; ),
+    ISPICKVAL( Policy_Type_Status__c, &quot;Rewrite&quot; )
+  ),
+NOT(
+OR(
+ISPICKVAL(Stage__c, &quot;Closed Lost&quot;), 
+ISPICKVAL(Stage__c, &quot;On Hold&quot;)
+)
+) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>In-Force</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Top_Subjectivities__c</fullName>
+    <label>Top Subjectivities</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Please confirm all shareholders with 10% or more have board representation (if not, a major shareholder exclusion would apply to the quote).</fullName>
+                <default>false</default>
+                <label>Please confirm all shareholders with 10% or more have board representation (if not, a major shareholder exclusion would apply to the quote).</label>
+            </value>
+            <value>
+                <fullName>Please provide detailed information on how the company intends to maintain its operations for the next 12-18 months. (e.g. full details of fundraising rounds, new sources of revenue, cost-cutting measures, etc)</fullName>
+                <default>false</default>
+                <label>Please provide detailed information on how the company intends to maintain its operations for the next 12-18 months. (e.g. full details of fundraising rounds, new sources of revenue, cost-cutting measures, etc)</label>
+            </value>
+            <value>
+                <fullName>Please provide the most current year-to-date financials, including the Balance Sheet, Profit and Loss statement, and Cash Flow statement.</fullName>
+                <default>false</default>
+                <label>Please provide the most current year-to-date financials, including the Balance Sheet, Profit and Loss statement, and Cash Flow statement.</label>
+            </value>
+            <value>
+                <fullName>Please provide a narrative around the losses noted. What remedial actions were taken as a result?</fullName>
+                <default>false</default>
+                <label>Please provide a narrative around the losses noted. What remedial actions were taken as a result?</label>
+            </value>
+            <value>
+                <fullName>Please provide more details regarding the insured’s upcoming funding plans (e.g. expected type, expected size, any expected changes to board composition, etc.)</fullName>
+                <default>false</default>
+                <label>Please provide more details regarding the insured’s upcoming funding plans (e.g. expected type, expected size, any expected changes to board composition, etc.)</label>
+            </value>
+            <value>
+                <fullName>Please confirm which, if any, of the following EPL controls the insureds has in place: a full-time HR department, an employee handbook with an at-will statement, annual written performance reviews, and/or harassment training for management every 2 years.</fullName>
+                <default>false</default>
+                <label>Please confirm which, if any, of the following EPL controls the insureds has in place: a full-time HR department, an employee handbook with an at-will statement, annual written performance reviews, and/or harassment training for management every 2 years.</label>
+            </value>
+            <value>
+                <fullName>Signed and dated version of application submitted, with Founder Shield form attached</fullName>
+                <default>false</default>
+                <label>Signed and dated version of application submitted, with Founder Shield form attached</label>
+            </value>
+            <value>
+                <fullName>Signed and dated version of application submitted</fullName>
+                <default>false</default>
+                <label>Signed and dated version of application submitted</label>
+            </value>
+            <value>
+                <fullName>Signed and dated Scale application</fullName>
+                <default>false</default>
+                <label>Signed and dated Scale application</label>
+            </value>
+            <value>
+                <fullName>If TRIA is being rejected, signed and dated TRIA notice</fullName>
+                <default>false</default>
+                <label>If TRIA is being rejected, signed and dated TRIA notice</label>
+            </value>
+            <value>
+                <fullName>Full details of the surplus lines broker, including name, company name, address, license number, state of filing and expiry date.</fullName>
+                <default>false</default>
+                <label>Full details of the surplus lines broker, including name, company name, address, license number, state of filing and expiry date.</label>
+            </value>
+            <value>
+                <fullName>Currently valued loss runs for past three years showing no prior claims or notices</fullName>
+                <default>false</default>
+                <label>Currently valued loss runs for past three years showing no prior claims or notices</label>
+            </value>
+            <value>
+                <fullName>Copy of expiring declarations to confirm continuity</fullName>
+                <default>false</default>
+                <label>Copy of expiring declarations to confirm continuity</label>
+            </value>
+            <value>
+                <fullName>Please provide name and contact info of the person responsible for HR and personnel (need prior to issuing policy)</fullName>
+                <default>false</default>
+                <label>Please provide name and contact info of the person responsible for HR and personnel (need prior to issuing policy)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

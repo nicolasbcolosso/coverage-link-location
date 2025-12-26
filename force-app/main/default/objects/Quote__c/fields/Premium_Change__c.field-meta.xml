@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premium_Change__c</fullName>
+    <description>Renewals only. % change between the expiring policy&apos;s premium and the quote&apos;s premium</description>
+    <formula>IF( NOT( ISPICKVAL( Opportunity__r.Policy_Type_Status__c, &apos;New Business&apos;) ) , (Premium__c- 
+ Opportunity__r.Origin_Policy__r.Premium__c)/ (Opportunity__r.Origin_Policy__r.Premium__c), 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Renewals only. % change between the expiring policy&apos;s premium and the quote&apos;s premium</inlineHelpText>
+    <label>Premium % Change</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

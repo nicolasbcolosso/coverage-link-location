@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Limits_Endorsements__c</fullName>
+    <label>Limits Endorsements</label>
+    <summaryFilterItems>
+        <field>Endorsement__c.Category__c</field>
+        <operation>equals</operation>
+        <value>Decrease Limits, Increase Limits</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Endorsement__c.Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Delivered to Insured, Closed Lost</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Endorsement__c.Policy__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

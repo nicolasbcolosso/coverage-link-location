@@ -1,0 +1,103 @@
+<template>
+    <template if:true={isNumber}>
+        <lightning-input 
+            type={inputType} 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value} 
+            formatter="currency" 
+            step=".01" 
+            min="0" 
+            maxlength="14">
+        </lightning-input>
+    </template>
+    
+    <template if:true={isPercent}>
+        <lightning-input 
+            type={inputType} 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value} 
+            step=".01" 
+            min="0"
+            max="100"
+            formatter="decimal">
+        </lightning-input>
+    </template>
+
+    <template if:true={isDouble}>
+        <lightning-input 
+            type={inputType} 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value} 
+            step=".01" 
+            min="0"
+            maxlength="16"
+            formatter="decimal">
+        </lightning-input>
+    </template>
+
+    <template if:true={isTextArea}>
+        <lightning-textarea 
+            label={fieldLabel}
+            onchange={handleChange} 
+            value={value}>
+        </lightning-textarea>
+    </template>
+
+   <template if:true={isDate}>
+        <div>
+        <lightning-input 
+            type="date" 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value}>
+        </lightning-input>
+        </div>
+    </template>
+<!-- <div style="overflow: visible !important;"> 
+<template if:true={isDate}>
+    <div style="position: absolute; z-index: 9999; overflow: visible;">
+        <lightning-input 
+            type="date" 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value}>
+        </lightning-input>
+    </div>
+ </template>
+ </div>-->
+
+    <template if:true={isPicklist}>
+        <lightning-combobox
+            name="options"
+            label={fieldLabel}
+            value={value}
+            placeholder="Choose an option"
+            options={options}
+            onchange={handleChange}>
+        </lightning-combobox>
+    </template>
+
+    <template if:true={isText}>
+        <lightning-input 
+            type={inputType} 
+            label={fieldLabel} 
+            onchange={handleChange} 
+            value={value}>
+        </lightning-input>
+    </template>
+
+    <template if:true={isCheckbox}>
+        <div class="slds-p-top_large">
+            <lightning-input 
+                type="checkbox" 
+                label={fieldLabel} 
+                checked={value}
+                value={value}
+                onchange={handleCheck}>
+            </lightning-input>
+        </div>
+    </template>
+</template>

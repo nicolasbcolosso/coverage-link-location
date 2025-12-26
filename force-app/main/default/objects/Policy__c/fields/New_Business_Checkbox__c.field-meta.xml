@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Business_Checkbox__c</fullName>
+    <description>Evaluates whether it is a new business policy. Used primarily for tax documents.</description>
+    <formula>OR(
+ISPICKVAL( Policy_Type_Status__c , &quot;New Business&quot;),
+ISPICKVAL( Policy_Type_Status__c , &quot;New Business - BOR&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>New Business Checkbox</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MD_FS_Fee</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Opportunity__r.Account.ShippingState = &quot;Maryland&quot;,
+Override_VR__c = False,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+Surplus_Lines_Quote__c = False,
+FS_Fees__c &gt; 250)</errorConditionFormula>
+    <errorDisplayField>Account_Type__c</errorDisplayField>
+    <errorMessage>FS Fees for MD non-SL quotes must not exceed $250.</errorMessage>
+</ValidationRule>

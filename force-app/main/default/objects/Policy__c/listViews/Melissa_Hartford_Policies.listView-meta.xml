@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Melissa_Hartford_Policies</fullName>
+    <columns>NAME</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Premium__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Marketer_UW_Email__c</field>
+        <operation>equals</operation>
+        <value>agency.services@thehartford.com</value>
+    </filters>
+    <filters>
+        <field>Billing__c</field>
+        <operation>equals</operation>
+        <value>Agency</value>
+    </filters>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>equals</operation>
+        <value>Melissa Berrios-Rodriguez</value>
+    </filters>
+    <label>Melissa Hartford Policies</label>
+</ListView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketer_UW_old__c</fullName>
+    <label>Marketer/UW_old</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Amtrust</fullName>
+                <default>false</default>
+                <label>Amtrust</label>
+            </value>
+            <value>
+                <fullName>AMWins</fullName>
+                <default>false</default>
+                <label>AMWins</label>
+            </value>
+            <value>
+                <fullName>Aon</fullName>
+                <default>false</default>
+                <label>Aon</label>
+            </value>
+            <value>
+                <fullName>ARS</fullName>
+                <default>false</default>
+                <label>ARS</label>
+            </value>
+            <value>
+                <fullName>CRC</fullName>
+                <default>false</default>
+                <label>CRC</label>
+            </value>
+            <value>
+                <fullName>Evolve MGA</fullName>
+                <default>false</default>
+                <label>Evolve MGA</label>
+            </value>
+            <value>
+                <fullName>Founder Shield</fullName>
+                <default>false</default>
+                <label>Founder Shield</label>
+            </value>
+            <value>
+                <fullName>GFI</fullName>
+                <default>false</default>
+                <label>GFI</label>
+            </value>
+            <value>
+                <fullName>Gordon</fullName>
+                <default>false</default>
+                <label>Gordon</label>
+            </value>
+            <value>
+                <fullName>Hartan</fullName>
+                <default>false</default>
+                <label>Hartan</label>
+            </value>
+            <value>
+                <fullName>Insurance Noodle</fullName>
+                <default>false</default>
+                <label>Insurance Noodle</label>
+            </value>
+            <value>
+                <fullName>INSUREtrust</fullName>
+                <default>false</default>
+                <label>INSUREtrust</label>
+            </value>
+            <value>
+                <fullName>LIDAC</fullName>
+                <default>false</default>
+                <label>LIDAC</label>
+            </value>
+            <value>
+                <fullName>Lyons</fullName>
+                <default>false</default>
+                <label>Lyons</label>
+            </value>
+            <value>
+                <fullName>MMZ</fullName>
+                <default>false</default>
+                <label>MMZ</label>
+            </value>
+            <value>
+                <fullName>RT Specialty</fullName>
+                <default>false</default>
+                <label>RT Specialty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

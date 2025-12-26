@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Sublimit_for_Defense_Costs_Val__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT( EPLI_Sublimit_for_Defense_Costs_Limit__c),&quot;$0&quot;, 0, &quot;$500,000&quot;, 500000, &quot;$1,000,000&quot;, 1000000, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>EPLI Sublimit for Defense Costs (Val)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

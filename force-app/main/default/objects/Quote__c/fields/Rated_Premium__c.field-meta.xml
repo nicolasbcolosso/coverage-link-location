@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rated_Premium__c</fullName>
+    <formula>Rated_Premium_New__c
+/*IF(D_O_Employment_Practice_Fiduciary__c = TRUE,
+D_O_Supplemental_Coverage_Adjusted_Rate__c + EPLI_Supplemental_Coverage_Adjusted_Rate__c + FID_Supplemental_Coverage_Adjusted_Rate__c,
+
+IF(
+Directors_Officers_Employment_Practice__c = TRUE,
+D_O_Supplemental_Coverage_Adjusted_Rate__c + EPLI_Supplemental_Coverage_Adjusted_Rate__c ,
+
+IF(Directors_Officers_Fiduciary__c = TRUE,
+D_O_Supplemental_Coverage_Adjusted_Rate__c + FID_Supplemental_Coverage_Adjusted_Rate__c,
+
+IF(
+AND(
+Directors_Officers__c = TRUE,
+Directors_Officers_Employment_Practice__c = FALSE),
+D_O_Supplemental_Coverage_Adjusted_Rate__c,
+
+IF(
+Key_Man__c = TRUE,
+( KM_Rate_Per_Million__c * ( KM_Agreegate_Limit_Val__c /1000000)) , 0
+)))))*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rated Premium</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

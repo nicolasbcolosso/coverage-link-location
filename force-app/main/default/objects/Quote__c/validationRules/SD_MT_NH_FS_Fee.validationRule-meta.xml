@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SD_MT_NH_FS_Fee</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT($Profile.Name = &quot;API User&quot;) &amp;&amp;
+
+AND(
+OR(
+AND(
+Opportunity__r.Account.ShippingState = &quot;South Dakota&quot;,
+Override_VR__c = FALSE,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+NOT( FS_Fees__c = 0 )
+),
+AND(
+Opportunity__r.Account.ShippingState = &quot;New Hampshire&quot;,
+Override_VR__c = FALSE,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+NOT( FS_Fees__c = 0 )
+),
+AND(
+Opportunity__r.Account.ShippingState = &quot;Montana&quot;,
+Override_VR__c = FALSE,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+FS_Fees__c &gt; 100
+)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Account_Type__c</errorDisplayField>
+    <errorMessage>No FS Fee allowed for NH or SD. Allowed up to 100 for MT.</errorMessage>
+</ValidationRule>

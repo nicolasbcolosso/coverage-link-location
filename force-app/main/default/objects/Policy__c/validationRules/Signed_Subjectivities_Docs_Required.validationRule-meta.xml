@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Signed_Subjectivities_Docs_Required</fullName>
+    <active>true</active>
+    <description>Must upload the signed subjectivities docs</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $Profile.Name = &quot;API User&quot;,  Opportunity__r.BRP_Historical_Data__c = TRUE,  Override_Policy_VR__c =true)) &amp;&amp; 
+
+AND(
+
+OR(
+ ISPICKVAL( Stage__c, &quot;Policy Received&quot;),
+ ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot;),
+ ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot;)
+ ),
+
+Signed_Subjectivity_Docs_Processed__c  = FALSE)</errorConditionFormula>
+    <errorMessage>Field Required: Signed Subjectivities Docs Processed</errorMessage>
+</ValidationRule>

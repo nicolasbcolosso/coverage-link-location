@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lloyds_US_Classification__c</fullName>
+    <defaultValue>&quot;US Surplus Lines&quot;</defaultValue>
+    <description>Used in Scale Bordereaux report</description>
+    <label>Lloyds US Classification</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>US Surplus Lines</fullName>
+                <default>false</default>
+                <label>US Surplus Lines</label>
+            </value>
+            <value>
+                <fullName>US Reinsurance</fullName>
+                <default>false</default>
+                <label>US Reinsurance</label>
+            </value>
+            <value>
+                <fullName>Illinois Licensed</fullName>
+                <default>false</default>
+                <label>Illinois Licensed</label>
+            </value>
+            <value>
+                <fullName>Kentucky Licensed (US Virgin Islands)</fullName>
+                <default>false</default>
+                <label>Kentucky Licensed (US Virgin Islands)</label>
+            </value>
+            <value>
+                <fullName>Non-Regulated</fullName>
+                <default>false</default>
+                <label>Non-Regulated</label>
+            </value>
+            <value>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+                <label>Exempt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

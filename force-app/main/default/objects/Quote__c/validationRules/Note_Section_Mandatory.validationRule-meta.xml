@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note_Section_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; NOT ($RecordType.Name = &quot;ReSheild&quot;) &amp;&amp; NOT(OR(RecordType.DeveloperName = &apos;Scale_Received&apos;,RecordType.DeveloperName = &apos;Scale_Locked&apos;,RecordType.DeveloperName = &apos;Scale_Open&apos;,RecordType.DeveloperName = &apos;HB_Open&apos;))
+&amp;&amp;
+AND (
+Premium__c  &gt;= 25000,
+ISBLANK(Notes__c ),
+ISPICKVAL(Opportunity__r.Policy_Type_Status__c,&quot;New Business&quot;) 
+)</errorConditionFormula>
+    <errorMessage>Notes section is mandatory if premium is over $25,000</errorMessage>
+</ValidationRule>

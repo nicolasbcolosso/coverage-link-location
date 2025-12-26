@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direct_Billed_Disability</fullName>
+    <active>true</active>
+    <description>Disability Coverage should be direct billed.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;)) &amp;&amp;
+
+AND(
+CONTAINS(Coverages__c, &quot;Disability&quot;),
+
+AND(OR(
+ISPICKVAL( Status__c , &quot;Received&quot;),
+ISPICKVAL( Status__c , &quot;Accepted&quot;))),
+
+OR(
+ISPICKVAL(Billing__c, &quot;Agency&quot;),
+ISPICKVAL(Billing__c, &quot;Premium Finance Agreement&quot;))
+)</errorConditionFormula>
+    <errorMessage>Disability Coverage should be direct billed.</errorMessage>
+</ValidationRule>

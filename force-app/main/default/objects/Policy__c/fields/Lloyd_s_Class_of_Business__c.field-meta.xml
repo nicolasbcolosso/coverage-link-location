@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lloyd_s_Class_of_Business__c</fullName>
+    <description>Used in Scale Bordereaux report</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+
+AND 
+( 
+RecordType.DeveloperName = &quot;Scale&quot;, 
+OR(CONTAINS( Name , &quot;Directors &amp; Officers&quot;), CONTAINS( Name , &quot;D&amp;O&quot; )), 
+NOT(
+OR( CONTAINS(Name , &quot;Employment Practices Liability&quot;) , CONTAINS( Name, &quot;EPL&quot;),CONTAINS(Name, &quot;EPLI&quot;))
+)
+), 
+&quot;Directors &amp; Officers&quot;, 
+IF( 
+AND 
+( 
+RecordType.DeveloperName = &quot;Scale&quot;, 
+OR( CONTAINS (Name, &quot;Employment Practices Liability&quot;), CONTAINS(Name, &quot;EPL&quot;), CONTAINS(Name, &quot;EPLI&quot;) ), 
+NOT( 
+OR ( CONTAINS(Name, &quot;Directors &amp; Officers&quot;), CONTAINS(Name, &quot;D&amp;O&quot;) ) 
+) 
+), 
+&quot;Employment Practices Liability Insurance&quot;, 
+&quot;D&amp;O/EPLI&quot; 
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lloyd&apos;s Class of Business</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

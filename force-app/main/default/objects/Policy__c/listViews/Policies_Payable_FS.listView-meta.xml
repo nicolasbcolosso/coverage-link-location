@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policies_Payable_FS</fullName>
+    <columns>NAME</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>State_Tax__c</columns>
+    <columns>State_Filing_Fee__c</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Payable__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>State_Stamping_Fee__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>xs</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.Scale</value>
+    </filters>
+    <label>Policies Payable FS</label>
+</ListView>

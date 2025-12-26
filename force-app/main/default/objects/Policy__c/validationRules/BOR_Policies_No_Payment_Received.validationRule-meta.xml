@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BOR_Policies_No_Payment_Received</fullName>
+    <active>true</active>
+    <description>Do not check off Payment Received for BOR policies. Need this rule to prevent invoices from being created in QBO.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp;
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;,  Override_Policy_VR__c = true)) &amp;&amp;
+
+AND(
+ISPICKVAL(Policy_Type_Status__c, &quot;New Business - BOR&quot;),
+
+OR(
+ISPICKVAL( Stage__c, &quot;In Processing&quot;),
+ISPICKVAL( Stage__c, &quot;In Stamping / Accounting&quot;),
+ISPICKVAL( Stage__c, &quot;Policy Delivered / Closed Won&quot;)
+),
+
+Payment_Received__c = TRUE
+)</errorConditionFormula>
+    <errorMessage>Do not check off Payment Received for BOR policies.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blanket_AI_Status_Confirmed</fullName>
+    <active>true</active>
+    <description>Blanket AI Status Confirmed checkbox is required on GL, E&amp;O, &amp; Cyber policies.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; $Profile.Name &lt;&gt; &quot;API User&quot; &amp;&amp;
+AND(
+ISPICKVAL(Stage__c, &quot;In Stamping / Accounting&quot;),
+$RecordType.Name = &quot;Founder Shield&quot;,
+Blanket_AI_Status_Confirmed__c = FALSE,
+Account_Executive__c &lt;&gt; &apos;Libby Sircy&apos;,
+Account_Executive__c &lt;&gt; &apos;Liam Gilbert&apos;,
+AND(OR(
+CONTAINS(Coverages__c, &apos;General Liability&apos;),
+CONTAINS(Coverages__c, &apos;Errors &amp; Omissions&apos;),
+CONTAINS(Coverages__c, &apos;Cyber Liability&apos;))))</errorConditionFormula>
+    <errorMessage>Blanket AI Status Confirmed checkbox is required on GL, E&amp;O, &amp; Cyber policies.</errorMessage>
+</ValidationRule>

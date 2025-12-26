@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cumulative_Total_Paid_EPL__c</fullName>
+    <description>Roll up summary to Total Paid (Scale) on Claims where Type of Claim - EPL</description>
+    <label>Cumulative Total Paid (EPL)</label>
+    <summarizedField>Claim__c.Total_Paid_Scale__c</summarizedField>
+    <summaryFilterItems>
+        <field>Claim__c.Type_of_Claim__c</field>
+        <operation>equals</operation>
+        <value>Employment Practices Liability</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Claim__c.Policy__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

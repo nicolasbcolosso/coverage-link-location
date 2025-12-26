@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>In Processing</fullName>
+                <default>true</default>
+                <label>In Processing</label>
+            </value>
+            <value>
+                <fullName>In Stamping / Accounting</fullName>
+                <default>false</default>
+                <label>In Stamping / Accounting</label>
+            </value>
+            <value>
+                <fullName>Policy Delivered / Closed Won</fullName>
+                <default>false</default>
+                <label>Policy Delivered / Closed Won</label>
+            </value>
+            <value>
+                <fullName>Policy Received</fullName>
+                <default>false</default>
+                <label>Policy Received</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>BORed away</fullName>
+                <default>false</default>
+                <label>BORed away</label>
+            </value>
+            <value>
+                <fullName>Tail/Run Off</fullName>
+                <default>false</default>
+                <label>Tail/Run Off</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

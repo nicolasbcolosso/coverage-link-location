@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Location_Factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <description>One employee in a higher-risk state means the entire company should be rated in that state (except in special circumstances, with UM approval, can an intermediate rate (e.g. 1.25) be used).
+Allow for another 5% in all, and 10% for CA, in case market hardens more over next 12 months.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A. Low Risk: All states not listed below - .90 - .95
+B. Moderate Risk: AL, AR, DC, DE, NV, NM, NJ, OR, TN - 1.10 - 1.15
+C. Moderate-High Risk: FL, GA, IL, MA, NY, TX, WV - 1.15 - 1.2
+D. High Risk: CA - 1.3 - 1.5</inlineHelpText>
+    <label>EPLI Location (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

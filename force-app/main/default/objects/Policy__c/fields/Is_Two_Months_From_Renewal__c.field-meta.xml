@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Two_Months_From_Renewal__c</fullName>
+    <formula>IF( 
+Renewal_Date__c &lt;= (TODAY() + 60), 
+IF( 
+Renewal_Date__c &gt;= TODAY(), 
+True, 
+False 
+), 
+False 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Two Months From Renewal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
