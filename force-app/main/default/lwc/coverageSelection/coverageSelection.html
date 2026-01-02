@@ -1,0 +1,605 @@
+<template>
+  <div class="coverage-selection-container">
+    <!-- Header -->
+    <header class="slds-modal__header slds-p-around_medium slds-theme_shade">
+      <h2 class="slds-text-heading_medium slds-text-color_default">
+        <lightning-icon
+          icon-name="standard:entitlement"
+          size="small"
+          class="slds-m-right_x-small"
+        ></lightning-icon>
+        Update Coverages
+      </h2>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div
+      class="slds-p-horizontal_medium slds-p-vertical_small"
+      lwc:if={isNotDummyQuoteStep}
+    >
+      <lightning-progress-indicator
+        current-step={currentStep}
+        type="base"
+        variant="base"
+      >
+        <lightning-progress-step
+          label="Select Coverages"
+          value="selection"
+        ></lightning-progress-step>
+        <lightning-progress-step
+          label="Configure Fields"
+          value="configuration"
+        ></lightning-progress-step>
+      </lightning-progress-indicator>
+    </div>
+
+    <!-- Loading Spinner -->
+    <template lwc:if={isLoading}>
+      <div class="slds-is-relative slds-p-around_xx-large">
+        <lightning-spinner
+          alternative-text="Loading"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <template lwc:else>
+      <!-- Dummy Quote Screen -->
+      <template lwc:if={isDummyQuoteStep}>
+        <div class="slds-p-around_medium">
+          <div class="slds-illustration slds-illustration_small">
+            <div
+              class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_medium"
+              role="alert"
+            >
+              <lightning-icon
+                icon-name="utility:warning"
+                alternative-text="Warning"
+                variant="warning"
+                size="small"
+                class="slds-m-right_x-small"
+              ></lightning-icon>
+              <span class="slds-text-body_regular">
+                You can't add coverages to this record because there is no
+                Accepted Quote. Would you like to create a Dummy Quote?
+              </span>
+            </div>
+            <div class="slds-align_absolute-center">
+              <lightning-button
+                variant="brand"
+                label="Create Dummy Quote"
+                onclick={handleCreateDummyQuote}
+                class="slds-m-right_small"
+              >
+              </lightning-button>
+              <lightning-button
+                variant="neutral"
+                label="Cancel"
+                onclick={handleCancel}
+              >
+              </lightning-button>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <!-- Selection Step -->
+      <template lwc:if={isSelectionStep}>
+        <div class="slds-p-around_medium">
+          <!-- Property Location Warning -->
+          <template lwc:if={showPropertyLocationWarning}>
+            <div
+              class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_medium"
+              role="alert"
+            >
+              <lightning-icon
+                icon-name="utility:warning"
+                alternative-text="Warning"
+                variant="warning"
+                size="small"
+                class="slds-m-right_x-small"
+              ></lightning-icon>
+              <span class="slds-text-body_regular">
+                To add Property coverage, please first add at least one Location
+                to the Account.
+              </span>
+            </div>
+          </template>
+
+          <!-- Search Bar -->
+          <div class="slds-form-element slds-m-bottom_medium">
+            <div
+              class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left"
+            >
+              <lightning-icon
+                icon-name="utility:search"
+                size="x-small"
+                class="slds-input__icon slds-input__icon_left"
+              ></lightning-icon>
+              <lightning-input
+                type="search"
+                label="Search Coverages"
+                variant="label-hidden"
+                placeholder="Search coverages..."
+                value={searchTerm}
+                onchange={handleSearchChange}
+              >
+              </lightning-input>
+            </div>
+          </div>
+
+          <!-- Coverage List -->
+          <div class="slds-scrollable_y coverage-list-container">
+            <table
+              class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+            >
+              <thead>
+                <tr class="slds-line-height_reset">
+                  <th
+                    class="slds-text-title_caps"
+                    scope="col"
+                    style="width: 60px"
+                  >
+                    <div class="slds-truncate">Select</div>
+                  </th>
+                  <th class="slds-text-title_caps" scope="col">
+                    <div class="slds-truncate">Coverage Name</div>
+                  </th>
+                  <th
+                    class="slds-text-title_caps"
+                    scope="col"
+                    style="width: 100px"
+                    lwc:if={isNewPropertyEnabled}
+                  >
+                    <div class="slds-truncate">Type</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={filteredCoverages} for:item="coverage">
+                  <tr key={coverage.id} class="slds-hint-parent">
+                    <td data-label="Select">
+                      <lightning-input
+                        type="checkbox"
+                        variant="label-hidden"
+                        label={coverage.name}
+                        checked={coverage.isSelected}
+                        data-coverage-name={coverage.name}
+                        onchange={handleCoverageToggle}
+                      >
+                      </lightning-input>
+                    </td>
+                    <td data-label="Coverage Name">
+                      <div class="slds-truncate" title={coverage.name}>
+                        <span
+                          lwc:if={coverage.isSelected}
+                          class="slds-text-color_success slds-text-title_bold"
+                        >
+                          {coverage.name}
+                        </span>
+                        <span lwc:else> {coverage.name} </span>
+                      </div>
+                    </td>
+                    <td data-label="Type" lwc:if={isNewPropertyEnabled}>
+                      <template lwc:if={coverage.isProperty}>
+                        <lightning-badge
+                          label="Location-Based"
+                          class="slds-badge_lightest"
+                        ></lightning-badge>
+                      </template>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Selection Summary -->
+          <div
+            class="slds-m-top_medium slds-p-around_small slds-box slds-theme_shade"
+          >
+            <span class="slds-text-body_small">
+              <strong>{selectedCoveragesForConfiguration.length} </strong>
+              coverage(s) selected
+              <template lwc:if={isNewPropertyEnabled}>
+                &nbsp;|&nbsp; <strong>{locationCount}</strong> location(s)
+                available
+              </template>
+            </span>
+          </div>
+        </div>
+
+        <!-- Footer Actions - Selection -->
+        <footer
+          class="slds-modal__footer slds-p-around_medium slds-theme_default"
+        >
+          <div class="slds-grid slds-grid_align-end">
+            <lightning-button
+              variant="neutral"
+              label="Cancel"
+              onclick={handleCancel}
+              class="slds-m-right_small"
+            >
+            </lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Next"
+              onclick={handleNext}
+              disabled={canNotProceedToConfiguration}
+            >
+            </lightning-button>
+          </div>
+        </footer>
+      </template>
+
+      <!-- Configuration Step -->
+      <template lwc:if={isConfigurationStep}>
+        <div class="slds-p-around_medium configuration-container">
+          <!-- Non-Property Coverages -->
+          <template for:each={configurableCoverages} for:item="coverage">
+            <template if:false={coverage.isPropertyWithLocations}>
+              <lightning-card key={coverage.id} class="slds-m-bottom_small">
+                <h3 slot="title">
+                  <lightning-icon
+                    icon-name="standard:entitlement"
+                    size="small"
+                    class="slds-m-right_x-small"
+                  ></lightning-icon>
+                  {coverage.name}
+                </h3>
+                <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                  <div class="slds-grid slds-wrap slds-gutters_small">
+                    <template for:each={coverage.fields} for:item="field">
+                      <div
+                        key={field.fieldApiName}
+                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-vertical_x-small"
+                      >
+                        <template lwc:if={field.isTextarea}>
+                          <lightning-textarea
+                            label={field.fieldLabel}
+                            value={field.value}
+                            data-coverage-name={coverage.name}
+                            data-field-api-name={field.fieldApiName}
+                            required={field.isRequired}
+                            onchange={handleFieldChange}
+                          >
+                          </lightning-textarea>
+                        </template>
+                        <template lwc:elseif={field.isCheckbox}>
+                          <lightning-input
+                            type="checkbox"
+                            label={field.fieldLabel}
+                            checked={field.value}
+                            data-coverage-name={coverage.name}
+                            data-field-api-name={field.fieldApiName}
+                            onchange={handleFieldChange}
+                          >
+                          </lightning-input>
+                        </template>
+                        <template lwc:elseif={field.isDate}>
+                          <lightning-input
+                            type="date"
+                            label={field.fieldLabel}
+                            value={field.value}
+                            data-coverage-name={coverage.name}
+                            data-field-api-name={field.fieldApiName}
+                            required={field.isRequired}
+                            onchange={handleFieldChange}
+                          >
+                          </lightning-input>
+                        </template>
+                        <template lwc:elseif={field.isNumber}>
+                          <lightning-input
+                            type="number"
+                            label={field.fieldLabel}
+                            value={field.value}
+                            step={field.step}
+                            formatter={field.formatter}
+                            data-coverage-name={coverage.name}
+                            data-field-api-name={field.fieldApiName}
+                            required={field.isRequired}
+                            onchange={handleFieldChange}
+                          >
+                          </lightning-input>
+                        </template>
+                        <template lwc:else>
+                          <lightning-input
+                            type={field.inputType}
+                            label={field.fieldLabel}
+                            value={field.value}
+                            data-coverage-name={coverage.name}
+                            data-field-api-name={field.fieldApiName}
+                            required={field.isRequired}
+                            onchange={handleFieldChange}
+                          >
+                          </lightning-input>
+                        </template>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </lightning-card>
+            </template>
+          </template>
+
+          <!-- Property Coverage with Locations -->
+          <template lwc:if={isPropertySelected}>
+            <template lwc:if={isNewPropertyEnabled}>
+              <template lwc:if={hasLocations}>
+                <lightning-card
+                  class="slds-m-bottom_small property-coverage-card"
+                >
+                  <h3 slot="title">
+                    <lightning-icon
+                      icon-name="standard:location"
+                      size="small"
+                      class="slds-m-right_x-small"
+                    ></lightning-icon>
+                    Property Coverage (by Location)
+                  </h3>
+                  <p
+                    slot="actions"
+                    class="slds-text-body_small slds-text-color_weak"
+                  >
+                    Select locations and configure property details for each
+                  </p>
+                  <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                    <template
+                      for:each={propertyLocationsForConfiguration}
+                      for:item="location"
+                    >
+                      <div
+                        key={location.uniqueKey}
+                        class="slds-box slds-m-bottom_small location-section"
+                      >
+                        <!-- Location Header -->
+                        <div
+                          class="slds-grid slds-grid_vertical-align-center slds-p-bottom_small slds-border_bottom"
+                        >
+                          <div class="slds-col">
+                            <lightning-input
+                              type="checkbox"
+                              label={location.name}
+                              checked={location.isSelected}
+                              data-location-id={location.id}
+                              onchange={handleLocationToggle}
+                              class="location-checkbox"
+                            >
+                            </lightning-input>
+                            <template lwc:if={location.description}>
+                              <p
+                                class="slds-text-body_small slds-text-color_weak slds-m-left_xx-large"
+                              >
+                                {location.description}
+                              </p>
+                            </template>
+                          </div>
+                          <div class="slds-col_bump-left">
+                            <template lwc:if={location.existingLinkId}>
+                              <lightning-badge
+                                label="Existing"
+                                class=""
+                              ></lightning-badge>
+                            </template>
+                            <template lwc:else>
+                              <lightning-badge
+                                label="New"
+                                class="slds-badge_lightest"
+                              ></lightning-badge>
+                            </template>
+                          </div>
+                        </div>
+
+                        <!-- Location Fields (only show if selected) -->
+                        <template lwc:if={location.isSelected}>
+                          <div
+                            class="slds-grid slds-wrap slds-gutters_small slds-p-top_small"
+                          >
+                            <template
+                              for:each={location.fields}
+                              for:item="field"
+                            >
+                              <div
+                                key={field.uniqueFieldKey}
+                                class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-vertical_x-small"
+                              >
+                                <template lwc:if={field.isTextarea}>
+                                  <lightning-textarea
+                                    label={field.fieldLabel}
+                                    value={field.value}
+                                    data-coverage-name="Property"
+                                    data-field-api-name={field.fieldApiName}
+                                    data-location-id={location.id}
+                                    required={field.isRequired}
+                                    onchange={handleFieldChange}
+                                  >
+                                  </lightning-textarea>
+                                </template>
+                                <template lwc:elseif={field.isCheckbox}>
+                                  <lightning-input
+                                    type="checkbox"
+                                    label={field.fieldLabel}
+                                    checked={field.value}
+                                    data-coverage-name="Property"
+                                    data-field-api-name={field.fieldApiName}
+                                    data-location-id={location.id}
+                                    onchange={handleFieldChange}
+                                  >
+                                  </lightning-input>
+                                </template>
+                                <template lwc:elseif={field.isDate}>
+                                  <lightning-input
+                                    type="date"
+                                    label={field.fieldLabel}
+                                    value={field.value}
+                                    data-coverage-name="Property"
+                                    data-field-api-name={field.fieldApiName}
+                                    data-location-id={location.id}
+                                    required={field.isRequired}
+                                    onchange={handleFieldChange}
+                                  >
+                                  </lightning-input>
+                                </template>
+                                <template lwc:elseif={field.isNumber}>
+                                  <lightning-input
+                                    type="number"
+                                    label={field.fieldLabel}
+                                    value={field.value}
+                                    step={field.step}
+                                    formatter={field.formatter}
+                                    data-coverage-name="Property"
+                                    data-field-api-name={field.fieldApiName}
+                                    data-location-id={location.id}
+                                    required={field.isRequired}
+                                    onchange={handleFieldChange}
+                                  >
+                                  </lightning-input>
+                                </template>
+                                <template lwc:else>
+                                  <lightning-input
+                                    type={field.inputType}
+                                    label={field.fieldLabel}
+                                    value={field.value}
+                                    data-coverage-name="Property"
+                                    data-field-api-name={field.fieldApiName}
+                                    data-location-id={location.id}
+                                    required={field.isRequired}
+                                    onchange={handleFieldChange}
+                                  >
+                                  </lightning-input>
+                                </template>
+                              </div>
+                            </template>
+                          </div>
+                        </template>
+                      </div>
+                    </template>
+                  </div>
+                </lightning-card>
+              </template>
+            </template>
+            <!-- Property without location-based functionality (old behavior) -->
+            <template lwc:else>
+              <template for:each={configurableCoverages} for:item="coverage">
+                <template lwc:if={coverage.isProperty}>
+                  <lightning-card key={coverage.id} class="slds-m-bottom_small">
+                    <h3 slot="title">
+                      <lightning-icon
+                        icon-name="standard:entitlement"
+                        size="small"
+                        class="slds-m-right_x-small"
+                      ></lightning-icon>
+                      {coverage.name}
+                    </h3>
+                    <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                      <div class="slds-grid slds-wrap slds-gutters_small">
+                        <template for:each={coverage.fields} for:item="field">
+                          <div
+                            key={field.fieldApiName}
+                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-vertical_x-small"
+                          >
+                            <template lwc:if={field.isTextarea}>
+                              <lightning-textarea
+                                label={field.fieldLabel}
+                                value={field.value}
+                                data-coverage-name={coverage.name}
+                                data-field-api-name={field.fieldApiName}
+                                required={field.isRequired}
+                                onchange={handleFieldChange}
+                              >
+                              </lightning-textarea>
+                            </template>
+                            <template lwc:elseif={field.isCheckbox}>
+                              <lightning-input
+                                type="checkbox"
+                                label={field.fieldLabel}
+                                checked={field.value}
+                                data-coverage-name={coverage.name}
+                                data-field-api-name={field.fieldApiName}
+                                onchange={handleFieldChange}
+                              >
+                              </lightning-input>
+                            </template>
+                            <template lwc:elseif={field.isDate}>
+                              <lightning-input
+                                type="date"
+                                label={field.fieldLabel}
+                                value={field.value}
+                                data-coverage-name={coverage.name}
+                                data-field-api-name={field.fieldApiName}
+                                required={field.isRequired}
+                                onchange={handleFieldChange}
+                              >
+                              </lightning-input>
+                            </template>
+                            <template lwc:elseif={field.isNumber}>
+                              <lightning-input
+                                type="number"
+                                label={field.fieldLabel}
+                                value={field.value}
+                                step={field.step}
+                                formatter={field.formatter}
+                                data-coverage-name={coverage.name}
+                                data-field-api-name={field.fieldApiName}
+                                required={field.isRequired}
+                                onchange={handleFieldChange}
+                              >
+                              </lightning-input>
+                            </template>
+                            <template lwc:else>
+                              <lightning-input
+                                type={field.inputType}
+                                label={field.fieldLabel}
+                                value={field.value}
+                                data-coverage-name={coverage.name}
+                                data-field-api-name={field.fieldApiName}
+                                required={field.isRequired}
+                                onchange={handleFieldChange}
+                              >
+                              </lightning-input>
+                            </template>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                  </lightning-card>
+                </template>
+              </template>
+            </template>
+          </template>
+        </div>
+
+        <!-- Footer Actions - Configuration -->
+        <footer
+          class="slds-modal__footer slds-p-around_medium slds-theme_default"
+        >
+          <div class="slds-grid slds-grid_align-spread">
+            <lightning-button
+              variant="neutral"
+              label="Back"
+              onclick={handleBack}
+              icon-name="utility:back"
+            >
+            </lightning-button>
+            <div>
+              <lightning-button
+                variant="neutral"
+                label="Cancel"
+                onclick={handleCancel}
+                class="slds-m-right_small"
+              >
+              </lightning-button>
+              <lightning-button
+                variant="brand"
+                label="Save"
+                onclick={handleSave}
+                icon-name="utility:save"
+              >
+              </lightning-button>
+            </div>
+          </div>
+        </footer>
+      </template>
+    </template>
+  </div>
+</template>
