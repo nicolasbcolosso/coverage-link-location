@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P_and_P_Dates_Required</fullName>
+    <active>false</active>
+    <description>P&amp;P Dates are required for D&amp;O, EPL, FID, M&amp;PL policies.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+AND(
+ISPICKVAL(Stage__c, &quot;Policy Delivered / Closed Won&quot;),
+$RecordType.Name = &quot;Scale&quot;,
+OR(AND(
+ISBLANK (Pending_and_Prior_Date__c),
+CONTAINS(Coverages__c, &apos;D&amp;O&apos;)),
+OR(AND(
+ISBLANK(Pending_Prior_Date_EPL__c),
+OR(
+CONTAINS(Coverages__c, &apos;EPL&apos;),
+CONTAINS(Coverages__c, &apos;FMP M&amp;PL, EPL&apos;),
+CONTAINS(Coverages__c, &apos;FMP M&amp;PL, EPL, FID&apos;))),
+OR(AND(
+ISBLANK (Pending_Prior_Date_FID__c),
+OR(
+CONTAINS(Coverages__c, &apos;FID&apos;),
+CONTAINS(Coverages__c, &apos;FMP M&amp;PL, FID&apos;),
+CONTAINS(Coverages__c, &apos;FMP M&amp;PL, EPL, FID&apos;))),
+OR(AND(
+ISBLANK(Pending_Prior_Date_M_PL__c),
+OR(
+CONTAINS(Coverages__c, &apos;FMP M&amp;PL&apos;))))))))</errorConditionFormula>
+    <errorMessage>Field Required: Pending and Prior Dates are required for D&amp;O, EPL, FID, and M&amp;PL policies.</errorMessage>
+</ValidationRule>

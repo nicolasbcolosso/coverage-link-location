@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Earnings_Trend_Factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>A. Above Average:	.90
+B. Average, or company is &lt;2 years old:	1.0
+C. Below Average: 	1.1 - 1.5</inlineHelpText>
+    <label>Earnings Trend (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

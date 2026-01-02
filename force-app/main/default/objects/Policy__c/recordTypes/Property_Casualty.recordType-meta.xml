@@ -1,0 +1,1965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Property_Casualty</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Policy</compactLayoutAssignment>
+    <label>Founder Shield</label>
+    <picklistValues>
+        <picklist>Admitted__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Billing__c</picklist>
+        <values>
+            <fullName>Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ascend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Premium Finance Agreement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Carrier__c</picklist>
+        <values>
+            <fullName>ACE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AIG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AIX Burlington</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AIX Specialty Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AXIS Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Admiral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Allied World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amtrust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Argonaut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ascent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atain Specialty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Barbican</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beazley</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CFC Underwriting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CFC Underwriting%2C Lloyds of London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CNA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CNA%2C Hartford</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catlin Specialty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chubb</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Columbia Casualty Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Covington Specialty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Darwin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Erisk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Erisk %2F Scottsdale Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essex Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Euclid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evanston Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>First Rehab</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gemini</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Star</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Great American E%26S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Great American Insurance Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Guardian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hanleigh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hanover</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hartford</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hiscox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Houston Specialty Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hudson Specialty Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ING</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ISI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>James River</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>K%26K Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Landmark</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liberty American Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lloyds of London</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Markel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maxum Indemnity Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Monitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National Casualty Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nautilus Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Northfield</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Penn-Star Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Philadelphia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Progressive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RSUI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roundhill Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SafeOnline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scottsdale Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shelter Point</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard Security</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Starr</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Torus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transamerica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Travelers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tudor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>USLI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>United Specialty Insurance Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vela</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vistor O%2E Shinnerer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Westchester Surplus Lines Insurance Co</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XL Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zurich</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Commission_Policy_Type__c</picklist>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Country_ISO_Code__c</picklist>
+        <values>
+            <fullName>US</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Coverage_s_OLD__c</picklist>
+        <values>
+            <fullName>Builder%27s Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Owners Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Auto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crime Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyber Crime %28BTC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cyber Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Breach</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directors %26 Officers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment Practices Liability Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Errors %26 Omissions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event General Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inland Marine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Key Man</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kidnap %26 Ransom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Legal Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liquor Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ocean Cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privacy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Products Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Property</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Truck Cargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umbrella</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workers Compensation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>E_Consent_Received__c</picklist>
+        <values>
+            <fullName>NO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YES</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Excess_Endorsements__c</picklist>
+        <values>
+            <fullName>Amend Declarations Endorsement - XD008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement - XD008 %28Name or Address Change%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement- XD008 %28Change Underwriter %25%29 %282022%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement- XD008 %28Change Underwriter %25%29 %282023%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement- XD008 %28Split P%26P%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancellation Endorsement - XD014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excess Side A Only Endorsement %28Scale Primary%29 - XD015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period Endorsement %28AP%29 - XD011A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period Endorsement %28RP%29 - XD011B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period Endorsement - XD011 %28no RP needed%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period and Wind-down Endorsement %28AP%29 - XD014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period and Wind-down Endorsement %28RP%29 - XD015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow Form to Specified Side A Only But Recognize Erosion Endorsement %28Scale Primary%29 - DRAFT XD015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow Form to Specified Sublimits Endorsement - XD006</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full BIPD Exclusion Endorsement - XD003</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Operations Exclusion Endorsement - XD012</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lloyd%E2%80%99s- Service of Suit Clause %28USA%29 %E2%80%93 NMA1998</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Follow Form But Recognize Erosion Endorsement - XD004</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recognize Other Contribution Endorsement - XD005</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retroactive Date Endorsement - XD009</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Entity Exclusion Endorsement - XD013</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Entity Exclusion Endorsement - XD013A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Event Exclusion Endorsement - XD010</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trisura- Service of Process Endorsement %E2%80%93 TSOP22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trisura- Trade or Economic Sanctions Endorsement - TTES22</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Export_List_Item__c</picklist>
+        <values>
+            <fullName>ACCIDENT%2FDISABILITY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUTOMOBILES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVIATION</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRIME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FIRE %26 ALLIED LINES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GENERAL LIABILITY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INLAND MARINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MISCELLANEOUS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PROFESSIONAL LIABILITY%2FERRORS %26 OMISSION</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Form_Type__c</picklist>
+        <values>
+            <fullName>Claims Made</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Occurrence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry__c</picklist>
+        <values>
+            <fullName>B2B Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B2C Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biotech %2F Healthtech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cannabis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant - Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultant - Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-Commerce</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education %2F Education Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing - Business%2FIndustrial Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing - Consumer Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media %26 Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Profit Organization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-Demand Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurants %26 Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software as a Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web Design %26 Development</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lloyd_s_Transaction_Type__c</picklist>
+        <values>
+            <fullName>Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endorsement Additional Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endorsement Return Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Original Premium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lloyds_Specific_Endorsements__c</picklist>
+        <values>
+            <fullName>0a California Revised D-1 Form Effective 01%2E01%2E20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0a California Revised D-2 Form Effective 01%2E01%2E20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9022 - 0a Alabama Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9025A%2C LMA9026 - 0a Alaska Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9027A - 0a Arizona Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9028 - 0a Arkansas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9030 - 0a California Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9031 - 0a Colorado Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9032 - 0b Colorado Notice for Policies Written on a Claims-Made Basis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9035A - 0a Connecticut Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9036 - 0a Delaware Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9037%2C LMA9038%2C LMA9039%2C LMA9040 - 0a Florida Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9042%2C LMA9043 - 0a Georgia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9044 - 0a Hawaii Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9045 - 0a Idaho Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9046 - 0a Illinois Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9047 - 0a Iowa Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9048 - 0a Kansas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9049 - 0a Louisiana Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9050 - 0a Maine Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9051 - 0a Maryland Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9054 - 0a Massachusetts Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9055 - 0a Michigan Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9056 - 0a Minnesota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9057 - 0a Mississippi Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9058 - 0a Missouri Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9059 - 0a Montana Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9060 - 0a Nebraska Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9061 - 0a Nevada Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9062 - 0a New Hampshire Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9063 - 0a New Jersey Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9065 - 0a New Mexico Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9067 - 0a New York Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9068 - 0a North Carolina Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9069 - 0a North Dakota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9070 - 0a Ohio Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9071 - 0a Oklahoma Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9072 - 0a Oregon Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9073 - 0a Pennsylvania Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9074 - 0a Puerto Rico Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9075 - 0a Rhode Island Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9076A - 0a South Carolina Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9077 - 0a South Dakota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9078 - 0a Tennessee Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9079 - 0a Texas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9080B - 0b Texas Complaints Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9082 - 0a Utah Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9083 - 0a Vermont Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9084 - 0a Virginia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9085 - 0a Washington Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9087 - 0a West Virginia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9089 - 0a Wisconsin Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9090 - 0a Wyoming Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9092 - 0a Kentucky Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9136 - 0b California Complaints Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NMA1998 - 2 Service of Suit Clause</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NMA1998 - 2 Service of Suit Clause %28CA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NMA1998 Copy - 2 Service of Suit Clause %28CA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XD002 - OFAC Exclusion and Several Liability Notice</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lloyds_Type_of_Insurance__c</picklist>
+        <values>
+            <fullName>Direct</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lloyds_US_Classification__c</picklist>
+        <values>
+            <fullName>Exempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Illinois Licensed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kentucky Licensed %28US Virgin Islands%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Regulated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US Reinsurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>US Surplus Lines</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ML_Endorsements__c</picklist>
+        <values>
+            <fullName>Amend Definition of Plan %28Add PEO Language%29 - ML208</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend IVI Exclusion %281 Year Cap on Former Employees%29 %E2%80%93 ML033</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Founder Shield%3A CD silent%29 - ML057C %28CD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Founder Shield%3A SD silent%29 - ML057C %28SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Founder Shield%3A SD silent%29 - ML057C-E %28SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Founder Shield%3A SD silent%29 - ML057C-EF %28SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Founder Shield%3A SD silent%29 - ML057C-F %28SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%29 - ML065EF %284-23 PS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A AT Silent%29 - ML065F %284-23 AT%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A AT%2C BIPD Silent%29 - ML065F %284-23 ATBIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD Silent%29 - ML065 %284-23 BIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD Silent%29 - ML065E %284-23 BIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD Silent%29 - ML065EF %284-23 BIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C AT Silent%29 - ML065EF %284-23 BIPDAT%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C IP Silent%29 - ML065EF %284-23 BIPDIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C IP%2C PL Silent%29 - ML065 %284-23 BIPDIPPL%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PL Silent%29 - ML065 %284-23 BIPDPL%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PS Silent%29 - ML065 %284-23 BIPDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PS Silent%29 - ML065E %284-23 BIPDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PS Silent%29 - ML065EF %284-23 BIPDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PS%2C IP Silent%29 - ML065 %284-23 BIPDPSIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A BIPD%2C PS%2C IP Silent%29 - ML065E %284-23 BIPDPSIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A IP Silent%29 - ML065E %284-23 IP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A IP Silent%29 - ML065EF %284-23 IP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A IP Silent%29 - ML065F %284-23 IP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A IP silent%29 - ML065 %284-23 IP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A IP%2C AT Silent%29 - ML065 %284-23 IPAT%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A PS silent%29 - ML065 %284-23 PS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A PS silent%29 - ML065E %284-23 PS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A PS%2C IP Silent%29 - ML065EF %284-23 PSIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD silent%29 - ML065 %284-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD silent%29 - ML065E %284-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD silent%29 - ML065EF %284-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD silent%29 - ML065F %284-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C BIPD Silent%29 - ML065 %284-23 SDBIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C BIPD Silent%29 - ML065E %284-23 SDBIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C BIPD Silent%29 - ML065EF %284-23 SDBIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C BIPD%2C PS silent%29 - ML065E %284-23 SDBIPDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS silent%29 - ML065 %284-23 SDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS silent%29 - ML065E %284-23 SDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS silent%29 - ML065EF %284-23 SDPS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS%2C IP Silent%29 - ML065EF %284-23 SDPSIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS%2C IP silent%29 - ML065 %284-23 SDPSIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS%2C IP%2C AT%2C ERP silent%29 - ML065E %284-23 SDPSIPATERP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28RT%3A SD%2C PS%2C IP%2C BIPD Silent%29 - ML065 %284-23 SDPSIPBIPD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%29 - ML097F %2811-23%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD silent%29 - ML097 %2811-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD silent%29 - ML097E %2811-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD silent%29 - ML097EF %2811-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD silent%29 - ML097F %2811-23 SD%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD%2C IP silent%29 - ML097 %2811-23 SDIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement %28Socius%3A SD%2C IP silent%29 - ML097E %2811-23 SDIP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Enhancement Endorsement %28Founder Shield%29 - FMP007</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Marketer_UW_old__c</picklist>
+        <values>
+            <fullName>AMWins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amtrust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evolve MGA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Founder Shield</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GFI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gordon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hartan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INSUREtrust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Noodle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LIDAC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lyons</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MMZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RT Specialty</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PFA_Type__c</picklist>
+        <values>
+            <fullName>BankDirect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National Partners</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Method__c</picklist>
+        <values>
+            <fullName>ACH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Policy_Type_Status__c</picklist>
+        <values>
+            <fullName>BORed away</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancel%2FRewrite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled - Noncompliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled - Nonpayment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled - Off Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled by Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business - BOR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business - BOR to Cancel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Renewed by Insured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remarketed at Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rewrite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tail%2FRun Off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Portfolio_Prime_Endorsements__c</picklist>
+        <values>
+            <fullName>Accreditation Claim Exclusion Endorsement - PP011</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Add Contract Exclusion %28Non-US Matters Only%29 - PP010</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement - PP007 %28Add Coverage Section%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement - PP007 %28Split P%26P%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Definition of Organization Endorsement - PP016</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creditor%2C Bankruptcy%2C and Insolvency Sublimit Endorsement - PP005</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full BIPD Exclusion Endorsement %28EPL Carvebacks%29 - PP018</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full Professional Services Exclusion Endorsement %28Side A Carveback%29- PP017</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immigration Violation Coverage Sublimit Endorsement - PP006</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medical Malpractice Exclusion Endorsement %28Shareholder carvebacks%29 - PP013</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prior Acts Exclusion Endorsement - PP004</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privacy Violation Exclusion Endorsement %28Shareholder Carveback%29 - PP014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privacy Violation Exclusion Endorsement %28Side C Only%2C Shareholder Carveback%29 - PP014A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sexual Misconduct Exclusion Endorsement - PP008</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Entity Exclusion Endorsement - PP009</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Entity Retention Endorsement - PP012</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Event Exclusion Endorsement - PP015</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Primary_Non_Contributory__c</picklist>
+        <values>
+            <fullName>Blanket - Written Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing %26 Completed Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ongoing Operations Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28Explain in List of Endorsements%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary Only %28Not Non - Contributory%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled %28Specific Entity%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rater_Type__c</picklist>
+        <values>
+            <fullName>E%26O</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXCESS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXOTICS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FMP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MATRIX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ML</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TECH</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Scale_Endorsements__c</picklist>
+        <values>
+            <fullName>Add Extradition Coverage Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Additional Limit for Insured Persons %E2%80%93 Remove Interrelated Claim Coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Declarations Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Amend Extended Reporting Period Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bump-up Claim Protection Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creditor Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creditor Exclusion Endorsement %28with Convertible Note-holder Carveback%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creditor%2C Bankruptcy and Insolvency Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Defense Cost Allocation Enhancement Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delete Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delete Minimum Earned Premium Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dilution Protection Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employed Lawyers Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extended Reporting Period Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fraudulent Claims Clause</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full Bodily Injury Exclusion Endorsement %28with Corporate Manslaughter Carveback%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Future Listing Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ICO Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment Advisor Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Major Shareholder Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnibus Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-claim Expenses Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prior Acts Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service of Suit Clause %28CA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service of Suit Clause %28USA%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specific Event Exclusion Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TRIA Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TRIA Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Shared_Limits__c</picklist>
+        <values>
+            <fullName>Separate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shared</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stage__c</picklist>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Processing</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>In Stamping %2F Accounting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Policy Delivered %2F Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Policy Received</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sum_Insured_Currency__c</picklist>
+        <values>
+            <fullName>USD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TRIA__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Trisura_Specific_Endorsements__c</picklist>
+        <values>
+            <fullName>0a California Revised D-1 Form Effective 01%2E01%2E20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0a California Revised D-2 Form Effective 01%2E01%2E20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9022 - 0a Alabama Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9025A%2C LMA9026 - 0a Alaska Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9027A - 0a Arizona Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9028 - 0a Arkansas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9030 - 0a California Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9031 - 0a Colorado Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9032 - 0b Colorado Notice for Policies Written on a Claims-Made Basis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9035A - 0a Connecticut Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9036 - 0a Delaware Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9037%2C LMA9038%2C LMA9039%2C LMA9040 - 0a Florida Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9042%2C LMA9043 - 0a Georgia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9044 - 0a Hawaii Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9045 - 0a Idaho Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9046 - 0a Illinois Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9047 - 0a Iowa Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9048 - 0a Kansas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9049 - 0a Louisiana Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9050 - 0a Maine Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9051 - 0a Maryland Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9054 - 0a Massachusetts Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9055 - 0a Michigan Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9056 - 0a Minnesota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9057 - 0a Mississippi Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9058 - 0a Missouri Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9059 - 0a Montana Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9060 - 0a Nebraska Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9061 - 0a Nevada Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9062 - 0a New Hampshire Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9063 - 0a New Jersey Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9065 - 0a New Mexico Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9067 - 0a New York Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9068 - 0a North Carolina Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9069 - 0a North Dakota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9070 - 0a Ohio Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9072 - 0a Oregon Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9073 - 0a Pennsylvania Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9074 - 0a Puerto Rico Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9075 - 0a Rhode Island Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9076A - 0a South Carolina Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9077 - 0a South Dakota Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9078 - 0a Tennessee Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9079 - 0a Texas Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9080B - 0b Texas Complaints Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9082 - 0a Utah Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9083 - 0a Vermont Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9084 - 0a Virginia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9085 - 0a Washington Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9087 - 0a West Virginia Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9089 - 0a Wisconsin Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9090 - 0a Wyoming Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9092 - 0a Kentucky Surplus Lines Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMA9136 - 0b California Complaints Notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSOP22 - 2 Service of Process Endorsement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TTES22 - 3 Trade or Economic Sanctions Endorsement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Waiver_of_Subrogation__c</picklist>
+        <values>
+            <fullName>Blanket - Written Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Designated Person or Organization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other%28Explain in List of Endorsements%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project%2FJob Specific</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled %28Specific Entity%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Statutory%2FRequired by Law</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

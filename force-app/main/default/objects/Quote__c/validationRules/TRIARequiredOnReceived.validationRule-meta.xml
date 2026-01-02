@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TRIARequiredOnReceived</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+OR($RecordType.Name = &quot;Scale Received&quot;,$RecordType.Name = &quot;Scale-Locked&quot;,$RecordType.Name = &quot;Scale-Open&quot;)
+ &amp;&amp; 
+ISPICKVAL(  TRIA__c ,&quot;&quot;) &amp;&amp; OR(ISPICKVAL(Status__c, &quot;Received&quot;), ISPICKVAL(Status__c, &quot;Accepted&quot;))</errorConditionFormula>
+    <errorMessage>TRIA is mandatory for Accepted or Received Quote.</errorMessage>
+</ValidationRule>

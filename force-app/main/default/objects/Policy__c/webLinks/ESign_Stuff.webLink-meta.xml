@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ESign_Stuff</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>ESign Stuff</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/esl__Package?ParentId={! Policy__c.Id}&amp;Name={!Policy__c.Name}%20Agreement&amp;Documents=015g0000000Cm1f&amp;Signer1={!Policy__c.Account_Contact_Person__c}&amp;Signer1Label=a0Tg0000001uMIf&amp;ConventionId=a0Rg00000033spu&amp;enableReminders=true</url>
+</WebLink>

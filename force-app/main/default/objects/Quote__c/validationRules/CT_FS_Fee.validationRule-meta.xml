@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CT_FS_Fee</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2021-01-01&quot;),
+Surplus_Lines_Quote__c = True,
+Opportunity__r.Account.ShippingState = &quot;Connecticut&quot;,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+FS_Fees__c &gt; 421)</errorConditionFormula>
+    <errorMessage>FS Fees for CT must not exceed $421 (500 - 79 State Filing Fee).</errorMessage>
+</ValidationRule>

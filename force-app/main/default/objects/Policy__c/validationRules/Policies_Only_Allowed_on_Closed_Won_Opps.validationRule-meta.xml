@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policies_Only_Allowed_on_Closed_Won_Opps</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; 
+NOT($RecordType.Name = &quot;Health &amp; Benefits&quot;) &amp;&amp; 
+
+AND(
+  ISNEW(),
+  NOT(ISPICKVAL(Opportunity__r.StageName, &apos;Proposal Approved/Closed Won&apos;))
+)</errorConditionFormula>
+    <errorDisplayField>Acceptance_Notes__c</errorDisplayField>
+    <errorMessage>Can only create Policies on Closed Won Opportunities</errorMessage>
+</ValidationRule>

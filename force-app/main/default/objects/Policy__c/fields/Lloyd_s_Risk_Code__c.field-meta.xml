@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lloyd_s_Risk_Code__c</fullName>
+    <description>Used in Scale Bordereaux report</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+
+AND 
+( 
+RecordType.DeveloperName = &quot;Scale&quot;, 
+OR(CONTAINS( Name , &quot;Directors &amp; Officers&quot;), CONTAINS( Name , &quot;D&amp;O&quot; )), 
+NOT( 
+OR( CONTAINS(Name , &quot;Employment Practices Liability&quot;) , CONTAINS( Name, &quot;EPL&quot;),CONTAINS(Name, &quot;EPLI&quot;)) 
+) 
+), 
+&quot;D2&quot;,
+IF( 
+AND 
+( 
+RecordType.DeveloperName = &quot;Scale&quot;, 
+OR( CONTAINS (Name, &quot;Employment Practices Liability&quot;), CONTAINS(Name, &quot;EPL&quot;), CONTAINS(Name, &quot;EPLI&quot;) ), 
+NOT( 
+OR ( CONTAINS(Name, &quot;Directors &amp; Officers&quot;), CONTAINS(Name, &quot;D&amp;O&quot;) ) 
+) 
+), 
+&quot;D6&quot;, 
+&quot;D2 &amp; D6&quot;
+)
+)</formula>
+    <label>Lloyd&apos;s Risk Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rater_Range_Benefit_Reduction_Plan</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, 
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;) &amp;&amp;
+
+
+OR(
+ Benefit_Reduc_Plan_Termin_Factor__c &lt; 0.9,
+Benefit_Reduc_Plan_Termin_Factor__c &gt; 2.0
+)</errorConditionFormula>
+    <errorMessage>Benefit reduction / Plan termination (Factor) is not within the valid range</errorMessage>
+</ValidationRule>

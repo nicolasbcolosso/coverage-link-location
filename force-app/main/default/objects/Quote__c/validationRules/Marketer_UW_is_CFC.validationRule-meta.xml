@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketer_UW_is_CFC</fullName>
+    <active>true</active>
+    <description>If Marketer/UW Account = “Underwriters at Lloyd&apos;s of London (CFC)” then Carrier Issuing Company also has to be “Underwriters at Lloyd&apos;s of London (CFC)”</description>
+    <errorConditionFormula>AND (
+ISPICKVAL(Status__c, &quot;Received&quot;),
+DATEVALUE(CreatedDate) &gt;= DATEVALUE(&quot;2023-08-16&quot;),
+Opportunity__r.Record_Type__c  &lt;&gt; &quot;Scale&quot;,
+Marketer_UW_Name__r.Account.Name = &quot;Underwriters at Lloyd&apos;s of London (CFC)&quot;,
+ Carrier_Issuing_Company__r.Name  &lt;&gt; &quot;Underwriters at Lloyd&apos;s of London (CFC)&quot;)</errorConditionFormula>
+    <errorMessage>If Marketer/UW Account = “Underwriters at Lloyd&apos;s of London (CFC)” then Carrier Issuing Company also has to be “Underwriters at Lloyd&apos;s of London (CFC)”</errorMessage>
+</ValidationRule>

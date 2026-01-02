@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Date__c</fullName>
+    <description>Used by Accounting.
+
+If Billing = Agency or PFA, Payment Received = True, Stage not equal Closed Lost or On Hold,  then populate the Credit Date field with the Payment Received Date 
+
+OR If Billing = Direct, Stage not equal to Closed Lost or On Hold then populate Credit Date field with the Effective Date field of policy</description>
+    <encryptionScheme>None</encryptionScheme>
+    <label>Credit Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

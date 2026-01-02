@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Policies</fullName>
+    <columns>In_Force_CC__c</columns>
+    <columns>NAME</columns>
+    <columns>Carrier_Issuing_Company__c</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Renewal_Date__c</columns>
+    <columns>Policy_Type_Status__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Account__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>In_Force__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Surplus_Lines_Broker_Logic_Tax_Doc__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Policies</label>
+</ListView>

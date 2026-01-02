@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating_Factor__c</fullName>
+    <externalId>false</externalId>
+    <formula>(
+((Class_of_Business_Factor__c + Number_of_Years_in_Business_Factor__c + Mgmt_quality_Board_Comp_Factor__c + M_A_activity_Factor__c + Pvt_Plcmnt_or_Pub_Exempt_Filing_Factor__c + Cap_Table_Composition_Factor__c + Major_Shareholder_Exposure_Factor__c + Equity_and_Debt_Structure_Factor__c + Debt_to_Equity_Position_factor__c + Current_Ratio_Factor__c + Earnings_Trend_Factor__c + Bank_Credit_Compliance_Factor__c + Auditor_Factor__c + Prior_D_O_Claims_Activity_Factor__c + Sublimit_for_Insured_Persons_Factor__c  + Deriv_Demand_Investigation_Cost_Factor__c + Reputational_Protection_Factor__c + Loss_Mitigation_Factor__c + Subpoena_or_Document_Production_Factor__c)/19)
+
++
+
+((EPLI_Class_Of_Business_Factor__c + EPLI_Number_of_Years_In_Business_Factor__c + EPLI_Location_Factor__c + EPLI_Prior_Yr_Employee_Turnover_Factor__c + EPLI_M_A_Activity_Prior_2_Yrs_Factor__c + EPLI_At_Will_Statement_Factor__c + EPLI_Employee_Handbook_Factor__c + EPLI_Annual_Performance_Reviews_Factor__c + EPLI_Harassment_Training_Factor__c + EPLI_Full_Time_HR_Pro_Factor__c + EPLI_Profitability_Factor__c + EPLI_Debt_to_Equity_Factor__c + EPLI_Prior_Claims_Activity_Factor__c + EPLI_3rd_Party_Exposure_Factor__c + EPLI_Immigration_Violation_Factor__c + EPLI_Wage_Hour_Factor__c)/16)
+
++
+
+((Type_of_Plans_Factor__c + Years_in_Business_Factor__c + Number_of_participants_Factor__c + M_A_Activity_FID_Factor__c + Industry_Factor__c + Company_Performance_Factor__c + Plan_Compliance_Factor__c + Benefit_Reduc_Plan_Termin_Factor__c + Plan_funding_Factor__c + Plan_manager_quality_Factor__c + Prior_FID_Claim_Activity_Factor__c + FID_Voluntary_compliance_Factor__c)/12)
+)
+/3</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Rating Factor</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

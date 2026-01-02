@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiver_of_Subrogation__c</fullName>
+    <label>Waiver of Subrogation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Blanket - Written Contract</fullName>
+                <default>false</default>
+                <label>Blanket - Written Contract</label>
+            </value>
+            <value>
+                <fullName>Scheduled (Specific Entity)</fullName>
+                <default>false</default>
+                <label>Scheduled (Specific Entity)</label>
+            </value>
+            <value>
+                <fullName>Designated Person or Organization</fullName>
+                <default>false</default>
+                <label>Designated Person or Organization</label>
+            </value>
+            <value>
+                <fullName>Project/Job Specific</fullName>
+                <default>false</default>
+                <label>Project/Job Specific</label>
+            </value>
+            <value>
+                <fullName>Statutory/Required by Law</fullName>
+                <default>false</default>
+                <label>Statutory/Required by Law</label>
+            </value>
+            <value>
+                <fullName>Other(Explain in List of Endorsements)</fullName>
+                <default>false</default>
+                <label>Other(Explain in List of Endorsements)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

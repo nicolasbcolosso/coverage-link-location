@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ascend_Credit_Date_Rec</fullName>
+    <columns>Payment_Received__c</columns>
+    <columns>Invoice_Paid__c</columns>
+    <columns>Payable__c</columns>
+    <columns>Credit_Date__c</columns>
+    <columns>Payment_Received_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Policy_Number__c</columns>
+    <columns>Premium__c</columns>
+    <columns>Commission_New__c</columns>
+    <columns>FS_Fees__c</columns>
+    <columns>Total_Revenue__c</columns>
+    <columns>Payable_to_State__c</columns>
+    <columns>Total_Cost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.Alpharoot</value>
+    </filters>
+    <filters>
+        <field>Billing__c</field>
+        <operation>equals</operation>
+        <value>Ascend</value>
+    </filters>
+    <label>Ascend Credit Date Rec Alpharoot</label>
+</ListView>

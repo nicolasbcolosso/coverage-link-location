@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Key_Man__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Identifies Scale quotes for Key Man Coverage. This will NOT be added to layouts, and will be updated by a trigger</description>
+    <label>Key Man</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

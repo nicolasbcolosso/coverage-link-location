@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reputational_Protection_Factor__c</fullName>
+    <defaultValue>1.05</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>No: 1.0
+Yes: 1.05 - 1.10</inlineHelpText>
+    <label>Reputational Protection (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

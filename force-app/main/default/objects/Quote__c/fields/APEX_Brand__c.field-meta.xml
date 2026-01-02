@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>APEX_Brand__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Opportunity_RecordType_Name__c = &apos;Founder Shield&apos;, &apos;foundershield&apos;,
+IF(Opportunity_RecordType_Name__c = &apos;BRP&apos;, &apos;foundershield&apos;,
+IF(Opportunity_RecordType_Name__c = &apos;Alpharoot&apos;, &apos;alpharoot&apos;,
+null)))</formula>
+    <label>APEX Brand</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Locked_Quote</fullName>
+    <active>true</active>
+    <description>Required fields cannot be set to &quot;Required&quot; in the page layout so this validation rule stops modification of the required fields.</description>
+    <errorConditionFormula>AND(
+ Is_Locked__c,
+ OR( 
+  ISCHANGED( Opportunity__c ),
+  ISCHANGED( Marketer_UW_Name__c )
+ )
+)</errorConditionFormula>
+    <errorMessage>This record is locked from further changes.</errorMessage>
+</ValidationRule>

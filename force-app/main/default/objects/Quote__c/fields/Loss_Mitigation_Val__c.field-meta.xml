@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Mitigation_Val__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Loss_Mitigation__c),&quot;$500,000&quot;, 500000, &quot;$1,000,000&quot;, 1000000, &quot;$2,000,000&quot;, 2000000, &quot;$3,000,000&quot;, 3000000, &quot;$4,000,000&quot;, 4000000, &quot;$5,000,000&quot;, 5000000, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Loss Mitigation Val</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

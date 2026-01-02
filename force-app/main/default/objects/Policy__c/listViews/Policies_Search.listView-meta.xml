@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policies_Search</fullName>
+    <columns>Payment_Received_Date__c</columns>
+    <columns>Credit_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Billing__c</columns>
+    <columns>Total_Cost__c</columns>
+    <columns>Payable__c</columns>
+    <columns>Invoice_Paid__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Invoice_Paid_Date__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Program_Fee__c</columns>
+    <columns>Carrier_Fee__c</columns>
+    <columns>Wholesale_Fee__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Payment_Received__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Total_Cost__c</field>
+        <operation>notEqual</operation>
+        <value>0</value>
+    </filters>
+    <label>Policies Search</label>
+</ListView>

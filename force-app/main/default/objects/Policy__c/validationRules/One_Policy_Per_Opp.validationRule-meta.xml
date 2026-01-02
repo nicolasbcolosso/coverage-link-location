@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>One_Policy_Per_Opp</fullName>
+    <active>true</active>
+    <description>only 1 policy allowed per opportunity UNLESS policy type/status = &quot;Cancel/Rewrite&quot;</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;FS Direct&quot;, Override_Policy_VR__c = true)) &amp;&amp; 
+
+IF( 
+OR( 
+ISCHANGED( Policy_Count_Val__c ), 
+ISNEW() 
+), 
+(Opportunity__r.Number_of_Policies__c + Policy_Count_Val__c) &gt; Opportunity__r.Max_Num_Policies__c, 
+Opportunity__r.Number_of_Policies__c &gt; Opportunity__r.Max_Num_Policies__c 
+)</errorConditionFormula>
+    <errorMessage>Only 1 Policy allowed per Opportunity UNLESS type/status = &quot;Cancel/Rewrite&quot;</errorMessage>
+</ValidationRule>

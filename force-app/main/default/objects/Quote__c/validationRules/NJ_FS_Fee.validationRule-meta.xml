@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NJ_FS_Fee</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Opportunity__r.Account.ShippingState = &quot;New Jersey&quot;, FS_Fees__c &gt; 171,
+Surplus_Lines_Quote__c = True,
+($Profile.Name &lt;&gt; &apos;System Administrator&apos;),
+($Profile.Name &lt;&gt; &apos;API User&apos;),
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2021-04-10&quot;))</errorConditionFormula>
+    <errorDisplayField>Account_Type__c</errorDisplayField>
+    <errorMessage>FS Fees for NJ must not exceed $171 (250 - 79 State Filing Fee).</errorMessage>
+</ValidationRule>

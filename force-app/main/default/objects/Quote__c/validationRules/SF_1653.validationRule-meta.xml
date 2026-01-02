@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SF_1653</fullName>
+    <active>true</active>
+    <description>delete this VR when the ticket is approved</description>
+    <errorConditionFormula>Notes__c = &apos;SF-1653&apos;</errorConditionFormula>
+    <errorMessage>Error in notes SF-1653</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FL_Broker_Fee</fullName>
+    <active>true</active>
+    <description>Broker Fee not permitted on admitted policies in Florida.</description>
+    <errorConditionFormula>AND(
+Opportunity__r.Account.ShippingState = &quot;Florida&quot;,
+ISPICKVAL(Admitted__c, &quot;yes&quot;),
+DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2021-11-01&quot;),
+Wholesale_Fees__c &gt; 0)</errorConditionFormula>
+    <errorMessage>Broker Fee not permitted on admitted policies in Florida.</errorMessage>
+</ValidationRule>

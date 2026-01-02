@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewals_must_be_verified_by_Carrier</fullName>
+    <active>false</active>
+    <description>6/24/24 vertical leads mentioned we can turn this rule off</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;,  $Profile.Name = &quot;System Administrator&quot;, $Profile.Name = &quot;API User&quot;)) &amp;&amp; 
+
+IF(AND(TEXT(Policy_Type_Status__c) = &quot;Renewal&quot;,
+NOT(ISBLANK(Opportunity__r.Origin_Policy__c)), 
+Override_Policy_VR__c = false,
+Opportunity__r.Origin_Policy__r.Carrier_Issuing_Company__c &lt;&gt;  Carrier_Issuing_Company__c), TRUE, FALSE)</errorConditionFormula>
+    <errorDisplayField>Carrier_Issuing_Company__c</errorDisplayField>
+    <errorMessage>Remarketed Policies must be marked as &quot;Remarketed&quot; and not &quot;Renewal&quot;</errorMessage>
+</ValidationRule>

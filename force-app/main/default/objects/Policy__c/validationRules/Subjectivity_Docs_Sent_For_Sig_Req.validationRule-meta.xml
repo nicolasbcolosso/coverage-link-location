@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subjectivity_Docs_Sent_For_Sig_Req</fullName>
+    <active>true</active>
+    <description>Must upload the subjectivity docs</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;, Opportunity__r.BRP_Historical_Data__c = TRUE)) &amp;&amp; 
+
+AND(
+ISPICKVAL( Stage__c , &quot;Policy Delivered / Closed Won&quot;), 
+ISCHANGED( Stage__c ),
+Subjectivity_Docs_Sent_for_Signature__c  = FALSE
+)</errorConditionFormula>
+    <errorMessage>Field Required: Subjectivity Docs Sent For Signature</errorMessage>
+</ValidationRule>

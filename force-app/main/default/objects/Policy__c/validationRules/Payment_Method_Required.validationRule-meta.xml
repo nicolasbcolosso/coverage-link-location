@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Method_Required</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp;
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;,$RecordType.Name = &quot;ReShield&quot;)) &amp;&amp; ISPICKVAL(Payment_Method__c, &quot;&quot;) &amp;&amp; NOT(ISNEW()) &amp;&amp; ISCHANGED(Invoice_Paid__c) &amp;&amp; Invoice_Paid__c=true</errorConditionFormula>
+    <errorMessage>Field Required - Payment Method</errorMessage>
+</ValidationRule>

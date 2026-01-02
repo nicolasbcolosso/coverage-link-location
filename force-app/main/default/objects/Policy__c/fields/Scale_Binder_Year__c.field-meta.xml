@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Binder_Year__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(
+Carrier_Issuing_Company__r.Name = &quot;Underwriters at Lloyd&apos;s London&quot;,
+Effective_Date__c &gt;= DATE(2018,9,1),
+Effective_Date__c &lt;= DATE(2020,4,1)
+),
+&quot;BY1&quot;,
+
+IF (
+AND(
+Carrier_Issuing_Company__r.Name = &quot;Underwriters at Lloyd&apos;s London&quot;,
+Effective_Date__c &gt;= DATE(2020,4,2),
+Effective_Date__c &lt;= DATE(2021,1,31)
+),
+&quot;BY2&quot;,
+
+IF (
+AND(
+Carrier_Issuing_Company__r.Name = &quot;Underwriters at Lloyd&apos;s London&quot;,
+Effective_Date__c &gt;= DATE(2021,2,1),
+Effective_Date__c &lt;= DATE(2021,12,31)
+),
+&quot;BY3&quot;,
+
+IF (
+AND(
+Carrier_Issuing_Company__r.Name = &quot;Underwriters at Lloyd&apos;s London&quot;,
+Effective_Date__c &gt;= DATE(2022,1,1),
+Effective_Date__c &lt;= DATE(2023,3,31)
+),
+&quot;BY4&quot;,
+
+IF (
+AND(
+Carrier_Issuing_Company__r.Name = &quot;Underwriters at Lloyd&apos;s London&quot;,
+Effective_Date__c &gt;= DATE(2023,4,1)
+),
+&quot;BY5&quot;,
+
+IF(
+OR(
+Carrier_Issuing_Company__r.Name = &quot;Knight Specialty Insurance Company&quot;,
+Carrier_Issuing_Company__r.Name = &quot;United Specialty Insurance Company&quot;
+),
+&quot;BY1&quot;,
+
+IF(
+AND(
+Effective_Date__c &lt;= DATE(2023,4,30),
+AND(OR(
+Carrier_Issuing_Company__r.Name = &quot;Trisura Specialty Insurance Company&quot;,
+Carrier_Issuing_Company__r.Name = &quot;Bricktown Specialty Insurance Company&quot;
+))),
+&quot;BY1&quot;,
+
+IF(
+AND(
+Effective_Date__c &gt;= DATE(2023,5,1),
+AND(OR(
+Carrier_Issuing_Company__r.Name = &quot;Trisura Specialty Insurance Company&quot;,
+Carrier_Issuing_Company__r.Name = &quot;Bricktown Specialty Insurance Company&quot;
+))),
+&quot;BY2&quot;,
+
+NULL
+))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Scale Binder Year</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

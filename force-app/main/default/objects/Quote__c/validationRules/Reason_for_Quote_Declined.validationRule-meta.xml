@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Quote_Declined</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+ISCHANGED ( Status__c ),
+ISPICKVAL( Status__c, &quot;Declined&quot;), 
+ISBLANK( Notes__c )
+)</errorConditionFormula>
+    <errorMessage>Please put the reason the quote was declined in the notes section of the quote.</errorMessage>
+</ValidationRule>

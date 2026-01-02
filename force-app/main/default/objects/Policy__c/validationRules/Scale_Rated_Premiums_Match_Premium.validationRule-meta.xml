@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Rated_Premiums_Match_Premium</fullName>
+    <active>true</active>
+    <description>Premium matches Premium 2 for Scale Records</description>
+    <errorConditionFormula>AND(ISPICKVAL(Stage__c, &quot;Policy Delivered / Closed Won&quot;),
+$RecordType.Name = &quot;Scale&quot;,
+CreatedDate_DateVal__c &gt; DATEVALUE(&quot;2022-12-01&quot;),
+NOT( CONTAINS( Coverages__c , &quot;Contract Frustration Insurance&quot;)), 
+Premium__c &lt;&gt; Premium_2__c )</errorConditionFormula>
+    <errorMessage>Please ensure that your Rated Premium fields match the Premium field.</errorMessage>
+</ValidationRule>

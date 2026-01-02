@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Rate_Per_Million__c</fullName>
+    <description>EPLI Rate Per Million</description>
+    <formula>IF(EPLI_Limit_Modifier_Limit_Val__c == 0, 0, (EPLI_Supplemental_Coverage_Adjusted_Rate__c / ( EPLI_Limit_Modifier_Limit_Val__c /1000000)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>$500,000 - Minimum $3,500
+$1,000,000 - Minimum $3,500
+$2,000,000 - Minimum $3,000
+$3,000,000 - Minimum $2,650
+$4,000,000 - Minimum $2,550
+$5,000,000 - Minimum $2,500</inlineHelpText>
+    <label>EPLI Rate Per Million</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

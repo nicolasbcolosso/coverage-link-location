@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Knight_Policies</fullName>
+    <columns>NAME</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>Carrier_Issuing_Company__c</columns>
+    <columns>Stage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.Scale</value>
+    </filters>
+    <filters>
+        <field>Carrier_Issuing_Company__c</field>
+        <operation>equals</operation>
+        <value>United Specialty Insurance Company</value>
+    </filters>
+    <label>Scale Knight Policies</label>
+    <sharedTo>
+        <group>Scale_Underwriter_Users</group>
+        <group>Tech</group>
+    </sharedTo>
+</ListView>

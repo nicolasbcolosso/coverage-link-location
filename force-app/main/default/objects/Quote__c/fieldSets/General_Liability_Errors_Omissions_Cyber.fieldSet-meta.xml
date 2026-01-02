@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Liability_Errors_Omissions_Cyber</fullName>
+    <description>Dynamic Quote</description>
+    <displayedFields>
+        <field>Combined_Aggregate__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>General Liability + Errors &amp; Omissions + Cyber</label>
+</FieldSet>

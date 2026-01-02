@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subjectivity_Summary__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT( Subjectivity_1__c ) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_2__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_3__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_4__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_5__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_6__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_7__c) &amp;&quot;; &quot;&amp; TEXT (Subjectivity_8__c) &amp;&quot;; &quot;&amp; TEXT(Subjectivity_9__c) &amp;&quot;; &quot;&amp; TEXT(Subjectivity_10__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subjectivity Summary</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

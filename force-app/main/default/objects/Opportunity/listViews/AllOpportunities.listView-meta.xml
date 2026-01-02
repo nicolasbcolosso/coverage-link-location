@@ -17,9 +17,9 @@
     <columns>OPPORTUNITY.STAGE_NAME</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>Account_Contact_Person_Last_Name__c</field>
+        <field>Policy_Type_Status__c</field>
         <operation>equals</operation>
-        <value>vincent ray</value>
+        <value>Renewal</value>
     </filters>
     <label>All Opportunities</label>
 </ListView>

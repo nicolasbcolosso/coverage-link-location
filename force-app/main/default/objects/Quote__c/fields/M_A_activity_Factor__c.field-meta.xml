@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>M_A_activity_Factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>A. No activity in last two years:	.90 - 1.0
+B. Limited activity in last two years:	1.0 - 1.10
+C. Moderate activity in last two years:	1.1 - 1.25
+D. Significant activity:	1.25 - 1.75</inlineHelpText>
+    <label>M&amp;A activity (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

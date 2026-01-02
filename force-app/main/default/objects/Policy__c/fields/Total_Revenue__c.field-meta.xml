@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Revenue__c</fullName>
+    <description>Sum of commission + Fees (Program and FS Fee)</description>
+    <formula>IF( AND(Surplus_Lines_Policy__c =TRUE, RecordType.DeveloperName = &quot;Scale&quot;), (MGA_Commission__c + Policy_Fee__c + Wholesale_Fee__c ),(Commission_New__c + FS_Fees__c + Program_Fee__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Sum of Commission + Fees (Program and FS Fee)</inlineHelpText>
+    <label>Total Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

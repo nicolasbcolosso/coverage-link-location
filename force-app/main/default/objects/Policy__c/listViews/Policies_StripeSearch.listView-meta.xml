@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policies_StripeSearch</fullName>
+    <columns>Payment_Received_Date__c</columns>
+    <columns>Credit_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Billing__c</columns>
+    <columns>Total_Cost__c</columns>
+    <columns>Payable__c</columns>
+    <columns>Invoice_Paid__c</columns>
+    <columns>Marketer_UW__c</columns>
+    <columns>Invoice_Paid_Date__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Program_Fee__c</columns>
+    <columns>Carrier_Fee__c</columns>
+    <columns>Wholesale_Fee__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Admitted__c</field>
+        <operation>equals</operation>
+        <value>Yes</value>
+    </filters>
+    <filters>
+        <field>Marketer_UW__c</field>
+        <operation>contains</operation>
+        <value>crc</value>
+    </filters>
+    <filters>
+        <field>Mailing_State__c</field>
+        <operation>contains</operation>
+        <value>District of Columbia</value>
+    </filters>
+    <label>Policies Stripe Search</label>
+</ListView>

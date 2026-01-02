@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_processing</fullName>
+    <columns>Account__c</columns>
+    <columns>NAME</columns>
+    <columns>Account_Management_Rep__c</columns>
+    <columns>Marketer_UW_Email__c</columns>
+    <columns>Effective_Date__c</columns>
+    <columns>Days_In_Processing__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Account_Contact_Person_Email__c</columns>
+    <columns>Signed_Subjectivity_Docs_Processed__c</columns>
+    <columns>Subjectivity_Docs_Sent_for_Signature__c</columns>
+    <columns>Payment_Received__c</columns>
+    <columns>Payment_Received_Date__c</columns>
+    <columns>Bind_Order_Sent__c</columns>
+    <columns>Binder_Uploaded__c</columns>
+    <columns>Total_Cost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>In Processing</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Policy__c.Property_Casualty</value>
+    </filters>
+    <filters>
+        <field>Policy_Type_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled by Insured,Non-Renewed by Insured,Cancelled - Off Risk</value>
+    </filters>
+    <filters>
+        <field>Account_Management_Rep__c</field>
+        <operation>notEqual</operation>
+        <value>libby sircy</value>
+    </filters>
+    <filters>
+        <field>Test_Account__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>In processing FS</label>
+</ListView>

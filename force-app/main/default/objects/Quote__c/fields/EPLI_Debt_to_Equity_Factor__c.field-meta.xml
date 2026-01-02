@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Debt_to_Equity_Factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>A. Above average	.90
+B. Average	1.0
+C. Below average	1.1</inlineHelpText>
+    <label>EPLI Debt to Equity (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

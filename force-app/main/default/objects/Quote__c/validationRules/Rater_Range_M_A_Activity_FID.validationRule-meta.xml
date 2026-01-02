@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rater_Range_M_A_Activity_FID</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp; OR(RecordType.DeveloperName = &apos;Scale_Received&apos;, 
+RecordType.DeveloperName = &apos;Scale_Locked&apos;, RecordType.DeveloperName = &apos;Scale_Open&apos;) &amp;&amp;
+
+
+OR(
+ M_A_Activity_FID_Factor__c &lt; 0.9,
+M_A_Activity_FID_Factor__c &gt; 1.3
+)</errorConditionFormula>
+    <errorMessage>M&amp;A Activity FID (Factor) is not within the valid range</errorMessage>
+</ValidationRule>

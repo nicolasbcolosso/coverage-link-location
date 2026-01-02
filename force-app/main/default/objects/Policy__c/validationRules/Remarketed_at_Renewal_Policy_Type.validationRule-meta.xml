@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remarketed_at_Renewal_Policy_Type</fullName>
+    <active>false</active>
+    <description>6/24/24 vertical leads mentioned we can turn this rule off</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp;
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;Scale&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp;
+
+IF(AND(
+NOT(OR($Profile.Name = &quot;Sales - P&amp;C&quot;, $Profile.Name = &quot;System Administrator&quot;, $Profile.Name = &quot;API User&quot;)),
+Override_Policy_VR__c = false,
+NOT(TEXT(Policy_Type_Status__c) = &quot;Remarketed at Renewal&quot;),
+NOT(TEXT(Policy_Type_Status__c) = &quot;BORed Away&quot;),
+NOT(TEXT(Policy_Type_Status__c) = &quot;Tail/Run Off&quot;),
+NOT(TEXT(Policy_Type_Status__c) = &quot;Cancelled by Insured&quot;),
+Opportunity__r.Marketer_UW__c &lt;&gt; Marketer_UW__c), TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>The Marketer/UW on this Policy is different than the Marketer/UW on the Opportunity. Please Update the Policy Type/Status to Remarketed at Renewal or review the Marketer/UW fields.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_NJSLA</fullName>
+    <active>true</active>
+    <description>Scale rule. If NJSLA is blank then fire this rule.</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp;
+Override_Policy_VR__c = false &amp;&amp;
+
+
+AND(ISPICKVAL(Stage__c, &quot;Policy Delivered / Closed Won&quot;),
+$RecordType.Name = &quot;Scale&quot;,
+ISBLANK(NJSLA__c),
+OR(Account__r.BillingState = &quot;New Jersey&quot;, Account__r.ShippingState = &quot;New Jersey&quot;))</errorConditionFormula>
+    <errorMessage>NJSLA cannot be blank for NJ policies.</errorMessage>
+</ValidationRule>

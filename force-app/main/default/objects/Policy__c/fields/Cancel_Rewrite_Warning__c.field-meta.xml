@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancel_Rewrite_Warning__c</fullName>
+    <formula>AND(
+OR
+(RecordType.Name = &quot;BRP&quot;,
+RecordType.Name = &quot;Founder Shield&quot;,
+RecordType.Name = &quot;AlphaRoot&quot;),
+ISPICKVAL(Policy_Type_Status__c, &quot;Cancel/Rewrite&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Cancel Rewrite Warning</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

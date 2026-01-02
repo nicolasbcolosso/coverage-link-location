@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Limit_Modifier_Adj__c</fullName>
+    <formula>( EPLI_Risk_Adjusted_Rate__c *
+(
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$500,000&quot;), 0.85,
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$1,000,000&quot;), 1.00,
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$2,000,000&quot;), 1.70,
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$3,000,000&quot;), 2.25,
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$4,000,000&quot;), 2.70,
+IF ( ISPICKVAL ( EPLI_Limit_Modifier_Limit__c , &quot;$5,000,000&quot;), 3.15, 0 )))))))
+- EPLI_Risk_Adjusted_Rate__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>EPLI Limit Modifier (Adj)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

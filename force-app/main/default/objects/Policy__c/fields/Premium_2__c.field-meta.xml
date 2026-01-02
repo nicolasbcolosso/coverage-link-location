@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premium_2__c</fullName>
+    <description>Sum of Rated Premium fields.</description>
+    <formula>D_O_Rated_Premium__c  +  EPLI_Rated_Premium__c  +  FID_Rated_Premium__c +  M_PL_Rated_Premium__c</formula>
+    <label>Premium 2</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

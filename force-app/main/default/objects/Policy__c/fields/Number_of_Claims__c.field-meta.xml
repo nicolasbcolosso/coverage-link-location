@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Claims__c</fullName>
+    <description>Number of Claims associated with the Policy Record</description>
+    <label>Number of Claims</label>
+    <summaryFilterItems>
+        <field>Claim__c.Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Reported to FS Claims</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Claim__c.Status__c</field>
+        <operation>notEqual</operation>
+        <value>Retained, Incident (No Further Action)</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Claim__c.Policy__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

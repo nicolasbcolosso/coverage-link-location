@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AR_Broker_Retro_Date</fullName>
+    <active>true</active>
+    <description>AR Brokers need Retrp Date populated on claims-made quotes</description>
+    <errorConditionFormula>$Setup.Master_Validation__c.Account_Active__c &amp;&amp;
+
+AND(
+ISPICKVAL(Status__c, &apos;Received&apos;),
+OR($User.LastName = &quot;Basden&quot;, $User.LastName = &quot;Cunningham&quot;, $User.LastName = &quot;Gaglianese&quot;),
+ISPICKVAL(Form_Type__c, &apos;Claims Made&apos;),
+ISBLANK(Retro_Date__c ))</errorConditionFormula>
+    <errorMessage>Claims Made quotes must have Retro Date!</errorMessage>
+</ValidationRule>

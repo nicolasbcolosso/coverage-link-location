@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_is_Indication</fullName>
+    <active>true</active>
+    <description>The rule Ensures all required fields are completed when the Quote status is set to &quot;Indication.&quot;</description>
+    <errorConditionFormula>ISPICKVAL(Status__c,&apos;Indication&apos;) &amp;&amp; (ISBLANK(Name)
+|| ISBLANK(Marketer_UW_Name__c)
+|| ISBLANK(TEXT(Form_Type__c))
+|| ISBLANK(TEXT(Premium__c))
+|| ISBLANK(Notes__c)
+|| ISBLANK(Insurance_Company__c))</errorConditionFormula>
+    <errorMessage>To proceed with Stage Indication, please complete the following required fields:
+Quote Name,
+Marketer/UW Name,
+Carrier Issuing Company,
+Form Type,
+Premium,
+Notes,
+Insurance Company.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scale_Endorsements__c</fullName>
+    <label>Scale Endorsements</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TRIA Rejected</fullName>
+                <default>false</default>
+                <label>TRIA Rejected</label>
+            </value>
+            <value>
+                <fullName>TRIA Accepted</fullName>
+                <default>false</default>
+                <label>TRIA Accepted</label>
+            </value>
+            <value>
+                <fullName>Service of Suit Clause (USA)</fullName>
+                <default>false</default>
+                <label>Service of Suit Clause (USA)</label>
+            </value>
+            <value>
+                <fullName>Service of Suit Clause (CA)</fullName>
+                <default>false</default>
+                <label>Service of Suit Clause (CA)</label>
+            </value>
+            <value>
+                <fullName>Dilution Protection Endorsement</fullName>
+                <default>false</default>
+                <label>Dilution Protection Endorsement</label>
+            </value>
+            <value>
+                <fullName>Employed Lawyers Endorsement</fullName>
+                <default>false</default>
+                <label>Employed Lawyers Endorsement</label>
+            </value>
+            <value>
+                <fullName>Defense Cost Allocation Enhancement Endorsement</fullName>
+                <default>false</default>
+                <label>Defense Cost Allocation Enhancement Endorsement</label>
+            </value>
+            <value>
+                <fullName>Add Extradition Coverage Endorsement</fullName>
+                <default>false</default>
+                <label>Add Extradition Coverage Endorsement</label>
+            </value>
+            <value>
+                <fullName>Amend Additional Limit for Insured Persons – Remove Interrelated Claim Coverage</fullName>
+                <default>false</default>
+                <label>Amend Additional Limit for Insured Persons – Remove Interrelated Claim Coverage</label>
+            </value>
+            <value>
+                <fullName>Amend Declarations Endorsement</fullName>
+                <default>false</default>
+                <label>Amend Declarations Endorsement</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Employee (Delete Independent Contractor)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Employee (Delete Independent Contractor)</label>
+            </value>
+            <value>
+                <fullName>Amend Extended Reporting Period Endorsement</fullName>
+                <default>false</default>
+                <label>Amend Extended Reporting Period Endorsement</label>
+            </value>
+            <value>
+                <fullName>Banking Services Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Banking Services Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Bump-up Claim Protection Endorsement</fullName>
+                <default>false</default>
+                <label>Bump-up Claim Protection Endorsement</label>
+            </value>
+            <value>
+                <fullName>Creditor Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Creditor Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Creditor Exclusion Endorsement (with Convertible Note-holder Carveback)</fullName>
+                <default>false</default>
+                <label>Creditor Exclusion Endorsement (with Convertible Note-holder Carveback)</label>
+            </value>
+            <value>
+                <fullName>Creditor, Bankruptcy and Insolvency Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Creditor, Bankruptcy and Insolvency Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Delete Endorsement</fullName>
+                <default>false</default>
+                <label>Delete Endorsement</label>
+            </value>
+            <value>
+                <fullName>Delete Minimum Earned Premium Endorsement</fullName>
+                <default>false</default>
+                <label>Delete Minimum Earned Premium Endorsement</label>
+            </value>
+            <value>
+                <fullName>Extended Reporting Period Endorsement</fullName>
+                <default>false</default>
+                <label>Extended Reporting Period Endorsement</label>
+            </value>
+            <value>
+                <fullName>Fraudulent Claims Clause</fullName>
+                <default>false</default>
+                <label>Fraudulent Claims Clause</label>
+            </value>
+            <value>
+                <fullName>Full Bodily Injury Exclusion Endorsement (with Corporate Manslaughter Carveback)</fullName>
+                <default>false</default>
+                <label>Full Bodily Injury Exclusion Endorsement (with Corporate Manslaughter Carveback)</label>
+            </value>
+            <value>
+                <fullName>Future Listing Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Future Listing Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>ICO Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>ICO Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Investment Advisor Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Investment Advisor Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Major Shareholder Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Major Shareholder Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Pre-claim Expenses Endorsement</fullName>
+                <default>false</default>
+                <label>Pre-claim Expenses Endorsement</label>
+            </value>
+            <value>
+                <fullName>Prior Acts Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Prior Acts Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Specific Event Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Specific Event Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Omnibus Endorsement</fullName>
+                <default>false</default>
+                <label>Omnibus Endorsement</label>
+            </value>
+            <value>
+                <fullName>TCPA Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>TCPA Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Amend Declarations Endorsement (Add EPL)</fullName>
+                <default>false</default>
+                <label>Amend Declarations Endorsement (Add EPL)</label>
+            </value>
+            <value>
+                <fullName>Amend Declarations Endorsement (Add/Change Limit)</fullName>
+                <default>false</default>
+                <label>Amend Declarations Endorsement (Add/Change Limit)</label>
+            </value>
+            <value>
+                <fullName>Amend Declarations Endorsement (Name or Address change)</fullName>
+                <default>false</default>
+                <label>Amend Declarations Endorsement (Name or Address change)</label>
+            </value>
+            <value>
+                <fullName>Amend Declarations Endorsement (Split P&amp;P)</fullName>
+                <default>false</default>
+                <label>Amend Declarations Endorsement (Split P&amp;P)</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Claim (Delete Broad Subpoena Coverage)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Claim (Delete Broad Subpoena Coverage)</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Company Endorsement (Add Entity)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Company Endorsement (Add Entity)</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Company Endorsement (Add Professional Corporation)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Company Endorsement (Add Professional Corporation)</label>
+            </value>
+            <value>
+                <fullName>Amend IVI Exclusion</fullName>
+                <default>false</default>
+                <label>Amend IVI Exclusion</label>
+            </value>
+            <value>
+                <fullName>Full Professional Services Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Full Professional Services Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Specific Entity Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Specific Entity Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Claim (Add Extradition)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Claim (Add Extradition)</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of Insured Person Endorsement (Add Board Observer)</fullName>
+                <default>false</default>
+                <label>Amend Definition of Insured Person Endorsement (Add Board Observer)</label>
+            </value>
+            <value>
+                <fullName>Amend Definition of M&amp;A (Delete Asset Sale Trigger)</fullName>
+                <default>false</default>
+                <label>Amend Definition of M&amp;A (Delete Asset Sale Trigger)</label>
+            </value>
+            <value>
+                <fullName>Amend Policy Number Endorsement</fullName>
+                <default>false</default>
+                <label>Amend Policy Number Endorsement</label>
+            </value>
+            <value>
+                <fullName>Amend Third Party EPL Coverage Endorsement (Delete Discrimination)</fullName>
+                <default>false</default>
+                <label>Amend Third Party EPL Coverage Endorsement (Delete Discrimination)</label>
+            </value>
+            <value>
+                <fullName>Amended Professional Services Exclusion Endorsement – ML050</fullName>
+                <default>false</default>
+                <label>Amended Professional Services Exclusion Endorsement – ML050</label>
+            </value>
+            <value>
+                <fullName>Anti-Trust Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Anti-Trust Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Anti-Trust Exclusion Endorsement (Defense Costs sublimit)</fullName>
+                <default>false</default>
+                <label>Anti-Trust Exclusion Endorsement (Defense Costs sublimit)</label>
+            </value>
+            <value>
+                <fullName>Anti-Trust Exclusion Endorsement (Sides A, B, and Shareholder Carveback)</fullName>
+                <default>false</default>
+                <label>Anti-Trust Exclusion Endorsement (Sides A, B, and Shareholder Carveback)</label>
+            </value>
+            <value>
+                <fullName>Cancellation Endorsement</fullName>
+                <default>false</default>
+                <label>Cancellation Endorsement</label>
+            </value>
+            <value>
+                <fullName>Choice of Counsel Endorsement</fullName>
+                <default>false</default>
+                <label>Choice of Counsel Endorsement</label>
+            </value>
+            <value>
+                <fullName>Downsizing Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Downsizing Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Downsizing Exclusion Endorsement (COVID)</fullName>
+                <default>false</default>
+                <label>Downsizing Exclusion Endorsement (COVID)</label>
+            </value>
+            <value>
+                <fullName>Financial Services Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Financial Services Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Franchise Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Franchise Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Full Conduct Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Full Conduct Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Full IP Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Full IP Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Full Pollution Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Full Pollution Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Gambling Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Gambling Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Improper Medical Billing Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Improper Medical Billing Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Omnibus Endorsement (RT Bloomfield)</fullName>
+                <default>false</default>
+                <label>Omnibus Endorsement (RT Bloomfield)</label>
+            </value>
+            <value>
+                <fullName>Opioid Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Opioid Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Parent Company Endorsement (Specific Entity Exclusion with Codefendant carveback)</fullName>
+                <default>false</default>
+                <label>Parent Company Endorsement (Specific Entity Exclusion with Codefendant carveback)</label>
+            </value>
+            <value>
+                <fullName>PEO Codefendant Endorsement</fullName>
+                <default>false</default>
+                <label>PEO Codefendant Endorsement</label>
+            </value>
+            <value>
+                <fullName>Privacy Violation Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Privacy Violation Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Regulatory Action Sublimit Endorsement</fullName>
+                <default>false</default>
+                <label>Regulatory Action Sublimit Endorsement</label>
+            </value>
+            <value>
+                <fullName>Regulatory Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Regulatory Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Reliance Endorsement</fullName>
+                <default>false</default>
+                <label>Reliance Endorsement</label>
+            </value>
+            <value>
+                <fullName>Side C Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Side C Exclusion Endorsement</label>
+            </value>
+            <value>
+                <fullName>Specific Entity Exclusion Endorsement (EPL only)</fullName>
+                <default>false</default>
+                <label>Specific Entity Exclusion Endorsement (EPL only)</label>
+            </value>
+            <value>
+                <fullName>Specific Individual Exclusion Endorsement</fullName>
+                <default>false</default>
+                <label>Specific Individual Exclusion Endorsement</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

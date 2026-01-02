@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Surplus_Lines_Policy__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Automatically checked if we are responsible for filing SL taxes. This is unchecked if a wholesaler is filing on our behalf.</inlineHelpText>
+    <label>Surplus Lines Policy</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

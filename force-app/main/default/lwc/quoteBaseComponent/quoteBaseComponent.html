@@ -1,0 +1,322 @@
+<template>
+    <!-- <template if:false={recordIsScale}> -->
+    <template if:true={isView}>
+        <lightning-card>
+            <div class="slds-align_absolute-center">
+                <template lwc:if={isReceivedQuote}>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                    onclick={handleAddCurrentProposal}>Add to Current Proposal</button>
+                </template>
+                <template if:true={isAcceptedButton}>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleAddorRemoveCov}>Add/Remove Coverage</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleUpdateClick}>Upload Documents</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={changeModal}>Clone</button>
+                    <button class="slds-button slds-button_neutral slds-m-left_xx-small"
+                        onclick={handleRejectClick}>Reject Quote</button>
+                </template>
+                <template if:true={isOpenButton}>
+                    <template if:true={recordIsScale}>
+                        <c-generate-scale-rater-data record-id={recordId} oncanceleventscale={handleCancel}>
+                        </c-generate-scale-rater-data>
+                    </template>
+                    <lightning-button name="Edit" variant="neutral" class="slds-m-right_xx-small" label="Edit"
+                        onclick={handleEditClick}></lightning-button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleAddorRemoveCov}>Add/Remove Coverage</button>
+                    <lightning-button name="Delete" variant="neutral" onclick={deleteModal}
+                        class="slds-m-right_xx-small" label="Delete"></lightning-button>
+
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleUpdateClick}>Upload Documents</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={changeModal}>Clone</button>
+                    
+                </template>
+                <template if:true={isReceivedButton}>
+                    <template if:true={recordIsScale}>
+                        <c-generate-scale-rater-data record-id={recordId} oncanceleventscale={handleCancel}>
+                        </c-generate-scale-rater-data>
+                    </template>
+
+                    <lightning-button name="Edit" variant="neutral" class="slds-m-right_xx-small" label="Edit"
+                        onclick={handleEditClick}></lightning-button>
+
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleAddorRemoveCov}>Add/Remove Coverage</button>
+                    <lightning-button name="Delete" variant="neutral" onclick={deleteModal}
+                        class="slds-m-right_xx-small" label="Delete"></lightning-button>
+
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleUpdateClick}>Upload Documents</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={changeModal}>Clone</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleEditAcceptQuote}>Accept Quote</button>
+                    <button class="slds-button slds-button_neutral slds-m-left_xx-small"
+                        onclick={handleRejectClick}>Reject Quote</button>
+                </template>
+                <template if:true={isDeclinedButton}>
+                    <lightning-button name="Edit" variant="neutral" class="slds-m-right_xx-small" label="Edit"
+                        onclick={handleEditClick}></lightning-button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleAddorRemoveCov}>Add/Remove Coverage</button>
+                    <lightning-button name="Delete" variant="neutral" onclick={deleteModal}
+                        class="slds-m-right_xx-small" label="Delete"></lightning-button>
+
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleUpdateClick}>Upload Documents</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={changeModal}>Clone</button>
+                </template>
+                
+                <template if:true={isIndicationButton}>
+                    <lightning-button name="Edit" variant="neutral" class="slds-m-right_xx-small" label="Edit"
+                        onclick={handleEditClick}></lightning-button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleAddorRemoveCov}>Add/Remove Coverage</button>
+                    <lightning-button name="Delete" variant="neutral" onclick={deleteModal}
+                        class="slds-m-right_xx-small" label="Delete"></lightning-button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                        onclick={handleUpdateClick}>Upload Documents</button>
+                    <button class="slds-button slds-button_neutral slds-m-right_xx-small"
+                    onclick={changeModal}>Clone</button>
+                </template>
+            </div>
+            <template lwc:if={loadSpinner}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+            <template lwc:else>
+                <template lwc:if={coverageLoaded}>
+                    <c-quote-view-component id="viewComp" 
+                        oniseditcomponent={handleEditClick} 
+                        isaccepted={changeButton}
+                        reload-comp={} 
+                        record-id={recordId}
+                        is-scale={recordIsScale}
+                        is-h-b-quote={recordIsHB}
+                        quote-data-info={quoteData}
+                        coverage-with-limits={coverageWithLimits}></c-quote-view-component>
+                </template>
+            </template>
+        </lightning-card>
+    </template>
+    <template if:true={isEdit}>
+        <lightning-card>
+            <template if:true={showToastError}>
+                <div class="slds-m-horizontal_large slds-m-bottom_medium">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+                            title="Description of icon when needed">
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                            </svg>
+                        </span>
+                        <ul>
+                            <template for:each={showToastMessage} for:item="tb">
+                                <li key={tb}>{tb}</li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+            <div if:false={recordIsScale} class="slds-align_absolute-center">
+                <button class="slds-button slds-button_brand" onclick={handleSave} disabled={disableSaveButton}>Save</button>
+                <button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+            </div>
+            <c-quote-edit-component onscalecancel={handleCancel} 
+                record-id={recordId} 
+                onerrorevent={messageEvent}
+                onupdaterecord={handleUpdate} 
+                onchangevisibility={changeVisibility} 
+                locationstate={locationState}
+                is-scale={recordIsScale}
+                is-h-b-quote={recordIsHB}></c-quote-edit-component>        
+            </lightning-card>
+    </template>
+    <template if:true={isAcceptQuote}>
+        <lightning-card>
+
+            <template if:true={showToastErrorAccept}>
+                <div class="slds-m-horizontal_large slds-m-bottom_medium">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+                            title="Description of icon when needed">
+                            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                            </svg>
+                        </span>
+                        {showToastMessageAccept}
+                        <!-- <ul>
+                                <template for:each={showToastMessageAccept} for:item="tb">
+                                    <li key={tb}>{tb}</li>
+                                </template>
+                            </ul> -->
+                    </div>
+                </div>
+            </template>
+            
+            <c-quote-accept-component coverage-with-limits={coverageWithLimits} onsavesucc={handleSaveAcceptSucc} onerroreventacc={messageEventAcc}
+            onreloadviewpage={reloadViewAcceptedPage} record-id={recordId} opp-id-from-base={opp}
+            onsenditem={saveItem} onupdaterecord={handleUpdateAcceptQuote}>
+            </c-quote-accept-component>
+            <!-- <c-quote-accept-component onsavesucc={handleSaveAcceptSucc} onerroreventacc={messageEventAcc}
+                onreloadviewpage={reloadViewAcceptedPage} record-id={recordId} opp-id-from-base={opp}
+                onsenditem={saveItem} onupdaterecord={handleUpdateAcceptQuote}>
+            </c-quote-accept-component> -->
+            <div class="slds-align_absolute-center">
+                <button class="slds-button slds-button_brand" onclick={handleSaveAccept}>Accept</button>
+                <button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isRejectQuote}>
+        <lightning-card>
+            <c-reject-quote-component record-id={recordId} onisrejected={handleCancel}></c-reject-quote-component>
+            <div class="slds-align_absolute-center slds-m-top_small">
+                <button class="slds-button slds-button_neutral" onclick={handleRejectQuote}>Reject Quote</button>
+                <button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isUpdateQuote}>
+        <!-- <lightning-card> -->
+        <!-- <a onclick={handleCancel} class="slds-m-left_small" style="color: black; text-decoration: underline;">Back
+                    to the record</a> -->
+        <!-- <c-multiple-file-upload onreloadviewpage={reloadViewPage} record-id={recordId} workspace='Quote Attachments'></c-multiple-file-upload> -->
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12 slds-m-bottom_small">
+                <a onclick={handleCancel} class="slds-m-left_small" style="color: black; text-decoration: underline;">
+                    Back to the record
+                </a>
+            </div>
+            <div class="slds-col slds-size_12-of-12">
+                <!-- <iframe frameborder="0" height="470px" width="100%" src={visualforceURL}></iframe> -->
+                 <c-multiple-file-upload onreloadviewpage={reloadViewPage} record-id={recordId} workspace='Quote Attachments'></c-multiple-file-upload>
+            </div>
+        </div>
+        <!-- </lightning-card> -->
+    </template>
+    <template if:true={isAddorRemoveCov}>
+        <div style="height:1000">
+        <lightning-card>
+            <!-- <div class="slds-align_absolute-center">
+                    <button class="slds-button slds-button_brand">Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+                </div> 
+            <c-quote-add-coverages-section onreloadviewpage={reloadViewPage} onsavelimit={handleReloadView}
+                onremovecoverages={removeSection} record-id={recordId} oncancelevent={handleCancel}>
+            </c-quote-add-coverages-section>-->
+            <lightning-card>
+                <template if:true={showToastError}>
+                    <div class="slds-m-horizontal_large slds-m-bottom_medium">
+                        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                            <span class="slds-assistive-text">error</span>
+                            <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+                                title="Description of icon when needed">
+                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                                </svg>
+                            </span>
+                            <ul>
+                                <template for:each={showToastMessage} for:item="tb">
+                                    <li key={tb}>{tb}</li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </template>
+                <c-lightning-add-remove-coverage 
+                    onreloadviewpage={reloadViewPage} 
+                    onsavelimit={handleReloadView}
+                    record-id={recordId} 
+                    oncancelevent={handleCancel}
+                    record-id-page-context={recordId}>
+                </c-lightning-add-remove-coverage>
+            </lightning-card>
+        </lightning-card>
+        </div>
+    </template>
+    <template if:true={removeSectionCoverages}>
+        <lightning-card>
+            <!-- <div class="slds-align_absolute-center">
+                    <button class="slds-button slds-button_brand">Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+                </div> -->
+            <c-remove-coverages-component onremovelimit={handleReloadView} record-id={recordId}>
+            </c-remove-coverages-component>
+        </lightning-card>
+    </template>
+
+    <template if:true={showCloneModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                        icon-class="slds-button_icon-inverse" onclick={changeModal}>
+                    </lightning-button-icon>
+                    <h1>Clone Modal</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium ">
+
+                    <div class="slds-grid slds-wrap slds-m-top_large slds-m-bottom_medium">
+
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-align_absolute-center slds-m-bottom_large ">
+                                <button class="slds-button slds-button_neutral" style="height: 70px; width: 300px"
+                                    onclick={saveWithAtt}>With Attachments</button>
+                            </div>
+
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-align_absolute-center slds-m-bottom_large slds-m-top_large">
+                                <button class="slds-button slds-button_neutral" style="height: 70px; width: 300px"
+                                    onclick={saveWithoutAtt}>Without Attachments</button>
+
+                                <!-- <lightning-button label="Without Attachments" title="Non-primary action"
+                                    onclick={changeModal} class="slds-m-left_x-small slds-button_stretch"></lightning-button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    
+    <template if:true={showDeleteModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                        icon-class="slds-button_icon-inverse" onclick={deleteModal}>
+                    </lightning-button-icon>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium ">
+
+
+                    <h1 class="slds-align_absolute-center">Are you sure you want to remove?</h1>
+
+                </div>
+
+                <footer class="slds-modal__footer modal-hidden">
+                    <div class="slds-float_right">
+                        <a href={oppId}>
+                            <lightning-button variant="brand" label="Ok" slot="actions" onclick={deleteQuoteRedirect}
+                                class="slds-m-right_x-small"></lightning-button>
+                        </a>
+                        <lightning-button label="Cancel" slot="actions" onclick={deleteModal}></lightning-button>
+                    </div>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- </template> -->
+</template>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Export_List_Sub_Item__c</fullName>
+    <description>Used in SL1Form</description>
+    <label>Export List Sub Item</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Export_List_Item__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>INDIVIDUAL INSUREDS WITH LARGE SCHEDULES WHERE THE TIV(TOTAL INSURED VALUES)AR 409</fullName>
+                <default>false</default>
+                <label>INDIVIDUAL INSUREDS WITH LARGE SCHEDULES WHERE THE TIV(TOTAL INSURED VALUES)AR 409</label>
+            </value>
+            <value>
+                <fullName>CONTRACTORS ENGAGED IN CONSTRUCTION OF NEW TRACT HOMES AND/OR NEW CONDOMINIUMS --- 566</fullName>
+                <default>false</default>
+                <label>CONTRACTORS ENGAGED IN CONSTRUCTION OF NEW TRACT HOMES AND/OR NEW CONDOMINIUMS --- 566</label>
+            </value>
+            <value>
+                <fullName>CRANE &amp; RIGGING CONTRACTORS --- 591</fullName>
+                <default>false</default>
+                <label>CRANE &amp; RIGGING CONTRACTORS --- 591</label>
+            </value>
+            <value>
+                <fullName>DEMOLITION CONTRACTORS --- 567</fullName>
+                <default>false</default>
+                <label>DEMOLITION CONTRACTORS --- 567</label>
+            </value>
+            <value>
+                <fullName>EMPLOYMENT PRACTICES LIABILITY --- 569</fullName>
+                <default>false</default>
+                <label>EMPLOYMENT PRACTICES LIABILITY --- 569</label>
+            </value>
+            <value>
+                <fullName>ENVIRONMENTAL IMPAIRMENT REMEDIATION AND POLLUTION LIABILITY --- 568</fullName>
+                <default>false</default>
+                <label>ENVIRONMENTAL IMPAIRMENT REMEDIATION AND POLLUTION LIABILITY --- 568</label>
+            </value>
+            <value>
+                <fullName>EXCESS LIABILITY WHERE PART OF UNDERLYING IS NONADMITTED --- 582</fullName>
+                <default>false</default>
+                <label>EXCESS LIABILITY WHERE PART OF UNDERLYING IS NONADMITTED --- 582</label>
+            </value>
+            <value>
+                <fullName>EXPLOSIVES INCLUDING MANUFACTURING/SALES/STORAGE --- 570</fullName>
+                <default>false</default>
+                <label>EXPLOSIVES INCLUDING MANUFACTURING/SALES/STORAGE --- 570</label>
+            </value>
+            <value>
+                <fullName>FIREWORKS DISPLAYS --- 571</fullName>
+                <default>false</default>
+                <label>FIREWORKS DISPLAYS --- 571</label>
+            </value>
+            <value>
+                <fullName>FOSTER FAMILY (OCCURRENCE BASED ONLY) --- 588</fullName>
+                <default>false</default>
+                <label>FOSTER FAMILY (OCCURRENCE BASED ONLY) --- 588</label>
+            </value>
+            <value>
+                <fullName>HOT AIR BALLOON --- 589</fullName>
+                <default>false</default>
+                <label>HOT AIR BALLOON --- 589</label>
+            </value>
+            <value>
+                <fullName>LIMITS THAT ATTACH IN EXCESS OF $150 MILLION --- 573</fullName>
+                <default>false</default>
+                <label>LIMITS THAT ATTACH IN EXCESS OF $150 MILLION --- 573</label>
+            </value>
+            <value>
+                <fullName>OILFIELD CONTRACTORS --- 574</fullName>
+                <default>false</default>
+                <label>OILFIELD CONTRACTORS --- 574</label>
+            </value>
+            <value>
+                <fullName>OUTFITTERS AND GUIDES --- 579</fullName>
+                <default>false</default>
+                <label>OUTFITTERS AND GUIDES --- 579</label>
+            </value>
+            <value>
+                <fullName>PATENT/TRADEMARK/COPYRIGHT INFRINGEMENT --- 572</fullName>
+                <default>false</default>
+                <label>PATENT/TRADEMARK/COPYRIGHT INFRINGEMENT --- 572</label>
+            </value>
+            <value>
+                <fullName>PRODUCTS RECALL --- 576</fullName>
+                <default>false</default>
+                <label>PRODUCTS RECALL --- 576</label>
+            </value>
+            <value>
+                <fullName>PRODUCTS/COMPLETED OPERATIONS(WRITTEN ON A STAND ALONE BASIS) --- 575</fullName>
+                <default>false</default>
+                <label>PRODUCTS/COMPLETED OPERATIONS(WRITTEN ON A STAND ALONE BASIS) --- 575</label>
+            </value>
+            <value>
+                <fullName>SEASONAL OR MOBILE FAIRS, CONCESSIONAIRES, VENDORS AND FAIRS, WITH OR WITHOUT LIQUOR LIABILITY  --- 587</fullName>
+                <default>false</default>
+                <label>SEASONAL OR MOBILE FAIRS, CONCESSIONAIRES, VENDORS AND FAIRS, WITH OR WITHOUT LIQUOR LIABILITY  --- 587</label>
+            </value>
+            <value>
+                <fullName>SECURITY GUARD SERVICES --- 581</fullName>
+                <default>false</default>
+                <label>SECURITY GUARD SERVICES --- 581</label>
+            </value>
+            <value>
+                <fullName>SHORT TERM MEDIA/ENTERTAINMENT RAILROAD PROTECTIVE LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)  --- 592</fullName>
+                <default>false</default>
+                <label>SHORT TERM MEDIA/ENTERTAINMENT RAILROAD PROTECTIVE LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)  --- 592</label>
+            </value>
+            <value>
+                <fullName>SHORT TERM SPECIAL EVENTS (EXCLUDING HOLE-IN-ONE) --- 580</fullName>
+                <default>false</default>
+                <label>SHORT TERM SPECIAL EVENTS (EXCLUDING HOLE-IN-ONE) --- 580</label>
+            </value>
+            <value>
+                <fullName>TATTOO AND BODY PIERCING SHOPS --- 583</fullName>
+                <default>false</default>
+                <label>TATTOO AND BODY PIERCING SHOPS --- 583</label>
+            </value>
+            <value>
+                <fullName>ALL VESSELS IN EXCESS OF 30 FEET AND RATED WITH A MAXIMUM SPEED OF 45 MPH --- 454</fullName>
+                <default>false</default>
+                <label>ALL VESSELS IN EXCESS OF 30 FEET AND RATED WITH A MAXIMUM SPEED OF 45 MPH --- 454</label>
+            </value>
+            <value>
+                <fullName>ANY VESSEL/WITH A MAXIMUM RATED SPEED IN EXCESS OF 55 MPH --- 452</fullName>
+                <default>false</default>
+                <label>ANY VESSEL/WITH A MAXIMUM RATED SPEED IN EXCESS OF 55 MPH --- 452</label>
+            </value>
+            <value>
+                <fullName>EXCESS MOTOR TRUCK CARGO --- 451</fullName>
+                <default>false</default>
+                <label>EXCESS MOTOR TRUCK CARGO --- 451</label>
+            </value>
+            <value>
+                <fullName>PERSONAL ARTICLES FLOATERS WRITTEN ON A STAND ALONE BASIS WHERE THE VALUE OF THE SCHEDULE IS IN EXCESS OF $1M OR CONTAINS A SINGLE ITEM(S) OVER $100,000</fullName>
+                <default>false</default>
+                <label>PERSONAL ARTICLES FLOATERS WRITTEN ON A STAND ALONE BASIS WHERE THE VALUE OF THE SCHEDULE IS IN EXCESS OF $1M OR CONTAINS A SINGLE ITEM(S) OVER $100,000 --- 453</label>
+            </value>
+            <value>
+                <fullName>EVENT CANCELLATION --- 656</fullName>
+                <default>false</default>
+                <label>EVENT CANCELLATION --- 656</label>
+            </value>
+            <value>
+                <fullName>POLITICAL RISKS INCLUDING EXPROPRIATION, CONFISCATION, UNFAIR CALLING --- 655</fullName>
+                <default>false</default>
+                <label>POLITICAL RISKS INCLUDING EXPROPRIATION, CONFISCATION, UNFAIR CALLING --- 655</label>
+            </value>
+            <value>
+                <fullName>PRIZE INDEMNIFICATION (EXCLUDING HOLE-IN-ONE COVERAGE) --- 657</fullName>
+                <default>false</default>
+                <label>PRIZE INDEMNIFICATION (EXCLUDING HOLE-IN-ONE COVERAGE) --- 657</label>
+            </value>
+            <value>
+                <fullName>SHORT TERM MEDIA/ENTERTAINMENT FAILURE TO SURVIVE FOR $5 MILLION AND OVER (FILM/ENTERTAINMENT PRODUCTIONS) --- 658</fullName>
+                <default>false</default>
+                <label>SHORT TERM MEDIA/ENTERTAINMENT FAILURE TO SURVIVE FOR $5 MILLION AND OVER (FILM/ENTERTAINMENT PRODUCTIONS) --- 658</label>
+            </value>
+            <value>
+                <fullName>ARCHITECTS &amp; ENGINEERS/CONDO COVERAGE ONLY --- 577</fullName>
+                <default>false</default>
+                <label>ARCHITECTS &amp; ENGINEERS/CONDO COVERAGE ONLY --- 577</label>
+            </value>
+            <value>
+                <fullName>CAMPAIGN TREASURERS --- 578</fullName>
+                <default>false</default>
+                <label>CAMPAIGN TREASURERS --- 578</label>
+            </value>
+            <value>
+                <fullName>CREDITORS&apos; COMMITTEES --- 584</fullName>
+                <default>false</default>
+                <label>CREDITORS&apos; COMMITTEES --- 584</label>
+            </value>
+            <value>
+                <fullName>PHYSICIAN/MEDICAL GROUP/HOSPITAL BILLING E/O --- 593</fullName>
+                <default>false</default>
+                <label>PHYSICIAN/MEDICAL GROUP/HOSPITAL BILLING E/O --- 593</label>
+            </value>
+            <value>
+                <fullName>TATTOO &amp; BODY PIERCING SHOPS E/O --- 585</fullName>
+                <default>false</default>
+                <label>TATTOO &amp; BODY PIERCING SHOPS E/O --- 585</label>
+            </value>
+            <value>
+                <fullName>BRIDGE PLAN*  --- 707</fullName>
+                <default>false</default>
+                <label>BRIDGE PLAN*  --- 707</label>
+            </value>
+            <value>
+                <fullName>HIGH LIMITS DISABILITY**  --- 706</fullName>
+                <default>false</default>
+                <label>HIGH LIMITS DISABILITY**  --- 706</label>
+            </value>
+            <value>
+                <fullName>INTERNATIONAL MAJOR MEDICAL</fullName>
+                <default>false</default>
+                <label>INTERNATIONAL MAJOR MEDICAL --- 705</label>
+            </value>
+            <value>
+                <fullName>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000  --- 52</fullName>
+                <default>false</default>
+                <label>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000  --- 52</label>
+            </value>
+            <value>
+                <fullName>AVIATION EXCESS LIABILITY --- 586</fullName>
+                <default>false</default>
+                <label>AVIATION EXCESS LIABILITY --- 586</label>
+            </value>
+            <value>
+                <fullName>SHORT TERM MEDIA/ENTERTAINMENT NON-OWNED CONTINGENT AIRCRAFT LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)</fullName>
+                <default>false</default>
+                <label>SHORT TERM MEDIA/ENTERTAINMENT NON-OWNED CONTINGENT AIRCRAFT LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)  --- 590</label>
+            </value>
+            <value>
+                <fullName>EXCESS CRIME --- 152</fullName>
+                <default>false</default>
+                <label>EXCESS CRIME --- 152</label>
+            </value>
+            <value>
+                <fullName>KIDNAP &amp; RANSOM --- 153</fullName>
+                <default>false</default>
+                <label>KIDNAP &amp; RANSOM --- 153</label>
+            </value>
+            <value>
+                <fullName>AMUSEMENT PARKS/CARNIVALS AND AMUSEMENT DEVICES --- 405</fullName>
+                <default>false</default>
+                <label>AMUSEMENT PARKS/CARNIVALS AND AMUSEMENT DEVICES --- 405</label>
+            </value>
+            <value>
+                <fullName>COMMERCIAL DIC/STAND ALONE EARTHQUAKE --- 406</fullName>
+                <default>false</default>
+                <label>COMMERCIAL DIC/STAND ALONE EARTHQUAKE --- 406</label>
+            </value>
+            <value>
+                <fullName>DISASTER INCOME PROTECTION --- 415</fullName>
+                <default>false</default>
+                <label>DISASTER INCOME PROTECTION --- 415</label>
+            </value>
+            <value>
+                <fullName>EXCESS FLOOD --- 413</fullName>
+                <default>false</default>
+                <label>EXCESS FLOOD --- 413</label>
+            </value>
+            <value>
+                <fullName>EXPLOSIVE MANUFACTURING/SALES/STORAGE --- 407</fullName>
+                <default>false</default>
+                <label>EXPLOSIVE MANUFACTURING/SALES/STORAGE --- 407</label>
+            </value>
+            <value>
+                <fullName>HAY IN THE OPEN --- 412</fullName>
+                <default>false</default>
+                <label>HAY IN THE OPEN --- 412</label>
+            </value>
+            <value>
+                <fullName>HOMEOWNERS EARTHQUAKE/EXCESS LIMITS OR DEDUCTIBLE BUYBACK --- 408</fullName>
+                <default>false</default>
+                <label>HOMEOWNERS EARTHQUAKE/EXCESS LIMITS OR DEDUCTIBLE BUYBACK --- 408</label>
+            </value>
+            <value>
+                <fullName>INDIVIDUAL INSUREDS WITH LARGE SCHEDULES WHERE THE TIV(TOTAL INSURED VALUES)ARE IN EXCESS OF $500 MILLION  --- 409</fullName>
+                <default>false</default>
+                <label>INDIVIDUAL INSUREDS WITH LARGE SCHEDULES WHERE THE TIV(TOTAL INSURED VALUES)ARE IN EXCESS OF $500 MILLION  --- 409</label>
+            </value>
+            <value>
+                <fullName>SAWMILLS --- 411</fullName>
+                <default>false</default>
+                <label>SAWMILLS --- 411</label>
+            </value>
+            <value>
+                <fullName>VACANT BUILDINGS --- 410</fullName>
+                <default>false</default>
+                <label>VACANT BUILDINGS --- 410</label>
+            </value>
+            <value>
+                <fullName>AMBULANCE SERVICES INCLUDING PROFESSIONAL LIABILITY --- 561</fullName>
+                <default>false</default>
+                <label>AMBULANCE SERVICES INCLUDING PROFESSIONAL LIABILITY --- 561</label>
+            </value>
+            <value>
+                <fullName>AMUSEMENT PARKS/CARNIVALS/DEVICES --- 562</fullName>
+                <default>false</default>
+                <label>AMUSEMENT PARKS/CARNIVALS/DEVICES --- 562</label>
+            </value>
+            <value>
+                <fullName>BLASTING CONTRACTORS --- 563</fullName>
+                <default>false</default>
+                <label>BLASTING CONTRACTORS --- 563</label>
+            </value>
+            <value>
+                <fullName>BUILDING MOVING --- 564</fullName>
+                <default>false</default>
+                <label>BUILDING MOVING --- 564</label>
+            </value>
+            <value>
+                <fullName>CLINICAL AND SIMILAR TESTS OF PHARMACEUTICAL, MEDICAL, BIOLOGICAL &amp; OTHER SIMI LAR PRODUCTS  --- 565</fullName>
+                <default>false</default>
+                <label>CLINICAL AND SIMILAR TESTS OF PHARMACEUTICAL, MEDICAL, BIOLOGICAL &amp; OTHER SIMI LAR PRODUCTS  --- 565</label>
+            </value>
+            <value>
+                <fullName>--- 453</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>--- 453</label>
+            </value>
+            <value>
+                <fullName>--- 590</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>--- 590</label>
+            </value>
+            <value>
+                <fullName>AVIATION EXCESS LIABILITY 586</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>AVIATION EXCESS LIABILITY 586</label>
+            </value>
+            <value>
+                <fullName>BRIDGE PLAN* 707</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BRIDGE PLAN* 707</label>
+            </value>
+            <value>
+                <fullName>E IN EXCESS OF $500 MILLION</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>E IN EXCESS OF $500 MILLION</label>
+            </value>
+            <value>
+                <fullName>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000  --- 705</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000  --- 705</label>
+            </value>
+            <value>
+                <fullName>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000 52</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000 52</label>
+            </value>
+            <value>
+                <fullName>HIGH LIMITS DISABILITY** 706</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>HIGH LIMITS DISABILITY** 706</label>
+            </value>
+            <value>
+                <fullName>INTERNATIONAL MAJOR MEDICAL 705</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>INTERNATIONAL MAJOR MEDICAL 705</label>
+            </value>
+            <value>
+                <fullName>SHORT TERM MEDIA/ENTERTAINMENT NON-OWNED CONTINGENT AIRCRAFT LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS) 590</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SHORT TERM MEDIA/ENTERTAINMENT NON-OWNED CONTINGENT AIRCRAFT LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS) 590</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>ACCIDENT/DISABILITY</controllingFieldValue>
+            <valueName>BRIDGE PLAN*  --- 707</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ACCIDENT/DISABILITY</controllingFieldValue>
+            <valueName>HIGH LIMITS DISABILITY**  --- 706</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ACCIDENT/DISABILITY</controllingFieldValue>
+            <valueName>INTERNATIONAL MAJOR MEDICAL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>AUTOMOBILES</controllingFieldValue>
+            <valueName>EXOTIC/CLASSIC/ANTIQUE AUTOS WITH A VALUE IN EXCESS OF $100,000  --- 52</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>AVIATION</controllingFieldValue>
+            <valueName>AVIATION EXCESS LIABILITY --- 586</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>AVIATION</controllingFieldValue>
+            <valueName>SHORT TERM MEDIA/ENTERTAINMENT NON-OWNED CONTINGENT AIRCRAFT LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRIME</controllingFieldValue>
+            <valueName>EXCESS CRIME --- 152</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CRIME</controllingFieldValue>
+            <valueName>KIDNAP &amp; RANSOM --- 153</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>AMUSEMENT PARKS/CARNIVALS AND AMUSEMENT DEVICES --- 405</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>COMMERCIAL DIC/STAND ALONE EARTHQUAKE --- 406</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>DISASTER INCOME PROTECTION --- 415</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>EXCESS FLOOD --- 413</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>EXPLOSIVE MANUFACTURING/SALES/STORAGE --- 407</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>HAY IN THE OPEN --- 412</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>HOMEOWNERS EARTHQUAKE/EXCESS LIMITS OR DEDUCTIBLE BUYBACK --- 408</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>INDIVIDUAL INSUREDS WITH LARGE SCHEDULES WHERE THE TIV(TOTAL INSURED VALUES)ARE IN EXCESS OF $500 MILLION  --- 409</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>SAWMILLS --- 411</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FIRE &amp; ALLIED LINES</controllingFieldValue>
+            <valueName>VACANT BUILDINGS --- 410</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>CONTRACTORS ENGAGED IN CONSTRUCTION OF NEW TRACT HOMES AND/OR NEW CONDOMINIUMS --- 566</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>CRANE &amp; RIGGING CONTRACTORS --- 591</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>DEMOLITION CONTRACTORS --- 567</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>EMPLOYMENT PRACTICES LIABILITY --- 569</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>ENVIRONMENTAL IMPAIRMENT REMEDIATION AND POLLUTION LIABILITY --- 568</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>EXCESS LIABILITY WHERE PART OF UNDERLYING IS NONADMITTED --- 582</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>EXPLOSIVES INCLUDING MANUFACTURING/SALES/STORAGE --- 570</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>FIREWORKS DISPLAYS --- 571</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>FOSTER FAMILY (OCCURRENCE BASED ONLY) --- 588</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>HOT AIR BALLOON --- 589</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>LIMITS THAT ATTACH IN EXCESS OF $150 MILLION --- 573</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>OILFIELD CONTRACTORS --- 574</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>OUTFITTERS AND GUIDES --- 579</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>PATENT/TRADEMARK/COPYRIGHT INFRINGEMENT --- 572</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>PRODUCTS RECALL --- 576</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>PRODUCTS/COMPLETED OPERATIONS(WRITTEN ON A STAND ALONE BASIS) --- 575</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>SEASONAL OR MOBILE FAIRS, CONCESSIONAIRES, VENDORS AND FAIRS, WITH OR WITHOUT LIQUOR LIABILITY  --- 587</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>SECURITY GUARD SERVICES --- 581</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>SHORT TERM MEDIA/ENTERTAINMENT RAILROAD PROTECTIVE LIABILITY (FILM/ENTERTAINMENT PRODUCTIONS)  --- 592</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>SHORT TERM SPECIAL EVENTS (EXCLUDING HOLE-IN-ONE) --- 580</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>TATTOO AND BODY PIERCING SHOPS --- 583</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>AMBULANCE SERVICES INCLUDING PROFESSIONAL LIABILITY --- 561</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>AMUSEMENT PARKS/CARNIVALS/DEVICES --- 562</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>BLASTING CONTRACTORS --- 563</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>BUILDING MOVING --- 564</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>GENERAL LIABILITY</controllingFieldValue>
+            <valueName>CLINICAL AND SIMILAR TESTS OF PHARMACEUTICAL, MEDICAL, BIOLOGICAL &amp; OTHER SIMI LAR PRODUCTS  --- 565</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INLAND MARINE</controllingFieldValue>
+            <valueName>ALL VESSELS IN EXCESS OF 30 FEET AND RATED WITH A MAXIMUM SPEED OF 45 MPH --- 454</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INLAND MARINE</controllingFieldValue>
+            <valueName>ANY VESSEL/WITH A MAXIMUM RATED SPEED IN EXCESS OF 55 MPH --- 452</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INLAND MARINE</controllingFieldValue>
+            <valueName>EXCESS MOTOR TRUCK CARGO --- 451</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>INLAND MARINE</controllingFieldValue>
+            <valueName>PERSONAL ARTICLES FLOATERS WRITTEN ON A STAND ALONE BASIS WHERE THE VALUE OF THE SCHEDULE IS IN EXCESS OF $1M OR CONTAINS A SINGLE ITEM(S) OVER $100,000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MISCELLANEOUS</controllingFieldValue>
+            <valueName>EVENT CANCELLATION --- 656</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MISCELLANEOUS</controllingFieldValue>
+            <valueName>POLITICAL RISKS INCLUDING EXPROPRIATION, CONFISCATION, UNFAIR CALLING --- 655</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MISCELLANEOUS</controllingFieldValue>
+            <valueName>PRIZE INDEMNIFICATION (EXCLUDING HOLE-IN-ONE COVERAGE) --- 657</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MISCELLANEOUS</controllingFieldValue>
+            <valueName>SHORT TERM MEDIA/ENTERTAINMENT FAILURE TO SURVIVE FOR $5 MILLION AND OVER (FILM/ENTERTAINMENT PRODUCTIONS) --- 658</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</controllingFieldValue>
+            <valueName>ARCHITECTS &amp; ENGINEERS/CONDO COVERAGE ONLY --- 577</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</controllingFieldValue>
+            <valueName>CAMPAIGN TREASURERS --- 578</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</controllingFieldValue>
+            <valueName>CREDITORS&apos; COMMITTEES --- 584</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</controllingFieldValue>
+            <valueName>PHYSICIAN/MEDICAL GROUP/HOSPITAL BILLING E/O --- 593</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PROFESSIONAL LIABILITY/ERRORS &amp; OMISSION</controllingFieldValue>
+            <valueName>TATTOO &amp; BODY PIERCING SHOPS E/O --- 585</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

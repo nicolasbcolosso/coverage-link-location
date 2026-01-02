@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Past_Weekend_of_Renewals</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Days_Until_Renewal__c</field>
+        <operation>equals</operation>
+        <value>91</value>
+    </filters>
+    <filters>
+        <field>Days_Until_Renewal__c</field>
+        <operation>equals</operation>
+        <value>92</value>
+    </filters>
+    <filters>
+        <field>In_Force__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Past Weekend of Renewals</label>
+    <sharedTo></sharedTo>
+</ListView>

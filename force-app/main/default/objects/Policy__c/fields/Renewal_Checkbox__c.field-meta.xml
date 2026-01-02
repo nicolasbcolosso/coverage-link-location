@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Checkbox__c</fullName>
+    <description>Evaluates whether policy is a renewal.Used primarily for tax docs</description>
+    <formula>OR( 
+ISPICKVAL( Policy_Type_Status__c , &quot;Renewal&quot;),
+ISPICKVAL( Policy_Type_Status__c , &quot;Remarketed at Renewal&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Checkbox</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

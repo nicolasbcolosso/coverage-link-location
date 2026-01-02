@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Type_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Setup.Master_Validation__c.Policy_Active__c &amp;&amp; 
+NOT(OR($RecordType.Name = &quot;Health &amp; Benefits&quot;, $RecordType.Name = &quot;FS Direct&quot;)) &amp;&amp; 
+
+AND( 
+ISBLANK(  RecordType.Name  ), 
+ISCHANGED( Stage__c ),
+NOT( 
+ISPICKVAL( Stage__c , &quot;In Processing&quot;) 
+) 
+)</errorConditionFormula>
+    <errorMessage>Please add Record Type</errorMessage>
+</ValidationRule>

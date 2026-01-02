@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Major_Shareholder_Exposure_Factor__c</fullName>
+    <defaultValue>1.00</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>A. All shareholders over 10% have board representation	1.0
+B. One or more major shareholders does not have board representation	1.1 - 1.3</inlineHelpText>
+    <label>Major Shareholder Exposure (Factor)</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

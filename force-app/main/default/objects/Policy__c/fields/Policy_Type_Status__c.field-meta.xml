@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Type_Status__c</fullName>
+    <label>Policy Type/Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Business</fullName>
+                <default>false</default>
+                <label>New Business</label>
+            </value>
+            <value>
+                <fullName>New Business - BOR</fullName>
+                <default>false</default>
+                <label>New Business - BOR</label>
+            </value>
+            <value>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+                <label>Renewal</label>
+            </value>
+            <value>
+                <fullName>Remarketed at Renewal</fullName>
+                <default>false</default>
+                <label>Remarketed at Renewal</label>
+            </value>
+            <value>
+                <fullName>BORed away</fullName>
+                <default>false</default>
+                <label>BORed away</label>
+            </value>
+            <value>
+                <fullName>Cancelled by Insured</fullName>
+                <default>false</default>
+                <label>Cancelled by Insured</label>
+            </value>
+            <value>
+                <fullName>Non-Renewed by Insured</fullName>
+                <default>false</default>
+                <label>Non-Renewed by Insured</label>
+            </value>
+            <value>
+                <fullName>Cancelled - Off Risk</fullName>
+                <default>false</default>
+                <label>Cancelled - Off Risk</label>
+            </value>
+            <value>
+                <fullName>Cancelled - Noncompliance</fullName>
+                <default>false</default>
+                <label>Cancelled - Noncompliance</label>
+            </value>
+            <value>
+                <fullName>Cancelled - Nonpayment</fullName>
+                <default>false</default>
+                <label>Cancelled - Nonpayment</label>
+            </value>
+            <value>
+                <fullName>Cancel/Rewrite</fullName>
+                <default>false</default>
+                <label>Cancelled/Rewritten</label>
+            </value>
+            <value>
+                <fullName>Rewrite</fullName>
+                <default>false</default>
+                <label>Rewrite</label>
+            </value>
+            <value>
+                <fullName>Tail/Run Off</fullName>
+                <default>false</default>
+                <label>Tail/Run Off</label>
+            </value>
+            <value>
+                <fullName>New Business - BOR to Cancel</fullName>
+                <default>false</default>
+                <label>New Business - BOR to Cancel</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

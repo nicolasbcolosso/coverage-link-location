@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuoteMustHaveLinks</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Status__c), ISPICKVAL( Status__c, &apos;Accepted&apos;),  Quote_Coverage_Links__c = 0)</errorConditionFormula>
+    <errorMessage>Quote must have limits before it can be accepted</errorMessage>
+</ValidationRule>

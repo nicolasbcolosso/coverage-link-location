@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Declination__c</fullName>
+    <description>SF-1096</description>
+    <label>Reason for Declination</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Blocked by BOR</fullName>
+                <default>false</default>
+                <label>Blocked by BOR</label>
+            </value>
+            <value>
+                <fullName>Claims History</fullName>
+                <default>false</default>
+                <label>Claims History</label>
+            </value>
+            <value>
+                <fullName>Class of Business</fullName>
+                <default>false</default>
+                <label>Class of Business</label>
+            </value>
+            <value>
+                <fullName>Financial Condition</fullName>
+                <default>false</default>
+                <label>Financial Condition</label>
+            </value>
+            <value>
+                <fullName>Geography</fullName>
+                <default>false</default>
+                <label>Geography</label>
+            </value>
+            <value>
+                <fullName>Outside Appetite</fullName>
+                <default>false</default>
+                <label>Outside Appetite</label>
+            </value>
+            <value>
+                <fullName>Insufficient Controls</fullName>
+                <default>false</default>
+                <label>Insufficient Controls</label>
+            </value>
+            <value>
+                <fullName>Type of Operations</fullName>
+                <default>false</default>
+                <label>Type of Operations</label>
+            </value>
+            <value>
+                <fullName>High Hazard Zone</fullName>
+                <default>false</default>
+                <label>High Hazard Zone</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Blocked by BOR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Claims History</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Class of Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Financial Condition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Geography</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Outside Appetite</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Insufficient Controls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>Type of Operations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <valueName>High Hazard Zone</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

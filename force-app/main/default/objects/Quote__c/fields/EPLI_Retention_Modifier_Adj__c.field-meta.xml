@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPLI_Retention_Modifier_Adj__c</fullName>
+    <formula>(  EPLI_Limit_Adjusted_Rate__c * 
+(
+
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$10,000&quot;), 1.400,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$15,000&quot;), 1.325,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$20,000&quot;), 1.200,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$25,000&quot;), 1.150,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$35,000&quot;), 1.050,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$50,000&quot;), 1.000,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$75,000&quot;), 0.975,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$100,000&quot;), 0.950,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$150,000&quot;), 0.925,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$200,000&quot;), 0.905,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$250,000&quot;), 0.900,
+IF ( ISPICKVAL(  EPLI_Retention_Modifier_Retention__c , &quot;$500,000&quot;), 0.875, 0 )))))))))))))
+- EPLI_Limit_Adjusted_Rate__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>EPLI Retention Modifier (Adj)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
