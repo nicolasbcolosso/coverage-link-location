@@ -591,6 +591,56 @@ public with sharing class CoverageSelectionController {
     }
   }
 
+  /**
+   * @description Checks if the Is_New_Property__c flag is enabled on the record
+   * This is a lightweight method used by the router component to determine
+   * which coverage selection component to render.
+   * @param recordId The Id of the Policy__c or Endorsement__c record
+   * @return Boolean indicating if Is_New_Property__c is true
+   */
+  @AuraEnabled(cacheable=true)
+  public static Boolean checkIsNewPropertyEnabled(Id recordId) {
+    if (recordId == null) {
+      return false;
+    }
+
+    try {
+      String sObjectType = recordId.getSObjectType().getDescribe().getName();
+      Boolean isNewPropertyEnabled = false;
+
+      if (sObjectType == 'Policy__c') {
+        Policy__c policy = [
+          SELECT Is_New_Property__c
+          FROM Policy__c
+          WHERE Id = :recordId
+          LIMIT 1
+        ];
+        isNewPropertyEnabled = policy.Is_New_Property__c;
+      } else if (sObjectType == 'Endorsement__c') {
+        Endorsement__c endorsement = [
+          SELECT Is_New_Property__c
+          FROM Endorsement__c
+          WHERE Id = :recordId
+          LIMIT 1
+        ];
+        isNewPropertyEnabled = endorsement.Is_New_Property__c;
+      } else if (sObjectType == 'Quote__c') {
+        Quote__c quote = [
+          SELECT Is_New_Property__c
+          FROM Quote__c
+          WHERE Id = :recordId
+          LIMIT 1
+        ];
+        isNewPropertyEnabled = quote.Is_New_Property__c;
+      }
+
+      return isNewPropertyEnabled == true;
+    } catch (Exception e) {
+      System.debug('Error checking Is_New_Property__c: ' + e.getMessage());
+      return false;
+    }
+  }
+
   // ==================== WRAPPER CLASSES ====================
 
   /**
