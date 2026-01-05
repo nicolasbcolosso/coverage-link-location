@@ -163,7 +163,7 @@ public with sharing class CoverageSelectionController {
         Id,
         Name,
         Opportunity__c,
-        // Opportunity__r.AccountId,
+        Policy__r.Opportunity__r.AccountId,
         RecordType.Name,
         RecordType.DeveloperName,
         Policy__r.Rater_Type__c,
@@ -175,7 +175,7 @@ public with sharing class CoverageSelectionController {
 
     wrapper.endorsementId = endorsement.Id;
     wrapper.opportunityId = endorsement.Opportunity__c;
-    // wrapper.accountId = endorsement.Opportunity__r.AccountId;
+    wrapper.accountId = endorsement.Policy__r.Opportunity__r.AccountId;
     wrapper.recordTypeName = endorsement.RecordType.Name;
     wrapper.isScale =
       endorsement.RecordType.Name != null &&
