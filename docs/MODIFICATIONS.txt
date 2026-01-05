@@ -1,0 +1,236 @@
+/\*\*
+
+- ================================================================================
+- MODIFICATIONS REQUIRED FOR quoteBaseComponent.js
+- ================================================================================
+-
+- This file documents the changes needed to integrate the new coverageSelection
+- component into quoteBaseComponent.js. The changes enable conditional rendering
+- based on the Is_New_Property\_\_c checkbox field.
+-
+- ================================================================================
+  \*/
+
+/\*\*
+
+- STEP 1: Add new import at the top of the file
+- Add this import after the existing imports:
+  \*/
+  // import getQuoteIsNewProperty from '@salesforce/apex/CoverageSelectionController.getIsNewPropertyFlag';
+
+/\*\*
+
+- STEP 2: Add new tracked property in the class
+- Add this property with the other @track properties:
+  \*/
+  // @track isNewPropertyEnabled = false;
+
+/\*\*
+
+- STEP 3: Modify the connectedCallback or add a method to check the flag
+- You can either:
+- A) Query the Is_New_Property\_\_c field in the existing getInfo call
+- B) Add a separate query for this field
+-
+- Option A is recommended - modify the getInfo SOQL query in QuoteController.getInformation
+- to include Is_New_Property**c field, then set the property:
+  */
+  /*
+  // In the existing method that processes quote data:
+  this.isNewPropertyEnabled = result.Is_New_Property**c || false;
+  \*/
+
+/\*\*
+
+- STEP 4: Modify the template (quoteBaseComponent.html)
+-
+- Find the section that renders the Add/Remove Coverage component (around line 200+):
+-
+- BEFORE:
+- <template if:true={isAddorRemoveCov}>
+-     ...
+-     <c-lightning-add-remove-coverage
+-         onreloadviewpage={reloadViewPage}
+-         onsavelimit={handleReloadView}
+-         record-id={recordId}
+-         oncancelevent={handleCancel}
+-         record-id-page-context={recordId}>
+-     </c-lightning-add-remove-coverage>
+-     ...
+- </template>
+-
+- AFTER:
+- <template if:true={isAddorRemoveCov}>
+-     ...
+-     <!-- New Coverage Selection Component (when Is_New_Property__c is enabled) -->
+-     <template lwc:if={isNewPropertyEnabled}>
+-         <c-coverage-selection
+-             record-id={recordId}
+-             record-id-page-context={recordId}
+-             onreloadviewpage={reloadViewPage}
+-             onsavelimit={handleReloadView}
+-             oncancelevent={handleCancel}>
+-         </c-coverage-selection>
+-     </template>
+-
+-     <!-- Original Component (when Is_New_Property__c is disabled) -->
+-     <template lwc:else>
+-         <c-lightning-add-remove-coverage
+-             onreloadviewpage={reloadViewPage}
+-             onsavelimit={handleReloadView}
+-             record-id={recordId}
+-             oncancelevent={handleCancel}
+-             record-id-page-context={recordId}>
+-         </c-lightning-add-remove-coverage>
+-     </template>
+-     ...
+- </template>
+  */
+
+/\*\*
+
+- ================================================================================
+- ALTERNATIVE: SIMPLIFIED IMPLEMENTATION
+- ================================================================================
+-
+- If you want a simpler approach, you can modify the quoteBaseComponent.js
+- to fetch the Is_New_Property\_\_c value when the Add/Remove Coverage button is clicked.
+-
+- Add this method:
+  \*/
+
+/\*
+async handleAddorRemoveCov() {
+this.loadSpinner = true;
+try {
+// Fetch the Is_New_Property**c flag
+const quoteInfo = await getInfo({ quoteId: this.recordId });
+this.isNewPropertyEnabled = quoteInfo[0]?.Is_New_Property**c || false;
+} catch (error) {
+console.error('Error fetching quote info:', error);
+this.isNewPropertyEnabled = false;
+} finally {
+this.loadSpinner = false;
+}
+
+    this.isEdit = false;
+    this.isAddorRemoveCov = true;
+    this.isUpdateQuote = false;
+    this.isAcceptQuote = false;
+    this.removeSectionCoverages = false;
+    this.isRejectQuote = false;
+    this.isView = false;
+
+}
+\*/
+
+/\*\*
+
+- ================================================================================
+- COMPLETE MODIFIED SECTION OF quoteBaseComponent.html
+- ================================================================================
+-
+- Replace the existing <template if:true={isAddorRemoveCov}> section with:
+  \*/
+
+/\*
+<template if:true={isAddorRemoveCov}>
+<div style="height:1000">
+<lightning-card>
+<lightning-card>
+<template if:true={showToastError}>
+<div class="slds-m-horizontal_large slds-m-bottom_medium">
+<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+<span class="slds-assistive-text">error</span>
+<span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small"
+                                title="Description of icon when needed">
+<svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+</svg>
+</span>
+<ul>
+<template for:each={showToastMessage} for:item="tb">
+<li key={tb}>{tb}</li>
+</template>
+</ul>
+</div>
+</div>
+</template>
+
+                <!-- Conditional rendering based on Is_New_Property__c -->
+                <template lwc:if={isNewPropertyEnabled}>
+                    <c-coverage-selection
+                        record-id={recordId}
+                        record-id-page-context={recordId}
+                        onreloadviewpage={reloadViewPage}
+                        onsavelimit={handleReloadView}
+                        oncancelevent={handleCancel}>
+                    </c-coverage-selection>
+                </template>
+                <template lwc:else>
+                    <c-lightning-add-remove-coverage
+                        onreloadviewpage={reloadViewPage}
+                        onsavelimit={handleReloadView}
+                        record-id={recordId}
+                        oncancelevent={handleCancel}
+                        record-id-page-context={recordId}>
+                    </c-lightning-add-remove-coverage>
+                </template>
+            </lightning-card>
+        </lightning-card>
+    </div>
+
+</template>
+*/
+
+/\*\*
+
+- ================================================================================
+- SUMMARY OF ALL FILES CREATED
+- ================================================================================
+-
+- METADATA FILES:
+- 1.  force-app/main/default/objects/Quote_Coverage_Link**c/fields/Location**c.field-meta.xml
+- - New lookup field to Location\_\_c
+-
+- 2.  force-app/main/default/objects/Quote**c/fields/Is_New_Property**c.field-meta.xml
+- - Feature toggle checkbox for Quote
+-
+- 3.  force-app/main/default/objects/Policy**c/fields/Is_New_Property**c.field-meta.xml
+- - Feature toggle checkbox for Policy
+-
+- 4.  force-app/main/default/objects/Endorsement**c/fields/Is_New_Property**c.field-meta.xml
+- - Feature toggle checkbox for Endorsement
+-
+- APEX FILES:
+- 5.  force-app/main/default/classes/CoverageSelectionController.cls
+- - New Apex controller for the coverage selection component
+-
+- 6.  force-app/main/default/classes/CoverageSelectionController.cls-meta.xml
+- - Meta file for the controller
+-
+- 7.  force-app/main/default/classes/CoverageSelectionControllerTest.cls
+- - Test class for the controller
+-
+- 8.  force-app/main/default/classes/CoverageSelectionControllerTest.cls-meta.xml
+- - Meta file for the test class
+-
+- LWC FILES:
+- 9.  force-app/main/default/lwc/coverageSelection/coverageSelection.js
+- - JavaScript controller for the new LWC
+-
+- 10. force-app/main/default/lwc/coverageSelection/coverageSelection.html
+-     - HTML template with SLDS 2 styling
+-
+- 11. force-app/main/default/lwc/coverageSelection/coverageSelection.css
+-     - CSS styles for the component
+-
+- 12. force-app/main/default/lwc/coverageSelection/coverageSelection.js-meta.xml
+-     - Meta configuration file
+-
+- DOCUMENTATION:
+- 13. This file (quoteBaseComponent_modifications.js)
+-     - Documentation for required modifications to quoteBaseComponent
+-
+- ================================================================================
+  \*/

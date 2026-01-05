@@ -13,7 +13,7 @@
     </header>
 
     <!-- Progress Indicator -->
-    <div
+    <!-- <div
       class="slds-p-horizontal_medium slds-p-vertical_small"
       lwc:if={isNotDummyQuoteStep}
     >
@@ -31,7 +31,7 @@
           value="configuration"
         ></lightning-progress-step>
       </lightning-progress-indicator>
-    </div>
+    </div> -->
 
     <!-- Loading Spinner -->
     <template lwc:if={isLoading}>
@@ -85,11 +85,31 @@
 
       <!-- Selection Step -->
       <template lwc:if={isSelectionStep}>
+        <!-- Footer Actions - Selection -->
+        <div class="slds-p-around_medium">
+          <div class="slds-grid slds-grid_align-center">
+            <lightning-button
+              variant="neutral"
+              label="Cancel"
+              onclick={handleCancel}
+              class="slds-m-right_small"
+            >
+            </lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Next"
+              onclick={handleNext}
+              disabled={canNotProceedToConfiguration}
+            >
+            </lightning-button>
+          </div>
+        </div>
+
         <div class="slds-p-around_medium">
           <!-- Property Location Warning -->
           <template lwc:if={showPropertyLocationWarning}>
             <div
-              class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_medium"
+              class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-m-bottom_medium"
               role="alert"
             >
               <lightning-icon
@@ -173,7 +193,7 @@
                       <div class="slds-truncate" title={coverage.name}>
                         <span
                           lwc:if={coverage.isSelected}
-                          class="slds-text-color_success slds-text-title_bold"
+                          class="slds-text-title_bold"
                         >
                           {coverage.name}
                         </span>

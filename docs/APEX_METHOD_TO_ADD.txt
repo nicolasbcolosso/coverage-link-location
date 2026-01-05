@@ -1,0 +1,109 @@
+/**
+ * ================================================================================
+ * APEX METHOD TO ADD TO CoverageSelectionController.cls
+ * ================================================================================
+ * 
+ * Add this method to the CoverageSelectionController class to support the
+ * coverageSelectionRouter component.
+ * 
+ * Location: Add this method after the getInitializationData method
+ * ================================================================================
+ */
+
+/**
+ * @description Checks if the Is_New_Property__c flag is enabled on the record
+ * This is a lightweight method used by the router component to determine
+ * which coverage selection component to render.
+ * @param recordId The Id of the Policy__c or Endorsement__c record
+ * @return Boolean indicating if Is_New_Property__c is true
+ */
+@AuraEnabled(cacheable=true)
+public static Boolean checkIsNewPropertyEnabled(Id recordId) {
+    if (recordId == null) {
+        return false;
+    }
+    
+    try {
+        String sObjectType = recordId.getSObjectType().getDescribe().getName();
+        Boolean isNewPropertyEnabled = false;
+        
+        if (sObjectType == 'Policy__c') {
+            Policy__c policy = [
+                SELECT Is_New_Property__c 
+                FROM Policy__c 
+                WHERE Id = :recordId 
+                LIMIT 1
+            ];
+            isNewPropertyEnabled = policy.Is_New_Property__c;
+        } else if (sObjectType == 'Endorsement__c') {
+            Endorsement__c endorsement = [
+                SELECT Is_New_Property__c 
+                FROM Endorsement__c 
+                WHERE Id = :recordId 
+                LIMIT 1
+            ];
+            isNewPropertyEnabled = endorsement.Is_New_Property__c;
+        } else if (sObjectType == 'Quote__c') {
+            Quote__c quote = [
+                SELECT Is_New_Property__c 
+                FROM Quote__c 
+                WHERE Id = :recordId 
+                LIMIT 1
+            ];
+            isNewPropertyEnabled = quote.Is_New_Property__c;
+        }
+        
+        return isNewPropertyEnabled == true;
+    } catch (Exception e) {
+        System.debug('Error checking Is_New_Property__c: ' + e.getMessage());
+        return false;
+    }
+}
+
+/**
+ * ================================================================================
+ * TEST METHOD TO ADD TO CoverageSelectionControllerTest.cls
+ * ================================================================================
+ */
+
+@isTest
+static void testCheckIsNewPropertyEnabled_Policy() {
+    Policy__c policy = [SELECT Id FROM Policy__c LIMIT 1];
+    
+    Test.startTest();
+    Boolean result = CoverageSelectionController.checkIsNewPropertyEnabled(policy.Id);
+    Test.stopTest();
+    
+    System.assertEquals(true, result, 'Policy should have Is_New_Property__c enabled');
+}
+
+@isTest
+static void testCheckIsNewPropertyEnabled_Endorsement() {
+    Endorsement__c endorsement = [SELECT Id FROM Endorsement__c LIMIT 1];
+    
+    Test.startTest();
+    Boolean result = CoverageSelectionController.checkIsNewPropertyEnabled(endorsement.Id);
+    Test.stopTest();
+    
+    System.assertEquals(true, result, 'Endorsement should have Is_New_Property__c enabled');
+}
+
+@isTest
+static void testCheckIsNewPropertyEnabled_Quote() {
+    Quote__c quote = [SELECT Id FROM Quote__c WHERE Status__c = 'Open' LIMIT 1];
+    
+    Test.startTest();
+    Boolean result = CoverageSelectionController.checkIsNewPropertyEnabled(quote.Id);
+    Test.stopTest();
+    
+    System.assertEquals(true, result, 'Quote should have Is_New_Property__c enabled');
+}
+
+@isTest
+static void testCheckIsNewPropertyEnabled_NullId() {
+    Test.startTest();
+    Boolean result = CoverageSelectionController.checkIsNewPropertyEnabled(null);
+    Test.stopTest();
+    
+    System.assertEquals(false, result, 'Should return false for null Id');
+}

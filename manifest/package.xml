@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>QuoteController</members>
+        <name>ApexClass</name>
+    </types>
+                
+    <types>
+        <members>quoteBaseComponent</members>
+
+        <members>lightningAddRemoveCoverage</members>
+        <members>lightningFieldItem</members>
+
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <types>
+      <members>Account</members>
+      <members>Coverage__c</members>
+      <members>Endorsement__c</members>
+      <members>Location__c</members>
+      <members>Opportunity</members>
+      <members>Quote__c</members>
+      <members>Policy__c</members>
+      <members>Quote_Coverage_Link__c</members>
+      <name>CustomObject</name>
+    </types>
+    
+    <version>64.0</version>
+</Package>
