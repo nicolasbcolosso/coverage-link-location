@@ -361,7 +361,8 @@ public with sharing class CoverageSelectionController {
       query += 'Endorsement__c = :recordId';
     }
 
-    query += ' ORDER BY Name ASC';
+    query +=
+      ' AND (Name != :PROPERTY_COVERAGE_NAME OR Location__c != null) ORDER BY Name ASC';
 
     for (Quote_Coverage_Link__c qcl : Database.query(query)) {
       CoverageLinkWrapper clw = new CoverageLinkWrapper();
