@@ -436,11 +436,7 @@ export default class LightningAddRemoveCoverage extends LightningElement {
     }
 
     handleCloseModal() {
-        if (this.sObjectType == 'Quote__c'){
-            this.sendEventToBaseComponent('cancelevent', true);
-        } else {
-            this.dispatchEvent(new CloseActionScreenEvent());
-        }
+        this.sendEventToBaseComponent('cancelevent', true);        
     }
 
     notifyUser(title, message, variant) {
