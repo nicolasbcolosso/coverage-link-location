@@ -6,5 +6,9 @@
     "**/.sfdx": true
   },
   "xml.preferences.showSchemaDocumentationType": "none",
-  "salesforce.einsteinForDevelopers.enable": false
+  "salesforce.einsteinForDevelopers.enable": false,
+  "cSpell.words": [
+    "cancelevent",
+    "Savepoint"
+  ]
 }
