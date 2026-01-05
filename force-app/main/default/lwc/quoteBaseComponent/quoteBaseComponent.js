@@ -59,6 +59,8 @@ export default class QuoteBaseComponent extends NavigationMixin(LightningElement
     coverageWithLimits;
     coverageLoaded = false;
 
+    isNewPropertyEnabled = false;
+
     @api
     get disableSaveButton() {
         return this.loadSpinner;
@@ -83,6 +85,7 @@ export default class QuoteBaseComponent extends NavigationMixin(LightningElement
     loadGetInfo(){
         getInfo({quoteId: this.recordId}).then(data => {
             this.changeButtonsLayout(data[0].Status__c);
+            this.isNewPropertyEnabled = data[0].Is_New_Property__c || false;
             this.isReceivedQuote = data[0].Status__c == 'Received' ? true : false;
             //HERE
             this.quoteData = data;

@@ -230,13 +230,27 @@
                         </div>
                     </div>
                 </template>
-                <c-lightning-add-remove-coverage 
-                    onreloadviewpage={reloadViewPage} 
-                    onsavelimit={handleReloadView}
-                    record-id={recordId} 
-                    oncancelevent={handleCancel}
-                    record-id-page-context={recordId}>
-                </c-lightning-add-remove-coverage>
+                <!-- New Coverage Selection Component (when Is_New_Property__c is enabled) -->
+                <template lwc:if={isNewPropertyEnabled}>
+                    <c-coverage-selection
+                        record-id={recordId}
+                        record-id-page-context={recordId}
+                        onreloadviewpage={reloadViewPage}
+                        onsavelimit={handleReloadView}
+                        oncancelevent={handleCancel}>
+                    </c-coverage-selection>
+                </template>
+                
+                <!-- Original Component (when Is_New_Property__c is disabled) -->
+                <template lwc:else>
+                    <c-lightning-add-remove-coverage 
+                        onreloadviewpage={reloadViewPage} 
+                        onsavelimit={handleReloadView}
+                        record-id={recordId} 
+                        oncancelevent={handleCancel}
+                        record-id-page-context={recordId}>
+                    </c-lightning-add-remove-coverage>
+                </template>
             </lightning-card>
         </lightning-card>
         </div>
