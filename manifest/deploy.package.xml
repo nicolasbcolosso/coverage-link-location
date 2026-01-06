@@ -13,7 +13,7 @@
     
     <types>
         <members>CoverageSelectionController</members>
-        <members>CoverageSelectionControllerTest</members>
+        
 
         <members>QuoteController</members>
         
@@ -31,8 +31,8 @@
     </types>
     
     <types>
-        <members>Policy__c.Add_Remove_Coverage_Router</members>
-        <members>Endorsement__c.Add_Remove_Coverage_Router</members>
+        <members>Policy__c.Update_Coverages</members>
+        <members>Endorsement__c.Update_Coverages</members>
         
         <name>QuickAction</name>
     </types>
