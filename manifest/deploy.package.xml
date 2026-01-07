@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <version>64.0</version>
+    
+    <types>
+        <members>Quote_Coverage_Link__c.Location__c</members>
+        <members>Quote__c.Is_New_Property__c</members>
+        <members>Policy__c.Is_New_Property__c</members>
+        <members>Endorsement__c.Is_New_Property__c</members>
+
+        <name>CustomField</name>
+    </types>
+    
+    <types>
+        <members>CoverageSelectionController</members>
+        
+
+        <members>QuoteController</members>
+        
+        <name>ApexClass</name>
+    </types>
+    
+    <types>
+        <members>coverageSelection</members>
+        <members>coverageSelectionRouter</members>
+
+        <members>quoteBaseComponent</members>
+        <members>lightningAddRemoveCoverage</members>
+        
+        <name>LightningComponentBundle</name>
+    </types>
+    
+    <types>
+        <members>Policy__c.Update_Coverages</members>
+        <members>Endorsement__c.Update_Coverages</members>
+        
+        <name>QuickAction</name>
+    </types>
+</Package>
