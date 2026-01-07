@@ -1,0 +1,40 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" >
+    <aura:html tag="style">
+        .slds-modal__container{
+    		max-width: 70rem !important;
+    		width:70% !important;
+		}
+        
+        .cuf-content {
+            padding: 1 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }       
+        .slds-modal__content{
+            overflow-y:hidden !important;
+            height:unset !important;
+            max-height:unset !important;
+        }
+        
+
+         .modal-body{
+        height : 550px !important;
+        max-height: 550px !important;
+        }
+       
+        /*.slds-modal__container{
+        height : auto;
+        width: 70%;
+        max-width: 70rem;
+        
+        }
+       
+        .customFooter{
+        display: inline !important;
+        }*/
+    </aura:html> 
+    <aura:attribute name="recordId" type="String"/>   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<c:quoteNewComponent recordId="{!v.recordId}"></c:quoteNewComponent>
+</aura:component>

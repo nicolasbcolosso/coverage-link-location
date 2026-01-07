@@ -1,0 +1,43 @@
+<template>
+    <lightning-card>
+        <!-- <template if:true={redirectQuote}>
+            <c-redirect-quote onnextevent={nextView}></c-redirect-quote>
+        </template> -->        
+        <template if:true={showSelectRaterType}>
+            <c-rater-type-selection opp-id={recordId} onratertypechange={raterTypeChangeHandler} ></c-rater-type-selection>
+        </template>
+        <template if:true={quoteAddCoverage}>
+           <!--  <c-quote-add-coverage 
+                opp-id={recordId} 
+                selected-rater-type={selectedRaterType} 
+                onprevious={handlePrevious} 
+                onnextaddinfo={addQuoteInfoView} 
+                oncancelevent={cancelEvent}>
+            </c-quote-add-coverage> -->
+            <c-lightning-add-remove-coverage 
+                onprevious={handlePrevious} 
+                onnextaddinfo={addQuoteInfoView} 
+                oncancelevent={handleCancel}
+                onsavelimit={handleReloadView}
+                record-id={recordId}
+                selected-rater-type={selectedRaterType}
+                selected-limits-at-u-i={limitToQuote}
+                record-id-page-context={recordId}>
+            </c-lightning-add-remove-coverage>
+        </template>
+        <template if:true={addQuoteInfo}>
+            <c-add-quote-info 
+                selected-rater-type={selectedRaterType} 
+                coverages={limitToQuote} 
+                oninfopage={infoView} 
+                oncancelevent={cancelEvent} 
+                record-id={recordId} 
+                onsendlimit={itemreceived}
+                onindicationerrorevent={handleError}>
+            </c-add-quote-info>
+        </template>
+        <template if:true={infoViewPage}>
+            <c-quote-base-component record-id={newQuoteId}></c-quote-base-component>
+        </template>
+    </lightning-card>
+</template>
