@@ -1,0 +1,1051 @@
+<template>
+    <template if:true={isScale}>
+        <c-add-scale-quote-info opportunity-id={recordId} coverages={coverages} selected-rater-type={selectedRaterType}>
+
+        </c-add-scale-quote-info>
+
+    </template>
+    <template if:false={isScale}>
+        <lightning-card>
+            <div class="slds-align_absolute-center">
+                <button class="slds-button slds-button_brand slds-m-left_large"
+                    onclick={handleSaveNewQuote}>Save</button>
+                <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleCancel}>Back</button>
+            </div>
+            <div class="slds-section">
+                <h3 class="slds-section__title">
+                    <p aria-controls="expando-unique-id" aria-expanded="false"
+                        class="slds-button slds-section__title-action">
+                        <span class="slds-truncate slds-p-left_small" title="Limits">Information</span>
+                    </p>
+                </h3>
+                <template if:true={loadSpinner}>
+                    <div class="exampleHolder">
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:false={loadSpinner}>
+
+                    <div class="slds-grid slds-wrap slds-m-horizontal_large">
+
+                        <div class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Quote Name
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom">
+                                    <span>
+                                        <lightning-input onchange={changeValue} name="Name">
+                                        </lightning-input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Status
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <select class="slds-select" name="Status__c" onchange={changeValue}>
+                                            <option value="">---None---</option>
+                                            <template for:each={statusOptions} for:item="picklistItem">
+                                                <option key={picklistItem.value} value={picklistItem.value}>
+                                                    {picklistItem.label}
+                                                </option>
+                                            </template>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Marketer/UW Name
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <c-lookup onopensearch={openModal} apiname-field="Marketer_UW_Name__c"
+                                            selection={initialSelection} errors={errors} onsearch={handleSearch}
+                                            onselectionchange={handleSelectionChange} type="contact" label="Search"
+                                            placeholder="Search Salesforce" is-multi-entry={isMultiEntry} required>
+                                        </c-lookup>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <template lwc:if={isStatusDeclined}>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Reason for Declination
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <span>
+                                            <lightning-combobox
+                                                name="Reason_for_Declination__c"
+                                                value={reasonForDeclination}
+                                                placeholder="Select a reason here..."
+                                                options={REASON_FOR_DECLINATION_OPTIONS}
+                                                onchange={handleChangeDeclinationReason}>
+                                            </lightning-combobox>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+
+                        <div if:true={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Producer Name (Needs to update)
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <span>
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_10-of-12">
+                                                    <a href={oppUrl} target="_blank">{oppName}</a>
+                                                </div>
+                                                <div class="slds-col slds-size_2-of-12" style="cursor: pointer;">
+                                                    <lightning-icon icon-name="utility:edit" onclick={changeOppModal}
+                                                        alternative-text="Image file" size="x-small" title="Image">
+                                                    </lightning-icon>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <p class="slds-p-left_x-small">
+                                        Secondary Marketer/UW Name
+                                    </p>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_small">
+                                    <span>
+                                        <span>
+                                            <c-lookup class="lookupSecondary" onopensearch={openModalSec}
+                                                apiname-field="Secondary_Marketer_UW_Name__c"
+                                                selection={secondaryInitialSelection} errors={secondaryErrors}
+                                                onsearch={secondaryHandleSearch}
+                                                onselectionchange={secondaryHandleSelectionChange} type="contact"
+                                                label="Search" placeholder="Search Salesforce"
+                                                is-multi-entry={isMultiEntry} required>
+                                            </c-lookup>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Opportunity
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <span>
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-size_10-of-12">
+                                                    <a href={oppUrl} target="_blank">{oppName}</a>
+                                                </div>
+                                                <div class="slds-col slds-size_2-of-12" style="cursor: pointer;">
+                                                    <lightning-icon icon-name="utility:edit" onclick={changeOppModal}
+                                                        alternative-text="Image file" size="x-small" title="Image">
+                                                    </lightning-icon>
+                                                </div>
+
+                                            </div>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div if:true={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <p class="slds-p-left_x-small">
+                                        TRIA
+                                    </p>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_small">
+                                    <span>
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="TRIA__c"></lightning-input>
+
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:true={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span class="slds-p-left_x-small">
+                                        Policy Period (Days)
+                                    </span>
+
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom">
+                                    <span>
+                                        <lightning-input onchange={changeValue} name="Policy_Period_Days__c">
+                                        </lightning-input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:true={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Pending & Prior Date (D&O)
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom">
+                                    <span>
+                                        <lightning-input onchange={changeValue} name="Pending_Prior_Date__c">
+                                        </lightning-input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span class="slds-p-left_x-small">
+                                        Commission Rate
+                                    </span>
+
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom">
+                                    <span>
+                                        <lightning-input onchange={changeValue} name="Commission_Rate__c">
+                                        </lightning-input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <lightning-dual-listbox name="languages" source-label="Available"
+                                    selected-label="Selected" onchange={changedual} data-name="Blanket_AI__c"
+                                    options={option} value={valueDual}></lightning-dual-listbox>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span class="slds-p-left_x-small">
+                                        Carrier Issuing Company
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom ">
+                                    <span>
+                                        <c-lookup class="lookupCarr" onopensearchacc={openModalAcc}
+                                            selection={carrierInitialSelection} errors={carrierErrors}
+                                            name='Carrier_Issuing_Company__c' onsearch={carrierHandleSearch}
+                                            onselectionchange={carrierHandleSelectionChange} type="account"
+                                            label="Search" placeholder="Search Salesforce" is-multi-entry={isMultiEntry}
+                                            required>
+                                        </c-lookup>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        Retro Date
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom">
+                                    <span>
+                                        <lightning-input onchange={changeValue} type="date" name="Retro_Date__c"
+                                            formatter="mm/dd/yyyy"></lightning-input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span class="slds-p-left_x-small">
+                                        Retro Date Type
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <select class="slds-select" name='Retro_Date_Type__c' onchange={changeValue}>
+                                            <option value="">---None---</option>
+                                            <template for:each={retroField} for:item="picklistItem">
+                                                <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                    {picklistItem.slabel}
+                                                </option>
+                                            </template>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={isScale} class="slds-col slds-size_1-of-2 border-bottom">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span class="slds-p-left_x-small">
+                                        Follow form? <lightning-helptext
+                                            content="This field is required for Umbrella & Excess quotes.">
+                                        </lightning-helptext>
+                                    </span>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                    <span>
+                                        <select class="slds-select" name='Follow_form__c' onchange={changeValue}>
+                                            <option value="">---None---</option>
+                                            <template for:each={followField} for:item="picklistItem">
+                                                <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                    {picklistItem.slabel}
+                                                </option>
+                                            </template>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Contract Frustration Rating Data -->
+                    <lightning-card if:false={isScale}>
+                        <div class="slds-section">
+                            <h3 class="slds-section__title">
+                                <p aria-controls="expando-unique-id" aria-expanded="false"
+                                    class="slds-button slds-section__title-action">
+                                    <span class="slds-truncate slds-p-left_small" title="Limits">Contract Frustration
+                                        Rating
+                                        Data</span>
+                                </p>
+                            </h3>
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            KM-Approved Signer
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} type='text'
+                                                name="KM_Approved_Signer__c"></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-card>
+                    <!-- End Contract Frustration Rating Data -->
+                    <!-- Start Pricing -->
+                    <lightning-card>
+                        <div class="slds-section">
+                            <h3 class="slds-section__title">
+                                <p aria-controls="expando-unique-id" aria-expanded="false"
+                                    class="slds-button slds-section__title-action">
+                                    <span class="slds-truncate slds-p-left_small" title="Limits">Pricing</span>
+                                </p>
+                            </h3>
+                        </div>
+                        <div class="slds-grid slds-wrap slds-m-horizontal_large">
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large ">
+                                        <span>
+                                            AutoCalc Taxes & Fees
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input type="checkbox" name="Autocalc_Taxes_And_Fees__c" checked
+                                                onchange={changeValueCheck}></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            State Tax
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="State_Tax__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom"></div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            State Stamping Fee
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="State_Stamping_Fee__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom"></div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            State Filing Fee
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="State_Filing_Fee__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            <p style="font-size: 11px;">Billing (http://bit.ly/2rmptWn)</p>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 slds-p-top_large">
+                                        <span>
+                                            <select class="slds-select" name="Billing__c" onchange={changeValue}>
+                                                <option value="">---None---</option>
+                                                <template for:each={billingField} for:item="picklistItem">
+                                                    <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                        {picklistItem.slabel}
+                                                    </option>
+                                                </template>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            State Fees (Other)
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="State_Fees_Other__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <div class="slds-grid slds-wrap  slds-p-top_large">
+                                    <div class="slds-col slds-size_1-of-2">
+                                        PFA Type
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <select class="slds-select" name="PFA_Type__c" disabled={PFA_TypeView}
+                                            onchange={changeOpp}>
+                                            <option value="" selected>---None---</option>
+                                            <template for:each={PFA_Type} for:item="picklistItem">
+                                                <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                    {picklistItem.slabel}
+                                                </option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Form Type
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 slds-p-top_large">
+                                        <span>
+                                            <select class="slds-select" name="Form_Type__c" onchange={changeValue}>
+                                                <option value="">---None---</option>
+                                                <template for:each={formTypeField} for:item="picklistItem">
+                                                    <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                        {picklistItem.slabel}
+                                                    </option>
+                                                </template>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            FS Fees
+                                        </span>
+
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="FS_Fees__c"></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Program Fee
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Program_Fee__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Admitted
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 slds-p-top_large">
+                                        <span>
+                                            <select class="slds-select" name="Admitted__c" onchange={changeValue}>
+                                                <option value="">---None---</option>
+                                                <template for:each={admittedField} for:item="picklistItem">
+                                                    <option key={picklistItem.svalue} value={picklistItem.svalue}>
+                                                        {picklistItem.slabel}
+                                                    </option>
+                                                </template>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Total Cost
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Total_Cost__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Premium
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Premium__c"></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Underwriting Fees
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Policy_Fees__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            PFA Downpayment
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="PFA_Downpayment__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Wholesaler Fees
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Wholesale_Fees__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Risk Management Fee
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Risk_Management_Fee__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            Minimum Earned Premium
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Minimum_Earned_Premium__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Premium % Change
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input formatter="percent" step="0.01" onchange={changeValue}
+                                                name="Premium_Change_New__c"></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ADDITIONAL INFO -->
+                        <div class="slds-section">
+                            <h3 class="slds-section__title">
+                                <p aria-controls="expando-unique-id" aria-expanded="false"
+                                    class="slds-button slds-section__title-action">
+                                    <span class="slds-truncate slds-p-left_small" title="Limits"> Additional
+                                        Information</span>
+                                </p>
+                            </h3>
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Surplus Lines Quote
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            <lightning-input type="checkbox" name="Surplus_Lines_Quote__c"
+                                                onchange={changeValueCheck}></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Surplus Lines Licensed
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            <lightning-input type="checkbox" name="Surplus_Lines_Licensed__c"
+                                                onchange={changeValueCheck}></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Internal Marketer
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom">
+                                        <span>
+                                            <lightning-input onchange={changeValue} name="Internal_Marketer__c">
+                                            </lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom slds-p-horizontal_xx-large">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            SL Override
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 slds-p-top_large border-bottom">
+                                        <span>
+                                            <span class="cusror">
+                                                <lightning-input type="checkbox" name="SL_Override__c"
+                                                    onchange={changeValueCheck}></lightning-input>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <c-new-quote-limits-view onsendlimit={maplimitsvalue} record-id={recordId}
+                                result={coverages}></c-new-quote-limits-view>
+                        </div>
+                        <!-- NOTES -->
+                        <div class="slds-section ">
+                            <h3 class="slds-section__title">
+                                <p aria-controls="expando-unique-id" aria-expanded="false"
+                                    class="slds-button slds-section__title-action">
+                                    <span class="slds-truncate slds-p-left_small" title="Limits">Notes</span>
+                                </p>
+                            </h3>
+
+                        </div>
+                        <div class="slds-grid slds-wrap slds-m-horizontal_large">
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small ">
+                                            Quote Documents Uploaded
+
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span>
+                                            <lightning-input type="checkbox" name="Quote_Documents_Uploaded__c"
+                                                onchange={changeValueCheck}></lightning-input>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Notes
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom ">
+                                        <span>
+                                            <lightning-textarea onchange={changeValue} name="Notes__c">{Notes__c}
+                                            </lightning-textarea>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 border-bottom">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-2 border-bottom slds-p-top_large">
+                                        <span class="slds-p-left_x-small">
+                                            Subjectivities
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2 border-bottom ">
+                                        <span>
+                                            <lightning-textarea onchange={changeValue} name="Subjectivities__c">
+                                                {Subjectivities__c}
+                                            </lightning-textarea>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2"></div>
+                        </div>
+                        <div class="slds-section ">
+                            <h3 class="slds-section__title">
+                                <p aria-controls="expando-unique-id" aria-expanded="false"
+                                    class="slds-button slds-section__title-action">
+                                    <span class="slds-truncate slds-p-left_small" title="Limits">Additional
+                                        Information</span>
+                                </p>
+                            </h3>
+                        </div>
+                        <div if:true={isAdditionalInfo}>
+                            <div class="slds-grid slds-wrap slds-m-horizontal_large">
+                                <div class="slds-col slds-size_2-of-2 border-bottom ">
+                                    <lightning-input-rich-text value={Additional_Information__c}
+                                        name="Additional_Information__c" onchange={changeValue}>
+                                    </lightning-input-rich-text>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </template>
+
+            </div>
+            <div class="slds-align_absolute-center">
+                <button class="slds-button slds-button_brand slds-m-left_large"
+                    onclick={handleSaveNewQuote}>Save</button>
+                <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleCancel}>Back</button>
+            </div>
+        </lightning-card>
+        <template if:true={oppModal}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small"
+                style="top: 20%;">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                            icon-class="slds-button_icon-inverse" onclick={changeOppModal}>
+                        </lightning-button-icon>
+                        <h1>Search</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium ">
+                        <div>
+                            <div class="slds-section">
+                                <h3 class="slds-section__title">
+                                    <span class="slds-truncate slds-p-left_small slds-section__title-action"
+                                        title="Location Information"> Search</span>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="slds-m-around_medium">
+
+                            <div class="slds-m-bottom_small">
+                                <lightning-input type="text" value={oppSearch} label="Opportunity"
+                                    onchange={updateOppSeach}></lightning-input>
+                            </div>
+
+                            <lightning-button label="Search" onclick={modalOppSearch} variant="brand">
+                            </lightning-button>
+
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="First Name">Name</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <template for:each={contacts} for:item="opp">
+                                        <tr class="slds-hint-parent" key={opp.Id} id={opp.Id} ondblclick={selectItem}>
+                                            <td>
+                                                <a id={opp.Id} data-name={opp.Name}
+                                                    onclick={selectOppItem}>{opp.Name}</a>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <footer class="slds-modal__footer modal-hidden">
+                        <lightning-button label="Cancel" slot="actions" onclick={changeOppModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <template if:true={showNewModalSec}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small"
+                style="top: 20%;">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                            icon-class="slds-button_icon-inverse" onclick={closeModal}>
+                        </lightning-button-icon>
+                        <h1>Search</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium ">
+                        <div>
+                            <div class="slds-section">
+                                <h3 class="slds-section__title">
+                                    <span class="slds-truncate slds-p-left_small slds-section__title-action"
+                                        title="Location Information"> Search</span>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="slds-m-around_medium">
+
+                            <div class="slds-m-bottom_small">
+                                <lightning-input type="text" value={contactsSearch} label="Name"
+                                    onchange={updateSeachKey}></lightning-input>
+                            </div>
+
+                            <lightning-button label="Search" onclick={modalSearch} variant="brand"></lightning-button>
+
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="First Name">Name</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <template for:each={contacts} for:item="contact">
+                                        <tr class="slds-hint-parent" key={contact.id} id={contact.id}
+                                            ondblclick={selectItem}>
+                                            <td>
+                                                <a id={contact.id} data-name={contact.title}
+                                                    data-subtitle={contact.subtitle}
+                                                    onclick={selectItemSec}>{contact.title}</a>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <footer class="slds-modal__footer modal-hidden">
+                        <lightning-button label="Cancel" slot="actions" onclick={closeModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <template if:true={showNewModalAcc}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small"
+                style="top: 20%;">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <lightning-button-icon class="slds-modal__close" title="Close" icon-name="utility:close"
+                            icon-class="slds-button_icon-inverse" onclick={closeModal}>
+                        </lightning-button-icon>
+                        <h1>Search</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium ">
+                        <div>
+                            <div class="slds-section">
+                                <h3 class="slds-section__title">
+                                    <span class="slds-truncate slds-p-left_small slds-section__title-action"
+                                        title="Location Information"> Search</span>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="slds-m-around_medium">
+
+                            <div class="slds-m-bottom_small">
+                                <lightning-input type="text" value={contactsSearch} label="Name"
+                                    onchange={updateSeachKey}></lightning-input>
+                            </div>
+
+                            <lightning-button label="Search" onclick={modalSearchAcc} variant="brand">
+                            </lightning-button>
+
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="First Name">Name</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <template for:each={contacts} for:item="contact">
+                                        <tr class="slds-hint-parent" key={contact.id} id={contact.id}
+                                            ondblclick={selectItem}>
+                                            <td>
+                                                <a id={contact.id} data-name={contact.title}
+                                                    data-subtitle={contact.subtitle}
+                                                    onclick={selectItemAcc}>{contact.title}</a>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <footer class="slds-modal__footer modal-hidden">
+                        <lightning-button label="Cancel" slot="actions" onclick={closeModal}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
+</template>
