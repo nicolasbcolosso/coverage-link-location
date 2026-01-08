@@ -356,7 +356,7 @@ public with sharing class CoverageSelectionController {
     if (sObjectType == 'Quote__c') {
       query += 'Quote__c = :recordId';
     } else if (sObjectType == 'Policy__c') {
-      query += 'Policy__c = :recordId OR (Quote__c = :quoteId AND Quote__r.Status__c = :STATUS_ACCEPTED)';
+      query += '(Policy__c = :recordId OR (Quote__c = :quoteId AND Quote__r.Status__c = :STATUS_ACCEPTED))';
     } else if (sObjectType == 'Endorsement__c') {
       query += 'Endorsement__c = :recordId';
     }
