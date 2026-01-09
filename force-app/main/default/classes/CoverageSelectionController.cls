@@ -3,7 +3,7 @@
  * Handles coverage selection with location-based Property coverage support
  * @date 2025
  */
-public with sharing class CoverageSelectionController {
+public without sharing class CoverageSelectionController {
   private static final String PROPERTY_COVERAGE_NAME = 'Property';
   private static final String STATUS_ACCEPTED = 'Accepted';
 
@@ -111,8 +111,7 @@ public with sharing class CoverageSelectionController {
         Opportunity__r.AccountId,
         RecordType.Name,
         RecordType.DeveloperName,
-        Rater_Type__c,
-        Is_New_Property__c
+        Rater_Type__c
       FROM Policy__c
       WHERE Id = :recordId
       LIMIT 1
@@ -126,12 +125,11 @@ public with sharing class CoverageSelectionController {
       policy.RecordType.Name != null &&
       policy.RecordType.Name.contains('Scale');
     wrapper.raterType = policy.Rater_Type__c;
-    wrapper.isNewPropertyEnabled = policy.Is_New_Property__c;
 
     // Get accepted quote for policy
     try {
       Quote__c acceptedQuote = [
-        SELECT Id
+        SELECT Id, Is_New_Property__c
         FROM Quote__c
         WHERE
           Status__c = :STATUS_ACCEPTED
@@ -139,6 +137,7 @@ public with sharing class CoverageSelectionController {
         LIMIT 1
       ];
       wrapper.quoteId = acceptedQuote.Id;
+      wrapper.isNewPropertyEnabled = acceptedQuote.Is_New_Property__c;
       wrapper.requiresDummyQuote = false;
     } catch (QueryException e) {
       wrapper.quoteId = null;
@@ -166,8 +165,7 @@ public with sharing class CoverageSelectionController {
         Policy__r.Opportunity__r.AccountId,
         RecordType.Name,
         RecordType.DeveloperName,
-        Policy__r.Rater_Type__c,
-        Is_New_Property__c
+        Policy__r.Rater_Type__c
       FROM Endorsement__c
       WHERE Id = :recordId
       LIMIT 1
@@ -181,12 +179,11 @@ public with sharing class CoverageSelectionController {
       endorsement.RecordType.Name != null &&
       endorsement.RecordType.Name.contains('Scale');
     wrapper.raterType = endorsement.Policy__r.Rater_Type__c;
-    wrapper.isNewPropertyEnabled = endorsement.Is_New_Property__c;
 
     // Get accepted quote for endorsement
     try {
       Quote__c acceptedQuote = [
-        SELECT Id
+        SELECT Id, Is_New_Property__c
         FROM Quote__c
         WHERE
           Status__c = :STATUS_ACCEPTED
@@ -194,6 +191,7 @@ public with sharing class CoverageSelectionController {
         LIMIT 1
       ];
       wrapper.quoteId = acceptedQuote.Id;
+      wrapper.isNewPropertyEnabled = acceptedQuote.Is_New_Property__c;
       wrapper.requiresDummyQuote = false;
     } catch (QueryException e) {
       wrapper.quoteId = null;
@@ -356,13 +354,12 @@ public with sharing class CoverageSelectionController {
     if (sObjectType == 'Quote__c') {
       query += 'Quote__c = :recordId';
     } else if (sObjectType == 'Policy__c') {
-      query += '(Policy__c = :recordId OR (Quote__c = :quoteId AND Quote__r.Status__c = :STATUS_ACCEPTED))';
+      query += '(Policy__c = :recordId AND Quote__r.Status__c = :STATUS_ACCEPTED)';
     } else if (sObjectType == 'Endorsement__c') {
       query += 'Endorsement__c = :recordId';
     }
 
-    query +=
-      ' AND (Name != :PROPERTY_COVERAGE_NAME OR Location__c != null) ORDER BY Name ASC';
+    query += ' AND (Name != :PROPERTY_COVERAGE_NAME OR Location__c != null) ORDER BY Name ASC';
 
     for (Quote_Coverage_Link__c qcl : Database.query(query)) {
       CoverageLinkWrapper clw = new CoverageLinkWrapper();
@@ -594,9 +591,9 @@ public with sharing class CoverageSelectionController {
 
   /**
    * @description Checks if the Is_New_Property__c flag is enabled on the record
-   * This is a lightweight method used by the router component to determine
-   * which coverage selection component to render.
-   * @param recordId The Id of the Policy__c or Endorsement__c record
+   * For Policy__c and Endorsement__c, checks the last Accepted Quote's Is_New_Property__c
+   * This is used by the router component to determine which coverage selection component to render.
+   * @param recordId The Id of the Policy__c, Endorsement__c, or Quote__c record
    * @return Boolean indicating if Is_New_Property__c is true
    */
   @AuraEnabled(cacheable=true)
@@ -610,21 +607,55 @@ public with sharing class CoverageSelectionController {
       Boolean isNewPropertyEnabled = false;
 
       if (sObjectType == 'Policy__c') {
+        // Get the Policy's Opportunity and check the last Accepted Quote
         Policy__c policy = [
-          SELECT Is_New_Property__c
+          SELECT Id, Opportunity__c
           FROM Policy__c
           WHERE Id = :recordId
           LIMIT 1
         ];
-        isNewPropertyEnabled = policy.Is_New_Property__c;
+
+        if (policy.Opportunity__c != null) {
+          // Find the last Accepted Quote for this Opportunity
+          List<Quote__c> acceptedQuotes = [
+            SELECT Is_New_Property__c
+            FROM Quote__c
+            WHERE
+              Opportunity__c = :policy.Opportunity__c
+              AND Status__c = 'Accepted'
+            ORDER BY LastModifiedDate DESC
+            LIMIT 1
+          ];
+
+          if (!acceptedQuotes.isEmpty()) {
+            isNewPropertyEnabled = acceptedQuotes[0].Is_New_Property__c;
+          }
+        }
       } else if (sObjectType == 'Endorsement__c') {
+        // Get the Endorsement's Policy's Opportunity and check the last Accepted Quote
         Endorsement__c endorsement = [
-          SELECT Is_New_Property__c
+          SELECT Id, Policy__c, Policy__r.Opportunity__c
           FROM Endorsement__c
           WHERE Id = :recordId
           LIMIT 1
         ];
-        isNewPropertyEnabled = endorsement.Is_New_Property__c;
+
+        Id opportunityId = endorsement.Policy__r?.Opportunity__c;
+
+        if (opportunityId != null) {
+          // Find the last Accepted Quote for this Opportunity
+          List<Quote__c> acceptedQuotes = [
+            SELECT Is_New_Property__c
+            FROM Quote__c
+            WHERE Opportunity__c = :opportunityId AND Status__c = 'Accepted'
+            ORDER BY LastModifiedDate DESC
+            LIMIT 1
+          ];
+
+          if (!acceptedQuotes.isEmpty()) {
+            isNewPropertyEnabled = acceptedQuotes[0].Is_New_Property__c;
+          }
+        }
       } else if (sObjectType == 'Quote__c') {
         Quote__c quote = [
           SELECT Is_New_Property__c
@@ -637,7 +668,7 @@ public with sharing class CoverageSelectionController {
 
       return isNewPropertyEnabled == true;
     } catch (Exception e) {
-      System.debug('Error checking Is_New_Property__c: ' + e.getMessage());
+      System.debug('Error checking Is New Property c ==> ' + e.getMessage());
       return false;
     }
   }
