@@ -13,7 +13,7 @@
 
         <members>quoteNewComponent</members>
         <members>raterTypeSelection</members>
-        <members>addQuoteInfo</members>
+        <members>addQuoteInfo</members> 
 
         <name>LightningComponentBundle</name>
     </types>
