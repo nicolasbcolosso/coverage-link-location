@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-align_absolute-center slds-m-bottom_small">
+        <!-- <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleCancel}>Cancel</button> -->
+        <button class="slds-button slds-button_neutral slds-m-left_large" onclick={handleNextView}>Next</button>
+    </div>
+    <lightning-combobox
+            name="raterType"
+            label="Rater Type"
+            value=""
+            placeholder="Select Type"
+            options={options}
+            onchange={handleChange}
+            required
+            class="slds-var-p-around_xx-large paddingBottom validate"
+    ></lightning-combobox>
+
+</template>
