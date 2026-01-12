@@ -47,7 +47,7 @@ public with sharing class NewQuoteCoverageSelectionController {
         : opp.Rater_Type__c;
 
       // Check if location-based Property is enabled
-      wrapper.isLocationBasedPropertyEnabled = FeatureSettingsController.isLocationBasedPropertyEnabled();
+      wrapper.isLocationBasedPropertyEnabled = CoverageSelectionController.isLocationBasedPropertyEnabled();
 
       // Get locations for the account
       wrapper.accountLocations = getAccountLocations(opp.AccountId);
