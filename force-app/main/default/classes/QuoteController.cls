@@ -1769,11 +1769,11 @@ opp.Commission_Rate__c = 17;
         String ACCEPTED = 'Accepted';
         string query;
             if (sObjectType == 'Policy__c') {
-                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r WHERE Quote__r.Status__c = :ACCEPTED AND Location__c = null) FROM Policy__c WHERE Id = :recordId';
+                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r WHERE Quote__r.Status__c = :ACCEPTED) FROM Policy__c WHERE Id = :recordId';
             }else if (sObjectType == 'Quote__c') {
-                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r WHERE Location__c = null) FROM Quote__c WHERE Id = :recordId';
+                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r) FROM Quote__c WHERE Id = :recordId';
             }else if (sObjectType == 'Endorsement__c') {
-                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r WHERE Location__c = null) FROM Endorsement__c WHERE Id = :recordId';
+                query = 'SELECT Id, Name, Opportunity__c, RecordType.Name, (SELECT ' + coverageLinkFieldsString + ' FROM Quote_Coverage_Links__r) FROM Endorsement__c WHERE Id = :recordId';
             }
         record = Database.query(query);
         

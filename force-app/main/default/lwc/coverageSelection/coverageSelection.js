@@ -128,7 +128,7 @@ export default class CoverageSelection extends LightningElement {
   }
 
   get canProceedToConfiguration() {
-    if (!this.hasSelectedCoverages) return false;
+    // if (!this.hasSelectedCoverages) return false;
     if (this.showPropertyLocationWarning) return false;
     return true;
   }
