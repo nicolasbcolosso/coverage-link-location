@@ -15,6 +15,7 @@ export default class Lookup extends LightningElement {
     @api type;
     @track isRequired = true;
     @track glass;
+    @api isScale = false;
     searchTerm = '';
     searchResults = [];
     hasFocus = false;
@@ -172,7 +173,8 @@ export default class Lookup extends LightningElement {
                 const searchEvent = new CustomEvent('search', {
                     detail: {
                         searchTerm: this.cleanSearchTerm,
-                        selectedIds: this.curSelection.map((element) => element.id)
+                        selectedIds: this.curSelection.map((element) => element.id),
+                        isScale: this.isScale
                     }
                 });
                 console.log(this.cleanSearchTerm);
