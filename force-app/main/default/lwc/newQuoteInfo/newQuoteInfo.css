@@ -1,0 +1,16 @@
+/* New Quote Info Styles */
+
+.border-bottom {
+  border-bottom: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+}
+
+.exampleHolder {
+  position: relative;
+  min-height: 100px;
+}
+
+/* Badge styles */
+.slds-badge_success {
+  background-color: var(--slds-g-color-success-base-50, #2e844a);
+  color: var(--slds-g-color-neutral-base-100, #ffffff);
+}

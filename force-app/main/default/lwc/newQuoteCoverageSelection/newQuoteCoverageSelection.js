@@ -1,0 +1,572 @@
+import { LightningElement, api, track } from "lwc";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
+import getInitializationData from "@salesforce/apex/NewQuoteCoverageSelectionController.getInitializationData";
+
+const PROPERTY_COVERAGE_NAME = "Property";
+
+export default class NewQuoteCoverageSelection extends LightningElement {
+  @api recordId; // Opportunity Id
+  @api selectedRaterType;
+  @api selectedLimitsAtUI; // For compatibility with old flow
+
+  // State management
+  isLoading = true;
+  currentStep = "selection"; // 'selection', 'configuration'
+  searchTerm = "";
+
+  // Data from Apex
+  @track initData = {};
+  @track coverages = [];
+  @track locations = [];
+  @track fieldSets = [];
+
+  // Record context
+  opportunityId = null;
+  accountId = null;
+  accountName = "";
+  isScale = false;
+  raterType = "";
+  isLocationBasedPropertyEnabled = false;
+
+  // Coverage configuration
+  @track propertyLocationSelections = new Map(); // locationId -> {isSelected, fields}
+  @track coverageFieldValues = new Map(); // coverageName -> {fieldApiName -> value}
+
+  // UI state
+  @track expandedSections = new Set();
+
+  // ==================== LIFECYCLE ====================
+
+  connectedCallback() {
+    this.loadInitializationData();
+  }
+
+  // ==================== GETTERS ====================
+
+  get isSelectionStep() {
+    return this.currentStep === "selection";
+  }
+
+  get isConfigurationStep() {
+    return this.currentStep === "configuration";
+  }
+
+  get filteredCoverages() {
+    if (!this.searchTerm) {
+      return this.coverages;
+    }
+    const term = this.searchTerm.toLowerCase();
+    return this.coverages.filter((cov) =>
+      cov.name.toLowerCase().includes(term)
+    );
+  }
+
+  get hasLocations() {
+    return this.locations && this.locations.length > 0;
+  }
+
+  get locationCount() {
+    return this.locations ? this.locations.length : 0;
+  }
+
+  get selectedCoverageCount() {
+    return this.coverages.filter((cov) => cov.isSelected).length;
+  }
+
+  get hasSelectedCoverages() {
+    return this.selectedCoverageCount > 0;
+  }
+
+  get isPropertySelected() {
+    return this.coverages.some(
+      (cov) => cov.name === PROPERTY_COVERAGE_NAME && cov.isSelected
+    );
+  }
+
+  get showPropertyLocationWarning() {
+    return (
+      this.isPropertySelected &&
+      this.isLocationBasedPropertyEnabled &&
+      !this.hasLocations
+    );
+  }
+
+  get canProceedToConfiguration() {
+    if (!this.hasSelectedCoverages) {
+      return false;
+    }
+    if (this.showPropertyLocationWarning) {
+      return false;
+    }
+    return true;
+  }
+
+  get canNotProceedToConfiguration() {
+    return !this.canProceedToConfiguration;
+  }
+
+  get selectedCoveragesForConfiguration() {
+    return this.coverages
+      .filter((cov) => cov.isSelected && cov.name !== PROPERTY_COVERAGE_NAME)
+      .map((cov) => {
+        const fieldSet = this.fieldSets.find(
+          (fs) => fs.coverageName === cov.name
+        );
+        const fieldValues = this.coverageFieldValues.get(cov.name);
+
+        return {
+          ...cov,
+          fields: fieldSet
+            ? fieldSet.fields.map((f) => ({
+                ...f,
+                value: fieldValues?.fields?.get(f.fieldApiName) || "",
+                inputType: this.getInputType(f.fieldType),
+                isTextarea: f.fieldType === "TEXTAREA",
+                isCheckbox: f.fieldType === "BOOLEAN",
+                isDate: f.fieldType === "DATE",
+                isNumber: this.isNumericType(f.fieldType),
+                step: this.getStep(f.fieldType),
+                formatter: this.getFormatter(f.fieldType),
+                uniqueFieldKey: `${cov.name}_${f.fieldApiName}`
+              }))
+            : []
+        };
+      });
+  }
+
+  get propertyFieldSet() {
+    return this.fieldSets.find(
+      (fs) => fs.coverageName === PROPERTY_COVERAGE_NAME
+    );
+  }
+
+  get locationsForPropertyConfiguration() {
+    if (!this.isPropertySelected || !this.isLocationBasedPropertyEnabled) {
+      return [];
+    }
+
+    const propertyFieldSet = this.propertyFieldSet;
+
+    return this.locations.map((loc) => {
+      const selectionData = this.propertyLocationSelections.get(loc.id) || {
+        isSelected: false,
+        fields: new Map()
+      };
+
+      return {
+        ...loc,
+        isSelected: selectionData.isSelected,
+        isExpanded: this.expandedSections.has(`property_${loc.id}`),
+        badgeLabel: "New",
+        badgeClass: "slds-badge slds-badge_lightest",
+        fields: propertyFieldSet
+          ? propertyFieldSet.fields.map((f) => ({
+              ...f,
+              value: selectionData.fields?.get(f.fieldApiName) || "",
+              inputType: this.getInputType(f.fieldType),
+              isTextarea: f.fieldType === "TEXTAREA",
+              isCheckbox: f.fieldType === "BOOLEAN",
+              isDate: f.fieldType === "DATE",
+              isNumber: this.isNumericType(f.fieldType),
+              step: this.getStep(f.fieldType),
+              formatter: this.getFormatter(f.fieldType),
+              uniqueFieldKey: `property_${loc.id}_${f.fieldApiName}`
+            }))
+          : []
+      };
+    });
+  }
+
+  get selectedLocationCount() {
+    let count = 0;
+    this.propertyLocationSelections.forEach((data) => {
+      if (data.isSelected) count++;
+    });
+    return count;
+  }
+
+  // ==================== DATA LOADING ====================
+
+  async loadInitializationData() {
+    this.isLoading = true;
+    try {
+      const result = await getInitializationData({
+        opportunityId: this.recordId,
+        raterType: this.selectedRaterType
+      });
+
+      if (result.hasError) {
+        this.showToast("Error", result.errorMessage, "error");
+        return;
+      }
+
+      this.initData = result;
+      this.opportunityId = result.opportunityId;
+      this.accountId = result.accountId;
+      this.accountName = result.accountName;
+      this.isScale = result.isScale;
+      this.raterType = result.raterType;
+      this.isLocationBasedPropertyEnabled =
+        result.isLocationBasedPropertyEnabled;
+      this.fieldSets = result.coverageFieldSets || [];
+      this.locations = result.accountLocations || [];
+
+      // Initialize coverages
+      this.initializeCoverages(result.availableCoverages);
+
+      // Initialize property location selections
+      this.initializePropertyLocationSelections();
+    } catch (error) {
+      console.error("Error loading data:", error);
+      this.showToast(
+        "Error",
+        "Failed to load coverage data: " + this.getErrorMessage(error),
+        "error"
+      );
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  initializeCoverages(availableCoverages) {
+    // Check if there are pre-selected coverages from previous step (old flow compatibility)
+    const preSelectedCoverages = this.selectedLimitsAtUI
+      ? this.selectedLimitsAtUI.split(",").map((s) => s.trim())
+      : [];
+
+    this.coverages = availableCoverages.map((cov) => ({
+      ...cov,
+      isSelected: preSelectedCoverages.includes(cov.fieldSetName),
+      locationBadge:
+        cov.isProperty && this.isLocationBasedPropertyEnabled
+          ? `(${this.locations.length} locations)`
+          : ""
+    }));
+  }
+
+  initializePropertyLocationSelections() {
+    this.propertyLocationSelections = new Map();
+
+    for (const location of this.locations) {
+      this.propertyLocationSelections.set(location.id, {
+        isSelected: false,
+        fields: new Map()
+      });
+    }
+  }
+
+  // ==================== EVENT HANDLERS ====================
+
+  handleSearchChange(event) {
+    this.searchTerm = event.target.value;
+  }
+
+  handleCoverageToggle(event) {
+    const coverageName = event.target.dataset.coverageName;
+    const isChecked = event.target.checked;
+
+    this.coverages = this.coverages.map((cov) => {
+      if (cov.name === coverageName) {
+        return { ...cov, isSelected: isChecked };
+      }
+      return cov;
+    });
+  }
+
+  handleLocationToggle(event) {
+    const locationId = event.target.dataset.locationId;
+    const isChecked = event.target.checked;
+
+    const locationData = this.propertyLocationSelections.get(locationId);
+    if (locationData) {
+      this.propertyLocationSelections.set(locationId, {
+        ...locationData,
+        isSelected: isChecked
+      });
+      // Force reactivity
+      this.propertyLocationSelections = new Map(
+        this.propertyLocationSelections
+      );
+    }
+  }
+
+  handleFieldChange(event) {
+    const coverageName = event.target.dataset.coverageName;
+    const fieldApiName = event.target.dataset.fieldApiName;
+    const locationId = event.target.dataset.locationId;
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+
+    if (
+      coverageName === PROPERTY_COVERAGE_NAME &&
+      locationId &&
+      this.isLocationBasedPropertyEnabled
+    ) {
+      // Property coverage with location
+      const locationData = this.propertyLocationSelections.get(locationId);
+      if (locationData) {
+        locationData.fields.set(fieldApiName, value);
+        this.propertyLocationSelections.set(locationId, locationData);
+      }
+    } else {
+      // Regular coverage
+      let coverageData = this.coverageFieldValues.get(coverageName);
+      if (!coverageData) {
+        coverageData = { fields: new Map() };
+      }
+      coverageData.fields.set(fieldApiName, value);
+      this.coverageFieldValues.set(coverageName, coverageData);
+    }
+  }
+
+  handleSectionToggle(event) {
+    const sectionId = event.target.dataset.sectionId;
+    if (this.expandedSections.has(sectionId)) {
+      this.expandedSections.delete(sectionId);
+    } else {
+      this.expandedSections.add(sectionId);
+    }
+    // Force reactivity
+    this.expandedSections = new Set(this.expandedSections);
+  }
+
+  // ==================== NAVIGATION ====================
+
+  handleNext() {
+    if (!this.canProceedToConfiguration) {
+      if (this.showPropertyLocationWarning) {
+        this.showToast(
+          "Warning",
+          "Please add locations to the Account before adding Property coverage.",
+          "warning"
+        );
+      } else {
+        this.showToast(
+          "Warning",
+          "Please select at least one coverage.",
+          "warning"
+        );
+      }
+      return;
+    }
+
+    // Expand all sections by default
+    this.expandedSections = new Set();
+    for (const cov of this.selectedCoveragesForConfiguration) {
+      this.expandedSections.add(cov.name);
+    }
+
+    this.currentStep = "configuration";
+  }
+
+  handleBack() {
+    if (this.currentStep === "configuration") {
+      this.currentStep = "selection";
+    } else {
+      // Go back to previous component (rater type selection)
+      this.dispatchEvent(new CustomEvent("previous"));
+    }
+  }
+
+  handleCancel() {
+    this.dispatchEvent(new CustomEvent("cancelevent"));
+  }
+
+  handleNextAddInfo() {
+    // Validate required fields
+    if (!this.validateRequiredFields()) {
+      return;
+    }
+
+    // Build coverage data to pass to next step
+    const coverageData = this.buildCoverageData();
+
+    // Dispatch event to move to addQuoteInfo step
+    this.dispatchEvent(
+      new CustomEvent("nextaddinfo", {
+        detail: coverageData
+      })
+    );
+  }
+
+  // ==================== VALIDATION ====================
+
+  validateRequiredFields() {
+    const inputFields = this.template.querySelectorAll(
+      "lightning-input, lightning-combobox, lightning-textarea"
+    );
+    let isValid = true;
+
+    inputFields.forEach((field) => {
+      if (!field.reportValidity()) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      this.showToast(
+        "Warning",
+        "Please fill in all required fields.",
+        "warning"
+      );
+    }
+
+    return isValid;
+  }
+
+  // ==================== DATA BUILDING ====================
+
+  buildCoverageData() {
+    const coverageFieldData = [];
+
+    // Build data for regular coverages
+    for (const cov of this.coverages.filter(
+      (c) => c.isSelected && c.name !== PROPERTY_COVERAGE_NAME
+    )) {
+      const fieldValues = this.coverageFieldValues.get(cov.name);
+      const fieldSet = this.fieldSets.find(
+        (fs) => fs.coverageName === cov.name
+      );
+
+      if (fieldSet) {
+        for (const field of fieldSet.fields) {
+          const value = fieldValues?.fields?.get(field.fieldApiName) || "";
+          coverageFieldData.push({
+            coverageName: cov.name,
+            fieldApiName: field.fieldApiName,
+            fieldValue: String(value),
+            fieldType: field.fieldType,
+            locationId: null,
+            isProperty: false
+          });
+        }
+      }
+    }
+
+    // Build data for Property coverage with locations (if enabled and selected)
+    if (this.isPropertySelected && this.isLocationBasedPropertyEnabled) {
+      const propertyFieldSet = this.propertyFieldSet;
+
+      this.propertyLocationSelections.forEach((data, locationId) => {
+        if (data.isSelected && propertyFieldSet) {
+          for (const field of propertyFieldSet.fields) {
+            const value = data.fields?.get(field.fieldApiName) || "";
+            coverageFieldData.push({
+              coverageName: PROPERTY_COVERAGE_NAME,
+              fieldApiName: field.fieldApiName,
+              fieldValue: String(value),
+              fieldType: field.fieldType,
+              locationId: locationId,
+              isProperty: true
+            });
+          }
+        }
+      });
+    } else if (this.isPropertySelected) {
+      // Property without location (old behavior)
+      const fieldValues = this.coverageFieldValues.get(PROPERTY_COVERAGE_NAME);
+      const propertyFieldSet = this.propertyFieldSet;
+
+      if (propertyFieldSet) {
+        for (const field of propertyFieldSet.fields) {
+          const value = fieldValues?.fields?.get(field.fieldApiName) || "";
+          coverageFieldData.push({
+            coverageName: PROPERTY_COVERAGE_NAME,
+            fieldApiName: field.fieldApiName,
+            fieldValue: String(value),
+            fieldType: field.fieldType,
+            locationId: null,
+            isProperty: true
+          });
+        }
+      }
+    }
+
+    // Get selected coverage field set names for compatibility with old flow
+    const selectedFieldSets = this.coverages
+      .filter((c) => c.isSelected)
+      .map((c) => c.fieldSetName)
+      .join(",");
+
+    return {
+      coverageFieldData: coverageFieldData,
+      selectedFieldSets: selectedFieldSets,
+      isNewPropertyEnabled: this.isLocationBasedPropertyEnabled,
+      raterType: this.raterType
+    };
+  }
+
+  // ==================== UTILITIES ====================
+
+  getInputType(fieldType) {
+    switch (fieldType) {
+      case "DATE":
+        return "date";
+      case "DATETIME":
+        return "datetime";
+      case "BOOLEAN":
+        return "checkbox";
+      case "INTEGER":
+      case "DOUBLE":
+      case "CURRENCY":
+      case "PERCENT":
+      case "DECIMAL":
+        return "number";
+      default:
+        return "text";
+    }
+  }
+
+  isNumericType(fieldType) {
+    return ["CURRENCY", "PERCENT", "DOUBLE", "DECIMAL", "INTEGER"].includes(
+      fieldType
+    );
+  }
+
+  getStep(fieldType) {
+    switch (fieldType) {
+      case "INTEGER":
+        return "1";
+      case "CURRENCY":
+      case "PERCENT":
+      case "DOUBLE":
+      case "DECIMAL":
+        return "0.01";
+      default:
+        return null;
+    }
+  }
+
+  getFormatter(fieldType) {
+    switch (fieldType) {
+      case "CURRENCY":
+        return "currency";
+      case "PERCENT":
+        return "percent-fixed";
+      default:
+        return null;
+    }
+  }
+
+  getErrorMessage(error) {
+    if (error.body && error.body.message) {
+      return error.body.message;
+    }
+    if (error.message) {
+      return error.message;
+    }
+    return "An unknown error occurred";
+  }
+
+  showToast(title, message, variant) {
+    this.dispatchEvent(
+      new ShowToastEvent({
+        title,
+        message,
+        variant
+      })
+    );
+  }
+}

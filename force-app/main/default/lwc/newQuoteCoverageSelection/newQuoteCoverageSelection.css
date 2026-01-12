@@ -1,0 +1,107 @@
+/* New Quote Coverage Selection Styles - SLDS 2 */
+
+.new-quote-coverage-selection-container {
+  --slds-c-card-color-background: var(--slds-g-color-neutral-base-100, #ffffff);
+}
+
+/* Coverage list styling */
+.coverage-list-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+
+.coverage-list-container table thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--slds-g-color-neutral-base-95, #f3f3f3);
+  z-index: 1;
+}
+
+.coverage-list-container table tbody tr:hover {
+  background-color: var(--slds-g-color-neutral-base-95, #f3f3f3);
+}
+
+/* Configuration container */
+.configuration-container {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Property coverage card */
+.property-coverage-card {
+  border-left: 4px solid var(--slds-g-color-brand-base-50, #0176d3);
+}
+
+/* Location section styling */
+.location-section {
+  border: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  background-color: var(--slds-g-color-neutral-base-100, #ffffff);
+  transition: border-color 0.2s ease;
+}
+
+.location-section:hover {
+  border-color: var(--slds-g-color-brand-base-50, #0176d3);
+}
+
+.location-header {
+  background-color: var(--slds-g-color-neutral-base-95, #f3f3f3);
+  border-bottom: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+}
+
+.location-fields {
+  background-color: var(--slds-g-color-neutral-base-100, #ffffff);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Location checkbox styling */
+.location-checkbox {
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+.coverage-list-container::-webkit-scrollbar,
+.configuration-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.coverage-list-container::-webkit-scrollbar-track,
+.configuration-container::-webkit-scrollbar-track {
+  background: var(--slds-g-color-neutral-base-95, #f3f3f3);
+  border-radius: 4px;
+}
+
+.coverage-list-container::-webkit-scrollbar-thumb,
+.configuration-container::-webkit-scrollbar-thumb {
+  background: var(--slds-g-color-neutral-base-60, #aeaeae);
+  border-radius: 4px;
+}
+
+.coverage-list-container::-webkit-scrollbar-thumb:hover,
+.configuration-container::-webkit-scrollbar-thumb:hover {
+  background: var(--slds-g-color-neutral-base-50, #939393);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coverage-list-container {
+    max-height: 300px;
+  }
+
+  .configuration-container {
+    max-height: 50vh;
+  }
+}

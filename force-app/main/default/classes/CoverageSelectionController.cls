@@ -7,6 +7,29 @@ public without sharing class CoverageSelectionController {
   private static final String PROPERTY_COVERAGE_NAME = 'Property';
   private static final String STATUS_ACCEPTED = 'Accepted';
 
+  private static final String DEFAULT_SETTING = 'Default';
+
+  /**
+   * @description Checks if location-based Property coverage is enabled org-wide
+   * This setting is retrieved from Coverage_Feature_Settings__mdt custom metadata
+   * @return Boolean indicating if the feature is enabled
+   */
+  @AuraEnabled
+  public static Boolean isLocationBasedPropertyEnabled() {
+    Coverage_Feature_Settings__mdt settings = Coverage_Feature_Settings__mdt.getInstance(
+      DEFAULT_SETTING
+    );
+
+    if (settings == null) {
+      // If no settings record exists, default to false (old behavior)
+      return false;
+    }
+
+    Boolean result = settings.Enable_Location_Based_Property__c == true;
+
+    return result;
+  }
+
   /**
    * @description Main initialization method - gets all data needed for the component
    * @param recordId The Id of the Quote__c, Policy__c, or Endorsement__c record
