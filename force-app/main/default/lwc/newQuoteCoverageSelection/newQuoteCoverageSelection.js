@@ -7,7 +7,6 @@ const PROPERTY_COVERAGE_NAME = "Property";
 export default class NewQuoteCoverageSelection extends LightningElement {
   @api recordId; // Opportunity Id
   @api selectedRaterType;
-  @api selectedLimitsAtUI; // For compatibility with old flow
 
   // State management
   isLoading = true;
@@ -229,14 +228,8 @@ export default class NewQuoteCoverageSelection extends LightningElement {
   }
 
   initializeCoverages(availableCoverages) {
-    // Check if there are pre-selected coverages from previous step (old flow compatibility)
-    const preSelectedCoverages = this.selectedLimitsAtUI
-      ? this.selectedLimitsAtUI.split(",").map((s) => s.trim())
-      : [];
-
     this.coverages = availableCoverages.map((cov) => ({
       ...cov,
-      isSelected: preSelectedCoverages.includes(cov.fieldSetName),
       locationBadge:
         cov.isProperty && this.isLocationBasedPropertyEnabled
           ? `(${this.locations.length} locations)`
