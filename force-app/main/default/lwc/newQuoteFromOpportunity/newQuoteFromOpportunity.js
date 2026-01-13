@@ -5,27 +5,23 @@ import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class NewQuoteFromOpportunity extends LightningElement {
   @api recordId;
-  @api newid;
 
-  @api selectedRaterType;
-  @api limitToQuote;
-
-  isScale = false;
-  quoteAddCoverage = false;
   showSelectRaterType = false;
-
-  redirectQuote = false;
+  quoteAddCoverage = false;
+  selectedRaterType;
   addQuoteInfo = false;
   infoViewPage = false;
-
   newQuoteId;
+
+  limitToQuote;
+  isScale = false;
 
   // NEW: Track if new property flow is enabled
   useNewPropertyFlow = false;
   @track coverageDataNew = null;
 
   async connectedCallback() {
-    console.log("record id ==> " + this.recordId);
+    console.log("opp record id ==> " + this.recordId);
 
     try {
       // Check if location-based property is enabled org-wide
@@ -33,6 +29,7 @@ export default class NewQuoteFromOpportunity extends LightningElement {
 
       // Check if Scale opportunity
       const oppIsScale = await isScaleOpp({ oppId: this.recordId });
+
       this.isScale = oppIsScale;
       this.quoteAddCoverage = !this.isScale;
       this.showSelectRaterType = this.isScale;
@@ -52,6 +49,7 @@ export default class NewQuoteFromOpportunity extends LightningElement {
 
   raterTypeChangeHandler(event) {
     console.log("rater event.detail ==> ", event.detail);
+
     this.selectedRaterType = event.detail;
     this.quoteAddCoverage = true;
     this.showSelectRaterType = false;
@@ -101,13 +99,6 @@ export default class NewQuoteFromOpportunity extends LightningElement {
     this.quoteAddCoverage = false;
     this.addQuoteInfo = true;
     this.infoViewPage = false;
-
-    // console.log("state info ==> ", {
-    //   useNewPropertyFlow: this.useNewPropertyFlow,
-    //   isScale: this.isScale,
-    //   quoteAddCoverage: this.quoteAddCoverage,
-    //   showSelectRaterType: this.showSelectRaterType
-    // });
   }
 
   // NEW FLOW: Handler for new component
