@@ -1,6 +1,5 @@
 import { LightningElement, track, api } from "lwc";
 import isScaleOpp from "@salesforce/apex/QuoteController.isScaleOpp";
-import isLocationBasedPropertyEnabled from "@salesforce/apex/CoverageSelectionController.isLocationBasedPropertyEnabled";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 export default class NewQuoteFromOpportunity extends LightningElement {
@@ -21,12 +20,20 @@ export default class NewQuoteFromOpportunity extends LightningElement {
 
   async connectedCallback() {
     console.log("opp record id ==> " + this.recordId);
+    await this.checkIfScaleOpportunity();
+  }
 
+  async handlePrevious() {
+    console.log("previous ==> ", this.recordId);
+    await this.checkIfScaleOpportunity();
+  }
+
+  async checkIfScaleOpportunity() {
     try {
-      // Check if Scale opportunity
       const oppIsScale = await isScaleOpp({ oppId: this.recordId });
 
       this.isScale = oppIsScale;
+
       this.quoteAddCoverage = !this.isScale;
       this.showSelectRaterType = this.isScale;
 
@@ -36,8 +43,7 @@ export default class NewQuoteFromOpportunity extends LightningElement {
         showSelectRaterType: this.showSelectRaterType
       });
     } catch (error) {
-      console.error("Error in connectedCallback ==> ", error);
-
+      console.error("Error checking Scale Opp ==> ", error);
       this.quoteAddCoverage = true;
     }
   }
@@ -50,25 +56,9 @@ export default class NewQuoteFromOpportunity extends LightningElement {
     this.showSelectRaterType = false;
   }
 
-  handlePrevious() {
-    console.log("previous ==> ", this.recordId);
-
-    isScaleOpp({
-      oppId: this.recordId
-    }).then((oppIsScale) => {
-      this.isScale = oppIsScale;
-      this.quoteAddCoverage = !this.isScale;
-      this.showSelectRaterType = this.isScale;
-    });
-  }
-
-  nextView() {
-    this.quoteAddCoverage = !this.isScale;
-    this.addQuoteInfo = false;
-    this.infoViewPage = false;
-  }
-
   infoView(e) {
+    console.log("info view  ==> ", e.detail);
+
     this.quoteAddCoverage = false;
     this.addQuoteInfo = false;
     this.infoViewPage = true;
@@ -76,23 +66,10 @@ export default class NewQuoteFromOpportunity extends LightningElement {
   }
 
   cancelEvent() {
+    console.log("cancel event ==> ");
+
     this.quoteAddCoverage = true;
     this.addQuoteInfo = false;
-    this.infoViewPage = false;
-  }
-
-  itemreceived(e) {
-    console.log("item received ==> ", e.detail);
-  }
-
-  // OLD FLOW: Handler for old component
-  addQuoteInfoView(e) {
-    this.limitToQuote = e.detail;
-
-    // console.log("limits to quote ==> ", JSON.parse(e.detail));
-
-    this.quoteAddCoverage = false;
-    this.addQuoteInfo = true;
     this.infoViewPage = false;
   }
 
@@ -108,15 +85,11 @@ export default class NewQuoteFromOpportunity extends LightningElement {
     this.quoteAddCoverage = false;
     this.addQuoteInfo = true;
     this.infoViewPage = false;
-
-    console.log("state info ==> ", {
-      isScale: this.isScale,
-      quoteAddCoverage: this.quoteAddCoverage,
-      showSelectRaterType: this.showSelectRaterType
-    });
   }
 
   handleCancel() {
+    console.log("handle event ==> ");
+
     // Close the quick action
     const closeEvent = new CustomEvent("close");
     this.dispatchEvent(closeEvent);
@@ -133,9 +106,5 @@ export default class NewQuoteFromOpportunity extends LightningElement {
       });
       this.dispatchEvent(toastEvent);
     }
-  }
-
-  handleReloadView() {
-    // Reload the view after save
   }
 }
