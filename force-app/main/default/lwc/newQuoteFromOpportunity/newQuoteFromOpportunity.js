@@ -17,16 +17,12 @@ export default class NewQuoteFromOpportunity extends LightningElement {
   isScale = false;
 
   // NEW: Track if new property flow is enabled
-  useNewPropertyFlow = false;
   @track coverageDataNew = null;
 
   async connectedCallback() {
     console.log("opp record id ==> " + this.recordId);
 
     try {
-      // Check if location-based property is enabled org-wide
-      this.useNewPropertyFlow = await isLocationBasedPropertyEnabled();
-
       // Check if Scale opportunity
       const oppIsScale = await isScaleOpp({ oppId: this.recordId });
 
@@ -35,14 +31,13 @@ export default class NewQuoteFromOpportunity extends LightningElement {
       this.showSelectRaterType = this.isScale;
 
       console.log("state info ==> ", {
-        useNewPropertyFlow: this.useNewPropertyFlow,
         isScale: this.isScale,
         quoteAddCoverage: this.quoteAddCoverage,
         showSelectRaterType: this.showSelectRaterType
       });
     } catch (error) {
       console.error("Error in connectedCallback ==> ", error);
-      this.useNewPropertyFlow = false;
+
       this.quoteAddCoverage = true;
     }
   }
@@ -115,7 +110,6 @@ export default class NewQuoteFromOpportunity extends LightningElement {
     this.infoViewPage = false;
 
     console.log("state info ==> ", {
-      useNewPropertyFlow: this.useNewPropertyFlow,
       isScale: this.isScale,
       quoteAddCoverage: this.quoteAddCoverage,
       showSelectRaterType: this.showSelectRaterType
