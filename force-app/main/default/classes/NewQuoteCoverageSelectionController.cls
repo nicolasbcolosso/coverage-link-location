@@ -121,7 +121,11 @@ public with sharing class NewQuoteCoverageSelectionController {
         'Business_Personal_Property__c',
         'Business_Personal_Property__c'
       ),
-      new LocationFieldMapping('Deductible__c', 'Property_Deductible__c')
+      new LocationFieldMapping('Deductible__c', 'Property_Deductible__c'),
+      new LocationFieldMapping(
+        'Business_Interruption_allow_text__c',
+        'Business_Interruption_allow_text__c'
+      )
       // ADD FUTURE MAPPINGS HERE:
       // new LocationFieldMapping('Location_Field_API_Name__c', 'Quote_Coverage_Link_Field_API_Name__c')
     };
