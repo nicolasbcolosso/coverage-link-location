@@ -5,6 +5,12 @@
     <columns>Field_Set_for_Quote__c</columns>
     <columns>Notes__c</columns>
     <columns>CREATED_DATE</columns>
+    <columns>Acronym__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Accessible_Record_Types__c</field>
+        <operation>equals</operation>
+        <value>For all Record Types,Foundershield,AlphaRoot</value>
+    </filters>
     <label>All</label>
 </ListView>
