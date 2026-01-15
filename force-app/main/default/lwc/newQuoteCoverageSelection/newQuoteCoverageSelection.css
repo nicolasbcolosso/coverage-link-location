@@ -6,9 +6,10 @@
 
 /* Coverage list styling */
 .coverage-list-container {
-  max-height: 400px;
+  max-height: var(--lwc-sizeLarge, 400px);
   overflow-y: auto;
-  border: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+  border: var(--lwc-borderWidthThin, 1px) solid
+    var(--slds-g-color-border-base-1, #e5e5e5);
   border-radius: var(--slds-g-radius-border-2, 0.25rem);
 }
 
@@ -30,13 +31,14 @@
 }
 
 /* Property coverage card */
-.property-coverage-card {
+/* .property-coverage-card {
   border-left: 4px solid var(--slds-g-color-brand-base-50, #0176d3);
-}
+} */
 
 /* Location section styling */
 .location-section {
-  border: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+  border: var(--lwc-borderWidthThin, 1px) solid
+    var(--slds-g-color-border-base-1, #e5e5e5);
   border-radius: var(--slds-g-radius-border-2, 0.25rem);
   background-color: var(--slds-g-color-neutral-base-100, #ffffff);
   transition: border-color 0.2s ease;
@@ -47,8 +49,9 @@
 }
 
 .location-header {
-  background-color: var(--slds-g-color-neutral-base-95, #f3f3f3);
-  border-bottom: 1px solid var(--slds-g-color-border-base-1, #e5e5e5);
+  /* background-color: var(--slds-g-color-neutral-base-95, #f3f3f3); */
+  border-bottom: var(--lwc-borderWidthThin, 1px) solid
+    var(--slds-g-color-border-base-1, #e5e5e5);
 }
 
 .location-fields {
@@ -75,19 +78,19 @@
 /* Custom scrollbar */
 .coverage-list-container::-webkit-scrollbar,
 .configuration-container::-webkit-scrollbar {
-  width: 8px;
+  width: var(--lwc-spacingXSmall, 8px);
 }
 
 .coverage-list-container::-webkit-scrollbar-track,
 .configuration-container::-webkit-scrollbar-track {
   background: var(--slds-g-color-neutral-base-95, #f3f3f3);
-  border-radius: 4px;
+  border-radius: var(--lwc-borderRadiusMedium, 4px);
 }
 
 .coverage-list-container::-webkit-scrollbar-thumb,
 .configuration-container::-webkit-scrollbar-thumb {
   background: var(--slds-g-color-neutral-base-60, #aeaeae);
-  border-radius: 4px;
+  border-radius: var(--lwc-borderRadiusMedium, 4px);
 }
 
 .coverage-list-container::-webkit-scrollbar-thumb:hover,

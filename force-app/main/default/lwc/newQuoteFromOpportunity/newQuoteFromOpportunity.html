@@ -1,0 +1,44 @@
+<template>
+  <lightning-card>
+    <!-- Rater Type Selection (Scale Opportunities) -->
+    <template if:true={showSelectRaterType}>
+      <c-rater-type-selection
+        opp-id={recordId}
+        onratertypechange={raterTypeChangeHandler}
+      >
+      </c-rater-type-selection>
+    </template>
+
+    <!-- Coverage Selection Step -->
+    <template if:true={quoteAddCoverage}>
+      <!-- NEW FLOW: Use new coverage selection component -->
+      <c-new-quote-coverage-selection
+        record-id={recordId}
+        selected-rater-type={selectedRaterType}
+        onprevious={handlePrevious}
+        onnextaddinfo={addQuoteInfoViewNew}
+        oncancelevent={handleCancel}
+      >
+      </c-new-quote-coverage-selection>
+    </template>
+
+    <!-- Quote Info Step -->
+    <template if:true={addQuoteInfo}>
+      <!-- NEW FLOW: Use new quote info component -->
+      <c-new-quote-info
+        selected-rater-type={selectedRaterType}
+        coverage-data={coverageDataNew}
+        oninfopage={infoView}
+        oncancelevent={cancelEvent}
+        record-id={recordId}
+        onindicationerrorevent={handleError}
+      >
+      </c-new-quote-info>
+    </template>
+
+    <!-- Quote View (after creation) -->
+    <template if:true={infoViewPage}>
+      <c-quote-base-component record-id={newQuoteId}></c-quote-base-component>
+    </template>
+  </lightning-card>
+</template>

@@ -1,6 +1,6 @@
-<aura:component implements="force:lightningQuickAction,force:hasRecordId" >
+<aura:component controller="CoverageSelectionController" implements="force:lightningQuickAction,force:hasRecordId" >
     <aura:html tag="style">
-        .slds-modal__container{
+        .slds-modal__container {
     		max-width: 70rem !important;
     		width:70% !important;
 		}
@@ -11,30 +11,32 @@
         .slds-p-around--medium {
             padding: 0rem !important;
         }       
-        .slds-modal__content{
+        .slds-modal__content {
             overflow-y:hidden !important;
             height:unset !important;
             max-height:unset !important;
         }
         
-
-         .modal-body{
-        height : 550px !important;
-        max-height: 550px !important;
+        .modal-body {
+            height : 550px !important;
+            max-height: 550px !important;
         }
-       
-        /*.slds-modal__container{
-        height : auto;
-        width: 70%;
-        max-width: 70rem;
-        
-        }
-       
-        .customFooter{
-        display: inline !important;
-        }*/
     </aura:html> 
-    <aura:attribute name="recordId" type="String"/>   
+
+    <aura:attribute name="recordId" type="String"/>  
+    <aura:attribute name="isNewProperty" type="Boolean" default="true"/>
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-	<c:quoteNewComponent recordId="{!v.recordId}"></c:quoteNewComponent>
+
+    <aura:if isTrue="{!not(v.isNewProperty)}">
+	    <c:quoteNewComponent recordId="{!v.recordId}"></c:quoteNewComponent>
+
+        
+        <aura:set attribute="else">
+            
+            <c:newQuoteFromOpportunity recordId="{!v.recordId}"></c:newQuoteFromOpportunity>
+         
+        </aura:set>
+
+    </aura:if>
 </aura:component>

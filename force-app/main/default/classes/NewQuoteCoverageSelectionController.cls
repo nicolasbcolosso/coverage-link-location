@@ -47,10 +47,11 @@ public with sharing class NewQuoteCoverageSelectionController {
         : opp.Rater_Type__c;
 
       // Check if location-based Property is enabled
-      wrapper.isLocationBasedPropertyEnabled = FeatureSettingsController.isLocationBasedPropertyEnabled();
+      wrapper.isLocationBasedPropertyEnabled = CoverageSelectionController.isLocationBasedPropertyEnabled();
 
       // Get locations for the account
       wrapper.accountLocations = getAccountLocations(opp.AccountId);
+      wrapper.locationFieldMappings = getLocationFieldMappings();
 
       // Get all available coverages
       wrapper.availableCoverages = getAvailableCoverages(
@@ -78,27 +79,56 @@ public with sharing class NewQuoteCoverageSelectionController {
    */
   @AuraEnabled
   public static List<LocationWrapper> getAccountLocations(Id accountId) {
-    List<LocationWrapper> locations = new List<LocationWrapper>();
+    List<LocationWrapper> locationWrappers = new List<LocationWrapper>();
 
     if (accountId == null) {
-      return locations;
+      return locationWrappers;
     }
 
-    for (Location__c loc : [
-      SELECT Id, Name, Location_Description__c, Account__c
-      FROM Location__c
-      WHERE Account__c = :accountId
-      ORDER BY Name ASC
-    ]) {
-      LocationWrapper lw = new LocationWrapper();
-      lw.id = loc.Id;
-      lw.name = loc.Name;
-      lw.description = loc.Location_Description__c;
-      lw.isSelected = false;
-      locations.add(lw);
+    // Get the field mappings
+    List<LocationFieldMapping> mappings = getLocationFieldMappings();
+
+    // Build dynamic query to include mapped fields
+    Set<String> fieldsToQuery = new Set<String>{
+      'Id',
+      'Name',
+      'Location_Description__c'
+    };
+    for (LocationFieldMapping mapping : mappings) {
+      fieldsToQuery.add(mapping.locationField);
     }
 
-    return locations;
+    String query =
+      'SELECT ' +
+      String.join(new List<String>(fieldsToQuery), ', ') +
+      ' FROM Location__c WHERE Account__c = :accountId ORDER BY Name ASC';
+
+    List<Location__c> locations = Database.query(query);
+
+    for (Location__c loc : locations) {
+      locationWrappers.add(new LocationWrapper(loc, mappings));
+    }
+
+    return locationWrappers;
+  }
+
+  @AuraEnabled
+  public static List<LocationFieldMapping> getLocationFieldMappings() {
+    // Define mappings here - easy to extend in the future
+    return new List<LocationFieldMapping>{
+      new LocationFieldMapping('Building_Value__c', 'Building_Value__c'),
+      new LocationFieldMapping(
+        'Business_Personal_Property__c',
+        'Business_Personal_Property__c'
+      ),
+      new LocationFieldMapping('Deductible__c', 'Property_Deductible__c'),
+      new LocationFieldMapping(
+        'Business_Interruption_allow_text__c',
+        'Business_Interruption_allow_text__c'
+      )
+      // ADD FUTURE MAPPINGS HERE:
+      // new LocationFieldMapping('Location_Field_API_Name__c', 'Quote_Coverage_Link_Field_API_Name__c')
+    };
   }
 
   /**
@@ -355,6 +385,26 @@ public with sharing class NewQuoteCoverageSelectionController {
     }
   }
 
+  // ==================== INNER CLASSES ====================
+
+  /**
+   * @description inner class for field mapping configuration
+   */
+  public class LocationFieldMapping {
+    @AuraEnabled
+    public String locationField { get; set; }
+    @AuraEnabled
+    public String quoteCoverageLinkField { get; set; }
+
+    public LocationFieldMapping(
+      String locationField,
+      String quoteCoverageLinkField
+    ) {
+      this.locationField = locationField;
+      this.quoteCoverageLinkField = quoteCoverageLinkField;
+    }
+  }
+
   // ==================== WRAPPER CLASSES ====================
 
   /**
@@ -385,6 +435,8 @@ public with sharing class NewQuoteCoverageSelectionController {
     public Boolean hasError { get; set; }
     @AuraEnabled
     public String errorMessage { get; set; }
+    @AuraEnabled
+    public List<LocationFieldMapping> locationFieldMappings { get; set; }
 
     public InitializationWrapper() {
       this.hasError = false;
@@ -423,7 +475,27 @@ public with sharing class NewQuoteCoverageSelectionController {
     @AuraEnabled
     public String description { get; set; }
     @AuraEnabled
-    public Boolean isSelected { get; set; }
+    public Map<String, Object> fieldValues { get; set; }
+
+    public LocationWrapper(
+      Location__c loc,
+      List<LocationFieldMapping> mappings
+    ) {
+      this.id = loc.Id;
+      this.name = loc.Name;
+      this.description = loc.Location_Description__c; // or whatever field for description
+
+      // ADD: Populate field values for pre-population
+      this.fieldValues = new Map<String, Object>();
+
+      for (LocationFieldMapping mapping : mappings) {
+        Object value = loc.get(mapping.locationField);
+        if (value != null) {
+          // Store with the Quote_Coverage_Link__c field name as key
+          this.fieldValues.put(mapping.quoteCoverageLinkField, value);
+        }
+      }
+    }
   }
 
   /**

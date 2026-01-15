@@ -1,75 +1,46 @@
 <template>
   <lightning-card>
-    <!-- Rater Type Selection (Scale Opportunities) -->
+    <!-- <template if:true={redirectQuote}>
+            <c-redirect-quote onnextevent={nextView}></c-redirect-quote>
+        </template> -->
     <template if:true={showSelectRaterType}>
       <c-rater-type-selection
         opp-id={recordId}
         onratertypechange={raterTypeChangeHandler}
-      >
-      </c-rater-type-selection>
+      ></c-rater-type-selection>
     </template>
-
-    <!-- Coverage Selection Step -->
     <template if:true={quoteAddCoverage}>
-      <!-- NEW FLOW: Use new coverage selection component -->
-      <template lwc:if={useNewPropertyFlow}>
-        <c-new-quote-coverage-selection
-          record-id={recordId}
-          selected-rater-type={selectedRaterType}
-          onprevious={handlePrevious}
-          onnextaddinfo={addQuoteInfoViewNew}
-          oncancelevent={handleCancel}
-        >
-        </c-new-quote-coverage-selection>
-      </template>
-
-      <!-- OLD FLOW: Use existing coverage selection component -->
-      <template lwc:else>
-        <c-lightning-add-remove-coverage
-          onprevious={handlePrevious}
-          onnextaddinfo={addQuoteInfoView}
-          oncancelevent={handleCancel}
-          onsavelimit={handleReloadView}
-          record-id={recordId}
-          selected-rater-type={selectedRaterType}
-          selected-limits-at-u-i={limitToQuote}
-          record-id-page-context={recordId}
-        >
-        </c-lightning-add-remove-coverage>
-      </template>
+      <!--  <c-quote-add-coverage 
+                opp-id={recordId} 
+                selected-rater-type={selectedRaterType} 
+                onprevious={handlePrevious} 
+                onnextaddinfo={addQuoteInfoView} 
+                oncancelevent={cancelEvent}>
+            </c-quote-add-coverage> -->
+      <c-lightning-add-remove-coverage
+        onprevious={handlePrevious}
+        onnextaddinfo={addQuoteInfoView}
+        oncancelevent={handleCancel}
+        onsavelimit={handleReloadView}
+        record-id={recordId}
+        selected-rater-type={selectedRaterType}
+        selected-limits-at-u-i={limitToQuote}
+        record-id-page-context={recordId}
+      >
+      </c-lightning-add-remove-coverage>
     </template>
-
-    <!-- Quote Info Step -->
     <template if:true={addQuoteInfo}>
-      <!-- NEW FLOW: Use new quote info component -->
-      <template lwc:if={useNewPropertyFlow}>
-        <c-new-quote-info
-          selected-rater-type={selectedRaterType}
-          coverage-data={coverageDataNew}
-          oninfopage={infoView}
-          oncancelevent={cancelEvent}
-          record-id={recordId}
-          onindicationerrorevent={handleError}
-        >
-        </c-new-quote-info>
-      </template>
-
-      <!-- OLD FLOW: Use existing quote info component -->
-      <template lwc:else>
-        <c-add-quote-info
-          selected-rater-type={selectedRaterType}
-          coverages={limitToQuote}
-          oninfopage={infoView}
-          oncancelevent={cancelEvent}
-          record-id={recordId}
-          onsendlimit={itemreceived}
-          onindicationerrorevent={handleError}
-        >
-        </c-add-quote-info>
-      </template>
+      <c-add-quote-info
+        selected-rater-type={selectedRaterType}
+        coverages={limitToQuote}
+        oninfopage={infoView}
+        oncancelevent={cancelEvent}
+        record-id={recordId}
+        onsendlimit={itemreceived}
+        onindicationerrorevent={handleError}
+      >
+      </c-add-quote-info>
     </template>
-
-    <!-- Quote View (after creation) -->
     <template if:true={infoViewPage}>
       <c-quote-base-component record-id={newQuoteId}></c-quote-base-component>
     </template>

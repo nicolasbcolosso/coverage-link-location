@@ -7,7 +7,6 @@ const PROPERTY_COVERAGE_NAME = "Property";
 export default class NewQuoteCoverageSelection extends LightningElement {
   @api recordId; // Opportunity Id
   @api selectedRaterType;
-  @api selectedLimitsAtUI; // For compatibility with old flow
 
   // State management
   isLoading = true;
@@ -141,11 +140,16 @@ export default class NewQuoteCoverageSelection extends LightningElement {
   }
 
   get locationsForPropertyConfiguration() {
-    if (!this.isPropertySelected || !this.isLocationBasedPropertyEnabled) {
+    if (
+      !this.isPropertySelected ||
+      !this.isLocationBasedPropertyEnabled ||
+      !this.hasLocations
+    ) {
       return [];
     }
 
     const propertyFieldSet = this.propertyFieldSet;
+    if (!propertyFieldSet) return [];
 
     return this.locations.map((loc) => {
       const selectionData = this.propertyLocationSelections.get(loc.id) || {
@@ -156,23 +160,40 @@ export default class NewQuoteCoverageSelection extends LightningElement {
       return {
         ...loc,
         isSelected: selectionData.isSelected,
-        isExpanded: this.expandedSections.has(`property_${loc.id}`),
-        badgeLabel: "New",
-        badgeClass: "slds-badge slds-badge_lightest",
-        fields: propertyFieldSet
-          ? propertyFieldSet.fields.map((f) => ({
-              ...f,
-              value: selectionData.fields?.get(f.fieldApiName) || "",
-              inputType: this.getInputType(f.fieldType),
-              isTextarea: f.fieldType === "TEXTAREA",
-              isCheckbox: f.fieldType === "BOOLEAN",
-              isDate: f.fieldType === "DATE",
-              isNumber: this.isNumericType(f.fieldType),
-              step: this.getStep(f.fieldType),
-              formatter: this.getFormatter(f.fieldType),
-              uniqueFieldKey: `property_${loc.id}_${f.fieldApiName}`
-            }))
-          : []
+        uniqueKey: `prop-loc-${loc.id}`,
+        fields: propertyFieldSet.fields.map((f) => ({
+          ...f,
+          // Use pre-populated value from Location if available, otherwise empty
+          value: selectionData.fields.get(f.fieldApiName) ?? "",
+          inputType: this.getInputType(f.fieldType),
+          isTextarea: f.fieldType === "TEXTAREA",
+          isPicklist: f.fieldType === "PICKLIST",
+          isCheckbox: f.fieldType === "BOOLEAN",
+          isDate: f.fieldType === "DATE",
+          isNumber: [
+            "CURRENCY",
+            "PERCENT",
+            "DOUBLE",
+            "DECIMAL",
+            "INTEGER"
+          ].includes(f.fieldType),
+          step:
+            f.fieldType === "PERCENT"
+              ? "0.01"
+              : f.fieldType === "INTEGER"
+                ? "1"
+                : "0.01",
+          formatter:
+            f.fieldType === "CURRENCY"
+              ? "currency"
+              : f.fieldType === "PERCENT"
+                ? "percent"
+                : null,
+          uniqueFieldKey: `${loc.id}-${f.fieldApiName}`,
+          // ADD: Flag to indicate if value was pre-populated (optional, for UI indication)
+          isPrePopulated:
+            loc.fieldValues && loc.fieldValues[f.fieldApiName] !== undefined
+        }))
       };
     });
   }
@@ -210,11 +231,18 @@ export default class NewQuoteCoverageSelection extends LightningElement {
         result.isLocationBasedPropertyEnabled;
       this.fieldSets = result.coverageFieldSets || [];
       this.locations = result.accountLocations || [];
+      this.locationFieldMappings = result.locationFieldMappings || []; // ADD THIS LINE
+
+      console.log("location ==> ", JSON.parse(JSON.stringify(this.locations)));
+      console.log(
+        "location field mapping ==> ",
+        JSON.parse(JSON.stringify(this.locationFieldMappings))
+      );
 
       // Initialize coverages
       this.initializeCoverages(result.availableCoverages);
 
-      // Initialize property location selections
+      // Initialize property location selections with pre-populated values
       this.initializePropertyLocationSelections();
     } catch (error) {
       console.error("Error loading data:", error);
@@ -229,14 +257,8 @@ export default class NewQuoteCoverageSelection extends LightningElement {
   }
 
   initializeCoverages(availableCoverages) {
-    // Check if there are pre-selected coverages from previous step (old flow compatibility)
-    const preSelectedCoverages = this.selectedLimitsAtUI
-      ? this.selectedLimitsAtUI.split(",").map((s) => s.trim())
-      : [];
-
     this.coverages = availableCoverages.map((cov) => ({
       ...cov,
-      isSelected: preSelectedCoverages.includes(cov.fieldSetName),
       locationBadge:
         cov.isProperty && this.isLocationBasedPropertyEnabled
           ? `(${this.locations.length} locations)`
@@ -248,9 +270,23 @@ export default class NewQuoteCoverageSelection extends LightningElement {
     this.propertyLocationSelections = new Map();
 
     for (const location of this.locations) {
+      // Pre-populate fields from Location record's fieldValues
+      const prePopulatedFields = new Map();
+
+      if (location.fieldValues) {
+        // Iterate through the field values returned from Apex
+        for (const [fieldApiName, value] of Object.entries(
+          location.fieldValues
+        )) {
+          if (value !== null && value !== undefined) {
+            prePopulatedFields.set(fieldApiName, value);
+          }
+        }
+      }
+
       this.propertyLocationSelections.set(location.id, {
         isSelected: false,
-        fields: new Map()
+        fields: prePopulatedFields
       });
     }
   }
