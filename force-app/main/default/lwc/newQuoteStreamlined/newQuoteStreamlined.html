@@ -1,0 +1,213 @@
+<template>
+  <lightning-card title={pageTitle} class="streamlined-card">
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+      <div class="slds-align_absolute-center slds-m-vertical_large">
+        <lightning-spinner
+          alternative-text="Loading"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <!-- Main Content -->
+    <template if:false={isLoading}>
+      <!-- Summary Section -->
+      <div class="slds-section slds-is-open">
+        <h3 class="slds-section__title slds-theme_shade">
+          <span class="slds-p-horizontal_medium">{summaryText}</span>
+        </h3>
+      </div>
+
+      <!-- Coverage Selection Section -->
+      <div class="slds-m-around_medium">
+        <div class="slds-box slds-theme_shade">
+          <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Available Coverages
+          </h2>
+
+          <!-- Non-Property Coverages -->
+          <template if:true={nonPropertyCoverages}>
+            <fieldset class="slds-form-element">
+              <div class="slds-form-element__control">
+                <template for:each={nonPropertyCoverages} for:item="coverage">
+                  <div key={coverage.uniqueKey} class="slds-m-bottom_small">
+                    <label
+                      class="slds-checkbox_toggle slds-grid slds-p-horizontal_small"
+                    >
+                      <input
+                        type="checkbox"
+                        name={coverage.id}
+                        data-coverage-id={coverage.id}
+                        checked={coverage.isSelected}
+                        onchange={handleCoverageSelection}
+                        aria-label={coverage.name}
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="slds-checkbox_faux_container"
+                      >
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="slds-checkbox_off"></span>
+                        <span class="slds-checkbox_on"></span>
+                      </span>
+                      <span class="slds-p-left_medium slds-text-body_regular">
+                        <strong>{coverage.name}</strong>
+                        <template if:true={coverage.acronym}>
+                          <span class="slds-text-color_weak">
+                            ({coverage.acronym})</span
+                          >
+                        </template>
+                      </span>
+                    </label>
+                  </div>
+                </template>
+              </div>
+            </fieldset>
+          </template>
+
+          <!-- Property Coverage Section -->
+          <template if:true={propertyCoverage}>
+            <div class="slds-m-top_large">
+              <fieldset class="slds-form-element">
+                <div class="slds-form-element__control">
+                  <label
+                    class="slds-checkbox_toggle slds-grid slds-p-horizontal_small"
+                  >
+                    <input
+                      type="checkbox"
+                      data-coverage-id={propertyCoverage.id}
+                      checked={propertyCoverage.isSelected}
+                      onchange={handleCoverageSelection}
+                      aria-label="Property Coverage"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="slds-checkbox_faux_container"
+                    >
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-checkbox_off"></span>
+                      <span class="slds-checkbox_on"></span>
+                    </span>
+                    <span class="slds-p-left_medium slds-text-body_regular">
+                      <strong>{propertyCoverage.name}</strong>
+                      <template if:true={propertyCoverage.acronym}>
+                        <span class="slds-text-color_weak">
+                          ({propertyCoverage.acronym})</span
+                        >
+                      </template>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Locations Section (shown only if Property is selected) -->
+              <template if:true={propertyLocationsAvailable}>
+                <div
+                  class="slds-box slds-theme_alt-inverse slds-m-top_medium slds-m-left_large"
+                >
+                  <div class="slds-text-heading_small slds-m-bottom_medium">
+                    Property Coverage Locations
+                  </div>
+
+                  <!-- Select All Locations -->
+                  <div class="slds-m-bottom_medium">
+                    <label class="slds-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={propertyLocationSelectAll}
+                        onchange={handlePropertySelectAll}
+                        aria-label="Select All Locations"
+                      />
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-form-element__label slds-p-left_small">
+                        <strong
+                          >Select All Locations ({locations.length})</strong
+                        >
+                      </span>
+                    </label>
+                  </div>
+
+                  <!-- Individual Locations -->
+                  <fieldset class="slds-form-element">
+                    <div class="slds-form-element__control">
+                      <template for:each={locations} for:item="location">
+                        <div
+                          key={location.uniqueKey}
+                          class="slds-m-bottom_small slds-m-left_large"
+                        >
+                          <label class="slds-checkbox">
+                            <input
+                              type="checkbox"
+                              data-location-id={location.id}
+                              checked={location.isSelected}
+                              onchange={handlePropertyLocationSelection}
+                              aria-label={location.name}
+                            />
+                            <span class="slds-checkbox_faux"></span>
+                            <span
+                              class="slds-form-element__label slds-p-left_small"
+                            >
+                              {location.name}
+                            </span>
+                          </label>
+                        </div>
+                      </template>
+                    </div>
+                  </fieldset>
+                </div>
+              </template>
+
+              <!-- No Locations Available Warning -->
+              <template if:true={propertyLocationsNotAvailable}>
+                <div class="slds-m-top_medium slds-m-left_large">
+                  <div
+                    class="slds-notify slds-notify_alert slds-theme_warning slds-m-bottom_medium"
+                    role="alert"
+                  >
+                    <span
+                      class="slds-icon_container slds-icon-utility-warning slds-m-right_small"
+                    >
+                      <svg
+                        class="slds-icon slds-icon_x-small"
+                        aria-hidden="true"
+                      >
+                        <use
+                          xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"
+                        ></use>
+                      </svg>
+                    </span>
+                    <span class="slds-assistive-text">Warning:</span>
+                    <span class="slds-p-left_small">
+                      No locations found for this account. Property coverage
+                      cannot be added.
+                    </span>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="slds-align_absolute-center slds-p-vertical_large">
+        <button
+          class="slds-button slds-button_brand"
+          onclick={handleSave}
+          disabled={saveButtonDisabled}
+          title={saveButtonLabel}
+        >
+          {saveButtonLabel}
+        </button>
+        <button
+          class="slds-button slds-button_neutral slds-m-left_medium"
+          onclick={handleCancel}
+          disabled={isSaving}
+        >
+          Cancel
+        </button>
+      </div>
+    </template>
+  </lightning-card>
+</template>
