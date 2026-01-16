@@ -140,19 +140,75 @@ public with sharing class NewQuoteCoverageSelectionController {
     Boolean isScale
   ) {
     List<CoverageWrapper> coverages = new List<CoverageWrapper>();
-
     List<Coverage__c> coverageRecords;
 
-    if (isScale && String.isNotBlank(raterType)) {
+    Map<String, List<String>> scaleCoveragesByRaterType = new Map<String, List<String>>{
+      'MATRIX' => new List<String>{ 'D&O', 'EPL', 'FID' },
+      'EXCESS' => new List<String>{ 'Excess D&O', 'Excess EPL', 'Excess FID' },
+      'EXOTICS' => new List<String>{ 'D&O', 'EPL', 'FID' },
+      'TECH' => new List<String>{ 'E&O' },
+      'FMP' => new List<String>{ 'D&O', 'EPL', 'FID' },
+      'ML' => new List<String>{
+        'CFI',
+        'CYB',
+        'D&O',
+        'EPL',
+        'FID',
+        'E&O',
+        'Excess D&O',
+        'Excess EPL',
+        'Excess FID',
+        'Influencers Insurance',
+        'FMP M&PL',
+        'FMP EPL',
+        'FMP FID',
+        'Public D&O',
+        'Lead Side A'
+      }
+    };
+
+    if (raterType == null && !isScale) {
+      List<String> accessibleFilter = new List<String>{
+        'Foundershield',
+        'For all Record Types'
+      };
+      if (recordType == 'Alpharoot') {
+        accessibleFilter.add('AlphaRoot');
+      }
       coverageRecords = [
         SELECT Id, Name, Field_Set_for_Quote__c
         FROM Coverage__c
+        WHERE
+          Field_Set_for_Quote__c != NULL
+          AND (Accessible_Record_Types__c = NULL
+          OR Accessible_Record_Types__c IN :accessibleFilter)
+        ORDER BY Name ASC
+      ];
+    } else if (raterType == null && isScale) {
+      coverageRecords = [
+        SELECT Id, Name, Field_Set_for_Quote__c
+        FROM Coverage__c
+        WHERE
+          Field_Set_for_Quote__c != NULL
+          AND (Accessible_Record_Types__c = NULL
+          OR Accessible_Record_Types__c = 'Scale'
+          OR Accessible_Record_Types__c = 'For all Record Types')
         ORDER BY Name ASC
       ];
     } else {
+      List<String> validCoverages = scaleCoveragesByRaterType.get(raterType);
+      if (validCoverages == null) {
+        validCoverages = new List<String>();
+      }
       coverageRecords = [
         SELECT Id, Name, Field_Set_for_Quote__c
         FROM Coverage__c
+        WHERE
+          Name IN :validCoverages
+          AND Field_Set_for_Quote__c != NULL
+          AND (Accessible_Record_Types__c = NULL
+          OR Accessible_Record_Types__c = 'Scale'
+          OR Accessible_Record_Types__c = 'For all Record Types')
         ORDER BY Name ASC
       ];
     }
