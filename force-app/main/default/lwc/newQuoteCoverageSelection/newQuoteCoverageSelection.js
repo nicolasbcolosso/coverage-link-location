@@ -74,12 +74,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     return this.locationsForPropertyConfiguration.filter((loc) =>
       loc.name.toLowerCase().includes(term)
     );
-
-    // this.locationsForPropertyConfiguration.forEach((loc) => {
-    //   console.log("loc ==> ", loc);
-    // });
-
-    // return this.locationsForPropertyConfiguration;
   }
 
   get hasLocations() {

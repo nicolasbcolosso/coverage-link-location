@@ -362,6 +362,31 @@ public with sharing class NewQuoteCoverageSelectionController {
   }
 
   /**
+   * @description Generate Quote Name by concatenating coverage names and creation date
+   * Example: "PGLWC-01-15-2026"
+   *
+   * @param selectedCoverageNames The selected coverage names
+   * @return String representing the generated Quote Name
+   */
+  private static String buildQuoteName(Set<String> selectedCoverageNames) {
+    String names = '';
+
+    // Collect coverage names and abbreviate them
+    for (String selectedCovName : selectedCoverageNames) {
+      if (selectedCovName != null && String.isNotBlank(selectedCovName)) {
+        // Use first letter of each coverage name
+        names += selectedCovName.substring(0, 1).toUpperCase();
+      }
+    }
+
+    // Append creation date in MM-DD-YYYY format
+    String dateStr = System.today().format(); // Returns MM/DD/YYYY
+    dateStr = dateStr.replace('/', '-'); // Convert to MM-DD-YYYY
+
+    return names + '-' + dateStr;
+  }
+
+  /**
    * @description Convert field value from string to appropriate type
    */
   private static Object convertFieldValue(String value, String fieldType) {

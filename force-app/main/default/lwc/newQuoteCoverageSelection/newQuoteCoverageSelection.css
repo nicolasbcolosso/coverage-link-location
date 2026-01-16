@@ -81,6 +81,11 @@
 }
 
 /* Custom scrollbar */
+.coverage-list-container,
+.configuration-container {
+  max-height: 200px;
+}
+
 .coverage-list-container::-webkit-scrollbar,
 .configuration-container::-webkit-scrollbar {
   width: var(--lwc-spacingXSmall, 8px);
@@ -106,7 +111,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .coverage-list-container {
-    max-height: 300px;
+    max-height: 150px;
   }
 
   .configuration-container {
