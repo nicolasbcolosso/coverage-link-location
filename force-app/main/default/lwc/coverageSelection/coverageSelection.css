@@ -1,0 +1,43 @@
+/* Loading and Spinner Container */
+.spinner-holder {
+  min-height: 46vh;
+}
+
+/* Custom scrollbar */
+.coverage-list-container,
+.configuration-container {
+  max-height: 46vh;
+}
+
+.coverage-list-container::-webkit-scrollbar,
+.configuration-container::-webkit-scrollbar {
+  width: var(--lwc-spacingXSmall, 8px);
+}
+
+.coverage-list-container::-webkit-scrollbar-track,
+.configuration-container::-webkit-scrollbar-track {
+  background: var(--slds-g-color-neutral-base-95, #f3f3f3);
+  border-radius: var(--lwc-borderRadiusMedium, 4px);
+}
+
+.coverage-list-container::-webkit-scrollbar-thumb,
+.configuration-container::-webkit-scrollbar-thumb {
+  background: var(--slds-g-color-neutral-base-60, #aeaeae);
+  border-radius: var(--lwc-borderRadiusMedium, 4px);
+}
+
+.coverage-list-container::-webkit-scrollbar-thumb:hover,
+.configuration-container::-webkit-scrollbar-thumb:hover {
+  background: var(--slds-g-color-neutral-base-50, #939393);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coverage-list-container {
+    max-height: 30vh;
+  }
+
+  .configuration-container {
+    max-height: 50vh;
+  }
+}

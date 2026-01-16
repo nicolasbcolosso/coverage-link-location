@@ -1,41 +1,22 @@
 <template>
   <div class="coverage-selection-container">
     <!-- Header -->
-    <header class="slds-modal__header slds-p-around_medium slds-theme_shade">
+    <header
+      class="slds-modal__header slds-var-p-around_medium slds-theme_shade"
+    >
       <h2 class="slds-text-heading_medium slds-text-color_default">
         <lightning-icon
           icon-name="standard:entitlement"
           size="small"
-          class="slds-m-right_x-small"
+          class="slds-var-m-right_x-small"
         ></lightning-icon>
         Update Coverages
       </h2>
     </header>
 
-    <!-- Progress Indicator -->
-    <!-- <div
-      class="slds-p-horizontal_medium slds-p-vertical_small"
-      lwc:if={isNotDummyQuoteStep}
-    >
-      <lightning-progress-indicator
-        current-step={currentStep}
-        type="base"
-        variant="base"
-      >
-        <lightning-progress-step
-          label="Select Coverages"
-          value="selection"
-        ></lightning-progress-step>
-        <lightning-progress-step
-          label="Configure Fields"
-          value="configuration"
-        ></lightning-progress-step>
-      </lightning-progress-indicator>
-    </div> -->
-
     <!-- Loading Spinner -->
     <template lwc:if={isLoading}>
-      <div class="slds-is-relative slds-p-around_xx-large">
+      <div class="slds-is-relative slds-var-p-around_xx-large spinner-holder">
         <lightning-spinner
           alternative-text="Loading"
           size="medium"
@@ -46,10 +27,10 @@
     <template lwc:else>
       <!-- Dummy Quote Screen -->
       <template lwc:if={isDummyQuoteStep}>
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
           <div class="slds-illustration slds-illustration_small">
             <div
-              class="slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_medium"
+              class="slds-notify slds-notify_alert slds-alert_warning slds-var-m-bottom_medium"
               role="alert"
             >
               <lightning-icon
@@ -57,7 +38,7 @@
                 alternative-text="Warning"
                 variant="warning"
                 size="small"
-                class="slds-m-right_x-small"
+                class="slds-var-m-right_x-small"
               ></lightning-icon>
               <span class="slds-text-body_regular">
                 You can't add coverages to this record because there is no
@@ -69,7 +50,7 @@
                 variant="brand"
                 label="Create Dummy Quote"
                 onclick={handleCreateDummyQuote}
-                class="slds-m-right_small"
+                class="slds-var-m-right_small"
               >
               </lightning-button>
               <lightning-button
@@ -85,14 +66,14 @@
 
       <!-- Selection Step -->
       <template lwc:if={isSelectionStep}>
-        <!-- Footer Actions - Selection -->
-        <div class="slds-p-around_medium">
+        <!-- Menu Actions - Selection -->
+        <div class="slds-var-p-around_medium">
           <div class="slds-grid slds-grid_align-center">
             <lightning-button
               variant="neutral"
               label="Cancel"
               onclick={handleCancel}
-              class="slds-m-right_small"
+              class="slds-var-m-right_small"
             >
             </lightning-button>
             <lightning-button
@@ -105,11 +86,11 @@
           </div>
         </div>
 
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
           <!-- Property Location Warning -->
           <template lwc:if={showPropertyLocationWarning}>
             <div
-              class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-m-bottom_medium"
+              class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-var-m-bottom_medium"
               role="alert"
             >
               <lightning-icon
@@ -117,7 +98,7 @@
                 alternative-text="Warning"
                 variant="warning"
                 size="small"
-                class="slds-m-right_x-small"
+                class="slds-var-m-right_small"
               ></lightning-icon>
               <span class="slds-text-body_regular">
                 To add Property coverage, please first add at least one Location
@@ -127,25 +108,14 @@
           </template>
 
           <!-- Search Bar -->
-          <div class="slds-form-element slds-m-bottom_medium">
-            <div
-              class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left"
-            >
-              <lightning-icon
-                icon-name="utility:search"
-                size="x-small"
-                class="slds-input__icon slds-input__icon_left"
-              ></lightning-icon>
-              <lightning-input
-                type="search"
-                label="Search Coverages"
-                variant="label-hidden"
-                placeholder="Search coverages..."
-                value={searchTerm}
-                onchange={handleSearchChange}
-              >
-              </lightning-input>
-            </div>
+          <div class="slds-var-m-bottom_large">
+            <lightning-input
+              type="search"
+              label="Search Coverages"
+              placeholder="Type to search..."
+              value={searchTerm}
+              onchange={handleSearchChange}
+            ></lightning-input>
           </div>
 
           <!-- Coverage List -->
@@ -216,7 +186,7 @@
 
           <!-- Selection Summary -->
           <div
-            class="slds-m-top_medium slds-p-around_small slds-box slds-theme_shade"
+            class="slds-var-m-top_medium slds-var-p-around_small slds-box slds-theme_shade"
           >
             <span class="slds-text-body_small">
               <strong>{selectedCoveragesForConfiguration.length} </strong>
@@ -231,14 +201,14 @@
 
         <!-- Footer Actions - Selection -->
         <footer
-          class="slds-modal__footer slds-p-around_medium slds-theme_default"
+          class="slds-modal__footer slds-var-p-around_medium slds-theme_default"
         >
           <div class="slds-grid slds-grid_align-end">
             <lightning-button
               variant="neutral"
               label="Cancel"
               onclick={handleCancel}
-              class="slds-m-right_small"
+              class="slds-var-m-right_small"
             >
             </lightning-button>
             <lightning-button
@@ -254,7 +224,7 @@
 
       <!-- Configuration Step -->
       <template lwc:if={isConfigurationStep}>
-        <div class="slds-p-around_medium configuration-container">
+        <div class="slds-var-p-around_medium">
           <!-- Non-Property Coverages -->
           <template for:each={configurableCoverages} for:item="coverage">
             <template if:false={coverage.isPropertyWithLocations}>
@@ -347,13 +317,13 @@
             <template lwc:if={isNewPropertyEnabled}>
               <template lwc:if={hasLocations}>
                 <lightning-card
-                  class="slds-m-bottom_small property-coverage-card"
+                  class="slds-var-m-bottom_small property-coverage-card"
                 >
                   <h3 slot="title">
                     <lightning-icon
                       icon-name="standard:location"
                       size="small"
-                      class="slds-m-right_x-small"
+                      class="slds-var-m-right_x-small"
                     ></lightning-icon>
                     Property Coverage (by Location)
                   </h3>
@@ -363,7 +333,9 @@
                   >
                     Select locations and configure property details for each
                   </p>
-                  <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                  <div
+                    class="slds-var-p-horizontal_medium slds-var-p-bottom_medium"
+                  >
                     <template
                       for:each={propertyLocationsForConfiguration}
                       for:item="location"

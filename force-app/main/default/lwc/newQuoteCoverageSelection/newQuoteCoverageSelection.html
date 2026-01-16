@@ -1,12 +1,14 @@
 <template>
   <div class="new-quote-coverage-selection-container">
     <!-- Header -->
-    <header class="slds-modal__header slds-p-around_medium slds-theme_shade">
+    <header
+      class="slds-modal__header slds-var-p-around_medium slds-theme_shade"
+    >
       <h2 class="slds-text-heading_medium slds-text-color_default">
         <lightning-icon
           icon-name="standard:entitlement"
           size="small"
-          class="slds-m-right_x-small"
+          class="slds-var-m-right_x-small"
         ></lightning-icon>
         Select Coverages
       </h2>
@@ -36,10 +38,8 @@
       <!-- Selection Step -->
       <template lwc:if={isSelectionStep}>
         <!-- Footer Actions - Selection -->
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
           <div class="slds-grid slds-grid_align-center">
-            
-            
             <lightning-button
               variant="brand"
               label="Next"
@@ -49,11 +49,11 @@
           </div>
         </div>
 
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
           <!-- Property Location Warning -->
           <template lwc:if={showPropertyLocationWarning}>
             <div
-              class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-m-bottom_medium"
+              class="slds-scoped-notification slds-media slds-media_center slds-theme_warning slds-var-m-bottom_medium"
               role="alert"
             >
               <lightning-icon
@@ -61,7 +61,7 @@
                 alternative-text="Warning"
                 variant="warning"
                 size="small"
-                class="slds-m-right_x-small"
+                class="slds-var-m-right_small"
               ></lightning-icon>
               <span class="slds-text-body_regular">
                 To add Property coverage, please first add at least one Location
@@ -71,7 +71,7 @@
           </template>
 
           <!-- Search Box -->
-          <div class="slds-m-bottom_medium">
+          <div class="slds-var-m-bottom_medium">
             <lightning-input
               type="search"
               label="Search Coverages"
@@ -82,7 +82,7 @@
           </div>
 
           <!-- Coverage Selection Summary -->
-          <div class="slds-m-bottom_medium">
+          <div class="slds-var-m-bottom_medium">
             <span class="slds-badge slds-badge_inverse">
               {selectedCoverageCount} coverage(s) selected
             </span>
@@ -155,7 +155,7 @@
               onclick={handleBack}
               class="slds-m-right_small"
             ></lightning-button>
-            
+
             <lightning-button
               variant="brand"
               label="Save"
