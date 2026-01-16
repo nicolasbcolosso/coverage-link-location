@@ -41,6 +41,7 @@ export default class CoverageSelection extends LightningElement {
   isNewPropertyEnabled = false;
 
   // Coverage configuration
+  propertyLocationSelectAll = false;
   @track selectedCoverages = [];
   @track coveragesToDelete = [];
   @track propertyLocationSelections = new Map(); // locationId -> {isSelected, fields, existingLinkId}
@@ -317,23 +318,6 @@ export default class CoverageSelection extends LightningElement {
     });
   }
 
-  handleLocationToggle(event) {
-    const locationId = event.target.dataset.locationId;
-    const isChecked = event.target.checked;
-
-    const locationData = this.propertyLocationSelections.get(locationId);
-    if (locationData) {
-      this.propertyLocationSelections.set(locationId, {
-        ...locationData,
-        isSelected: isChecked
-      });
-      // Force reactivity
-      this.propertyLocationSelections = new Map(
-        this.propertyLocationSelections
-      );
-    }
-  }
-
   handleFieldChange(event) {
     const coverageName = event.target.dataset.coverageName;
     const fieldApiName = event.target.dataset.fieldApiName;
@@ -375,6 +359,50 @@ export default class CoverageSelection extends LightningElement {
 
   isSectionExpanded(sectionId) {
     return this.expandedSections.has(sectionId);
+  }
+
+  // ==================== LOCATION SELECTION ====================
+
+  handleLocationSelectAll(event) {
+    const isSelected = event.target.checked;
+    console.log(`Location "Select All" changed to: ==> ${isSelected}`);
+
+    // Toggle all location selections
+    this.propertyLocationSelections.values().forEach((loc) => {
+      loc.isSelected = isSelected;
+    });
+
+    this.propertyLocationSelectAll = isSelected;
+    // Force reactivity
+    this.propertyLocationSelections = new Map(this.propertyLocationSelections);
+  }
+
+  handleLocationToggle(event) {
+    const locationId = event.target.dataset.locationId;
+    const isSelected = event.target.checked;
+
+    console.log(
+      `Location ${locationId} selection changed to: ==>  ${isSelected}`
+    );
+
+    const locationData = this.propertyLocationSelections.get(locationId);
+    if (locationData) {
+      this.propertyLocationSelections.set(locationId, {
+        ...locationData,
+        isSelected: isSelected
+      });
+
+      // Update "Select All" checkbox state if not all are selected
+      const allSelected = this.propertyLocationSelections
+        .values()
+        .every((l) => l.isSelected);
+      this.propertyLocationSelectAll = allSelected;
+
+      // Force reactivity
+      this.propertyLocationSelections = new Map(
+        this.propertyLocationSelections
+      );
+    }
   }
 
   // ==================== NAVIGATION ====================

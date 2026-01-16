@@ -228,21 +228,33 @@
           <!-- Non-Property Coverages -->
           <template for:each={configurableCoverages} for:item="coverage">
             <template if:false={coverage.isPropertyWithLocations}>
-              <lightning-card key={coverage.id} class="slds-m-bottom_small">
+              <lightning-card key={coverage.id} class="slds-var-m-bottom_small">
                 <h3 slot="title">
                   <lightning-icon
                     icon-name="standard:entitlement"
                     size="small"
-                    class="slds-m-right_x-small"
+                    class="slds-var-m-right_x-small"
                   ></lightning-icon>
                   {coverage.name}
                 </h3>
-                <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+
+                <div slot="actions" class="slds-col_bump-left">
+                  <template lwc:if={coverage.existingLinkId}>
+                    <lightning-badge
+                      label="Existing"
+                      class=""
+                    ></lightning-badge>
+                  </template>
+                </div>
+
+                <div
+                  class="slds-var-p-horizontal_medium slds-var-p-bottom_medium"
+                >
                   <div class="slds-grid slds-wrap slds-gutters_small">
                     <template for:each={coverage.fields} for:item="field">
                       <div
                         key={field.fieldApiName}
-                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-vertical_x-small"
+                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-var-p-vertical_x-small"
                       >
                         <template lwc:if={field.isTextarea}>
                           <lightning-textarea
@@ -255,6 +267,7 @@
                           >
                           </lightning-textarea>
                         </template>
+
                         <template lwc:elseif={field.isCheckbox}>
                           <lightning-input
                             type="checkbox"
@@ -266,6 +279,7 @@
                           >
                           </lightning-input>
                         </template>
+
                         <template lwc:elseif={field.isDate}>
                           <lightning-input
                             type="date"
@@ -278,6 +292,7 @@
                           >
                           </lightning-input>
                         </template>
+
                         <template lwc:elseif={field.isNumber}>
                           <lightning-input
                             type="number"
@@ -292,6 +307,7 @@
                           >
                           </lightning-input>
                         </template>
+
                         <template lwc:else>
                           <lightning-input
                             type={field.inputType}
@@ -327,12 +343,27 @@
                     ></lightning-icon>
                     Property Coverage (by Location)
                   </h3>
-                  <p
-                    slot="actions"
-                    class="slds-text-body_small slds-text-color_weak"
-                  >
-                    Select locations and configure property details for each
-                  </p>
+
+                  <!-- Select All Locations -->
+                  <div slot="actions" class="slds-var-m-bottom_medium">
+                    <label class="slds-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={propertyLocationSelectAll}
+                        onchange={handleLocationSelectAll}
+                        aria-label="Select All Locations"
+                      />
+                      <span class="slds-checkbox_faux"></span>
+                      <span
+                        class="slds-form-element__label slds-var-p-left_small"
+                      >
+                        <strong
+                          >Select All Locations ({locations.length})</strong
+                        >
+                      </span>
+                    </label>
+                  </div>
+
                   <div
                     class="slds-var-p-horizontal_medium slds-var-p-bottom_medium"
                   >
@@ -342,11 +373,11 @@
                     >
                       <div
                         key={location.uniqueKey}
-                        class="slds-box slds-m-bottom_small location-section"
+                        class="slds-box slds-var-m-bottom_small location-section"
                       >
                         <!-- Location Header -->
                         <div
-                          class="slds-grid slds-grid_vertical-align-center slds-p-bottom_small slds-border_bottom"
+                          class="slds-grid slds-grid_vertical-align-center slds-var-p-bottom_small slds-border_bottom"
                         >
                           <div class="slds-col">
                             <lightning-input
@@ -358,14 +389,16 @@
                               class="location-checkbox"
                             >
                             </lightning-input>
+
                             <template lwc:if={location.description}>
                               <p
-                                class="slds-text-body_small slds-text-color_weak slds-m-left_xx-large"
+                                class="slds-text-body_small slds-text-color_weak slds-var-m-left_xx-large"
                               >
                                 {location.description}
                               </p>
                             </template>
                           </div>
+
                           <div class="slds-col_bump-left">
                             <template lwc:if={location.existingLinkId}>
                               <lightning-badge
@@ -373,19 +406,20 @@
                                 class=""
                               ></lightning-badge>
                             </template>
-                            <template lwc:else>
+
+                            <!-- <template lwc:else>
                               <lightning-badge
                                 label="New"
                                 class="slds-badge_lightest"
                               ></lightning-badge>
-                            </template>
+                            </template> -->
                           </div>
                         </div>
 
                         <!-- Location Fields (only show if selected) -->
                         <template lwc:if={location.isSelected}>
                           <div
-                            class="slds-grid slds-wrap slds-gutters_small slds-p-top_small"
+                            class="slds-grid slds-wrap slds-gutters_small slds-var-p-top_small"
                           >
                             <template
                               for:each={location.fields}
@@ -407,6 +441,7 @@
                                   >
                                   </lightning-textarea>
                                 </template>
+
                                 <template lwc:elseif={field.isCheckbox}>
                                   <lightning-input
                                     type="checkbox"
@@ -419,6 +454,7 @@
                                   >
                                   </lightning-input>
                                 </template>
+
                                 <template lwc:elseif={field.isDate}>
                                   <lightning-input
                                     type="date"
@@ -432,6 +468,7 @@
                                   >
                                   </lightning-input>
                                 </template>
+
                                 <template lwc:elseif={field.isNumber}>
                                   <lightning-input
                                     type="number"
@@ -447,6 +484,7 @@
                                   >
                                   </lightning-input>
                                 </template>
+
                                 <template lwc:else>
                                   <lightning-input
                                     type={field.inputType}
@@ -470,100 +508,12 @@
                 </lightning-card>
               </template>
             </template>
-            <!-- Property without location-based functionality (old behavior) -->
-            <template lwc:else>
-              <template for:each={configurableCoverages} for:item="coverage">
-                <template lwc:if={coverage.isProperty}>
-                  <lightning-card key={coverage.id} class="slds-m-bottom_small">
-                    <h3 slot="title">
-                      <lightning-icon
-                        icon-name="standard:entitlement"
-                        size="small"
-                        class="slds-m-right_x-small"
-                      ></lightning-icon>
-                      {coverage.name}
-                    </h3>
-                    <div class="slds-p-horizontal_medium slds-p-bottom_medium">
-                      <div class="slds-grid slds-wrap slds-gutters_small">
-                        <template for:each={coverage.fields} for:item="field">
-                          <div
-                            key={field.fieldApiName}
-                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-vertical_x-small"
-                          >
-                            <template lwc:if={field.isTextarea}>
-                              <lightning-textarea
-                                label={field.fieldLabel}
-                                value={field.value}
-                                data-coverage-name={coverage.name}
-                                data-field-api-name={field.fieldApiName}
-                                required={field.isRequired}
-                                onchange={handleFieldChange}
-                              >
-                              </lightning-textarea>
-                            </template>
-                            <template lwc:elseif={field.isCheckbox}>
-                              <lightning-input
-                                type="checkbox"
-                                label={field.fieldLabel}
-                                checked={field.value}
-                                data-coverage-name={coverage.name}
-                                data-field-api-name={field.fieldApiName}
-                                onchange={handleFieldChange}
-                              >
-                              </lightning-input>
-                            </template>
-                            <template lwc:elseif={field.isDate}>
-                              <lightning-input
-                                type="date"
-                                label={field.fieldLabel}
-                                value={field.value}
-                                data-coverage-name={coverage.name}
-                                data-field-api-name={field.fieldApiName}
-                                required={field.isRequired}
-                                onchange={handleFieldChange}
-                              >
-                              </lightning-input>
-                            </template>
-                            <template lwc:elseif={field.isNumber}>
-                              <lightning-input
-                                type="number"
-                                label={field.fieldLabel}
-                                value={field.value}
-                                step={field.step}
-                                formatter={field.formatter}
-                                data-coverage-name={coverage.name}
-                                data-field-api-name={field.fieldApiName}
-                                required={field.isRequired}
-                                onchange={handleFieldChange}
-                              >
-                              </lightning-input>
-                            </template>
-                            <template lwc:else>
-                              <lightning-input
-                                type={field.inputType}
-                                label={field.fieldLabel}
-                                value={field.value}
-                                data-coverage-name={coverage.name}
-                                data-field-api-name={field.fieldApiName}
-                                required={field.isRequired}
-                                onchange={handleFieldChange}
-                              >
-                              </lightning-input>
-                            </template>
-                          </div>
-                        </template>
-                      </div>
-                    </div>
-                  </lightning-card>
-                </template>
-              </template>
-            </template>
           </template>
         </div>
 
         <!-- Footer Actions - Configuration -->
         <footer
-          class="slds-modal__footer slds-p-around_medium slds-theme_default"
+          class="slds-modal__footer slds-var-p-around_medium slds-theme_default"
         >
           <div class="slds-grid slds-grid_align-spread">
             <lightning-button
@@ -573,14 +523,16 @@
               icon-name="utility:back"
             >
             </lightning-button>
+
             <div>
               <lightning-button
                 variant="neutral"
                 label="Cancel"
                 onclick={handleCancel}
-                class="slds-m-right_small"
+                class="slds-var-m-right_small"
               >
               </lightning-button>
+
               <lightning-button
                 variant="brand"
                 label="Save"
