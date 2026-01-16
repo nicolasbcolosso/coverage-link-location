@@ -78,7 +78,7 @@ export default class NewQuoteFromOpportunity extends LightningElement {
     this.coverageDataNew = e.detail;
 
     console.log(
-      "coverage map ==> ",
+      "coverage data new map ==> ",
       JSON.parse(JSON.stringify(this.coverageDataNew))
     );
 

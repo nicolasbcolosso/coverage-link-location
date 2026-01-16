@@ -43,7 +43,7 @@
         </h3>
 
         <template lwc:if={isLoading}>
-          <div class="exampleHolder">
+          <div class="slds-is-relative exampleHolder">
             <lightning-spinner
               alternative-text="Loading"
               size="medium"
@@ -52,7 +52,7 @@
         </template>
 
         <template lwc:elseif={loadSpinner}>
-          <div class="exampleHolder">
+          <div class="slds-is-relative exampleHolder">
             <lightning-spinner
               alternative-text="Saving"
               size="medium"

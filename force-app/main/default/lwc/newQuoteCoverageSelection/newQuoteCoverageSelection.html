@@ -14,9 +14,19 @@
 
     <!-- Loading Spinner -->
     <template lwc:if={isLoading}>
-      <div class="slds-is-relative slds-p-around_xx-large">
+      <div class="slds-is-relative exampleHolder">
         <lightning-spinner
           alternative-text="Loading"
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+
+    <!-- Saving Spinner -->
+    <template lwc:elseif={loadSpinner}>
+      <div class="slds-is-relative exampleHolder">
+        <lightning-spinner
+          alternative-text="Saving"
           size="medium"
         ></lightning-spinner>
       </div>
@@ -163,8 +173,8 @@
             ></lightning-button>
             <lightning-button
               variant="brand"
-              label="Next"
-              onclick={handleNextAddInfo}
+              label="Save"
+              onclick={handleSaveNewQuote}
             ></lightning-button>
           </div>
         </div>
@@ -184,7 +194,7 @@
                 ></lightning-icon>
                 {coverage.name}
               </h3>
-              <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+              <!-- <div class="slds-p-horizontal_medium slds-p-bottom_medium">
                 <div class="slds-grid slds-wrap">
                   <template for:each={coverage.fields} for:item="field">
                     <div
@@ -249,7 +259,7 @@
                     </div>
                   </template>
                 </div>
-              </div>
+              </div> -->
             </lightning-card>
           </template>
 
@@ -309,7 +319,7 @@
                             </template>
                           </div>
                         </div>
-                        <template lwc:if={location.isSelected}>
+                        <!-- <template lwc:if={location.isSelected}>
                           <div
                             class="slds-grid slds-wrap slds-gutters_small slds-p-top_small location-fields"
                           >
@@ -384,49 +394,12 @@
                               </div>
                             </template>
                           </div>
-                        </template>
+                        </template> -->
                       </div>
                     </template>
                   </div>
                 </lightning-card>
               </template>
-            </template>
-            <!-- Property without location (old behavior) -->
-            <template lwc:else>
-              <lightning-card class="slds-m-bottom_small">
-                <h3 slot="title">
-                  <lightning-icon
-                    icon-name="standard:service_contract"
-                    size="small"
-                    class="slds-m-right_x-small"
-                  ></lightning-icon>
-                  Property
-                </h3>
-                <div class="slds-p-horizontal_medium slds-p-bottom_medium">
-                  <div class="slds-grid slds-wrap">
-                    <template lwc:if={propertyFieldSet}>
-                      <template
-                        for:each={propertyFieldSet.fields}
-                        for:item="field"
-                      >
-                        <div
-                          key={field.fieldApiName}
-                          class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-around_x-small"
-                        >
-                          <lightning-input
-                            type={field.inputType}
-                            label={field.fieldLabel}
-                            data-coverage-name="Property"
-                            data-field-api-name={field.fieldApiName}
-                            required={field.isRequired}
-                            onchange={handleFieldChange}
-                          ></lightning-input>
-                        </div>
-                      </template>
-                    </template>
-                  </div>
-                </div>
-              </lightning-card>
             </template>
           </template>
         </div>

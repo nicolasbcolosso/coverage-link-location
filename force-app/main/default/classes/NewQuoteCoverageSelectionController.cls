@@ -232,7 +232,7 @@ public with sharing class NewQuoteCoverageSelectionController {
 
       // Get Opportunity to determine record type
       Opportunity opp = [
-        SELECT Id, RecordTypeId, Carrier_Issuing_Company__c
+        SELECT Id, RecordTypeId, Carrier_Issuing_Company__c, Marketer_UW_Name__c
         FROM Opportunity
         WHERE Id = :request.opportunityId
         LIMIT 1
@@ -247,6 +247,14 @@ public with sharing class NewQuoteCoverageSelectionController {
       newQuote.Opportunity__c = request.opportunityId;
       newQuote.Status__c = 'Open';
       newQuote.Is_New_Property__c = request.isNewPropertyEnabled;
+      newQuote.Carrier_Issuing_Company__c = opp.Carrier_Issuing_Company__c;
+      newQuote.Marketer_UW_Name__c = opp.Marketer_UW_Name__c;
+
+      // Append creation date in MM-DD-YYYY format
+      String dateStr = System.today().format(); // Returns MM/DD/YYYY
+      dateStr = dateStr.replace('/', '-'); // Convert to MM-DD-YYYY
+
+      newQuote.Name = dateStr;
 
       // Set Quote fields from request
       if (request.quoteFields != null) {

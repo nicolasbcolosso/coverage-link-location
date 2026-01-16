@@ -21,14 +21,16 @@
 
       <!-- Coverage Selection Section -->
       <div class="slds-m-around_medium">
-        <div class="slds-box slds-theme_shade">
+        <div class="slds-box slds-var-p-around_medium slds-theme_shade">
           <h2 class="slds-text-heading_medium slds-m-bottom_medium">
             Available Coverages
           </h2>
 
           <!-- Non-Property Coverages -->
           <template if:true={nonPropertyCoverages}>
-            <fieldset class="slds-form-element">
+            <fieldset
+              class="slds-has-full-bleed slds-p-around_none slds-form-element"
+            >
               <div class="slds-form-element__control">
                 <template for:each={nonPropertyCoverages} for:item="coverage">
                   <div key={coverage.uniqueKey} class="slds-m-bottom_small">
@@ -69,7 +71,9 @@
           <!-- Property Coverage Section -->
           <template if:true={propertyCoverage}>
             <div class="slds-m-top_large">
-              <fieldset class="slds-form-element">
+              <fieldset
+                class="slds-has-full-bleed slds-p-around_none slds-form-element"
+              >
                 <div class="slds-form-element__control">
                   <label
                     class="slds-checkbox_toggle slds-grid slds-p-horizontal_small"
@@ -104,7 +108,7 @@
               <!-- Locations Section (shown only if Property is selected) -->
               <template if:true={propertyLocationsAvailable}>
                 <div
-                  class="slds-box slds-theme_alt-inverse slds-m-top_medium slds-m-left_large"
+                  class="slds-box slds-var-p-around_medium slds-theme_alt-inverse slds-m-top_medium slds-m-left_large"
                 >
                   <div class="slds-text-heading_small slds-m-bottom_medium">
                     Property Coverage Locations
@@ -129,7 +133,9 @@
                   </div>
 
                   <!-- Individual Locations -->
-                  <fieldset class="slds-form-element">
+                  <fieldset
+                    class="slds-has-full-bleed slds-p-around_none slds-form-element"
+                  >
                     <div class="slds-form-element__control">
                       <template for:each={locations} for:item="location">
                         <div

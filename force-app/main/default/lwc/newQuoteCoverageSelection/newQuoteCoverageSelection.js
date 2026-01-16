@@ -1,15 +1,20 @@
 import { LightningElement, api, track } from "lwc";
+import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import getInitializationData from "@salesforce/apex/NewQuoteCoverageSelectionController.getInitializationData";
+import saveNewQuoteWithCoverages from "@salesforce/apex/NewQuoteCoverageSelectionController.saveNewQuoteWithCoverages";
 
 const PROPERTY_COVERAGE_NAME = "Property";
 
-export default class NewQuoteCoverageSelection extends LightningElement {
+export default class NewQuoteCoverageSelection extends NavigationMixin(
+  LightningElement
+) {
   @api recordId; // Opportunity Id
   @api selectedRaterType;
 
   // State management
   isLoading = true;
+  loadSpinner = false;
   currentStep = "selection"; // 'selection', 'configuration'
   searchTerm = "";
 
@@ -604,5 +609,79 @@ export default class NewQuoteCoverageSelection extends LightningElement {
         variant
       })
     );
+  }
+
+  dispatchIndicationError(message) {
+    this.dispatchEvent(
+      new CustomEvent("indicationerrorevent", {
+        detail: {
+          showToastError: true,
+          showToastMessage: [message]
+        }
+      })
+    );
+  }
+
+  // ==================== SAVE HANDLER ====================
+
+  async handleSaveNewQuote() {
+    // Validate required fields
+    if (!this.validateRequiredFields()) {
+      return;
+    }
+
+    this.loadSpinner = true;
+
+    // Build coverage data to pass to next step
+    const coverageDataToSave = this.buildCoverageData();
+
+    try {
+      console.log("coverage data ==> ", coverageDataToSave);
+
+      // Build save request
+      const saveRequest = {
+        opportunityId: this.recordId,
+        raterType: this.raterType,
+        isNewPropertyEnabled: this.isLocationBasedPropertyEnabled,
+        quoteFields: null,
+        coverageFieldData: coverageDataToSave?.coverageFieldData || []
+      };
+
+      console.log("save request ==> ", JSON.stringify(saveRequest));
+
+      // Save quote with coverages
+      const result = await saveNewQuoteWithCoverages({
+        saveRequest: JSON.stringify(saveRequest)
+      });
+
+      console.log("save result ==> ", result);
+
+      if (result.isSuccess) {
+        this.showToast("Success", "Quote created successfully", "success");
+
+        // Navigate to quote page
+        this.navigateToViewQuote(result.quoteId);
+      } else {
+        this.showToast("Error", result.message, "error");
+        this.dispatchIndicationError(result.message);
+      }
+    } catch (error) {
+      console.error("Error saving quote: ==> ", error);
+      this.showToast("Error", this.getErrorMessage(error), "error");
+      this.dispatchIndicationError(this.getErrorMessage(error));
+    } finally {
+      this.loadSpinner = false;
+    }
+  }
+
+  navigateToViewQuote(quoteId) {
+    this[NavigationMixin.Navigate]({
+      type: "standard__recordPage",
+      attributes: {
+        recordId: quoteId,
+        objectApiName: "Quote__c",
+        actionName: "view"
+      }
+    });
   }
 }

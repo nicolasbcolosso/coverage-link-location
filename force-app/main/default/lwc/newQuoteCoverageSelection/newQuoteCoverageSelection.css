@@ -4,6 +4,11 @@
   --slds-c-card-color-background: var(--slds-g-color-neutral-base-100, #ffffff);
 }
 
+/* Loading and Spinner Container */
+.exampleHolder {
+  min-height: 350px;
+}
+
 /* Coverage list styling */
 .coverage-list-container {
   max-height: var(--lwc-sizeLarge, 400px);

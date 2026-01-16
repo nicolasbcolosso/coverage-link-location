@@ -194,8 +194,6 @@ button:disabled {
 /* Form Element Spacing */
 fieldset {
   border: none;
-  padding: 0;
-  margin: 0;
 }
 
 /* Responsive Design */
@@ -351,7 +349,6 @@ input[type="checkbox"]:focus + .slds-checkbox_faux {
   background-color: var(--slds-c-box-color-background, #ffffff);
   border: 1px solid var(--slds-c-border-color, #d1d5db);
   border-radius: 0.25rem;
-  padding: 1rem;
 }
 
 .slds-theme_shade {
