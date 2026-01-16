@@ -331,6 +331,7 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     }
   }
 
+  // to delete method
   handleFieldChange(event) {
     const coverageName = event.target.dataset.coverageName;
     const fieldApiName = event.target.dataset.fieldApiName;
@@ -415,23 +416,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     this.dispatchEvent(new CustomEvent("cancelevent"));
   }
 
-  handleNextAddInfo() {
-    // Validate required fields
-    if (!this.validateRequiredFields()) {
-      return;
-    }
-
-    // Build coverage data to pass to next step
-    const coverageData = this.buildCoverageData();
-
-    // Dispatch event to move to addQuoteInfo step
-    this.dispatchEvent(
-      new CustomEvent("nextaddinfo", {
-        detail: coverageData
-      })
-    );
-  }
-
   // ==================== VALIDATION ====================
 
   validateRequiredFields() {
@@ -505,35 +489,10 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
           }
         }
       });
-    } else if (this.isPropertySelected) {
-      // Property without location (old behavior)
-      const fieldValues = this.coverageFieldValues.get(PROPERTY_COVERAGE_NAME);
-      const propertyFieldSet = this.propertyFieldSet;
-
-      if (propertyFieldSet) {
-        for (const field of propertyFieldSet.fields) {
-          const value = fieldValues?.fields?.get(field.fieldApiName) || "";
-          coverageFieldData.push({
-            coverageName: PROPERTY_COVERAGE_NAME,
-            fieldApiName: field.fieldApiName,
-            fieldValue: String(value),
-            fieldType: field.fieldType,
-            locationId: null,
-            isProperty: true
-          });
-        }
-      }
     }
-
-    // Get selected coverage field set names for compatibility with old flow
-    const selectedFieldSets = this.coverages
-      .filter((c) => c.isSelected)
-      .map((c) => c.fieldSetName)
-      .join(",");
 
     return {
       coverageFieldData: coverageFieldData,
-      selectedFieldSets: selectedFieldSets,
       isNewPropertyEnabled: this.isLocationBasedPropertyEnabled,
       raterType: this.raterType
     };
