@@ -18,6 +18,8 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
   currentStep = "selection"; // 'selection', 'configuration'
   searchTerm = "";
 
+  searchLocationTerm = "";
+
   // Data from Apex
   @track initData = {};
   @track coverages = [];
@@ -61,6 +63,23 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     return this.coverages.filter((cov) =>
       cov.name.toLowerCase().includes(term)
     );
+  }
+
+  get filteredLocations() {
+    if (!this.searchLocationTerm) {
+      return this.locationsForPropertyConfiguration;
+    }
+
+    const term = this.searchLocationTerm.toLowerCase();
+    return this.locationsForPropertyConfiguration.filter((loc) =>
+      loc.name.toLowerCase().includes(term)
+    );
+
+    // this.locationsForPropertyConfiguration.forEach((loc) => {
+    //   console.log("loc ==> ", loc);
+    // });
+
+    // return this.locationsForPropertyConfiguration;
   }
 
   get hasLocations() {
@@ -298,6 +317,10 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
 
   handleSearchChange(event) {
     this.searchTerm = event.target.value;
+  }
+
+  handleSearchLocationChange(event) {
+    this.searchLocationTerm = event.target.value;
   }
 
   handleCoverageToggle(event) {

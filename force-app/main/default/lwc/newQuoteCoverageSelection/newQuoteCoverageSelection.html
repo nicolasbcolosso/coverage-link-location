@@ -179,7 +179,7 @@
           </div>
         </div>
 
-        <div class="slds-p-around_medium configuration-container">
+        <div class="slds-p-around_medium">
           <!-- Regular Coverages Configuration -->
           <template
             for:each={selectedCoveragesForConfiguration}
@@ -250,42 +250,47 @@
                       </span>
                     </div>
 
-                    <template
-                      for:each={locationsForPropertyConfiguration}
-                      for:item="location"
+                    <!-- Location List -->
+                    <div
+                      class="coverage-list-container slds-var-p-around_medium"
                     >
-                      <div
-                        key={location.id}
-                        class="slds-box slds-m-bottom_small location-section"
+                      <template
+                        for:each={filteredLocations}
+                        for:item="location"
                       >
                         <div
-                          class="slds-grid slds-grid_vertical-align-center location-header"
+                          key={location.id}
+                          class="slds-var-p-around_small slds-var-m-bottom_small location-section"
                         >
-                          <div class="slds-col">
-                            <lightning-input
-                              type="checkbox"
-                              label={location.name}
-                              data-location-id={location.id}
-                              checked={location.isSelected}
-                              onchange={handleLocationToggle}
-                              class="location-checkbox"
-                            ></lightning-input>
-                          </div>
-                          <div class="slds-col_bump-left">
-                            <span class={location.badgeClass}>
-                              {location.badgeLabel}
-                            </span>
-                            <template lwc:if={location.description}>
-                              <span
-                                class="slds-text-body_small slds-text-color_weak slds-m-left_small"
-                              >
-                                {location.description}
+                          <div
+                            class="slds-grid slds-grid_vertical-align-center location-header"
+                          >
+                            <div class="slds-col">
+                              <lightning-input
+                                type="checkbox"
+                                label={location.name}
+                                data-location-id={location.id}
+                                checked={location.isSelected}
+                                onchange={handleLocationToggle}
+                                class="location-checkbox"
+                              ></lightning-input>
+                            </div>
+                            <div class="slds-col_bump-left">
+                              <span class={location.badgeClass}>
+                                {location.badgeLabel}
                               </span>
-                            </template>
+                              <template lwc:if={location.description}>
+                                <span
+                                  class="slds-text-body_small slds-text-color_weak slds-m-left_small"
+                                >
+                                  {location.description}
+                                </span>
+                              </template>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </template>
+                      </template>
+                    </div>
                   </div>
                 </lightning-card>
               </template>
