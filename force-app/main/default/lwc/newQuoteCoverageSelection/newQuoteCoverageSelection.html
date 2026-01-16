@@ -232,6 +232,24 @@
                   </div>
 
                   <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                    <!-- Location Search Box -->
+                    <div class="slds-m-bottom_medium">
+                      <lightning-input
+                        type="search"
+                        label="Search Locations"
+                        placeholder="Type to search..."
+                        value={searchLocationTerm}
+                        onchange={handleSearchLocationChange}
+                      ></lightning-input>
+                    </div>
+
+                    <!-- Location Selection Summary -->
+                    <div class="slds-m-bottom_medium">
+                      <span class="slds-badge slds-badge_inverse">
+                        {selectedLocationCount} location(s) selected
+                      </span>
+                    </div>
+
                     <template
                       for:each={locationsForPropertyConfiguration}
                       for:item="location"

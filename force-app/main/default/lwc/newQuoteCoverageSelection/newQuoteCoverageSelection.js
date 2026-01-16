@@ -366,38 +366,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     this.propertyLocationSelections = new Map(this.propertyLocationSelections);
   }
 
-  // to delete method
-  handleFieldChange(event) {
-    const coverageName = event.target.dataset.coverageName;
-    const fieldApiName = event.target.dataset.fieldApiName;
-    const locationId = event.target.dataset.locationId;
-    const value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
-
-    if (
-      coverageName === PROPERTY_COVERAGE_NAME &&
-      locationId &&
-      this.isLocationBasedPropertyEnabled
-    ) {
-      // Property coverage with location
-      const locationData = this.propertyLocationSelections.get(locationId);
-      if (locationData) {
-        locationData.fields.set(fieldApiName, value);
-        this.propertyLocationSelections.set(locationId, locationData);
-      }
-    } else {
-      // Regular coverage
-      let coverageData = this.coverageFieldValues.get(coverageName);
-      if (!coverageData) {
-        coverageData = { fields: new Map() };
-      }
-      coverageData.fields.set(fieldApiName, value);
-      this.coverageFieldValues.set(coverageName, coverageData);
-    }
-  }
-
   // ==================== NAVIGATION ====================
 
   handleNext() {
