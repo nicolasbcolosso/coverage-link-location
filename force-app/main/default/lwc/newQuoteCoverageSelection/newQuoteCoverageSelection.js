@@ -36,9 +36,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
   @track propertyLocationSelections = new Map(); // locationId -> {isSelected, fields}
   @track coverageFieldValues = new Map(); // coverageName -> {fieldApiName -> value}
 
-  // UI state
-  @track expandedSections = new Set();
-
   // ==================== LIFECYCLE ====================
 
   connectedCallback() {
@@ -363,17 +360,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     }
   }
 
-  handleSectionToggle(event) {
-    const sectionId = event.target.dataset.sectionId;
-    if (this.expandedSections.has(sectionId)) {
-      this.expandedSections.delete(sectionId);
-    } else {
-      this.expandedSections.add(sectionId);
-    }
-    // Force reactivity
-    this.expandedSections = new Set(this.expandedSections);
-  }
-
   // ==================== NAVIGATION ====================
 
   handleNext() {
@@ -392,12 +378,6 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
         );
       }
       return;
-    }
-
-    // Expand all sections by default
-    this.expandedSections = new Set();
-    for (const cov of this.selectedCoveragesForConfiguration) {
-      this.expandedSections.add(cov.name);
     }
 
     this.currentStep = "configuration";
