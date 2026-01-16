@@ -212,12 +212,25 @@
                     ></lightning-icon>
                     Property Coverage (by Location)
                   </h3>
-                  <p
-                    slot="actions"
-                    class="slds-text-body_small slds-text-color_weak"
-                  >
-                    Select locations and configure property details for each
-                  </p>
+
+                  <!-- Select All Locations -->
+                  <div slot="actions" class="slds-m-bottom_medium">
+                    <label class="slds-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={propertyLocationSelectAll}
+                        onchange={handleLocationSelectAll}
+                        aria-label="Select All Locations"
+                      />
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-form-element__label slds-p-left_small">
+                        <strong
+                          >Select All Locations ({locations.length})</strong
+                        >
+                      </span>
+                    </label>
+                  </div>
+
                   <div class="slds-p-horizontal_medium slds-p-bottom_medium">
                     <template
                       for:each={locationsForPropertyConfiguration}
@@ -228,7 +241,7 @@
                         class="slds-box slds-m-bottom_small location-section"
                       >
                         <div
-                          class="slds-grid slds-grid_vertical-align-center slds-p-bottom_small location-header"
+                          class="slds-grid slds-grid_vertical-align-center location-header"
                         >
                           <div class="slds-col">
                             <lightning-input

@@ -33,6 +33,7 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
   isLocationBasedPropertyEnabled = false;
 
   // Coverage configuration
+  propertyLocationSelectAll = false;
   @track propertyLocationSelections = new Map(); // locationId -> {isSelected, fields}
   @track coverageFieldValues = new Map(); // coverageName -> {fieldApiName -> value}
 
@@ -311,21 +312,58 @@ export default class NewQuoteCoverageSelection extends NavigationMixin(
     });
   }
 
+  // ==================== LOCATION SELECTION ====================
+  handleLocationSelectAll(event) {
+    const isSelected = event.target.checked;
+    console.log(`Location "Select All" changed to: ==> ${isSelected}`);
+
+    // Toggle all location selections
+    this.propertyLocationSelections.values().forEach((loc) => {
+      loc.isSelected = isSelected;
+    });
+
+    this.propertyLocationSelectAll = isSelected;
+    // Force reactivity
+    this.propertyLocationSelections = new Map(this.propertyLocationSelections);
+  }
+
   handleLocationToggle(event) {
     const locationId = event.target.dataset.locationId;
-    const isChecked = event.target.checked;
+    const isSelected = event.target.checked;
+
+    console.log(
+      `Location ${locationId} selection changed to: ==>  ${isSelected}`
+    );
 
     const locationData = this.propertyLocationSelections.get(locationId);
     if (locationData) {
       this.propertyLocationSelections.set(locationId, {
         ...locationData,
-        isSelected: isChecked
+        isSelected: isSelected
       });
+
+      // Update "Select All" checkbox state if not all are selected
+      const allSelected = this.propertyLocationSelections
+        .values()
+        .every((l) => l.isSelected);
+      this.propertyLocationSelectAll = allSelected;
+
       // Force reactivity
       this.propertyLocationSelections = new Map(
         this.propertyLocationSelections
       );
     }
+  }
+
+  clearLocationSelections() {
+    this.propertyLocationSelections.values().forEach((loc) => {
+      loc.isSelected = false;
+    });
+
+    this.propertyLocationSelectAll = false;
+
+    // Force reactivity
+    this.propertyLocationSelections = new Map(this.propertyLocationSelections);
   }
 
   // to delete method
