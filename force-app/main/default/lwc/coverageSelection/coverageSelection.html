@@ -107,7 +107,7 @@
             </div>
           </template>
 
-          <!-- Search Bar -->
+          <!-- Coverage Search Box -->
           <div class="slds-var-m-bottom_large">
             <lightning-input
               type="search"
@@ -364,11 +364,30 @@
                     </label>
                   </div>
 
+                  <!-- Location Search Box -->
+                  <div class="slds-var-m-bottom_x-large">
+                    <lightning-input
+                      type="search"
+                      label="Search Locations"
+                      placeholder="Type to search..."
+                      value={searchLocationTerm}
+                      onchange={handleSearchLocationChange}
+                    ></lightning-input>
+                  </div>
+
+                  <!-- Location Selection Summary -->
+                  <div class="slds-var-m-bottom_x-large">
+                    <span class="slds-badge slds-badge_inverse">
+                      {selectedLocationCount} location(s) selected
+                    </span>
+                  </div>
+
+                  <!-- Location List -->
                   <div
                     class="slds-var-p-horizontal_medium slds-var-p-bottom_medium"
                   >
                     <template
-                      for:each={propertyLocationsForConfiguration}
+                      for:each={filteredLocationForConfiguration}
                       for:item="location"
                     >
                       <div

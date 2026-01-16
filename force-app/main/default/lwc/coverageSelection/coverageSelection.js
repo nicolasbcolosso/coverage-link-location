@@ -24,6 +24,7 @@ export default class CoverageSelection extends LightningElement {
   isLoading = true;
   currentStep = "selection"; // 'selection', 'configuration', 'dummyQuote'
   searchTerm = "";
+  searchLocationTerm = "";
 
   // Data from Apex
   @track initData = {};
@@ -41,7 +42,6 @@ export default class CoverageSelection extends LightningElement {
   isNewPropertyEnabled = false;
 
   // Coverage configuration
-  propertyLocationSelectAll = false;
   @track selectedCoverages = [];
   @track coveragesToDelete = [];
   @track propertyLocationSelections = new Map(); // locationId -> {isSelected, fields, existingLinkId}
@@ -88,8 +88,25 @@ export default class CoverageSelection extends LightningElement {
     );
   }
 
+  get filteredLocationForConfiguration() {
+    if (!this.searchLocationTerm) {
+      return this.propertyLocationsForConfiguration;
+    }
+    const term = this.searchLocationTerm.toLowerCase();
+    return this.propertyLocationsForConfiguration.filter((loc) =>
+      loc.name.toLowerCase().includes(term)
+    );
+  }
+
   get hasLocations() {
     return this.locations && this.locations.length > 0;
+  }
+
+  get propertyLocationSelectAll() {
+    const allSelected = this.propertyLocationSelections
+      .values()
+      .every((l) => l.isSelected);
+    return allSelected;
   }
 
   get locationCount() {
@@ -306,6 +323,10 @@ export default class CoverageSelection extends LightningElement {
     this.searchTerm = event.target.value;
   }
 
+  handleSearchLocationChange(event) {
+    this.searchLocationTerm = event.target.value;
+  }
+
   handleCoverageToggle(event) {
     const coverageName = event.target.dataset.coverageName;
     const isChecked = event.target.checked;
@@ -372,7 +393,6 @@ export default class CoverageSelection extends LightningElement {
       loc.isSelected = isSelected;
     });
 
-    this.propertyLocationSelectAll = isSelected;
     // Force reactivity
     this.propertyLocationSelections = new Map(this.propertyLocationSelections);
   }
@@ -391,12 +411,6 @@ export default class CoverageSelection extends LightningElement {
         ...locationData,
         isSelected: isSelected
       });
-
-      // Update "Select All" checkbox state if not all are selected
-      const allSelected = this.propertyLocationSelections
-        .values()
-        .every((l) => l.isSelected);
-      this.propertyLocationSelectAll = allSelected;
 
       // Force reactivity
       this.propertyLocationSelections = new Map(
@@ -800,6 +814,14 @@ export default class CoverageSelection extends LightningElement {
         }))
       };
     });
+  }
+
+  get selectedLocationCount() {
+    let count = 0;
+    this.propertyLocationSelections.forEach((data) => {
+      if (data.isSelected) count++;
+    });
+    return count;
   }
 
   getInputType(fieldType) {
